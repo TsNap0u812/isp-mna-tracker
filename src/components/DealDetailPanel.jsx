@@ -89,7 +89,10 @@ export default function DealDetailPanel({ deal, onClose }) {
       {/* Status pill */}
       <div className="px-5 py-2 border-b border-gray-100 bg-gray-50">
         <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-          deal.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'
+          deal.status === 'Completed'                   ? 'bg-green-100 text-green-800' :
+          deal.status === 'Completing'                  ? 'bg-teal-100 text-teal-800' :
+          deal.status === 'Rumored / In Discussions'    ? 'bg-purple-100 text-purple-800' :
+                                                          'bg-amber-100 text-amber-800'
         }`}>
           {deal.status}
         </span>

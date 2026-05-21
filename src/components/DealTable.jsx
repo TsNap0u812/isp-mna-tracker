@@ -21,7 +21,9 @@ const TYPE_COLORS = {
 
 const STATUS_COLORS = {
   'Completed':                   'bg-green-50 text-green-700 ring-1 ring-green-200',
+  'Completing':                  'bg-teal-50 text-teal-700 ring-1 ring-teal-200',
   'Pending / Regulatory Review': 'bg-amber-50 text-amber-700 ring-1 ring-amber-200',
+  'Rumored / In Discussions':    'bg-purple-50 text-purple-700 ring-1 ring-purple-200',
 }
 
 function TypeBadge({ type }) {

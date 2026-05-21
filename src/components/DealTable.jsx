@@ -1,4 +1,4 @@
-import { ArrowUpDown, ArrowUp, ArrowDown, Building2, Wifi, Clock } from 'lucide-react'
+import { ArrowUpDown, ArrowUp, ArrowDown, Building2, Wifi, Clock, XCircle } from 'lucide-react'
 
 const fmt = (v) =>
   !v ? '—'
@@ -23,6 +23,7 @@ const STATUS_COLORS = {
   'Completing':                  'bg-teal-50 text-teal-700 ring-1 ring-teal-200',
   'Pending / Regulatory Review': 'bg-amber-50 text-amber-700 ring-1 ring-amber-200',
   'Rumored / In Discussions':    'bg-purple-50 text-purple-700 ring-1 ring-purple-200',
+  'Terminated':                  'bg-red-50 text-red-700 ring-1 ring-red-200',
 }
 
 function TypeBadge({ type }) {
@@ -78,10 +79,15 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort })
                 <td className="px-4 py-3 whitespace-nowrap">
                   {deal.status === 'Completed' || deal.status === 'Completing'
                     ? <span className="text-gray-500" title="Close date">{deal.date.slice(0, 7)}</span>
-                    : <span className="inline-flex items-center gap-1 text-amber-600" title="Announced date">
-                        <Clock className="h-3 w-3 shrink-0" />
-                        {deal.date.slice(0, 7)}
-                      </span>
+                    : deal.status === 'Terminated'
+                      ? <span className="inline-flex items-center gap-1 text-red-500" title="Announced date">
+                          <XCircle className="h-3 w-3 shrink-0" />
+                          {deal.date.slice(0, 7)}
+                        </span>
+                      : <span className="inline-flex items-center gap-1 text-amber-600" title="Announced date">
+                          <Clock className="h-3 w-3 shrink-0" />
+                          {deal.date.slice(0, 7)}
+                        </span>
                   }
                 </td>
                 <td className="px-4 py-3">

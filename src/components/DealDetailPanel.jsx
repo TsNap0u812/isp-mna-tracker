@@ -91,6 +91,7 @@ export default function DealDetailPanel({ deal, onClose }) {
           deal.status === 'Completed'                   ? 'bg-green-100 text-green-800' :
           deal.status === 'Completing'                  ? 'bg-teal-100 text-teal-800' :
           deal.status === 'Rumored / In Discussions'    ? 'bg-purple-100 text-purple-800' :
+          deal.status === 'Terminated'                  ? 'bg-red-100 text-red-800' :
                                                           'bg-amber-100 text-amber-800'
         }`}>
           {deal.status}

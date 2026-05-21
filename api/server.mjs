@@ -156,9 +156,10 @@ function annotateExisting(items, existingNames) {
 const RSS_SOURCES = [
   ['https://www.telecompetitor.com/feed/',           'Telecompetitor'],
   ['https://broadbandbreakfast.com/feed/',            'Broadband Breakfast'],
-  ['https://www.fierce-network.com/rss/xml',           'Fierce Network'],
+  ['https://www.fierce-network.com/rss/xml',          'Fierce Network'],
   ['https://www.lightreading.com/rss.xml',            'Light Reading'],
-  ['https://www.ispreview.co.uk/index.php/feed/',     'ISPreview'],
+  ['https://arstechnica.com/tag/broadband/feed/',     'Ars Technica'],
+  ['https://www.nexttv.com/rss',                      'Next TV'],
 ]
 
 createServer(async (req, res) => {

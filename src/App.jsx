@@ -6,7 +6,15 @@ import DealTable from './components/DealTable'
 import DealDetailPanel from './components/DealDetailPanel'
 import RefreshModal from './components/RefreshModal'
 import DealForm from './components/DealForm'
+import AnalyticsPage from './components/AnalyticsPage'
+import CompanyInfoPage from './components/CompanyInfoPage'
 import { useLocalDeals } from './hooks/useLocalDeals'
+
+const TABS = [
+  { id: 'tracker',      label: 'Deal Tracker' },
+  { id: 'analytics',   label: 'Analytics' },
+  { id: 'company-info', label: 'Company Info' },
+]
 
 const DEFAULT_FILTERS = {
   search: '',
@@ -22,6 +30,7 @@ function getNestedVal(obj, path) {
 
 export default function App() {
   const { localDeals, addDeal } = useLocalDeals()
+  const [activeTab, setActiveTab] = useState('tracker')
 
   // Merge static + user-added deals (user-added shown at top of their date group)
   const allDeals = useMemo(() => [...localDeals, ...staticDeals], [localDeals])
@@ -131,41 +140,70 @@ export default function App() {
           <span className="text-brand-300 text-sm hidden sm:block">· Broadband, Cable & Wireless Deal Intelligence</span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-brand-300 text-xs">
-            {allDeals.length} deals tracked
-            {localDeals.length > 0 && <span className="ml-1 text-brand-400">({localDeals.length} added by you)</span>}
-          </span>
-          <button
-            onClick={handleRefresh}
-            className="flex items-center gap-1.5 text-xs bg-brand-600 hover:bg-brand-500 text-white px-3 py-1.5 rounded-lg transition-colors"
-          >
-            <RefreshCw className={`h-3.5 w-3.5 ${refreshState === 'loading' ? 'animate-spin' : ''}`} />
-            Refresh Data
-          </button>
+          {activeTab === 'tracker' && (
+            <>
+              <span className="text-brand-300 text-xs">
+                {allDeals.length} deals tracked
+                {localDeals.length > 0 && <span className="ml-1 text-brand-400">({localDeals.length} added by you)</span>}
+              </span>
+              <button
+                onClick={handleRefresh}
+                className="flex items-center gap-1.5 text-xs bg-brand-600 hover:bg-brand-500 text-white px-3 py-1.5 rounded-lg transition-colors"
+              >
+                <RefreshCw className={`h-3.5 w-3.5 ${refreshState === 'loading' ? 'animate-spin' : ''}`} />
+                Refresh Data
+              </button>
+            </>
+          )}
         </div>
       </header>
 
-      {/* Filter bar */}
-      <FilterBar
-        filters={filters}
-        onChange={setFilters}
-        totalCount={allDeals.length}
-        filteredCount={filtered.length}
-      />
+      {/* Tab nav */}
+      <nav className="bg-white border-b border-gray-200 px-6 flex items-center shrink-0">
+        {TABS.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+              activeTab === tab.id
+                ? 'border-brand-600 text-brand-700'
+                : 'border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-300'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </nav>
 
-      {/* Main content */}
-      <div className="flex flex-1 overflow-hidden">
-        <DealTable
-          deals={filtered}
-          selectedId={selectedId}
-          onSelect={setSelectedId}
-          sort={sort}
-          onSort={handleSort}
-        />
-        {selectedDeal && (
-          <DealDetailPanel deal={selectedDeal} onClose={() => setSelectedId(null)} />
-        )}
-      </div>
+      {/* Deal Tracker tab */}
+      {activeTab === 'tracker' && (
+        <>
+          <FilterBar
+            filters={filters}
+            onChange={setFilters}
+            totalCount={allDeals.length}
+            filteredCount={filtered.length}
+          />
+          <div className="flex flex-1 overflow-hidden">
+            <DealTable
+              deals={filtered}
+              selectedId={selectedId}
+              onSelect={setSelectedId}
+              sort={sort}
+              onSort={handleSort}
+            />
+            {selectedDeal && (
+              <DealDetailPanel deal={selectedDeal} onClose={() => setSelectedId(null)} />
+            )}
+          </div>
+        </>
+      )}
+
+      {/* Analytics tab */}
+      {activeTab === 'analytics' && <AnalyticsPage deals={allDeals} />}
+
+      {/* Company Info tab */}
+      {activeTab === 'company-info' && <CompanyInfoPage deals={allDeals} />}
 
       {/* Refresh modal */}
       {refreshState !== 'idle' && (

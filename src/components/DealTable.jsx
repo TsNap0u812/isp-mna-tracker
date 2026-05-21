@@ -1,4 +1,4 @@
-import { ArrowUpDown, ArrowUp, ArrowDown, Building2, Wifi } from 'lucide-react'
+import { ArrowUpDown, ArrowUp, ArrowDown, Building2, Wifi, Clock } from 'lucide-react'
 
 const fmt = (v) =>
   v >= 1e9
@@ -76,7 +76,15 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort })
                     : 'hover:bg-gray-50 border-l-4 border-l-transparent'
                 }`}
               >
-                <td className="px-4 py-3 text-gray-500 whitespace-nowrap">{deal.date.slice(0, 7)}</td>
+                <td className="px-4 py-3 whitespace-nowrap">
+                  {deal.status === 'Completed' || deal.status === 'Completing'
+                    ? <span className="text-gray-500" title="Close date">{deal.date.slice(0, 7)}</span>
+                    : <span className="inline-flex items-center gap-1 text-amber-600" title="Announced date">
+                        <Clock className="h-3 w-3 shrink-0" />
+                        {deal.date.slice(0, 7)}
+                      </span>
+                  }
+                </td>
                 <td className="px-4 py-3">
                   <div className="font-medium text-gray-900 leading-tight">{deal.acquirer.name}</div>
                   <TypeBadge type={deal.acquirer.type} />

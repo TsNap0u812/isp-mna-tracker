@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git config *)",
+      "Bash(ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>&1 && echo \"Host key added\")",
+      "Bash(ssh -T git@github.com)",
+      "Bash(/opt/homebrew/bin/gh repo *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(/opt/homebrew/bin/brew list *)",
+      "Bash(/opt/homebrew/bin/brew install *)",
+      "Bash(npm --version)",
+      "Bash(/opt/homebrew/bin/node --version)",
+      "Bash(/opt/homebrew/bin/npm --version)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//opt/homebrew/opt/**)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(mkdir -p \"/Users/tonynappi/Documents/Claude/ISP MnA/.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "Read(//opt/homebrew/lib/node_modules/npm/bin/**)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

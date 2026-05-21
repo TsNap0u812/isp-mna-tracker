@@ -156,7 +156,7 @@ function annotateExisting(items, existingNames) {
 const RSS_SOURCES = [
   ['https://www.telecompetitor.com/feed/',           'Telecompetitor'],
   ['https://broadbandbreakfast.com/feed/',            'Broadband Breakfast'],
-  ['https://www.fiercetelecom.com/rss/xml',           'Fierce Telecom'],
+  ['https://www.fierce-network.com/rss/xml',           'Fierce Network'],
   ['https://www.lightreading.com/rss.xml',            'Light Reading'],
   ['https://www.ispreview.co.uk/index.php/feed/',     'ISPreview'],
 ]

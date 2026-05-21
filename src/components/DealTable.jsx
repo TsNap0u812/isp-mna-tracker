@@ -1,11 +1,10 @@
 import { ArrowUpDown, ArrowUp, ArrowDown, Building2, Wifi, Clock } from 'lucide-react'
 
 const fmt = (v) =>
-  v >= 1e9
-    ? `$${(v / 1e9).toFixed(1)}B`
-    : v >= 1e6
-    ? `$${(v / 1e6).toFixed(0)}M`
-    : `$${v.toLocaleString()}`
+  !v ? '—'
+  : v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B`
+  : v >= 1e6 ? `$${(v / 1e6).toFixed(0)}M`
+  : `$${v.toLocaleString()}`
 
 const TYPE_COLORS = {
   'MSO (Cable)':            'bg-blue-100 text-blue-800',

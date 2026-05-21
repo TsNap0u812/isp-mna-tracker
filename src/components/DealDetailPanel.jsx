@@ -1,11 +1,10 @@
 import { X, Building2, MapPin, Users, DollarSign, Calendar, Tag, Target, Briefcase, Info } from 'lucide-react'
 
 const fmt = (v) =>
-  v >= 1e9
-    ? `$${(v / 1e9).toFixed(2)}B`
-    : v >= 1e6
-    ? `$${(v / 1e6).toFixed(0)}M`
-    : `$${v.toLocaleString()}`
+  !v ? 'Undisclosed'
+  : v >= 1e9 ? `$${(v / 1e9).toFixed(2)}B`
+  : v >= 1e6 ? `$${(v / 1e6).toFixed(0)}M`
+  : `$${v.toLocaleString()}`
 
 function Section({ icon: Icon, title, children }) {
   return (

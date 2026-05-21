@@ -4,21 +4,23 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"node api/server.mjs\" --names \"ui,api\" --prefix-colors \"blue,green\"",
     "build": "vite build",
     "preview": "vite preview",
+    "api": "node api/server.mjs",
     "refresh-data": "node scripts/refresh-data.mjs"
   },
   "dependencies": {
+    "lucide-react": "^0.441.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "lucide-react": "^0.441.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.1",
     "postcss": "^8.4.45",
     "tailwindcss": "^3.4.11",
     "vite": "^5.4.2"

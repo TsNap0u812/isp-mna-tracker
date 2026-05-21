@@ -1,9 +1,12 @@
 import { useState, useMemo } from 'react'
 import { Wifi, RefreshCw } from 'lucide-react'
-import { deals } from './data/deals'
+import { deals as staticDeals } from './data/deals'
 import FilterBar from './components/FilterBar'
 import DealTable from './components/DealTable'
 import DealDetailPanel from './components/DealDetailPanel'
+import RefreshModal from './components/RefreshModal'
+import DealForm from './components/DealForm'
+import { useLocalDeals } from './hooks/useLocalDeals'
 
 const DEFAULT_FILTERS = {
   search: '',
@@ -18,20 +21,33 @@ function getNestedVal(obj, path) {
 }
 
 export default function App() {
-  const [filters, setFilters] = useState(DEFAULT_FILTERS)
+  const { localDeals, addDeal } = useLocalDeals()
+
+  // Merge static + user-added deals (user-added shown at top of their date group)
+  const allDeals = useMemo(() => [...localDeals, ...staticDeals], [localDeals])
+
+  const [filters, setFilters]     = useState(DEFAULT_FILTERS)
   const [selectedId, setSelectedId] = useState(null)
-  const [sort, setSort] = useState({ col: 'date', dir: 'desc' })
+  const [sort, setSort]           = useState({ col: 'date', dir: 'desc' })
+
+  // Refresh modal state
+  const [refreshState, setRefreshState] = useState('idle') // idle | loading | results | error
+  const [refreshData, setRefreshData]   = useState(null)
+  const [refreshError, setRefreshError] = useState(null)
+
+  // Add-deal form state
+  const [dealFormData, setDealFormData] = useState(null) // null = closed; object = pre-fill
 
   const filtered = useMemo(() => {
-    let result = [...deals]
+    let result = [...allDeals]
 
     if (filters.search) {
       const q = filters.search.toLowerCase()
       result = result.filter(d =>
-        d.acquirer.name.toLowerCase().includes(q) ||
-        d.acquired.name.toLowerCase().includes(q) ||
-        d.acquirer.pe?.firm?.toLowerCase().includes(q) ||
-        d.acquired.pe?.firm?.toLowerCase().includes(q) ||
+        d.acquirer?.name?.toLowerCase().includes(q) ||
+        d.acquired?.name?.toLowerCase().includes(q) ||
+        d.acquirer?.pe?.firm?.toLowerCase().includes(q) ||
+        d.acquired?.pe?.firm?.toLowerCase().includes(q) ||
         d.reason?.toLowerCase().includes(q) ||
         d.notes?.toLowerCase().includes(q)
       )
@@ -39,7 +55,7 @@ export default function App() {
 
     if (filters.ispType !== 'All Types') {
       result = result.filter(d =>
-        d.acquirer.type === filters.ispType || d.acquired.type === filters.ispType
+        d.acquirer?.type === filters.ispType || d.acquired?.type === filters.ispType
       )
     }
 
@@ -52,7 +68,7 @@ export default function App() {
     }
 
     if (filters.peOnly) {
-      result = result.filter(d => d.acquirer.pe || d.acquired.pe)
+      result = result.filter(d => d.acquirer?.pe || d.acquired?.pe)
     }
 
     result.sort((a, b) => {
@@ -66,13 +82,44 @@ export default function App() {
     })
 
     return result
-  }, [filters, sort])
+  }, [allDeals, filters, sort])
 
-  const handleSort = (col) => {
+  const handleSort = (col) =>
     setSort(prev => ({ col, dir: prev.col === col && prev.dir === 'asc' ? 'desc' : 'asc' }))
+
+  const selectedDeal = filtered.find(d => d.id === selectedId) ?? allDeals.find(d => d.id === selectedId)
+
+  // ── Refresh ────────────────────────────────────────────────────────────────
+  const handleRefresh = async () => {
+    setRefreshState('loading')
+    setRefreshData(null)
+    setRefreshError(null)
+    try {
+      const res = await fetch('/api/refresh')
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = await res.json()
+      setRefreshData(data)
+      setRefreshState('results')
+    } catch (e) {
+      setRefreshError(e.message)
+      setRefreshState('error')
+    }
   }
 
-  const selectedDeal = filtered.find(d => d.id === selectedId) ?? deals.find(d => d.id === selectedId)
+  const handleCreateDeal = (newsItem) => {
+    // Pre-fill form from the news headline
+    const words = newsItem.title.split(/\s+/)
+    setDealFormData({
+      date: newsItem.pubDate ? newsItem.pubDate.slice(0, 10) : new Date().toISOString().slice(0, 10),
+      notes: `Source: ${newsItem.link || newsItem.sourceName}\n\n${newsItem.description || ''}`.trim(),
+    })
+  }
+
+  const handleSaveDeal = (deal) => {
+    addDeal(deal)
+    setDealFormData(null)
+    setRefreshState('idle') // close refresh modal too
+  }
 
   return (
     <div className="h-screen flex flex-col bg-gray-50">
@@ -84,12 +131,15 @@ export default function App() {
           <span className="text-brand-300 text-sm hidden sm:block">· Broadband, Cable & Wireless Deal Intelligence</span>
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-brand-300 text-xs">{deals.length} deals tracked</span>
+          <span className="text-brand-300 text-xs">
+            {allDeals.length} deals tracked
+            {localDeals.length > 0 && <span className="ml-1 text-brand-400">({localDeals.length} added by you)</span>}
+          </span>
           <button
-            title="Run npm run refresh-data to fetch new deals"
+            onClick={handleRefresh}
             className="flex items-center gap-1.5 text-xs bg-brand-600 hover:bg-brand-500 text-white px-3 py-1.5 rounded-lg transition-colors"
           >
-            <RefreshCw className="h-3.5 w-3.5" />
+            <RefreshCw className={`h-3.5 w-3.5 ${refreshState === 'loading' ? 'animate-spin' : ''}`} />
             Refresh Data
           </button>
         </div>
@@ -99,7 +149,7 @@ export default function App() {
       <FilterBar
         filters={filters}
         onChange={setFilters}
-        totalCount={deals.length}
+        totalCount={allDeals.length}
         filteredCount={filtered.length}
       />
 
@@ -116,6 +166,27 @@ export default function App() {
           <DealDetailPanel deal={selectedDeal} onClose={() => setSelectedId(null)} />
         )}
       </div>
+
+      {/* Refresh modal */}
+      {refreshState !== 'idle' && (
+        <RefreshModal
+          state={refreshState}
+          data={refreshData}
+          error={refreshError}
+          onClose={() => setRefreshState('idle')}
+          onCreateDeal={handleCreateDeal}
+        />
+      )}
+
+      {/* Add deal form */}
+      {dealFormData !== null && (
+        <DealForm
+          initial={dealFormData}
+          sourceUrl={dealFormData?.notes?.match(/Source: (https?:\/\/\S+)/)?.[1]}
+          onSave={handleSaveDeal}
+          onClose={() => setDealFormData(null)}
+        />
+      )}
     </div>
   )
 }

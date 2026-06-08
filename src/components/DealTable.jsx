@@ -1,130 +1,407 @@
-import { ArrowUpDown, ArrowUp, ArrowDown, Building2, Wifi, Clock, XCircle } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowUp, ArrowDown, ArrowUpDown, ArrowRight, Clock, X, Search, GitBranch } from 'lucide-react'
 
-const fmt = (v) =>
-  !v ? '—'
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+const fmtMonth = (iso) => {
+  if (!iso) return '—'
+  try {
+    return new Date(iso + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+  } catch {
+    return iso.slice(0, 7)
+  }
+}
+
+const fmtCurrency = (v) =>
+  !v        ? '—'
   : v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B`
   : v >= 1e6 ? `$${(v / 1e6).toFixed(0)}M`
   : `$${v.toLocaleString()}`
 
-const TYPE_COLORS = {
-  'MSO (Cable)':            'bg-blue-100 text-blue-800',
-  'MNO (Wireless)':         'bg-purple-100 text-purple-800',
-  'ILEC / Fiber':           'bg-green-100 text-green-800',
-  'CLEC / Fiber':           'bg-teal-100 text-teal-800',
-  'Pure Fiber (FTTH)':      'bg-emerald-100 text-emerald-800',
-  'Fixed Wireless':         'bg-orange-100 text-orange-800',
-  'MVNO (Prepaid)':         'bg-pink-100 text-pink-800',
-  'Enterprise Fiber / Carrier': 'bg-indigo-100 text-indigo-800',
-  'SaaS / Software':        'bg-yellow-100 text-yellow-800',
+// ── Type tag colors (text only — no pill background) ─────────────────────────
+
+const TYPE_STYLE = {
+  'MSO (Cable)':                   '#1d4ed8',
+  'MSO / DBS':                     '#1d4ed8',
+  'MNO (Wireless)':                '#6d28d9',
+  'MNO / ILEC':                    '#6d28d9',
+  'Pure MNO':                      '#6d28d9',
+  'ILEC / Fiber':                  '#0a6640',
+  'ILEC / DSL':                    '#0a6640',
+  'CLEC / Fiber':                  '#0f766e',
+  'Pure Fiber (FTTH)':             '#047857',
+  'Fixed Wireless':                '#92400e',
+  'MVNO (Prepaid)':                '#be185d',
+  'Enterprise Fiber / Carrier':    '#3730a3',
+  'SaaS / Software':               '#854d0e',
+  'DBS / Satellite TV':            '#1e40af',
+  'DBS':                           '#1e40af',
+  'Satellite Broadband':           '#0369a1',
+  'Infrastructure Private Equity': '#6d28d9',
+  'Fiber Infrastructure REIT':     '#065f46',
+  'Fiber ISP (MDU/HOA)':           '#047857',
+  'Streaming / MVPD Platform':     '#be185d',
 }
 
-const STATUS_COLORS = {
-  'Completed':                   'bg-green-50 text-green-700 ring-1 ring-green-200',
-  'Completing':                  'bg-teal-50 text-teal-700 ring-1 ring-teal-200',
-  'Pending / Regulatory Review': 'bg-amber-50 text-amber-700 ring-1 ring-amber-200',
-  'Rumored / In Discussions':    'bg-purple-50 text-purple-700 ring-1 ring-purple-200',
-  'Terminated':                  'bg-red-50 text-red-700 ring-1 ring-red-200',
+// ── StatusPill ───────────────────────────────────────────────────────────────
+
+const STATUS_CONFIG = {
+  'Completed':                   { dot: '#009d8c', bg: '#d6f8f4', text: '#007a6e', short: 'Completed' },
+  'Completing':                  { dot: '#0fb8a8', bg: '#d6f8f4', text: '#0a8a7e', short: 'Completing' },
+  'Pending / Regulatory Review': { dot: '#D97706', bg: '#FEF3C7', text: '#92400e', short: 'In Review' },
+  'Rumored / In Discussions':    { dot: '#5872E0', bg: '#e6eafe', text: '#3f56c0', short: 'Rumored' },
+  'Terminated':                  { dot: '#DC2626', bg: '#FEE2E2', text: '#b91c1c', short: 'Terminated' },
 }
 
-function TypeBadge({ type }) {
-  const cls = TYPE_COLORS[type] || 'bg-gray-100 text-gray-700'
-  return <span className={`inline-block text-xs px-2 py-0.5 rounded-full font-medium ${cls}`}>{type}</span>
+function StatusPill({ status, size = 'sm' }) {
+  const s = STATUS_CONFIG[status] || { dot: '#86868b', bg: '#f3f4f6', text: '#6e6e73', short: status }
+  const isLg = size === 'lg'
+
+  return (
+    <span style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: isLg ? 6 : 5,
+      padding: isLg ? '5px 10px' : '3px 8px',
+      borderRadius: 20,
+      background: s.bg,
+      fontSize: isLg ? 13 : 12,
+      fontWeight: isLg ? 600 : 500,
+      color: s.text,
+      whiteSpace: 'nowrap',
+      letterSpacing: '-0.005em',
+    }}>
+      <span style={{
+        width: isLg ? 7 : 6,
+        height: isLg ? 7 : 6,
+        borderRadius: '50%',
+        background: s.dot,
+        flexShrink: 0,
+      }} />
+      {isLg ? status : s.short}
+    </span>
+  )
 }
+
+// ── DateIndicator ────────────────────────────────────────────────────────────
+
+function DateCell({ deal }) {
+  const isCompleted = deal.status === 'Completed' || deal.status === 'Completing'
+  const isTerminated = deal.status === 'Terminated'
+  const label = fmtMonth(deal.date)
+
+  if (isCompleted) {
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, color: '#424245', fontSize: 13 }}>
+        <span style={{
+          width: 6, height: 6, borderRadius: '50%',
+          background: '#009d8c', flexShrink: 0,
+        }} />
+        {label}
+      </span>
+    )
+  }
+  if (isTerminated) {
+    return (
+      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, color: '#DC2626', fontSize: 13 }}>
+        <X size={12} style={{ flexShrink: 0 }} />
+        {label}
+      </span>
+    )
+  }
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, color: '#D97706', fontSize: 13 }}>
+      <Clock size={12} style={{ flexShrink: 0 }} />
+      {label}
+    </span>
+  )
+}
+
+// ── TypeTag ──────────────────────────────────────────────────────────────────
+
+function TypeTag({ type }) {
+  const color = TYPE_STYLE[type] || '#6e6e73'
+  return (
+    <span style={{
+      display: 'block',
+      fontSize: 12,
+      fontWeight: 500,
+      color,
+      marginTop: 2,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    }}>
+      {type}
+    </span>
+  )
+}
+
+// ── SortIcon ─────────────────────────────────────────────────────────────────
 
 function SortIcon({ col, sort }) {
-  if (sort.col !== col) return <ArrowUpDown className="h-3.5 w-3.5 text-gray-300 inline ml-1" />
+  if (sort.col !== col) return <ArrowUpDown size={11} style={{ color: '#aeaeb2', marginLeft: 3, flexShrink: 0 }} />
   return sort.dir === 'asc'
-    ? <ArrowUp className="h-3.5 w-3.5 text-brand-600 inline ml-1" />
-    : <ArrowDown className="h-3.5 w-3.5 text-brand-600 inline ml-1" />
+    ? <ArrowUp size={11} style={{ color: '#2d3068', marginLeft: 3, flexShrink: 0 }} />
+    : <ArrowDown size={11} style={{ color: '#2d3068', marginLeft: 3, flexShrink: 0 }} />
 }
 
-export default function DealTable({ deals, selectedId, onSelect, sort, onSort }) {
-  const th = (col, label) => (
-    <th
+// ── Column layout ────────────────────────────────────────────────────────────
+
+const GRID = '110px 1.4fr 18px 1.4fr 130px 100px 130px'
+
+const S = {
+  wrapper: {
+    flex: 1,
+    overflow: 'auto',
+    position: 'relative',
+    background: '#ffffff',
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: GRID,
+    minWidth: 800,
+  },
+  headerCell: (clickable) => ({
+    display: 'flex',
+    alignItems: 'center',
+    padding: '12px 28px',
+    fontSize: 12,
+    fontWeight: 600,
+    textTransform: 'uppercase',
+    letterSpacing: '0.06em',
+    color: '#86868b',
+    background: '#ffffff',
+    borderBottom: '1px solid rgba(0,0,0,0.08)',
+    cursor: clickable ? 'pointer' : 'default',
+    userSelect: 'none',
+    whiteSpace: 'nowrap',
+    position: 'sticky',
+    top: 0,
+    zIndex: 5,
+  }),
+  row: (selected) => ({
+    display: 'contents',
+    cursor: 'pointer',
+  }),
+  cell: (selected, first, last) => ({
+    display: 'flex',
+    alignItems: 'center',
+    padding: '14px 28px',
+    borderBottom: '1px solid rgba(0,0,0,0.05)',
+    background: selected ? '#fbeee5' : '#ffffff',
+    borderLeft: first && selected ? '3px solid #955438' : first ? '3px solid transparent' : 'none',
+    cursor: 'pointer',
+    transition: 'background 0.1s',
+    overflow: 'hidden',
+    minWidth: 0,
+  }),
+  nameBlock: {
+    display: 'flex',
+    flexDirection: 'column',
+    minWidth: 0,
+    width: '100%',
+  },
+  name: {
+    fontSize: 14,
+    fontWeight: 540,
+    color: '#1d1d1f',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    lineHeight: 1.3,
+  },
+  peBadge: {
+    display: 'inline-block',
+    fontSize: 10.5,
+    fontWeight: 600,
+    padding: '1px 5px',
+    borderRadius: 4,
+    color: '#3f56c0',
+    background: '#e6eafe',
+    marginTop: 3,
+    width: 'fit-content',
+    letterSpacing: '0.01em',
+  },
+}
+
+// ── Main component ───────────────────────────────────────────────────────────
+
+export default function DealTable({ deals, selectedId, onSelect, sort, onSort, onTrace }) {
+  const [hoveredId, setHoveredId] = useState(null)
+
+  const H = (col, label, align = 'left') => (
+    <div
+      key={col}
       onClick={() => onSort(col)}
-      className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide cursor-pointer hover:text-gray-800 select-none whitespace-nowrap"
+      style={{
+        ...S.headerCell(true),
+        justifyContent: align === 'right' ? 'flex-end' : 'flex-start',
+      }}
     >
-      {label}<SortIcon col={col} sort={sort} />
-    </th>
+      {label}
+      <SortIcon col={col} sort={sort} />
+    </div>
   )
 
   return (
-    <div className="overflow-auto flex-1 scrollbar-thin">
-      <table className="min-w-full text-sm">
-        <thead className="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
-          <tr>
-            {th('date', 'Date')}
-            {th('acquirer.name', 'Acquirer')}
-            {th('acquired.name', 'Acquired')}
-            {th('dealType', 'Type')}
-            {th('dealValue', 'Value')}
-            <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide whitespace-nowrap">Status</th>
-            <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide whitespace-nowrap">PE Backed</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-100">
-          {deals.map(deal => {
-            const isPe = !!(deal.acquirer.pe || deal.acquired.pe)
-            const isSelected = deal.id === selectedId
-            return (
-              <tr
-                key={deal.id}
-                onClick={() => onSelect(deal.id === selectedId ? null : deal.id)}
-                className={`cursor-pointer transition-colors ${
-                  isSelected
-                    ? 'bg-brand-50 border-l-4 border-l-brand-500'
-                    : 'hover:bg-gray-50 border-l-4 border-l-transparent'
-                }`}
+    <div className="scroll-area" style={S.wrapper}>
+      <div style={S.grid}>
+        {/* Header row */}
+        {H('date', 'Date')}
+        {H('acquirer.name', 'Acquirer')}
+        <div style={{ ...S.headerCell(false) }} />
+        {H('acquired.name', 'Target')}
+        {H('dealType', 'Type')}
+        <div style={{ ...S.headerCell(true, false), justifyContent: 'flex-end' }} onClick={() => onSort('dealValue')}>
+          Value <SortIcon col="dealValue" sort={sort} />
+        </div>
+        <div style={S.headerCell(false)}>Status</div>
+
+        {/* Data rows */}
+        {deals.map(deal => {
+          const selected = deal.id === selectedId
+          const cell = (col) => ({
+            ...S.cell(selected, col === 0, col === 6),
+            ...(col === 0 ? { borderLeft: selected ? '3px solid #955438' : '3px solid transparent' } : {}),
+          })
+
+          return (
+            <div
+              key={deal.id}
+              style={{ display: 'contents' }}
+              onClick={() => onSelect(deal.id === selectedId ? null : deal.id)}
+              onMouseEnter={() => setHoveredId(deal.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+              {/* Date */}
+              <div
+                style={cell(0)}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
               >
-                <td className="px-4 py-3 whitespace-nowrap">
-                  {deal.status === 'Completed' || deal.status === 'Completing'
-                    ? <span className="text-gray-500" title="Close date">{deal.date.slice(0, 7)}</span>
-                    : deal.status === 'Terminated'
-                      ? <span className="inline-flex items-center gap-1 text-red-500" title="Announced date">
-                          <XCircle className="h-3 w-3 shrink-0" />
-                          {deal.date.slice(0, 7)}
-                        </span>
-                      : <span className="inline-flex items-center gap-1 text-amber-600" title="Announced date">
-                          <Clock className="h-3 w-3 shrink-0" />
-                          {deal.date.slice(0, 7)}
-                        </span>
-                  }
-                </td>
-                <td className="px-4 py-3">
-                  <div className="font-medium text-gray-900 leading-tight">{deal.acquirer.name}</div>
-                  <TypeBadge type={deal.acquirer.type} />
-                </td>
-                <td className="px-4 py-3">
-                  <div className="font-medium text-gray-900 leading-tight">{deal.acquired.name}</div>
-                  <TypeBadge type={deal.acquired.type} />
-                </td>
-                <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{deal.dealType}</td>
-                <td className="px-4 py-3 font-semibold text-gray-800 whitespace-nowrap">{fmt(deal.dealValue)}</td>
-                <td className="px-4 py-3">
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${STATUS_COLORS[deal.status] || 'bg-gray-100 text-gray-600'}`}>
-                    {deal.status}
-                  </span>
-                </td>
-                <td className="px-4 py-3 text-center">
-                  {isPe && (
-                    <span title="PE-backed party" className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-brand-100">
-                      <Building2 className="h-3 w-3 text-brand-700" />
-                    </span>
+                <DateCell deal={deal} />
+              </div>
+
+              {/* Acquirer */}
+              <div
+                style={cell(1)}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+              >
+                <div style={S.nameBlock}>
+                  <span style={S.name}>{deal.acquirer.name}</span>
+                  <TypeTag type={deal.acquirer.type} />
+                  {deal.acquirer.pe && (
+                    <span style={S.peBadge}>PE</span>
                   )}
-                </td>
-              </tr>
-            )
-          })}
-          {deals.length === 0 && (
-            <tr>
-              <td colSpan={7} className="px-4 py-12 text-center text-gray-400">
-                <Wifi className="h-8 w-8 mx-auto mb-2 opacity-30" />
-                No deals match your filters.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <div
+                style={{ ...cell(2), justifyContent: 'center', padding: '14px 0' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+              >
+                <ArrowRight size={14} style={{ color: '#aeaeb2', flexShrink: 0 }} />
+              </div>
+
+              {/* Target */}
+              <div
+                style={cell(3)}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+              >
+                <div style={S.nameBlock}>
+                  <span style={S.name}>{deal.acquired.name}</span>
+                  <TypeTag type={deal.acquired.type} />
+                  {deal.acquired.pe && (
+                    <span style={S.peBadge}>PE</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Type */}
+              <div
+                style={{ ...cell(4) }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+              >
+                <span style={{ fontSize: 13, color: '#424245' }}>{deal.dealType}</span>
+              </div>
+
+              {/* Value */}
+              <div
+                style={{ ...cell(5), justifyContent: 'flex-end' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+              >
+                <span style={{
+                  fontSize: 14,
+                  fontWeight: 560,
+                  color: '#1d1d1f',
+                  fontVariantNumeric: 'tabular-nums',
+                  whiteSpace: 'nowrap',
+                }}>
+                  {fmtCurrency(deal.dealValue)}
+                </span>
+              </div>
+
+              {/* Status */}
+              <div
+                style={{ ...cell(6), gap: 6 }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+              >
+                <StatusPill status={deal.status} />
+                {onTrace && hoveredId === deal.id && (
+                  <button
+                    title="Trace evolution"
+                    onClick={e => { e.stopPropagation(); onTrace(deal) }}
+                    style={{
+                      marginLeft: 'auto',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 4,
+                      padding: '3px 8px',
+                      borderRadius: 6,
+                      border: '1px solid rgba(88,114,224,0.3)',
+                      background: 'rgba(88,114,224,0.06)',
+                      color: '#5872E0',
+                      cursor: 'pointer',
+                      fontSize: 11,
+                      fontWeight: 600,
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <GitBranch size={11} />
+                    Trace
+                  </button>
+                )}
+              </div>
+            </div>
+          )
+        })}
+
+        {/* Empty state — span full width using a wrapper outside the grid */}
+      </div>
+
+      {deals.length === 0 && (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '64px 0',
+          color: '#aeaeb2',
+          gap: 10,
+        }}>
+          <Search size={32} style={{ opacity: 0.3 }} />
+          <span style={{ fontSize: 14 }}>No deals match your filters</span>
+        </div>
+      )}
     </div>
   )
 }

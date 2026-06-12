@@ -4,6 +4,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer,
 } from 'recharts'
+import { db, evolutionChain } from '../data/db'
 
 // ── Brand palette ─────────────────────────────────────────────────────────────
 const DEAL_TYPE_COLOR = {
@@ -48,66 +49,43 @@ const fmtDate = iso => {
 }
 
 // ── Chain building ────────────────────────────────────────────────────────────
-export function buildChain(query, deals, pinnedPredecessors = [], excludedPredecessors = []) {
-  if (!query.trim()) return { chain: [], predecessors: [] }
-  const q = query.toLowerCase()
+function resolveEntity(query) {
+  const q = query.trim().toLowerCase()
+  if (!q) return null
+  const pool = [...db.assets, ...db.firms]
+  return pool.find(e => e.name.toLowerCase() === q)
+    ?? pool.find(e => e.name.toLowerCase().includes(q)
+      || (e.aliases ?? []).some(a => a.toLowerCase().includes(q)))
+    ?? null
+}
 
-  const direct = deals.filter(d =>
-    d.acquirer?.name?.toLowerCase().includes(q) ||
-    d.acquired?.name?.toLowerCase().includes(q)
-  )
-
-  const predecessorNames = new Set(pinnedPredecessors)
-  direct.forEach(d => {
-    if (d.dealType === 'Consolidation') {
-      const raw = d.acquired?.name ?? ''
-      const stripped = raw.replace(/\s*\([^)]*\)/g, '')
-      stripped.split(/\s*\+\s*/).map(s => s.trim()).filter(Boolean).forEach(p => {
-        if (!p.toLowerCase().includes(q)) predecessorNames.add(p)
-      })
-    }
-  })
-
-  // Remove any user-dismissed predecessors
-  excludedPredecessors.forEach(p => predecessorNames.delete(p))
-
-  const seen = new Set(direct.map(d => d.id))
-  const predecessorDeals = []
-  predecessorNames.forEach(pred => {
-    const words = pred.split(/\s+/).slice(0, 2).join(' ').toLowerCase()
-    deals.forEach(d => {
-      if (seen.has(d.id)) return
-      if (
-        d.acquirer?.name?.toLowerCase().includes(words) ||
-        d.acquired?.name?.toLowerCase().includes(words)
-      ) {
-        seen.add(d.id)
-        predecessorDeals.push(d)
-      }
-    })
-  })
-
-  const chain = [...direct, ...predecessorDeals]
+export function buildChain(query, deals) {
+  const entity = resolveEntity(query)
+  if (!entity) return { chain: [], predecessors: [] }
+  const isFirm = entity.id.startsWith('firm-')
+  const dealIds = isFirm
+    ? new Set(db.participants.filter(p => p.partyId === entity.id).map(p => p.dealId))
+    : new Set(evolutionChain(entity.id).map(d => d.id))
+  const chain = deals
+    .filter(d => dealIds.has(d.id))
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-
-  return { chain, predecessors: [...predecessorNames] }
+  const predecessors = isFirm ? [] : db.assets
+    .filter(a => a.successorAssetId === entity.id || a.parentAssetId === entity.id)
+    .map(a => a.name)
+  return { chain, predecessors }
 }
 
 export function getSearchSuggestions(query, deals) {
-  if (!query.trim()) return []
-  const q = query.toLowerCase()
-  const map = new Map()
-  deals.forEach(d => {
-    ;[d.acquirer?.name, d.acquired?.name].forEach(name => {
-      if (name?.toLowerCase().includes(q)) {
-        map.set(name, (map.get(name) ?? 0) + 1)
-      }
-    })
-  })
-  return [...map.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8)
-    .map(([name, count]) => ({ name, count }))
+  const q = query.trim().toLowerCase()
+  if (!q) return []
+  const countFor = id => new Set(
+    db.participants.filter(p => p.partyId === id).map(p => p.dealId)).size
+  const match = e => e.name.toLowerCase().includes(q)
+    || (e.aliases ?? []).some(a => a.toLowerCase().includes(q))
+  return [
+    ...db.assets.filter(match).map(a => ({ name: a.name, count: countFor(a.id), role: 'ISP platform' })),
+    ...db.firms.filter(match).map(f => ({ name: f.name, count: countFor(f.id), role: 'PE firm' })),
+  ].filter(s => s.count > 0).slice(0, 8)
 }
 
 export function buildChartData(chain, mode) {
@@ -482,8 +460,6 @@ export default function EvolutionsPage({ deals, seed, onSeedConsumed, onNavigate
   const [inputVal, setInputVal]             = useState('')
   const [selectedEntity, setSelectedEntity] = useState(null)
   const [showDropdown, setShowDropdown]     = useState(false)
-  const [pinnedPredecessors, setPinnedPredecessors] = useState([])
-  const [excludedPredecessors, setExcludedPredecessors] = useState([])
   const [chartMode, setChartMode]           = useState('ev')
   const [expandedId, setExpandedId]         = useState(null)
   const cardRefs                            = useRef({})
@@ -493,8 +469,6 @@ export default function EvolutionsPage({ deals, seed, onSeedConsumed, onNavigate
     if (seed) {
       setInputVal(seed)
       setSelectedEntity(seed)
-      setPinnedPredecessors([])
-      setExcludedPredecessors([])
       setExpandedId(null)
       onSeedConsumed?.()
     }
@@ -506,8 +480,8 @@ export default function EvolutionsPage({ deals, seed, onSeedConsumed, onNavigate
   )
 
   const { chain, predecessors } = useMemo(
-    () => buildChain(selectedEntity ?? '', deals, pinnedPredecessors, excludedPredecessors),
-    [selectedEntity, deals, pinnedPredecessors, excludedPredecessors]
+    () => buildChain(selectedEntity ?? '', deals),
+    [selectedEntity, deals]
   )
 
   const chartData = useMemo(
@@ -519,16 +493,12 @@ export default function EvolutionsPage({ deals, seed, onSeedConsumed, onNavigate
     setSelectedEntity(name)
     setInputVal(name)
     setShowDropdown(false)
-    setPinnedPredecessors([])
-    setExcludedPredecessors([])
     setExpandedId(null)
   }, [])
 
   const handleClear = () => {
     setInputVal('')
     setSelectedEntity(null)
-    setPinnedPredecessors([])
-    setExcludedPredecessors([])
     setExpandedId(null)
     inputRef.current?.focus()
   }
@@ -539,11 +509,6 @@ export default function EvolutionsPage({ deals, seed, onSeedConsumed, onNavigate
       cardRefs.current[dealId]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }, 50)
   }, [])
-
-  const handleRemovePredecessor = (pred) => {
-    setPinnedPredecessors(prev => prev.filter(p => p !== pred))
-    setExcludedPredecessors(prev => [...prev, pred])
-  }
 
   return (
     <div className="scroll-area" style={{ flex: 1, overflowY: 'auto', padding: '20px 28px', background: '#f5f5f7', display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -623,10 +588,6 @@ export default function EvolutionsPage({ deals, seed, onSeedConsumed, onNavigate
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#955438', display: 'inline-block' }} />
                 {p} (predecessor)
-                <button
-                  onClick={() => handleRemovePredecessor(p)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#B8744F', fontSize: 14, padding: 0, lineHeight: 1 }}
-                >×</button>
               </span>
             ))}
           </div>

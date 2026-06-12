@@ -8,12 +8,15 @@
     "build": "vite build",
     "preview": "vite preview",
     "api": "node api/server.mjs",
-    "refresh-data": "node scripts/refresh-data.mjs"
+    "refresh-data": "node scripts/refresh-data.mjs",
+    "fund-data": "node scripts/fund-data-query.mjs",
+    "fund-data:dry": "node scripts/fund-data-query.mjs --dry-run"
   },
   "dependencies": {
     "lucide-react": "^0.441.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "recharts": "^3.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",

@@ -180,13 +180,15 @@ function isWithinSixMonths(dateStr) {
 
 function getExistingNames() {
   try {
-    const src = readFileSync(join(__dirname, '../src/data/deals.js'), 'utf8')
+    const raw   = readFileSync(join(__dirname, '../src/data/deals.json'), 'utf8')
+    const deals = JSON.parse(raw)
     const names = new Set()
-    const re = /name:\s*['"]([^'"]{4,})['"],/g
-    let m
-    while ((m = re.exec(src)) !== null) {
-      const short = m[1].toLowerCase().split(/\s+/).slice(0, 2).join(' ')
-      if (short.length > 3) names.add(short)
+    for (const d of deals) {
+      for (const party of [d.acquirer?.name, d.acquired?.name]) {
+        if (!party || party.length < 4) continue
+        const short = party.toLowerCase().split(/\s+/).slice(0, 2).join(' ')
+        if (short.length > 3) names.add(short)
+      }
     }
     return [...names]
   } catch { return [] }

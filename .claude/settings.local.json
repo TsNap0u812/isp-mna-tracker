@@ -23,7 +23,28 @@
       "mcp__Claude_Preview__preview_start",
       "Read(//opt/homebrew/lib/node_modules/npm/bin/**)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(node api/server.mjs)",
+      "Bash(curl -s http://localhost:3001/api/health)",
+      "Bash(curl -s http://localhost:3001/api/refresh)",
+      "Bash(/opt/homebrew/bin/node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); console.log\\('source:', d.source, '| total items:', d.items?.length, '| new \\(not tracked\\):', d.items?.filter\\(i=>!i.alreadyTracked\\).length, '| already tracked:', d.items?.filter\\(i=>i.alreadyTracked\\).length\\)\")",
+      "Bash(/opt/homebrew/bin/node -e ' *)",
+      "Bash(pkill -f \"api/server.mjs\")",
+      "Bash(curl -s -L --max-time 8 \"https://www.nexttv.com/rss\")",
+      "Bash(node -e ' *)",
+      "WebSearch",
+      "WebFetch(domain:www.lightreading.com)",
+      "WebFetch(domain:about.att.com)",
+      "WebFetch(domain:www.fierce-network.com)",
+      "WebFetch(domain:www.satellitetoday.com)",
+      "Bash(node --input-type=module)",
+      "Bash(node -e \"import\\('./src/data/deals.js'\\).then\\(m => console.log\\('deals count:', m.deals.length, '| statuses:', [...new Set\\(m.deals.map\\(d=>d.status\\)\\)]\\)\\).catch\\(e => console.error\\(e\\)\\)\")",
+      "Bash(/opt/homebrew/bin/node /opt/homebrew/bin/npm run build)",
+      "WebFetch(domain:efts.sec.gov)",
+      "WebFetch(domain:www.calpers.ca.gov)",
+      "WebFetch(domain:www.sec.gov)",
+      "WebFetch(domain:www.sib.wa.gov)"
     ]
   }
 }

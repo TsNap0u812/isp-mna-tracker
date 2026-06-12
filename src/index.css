@@ -1,11 +1,126 @@
+@import url('https://rsms.me/inter/inter.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Space Blue */
+  --space-blue:       #2d3068;
+  --space-blue-hover: #3a3e7d;
+  --space-blue-deep:  #1f2148;
+
+  /* Copper */
+  --copper:           #955438;
+  --copper-mid:       #B8744F;
+  --copper-light:     #E8B194;
+  --copper-soft:      #fbeee5;
+
+  /* Teal */
+  --teal:             #009d8c;
+  --teal-bright:      #00DEC8;
+  --teal-soft:        #d6f8f4;
+
+  /* Violet */
+  --violet:           #5872E0;
+  --violet-deep:      #3f56c0;
+  --violet-soft:      #e6eafe;
+
+  /* Amber */
+  --amber:            #D97706;
+  --amber-soft:       #FEF3C7;
+
+  /* Red */
+  --red:              #DC2626;
+  --red-soft:         #FEE2E2;
+
+  /* Page */
+  --page-bg:          #f5f5f7;
+  --card:             #ffffff;
+  --paper-2:          #fbfafa;
+
+  /* Text */
+  --ink-1:            #1d1d1f;
+  --ink-2:            #424245;
+  --ink-3:            #6e6e73;
+  --ink-4:            #86868b;
+  --ink-5:            #aeaeb2;
+
+  /* Hairlines */
+  --hairline:         rgba(0, 0, 0, 0.08);
+  --hairline-soft:    rgba(0, 0, 0, 0.05);
+}
+
 @layer base {
-  body {
-    @apply bg-gray-50 text-gray-900 antialiased;
+  html {
+    font-feature-settings: "ss01", "cv11", "cv05";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  body {
+    font-family: 'Inter var', 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.005em;
+    background: var(--page-bg);
+    color: var(--ink-1);
+  }
+}
+
+/* Keyframes */
+@keyframes sheetIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes liftIn {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Animation utilities */
+.animate-sheet {
+  animation: sheetIn 0.22s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+.animate-fade {
+  animation: fadeIn 0.18s ease both;
+}
+
+.animate-lift {
+  animation: liftIn 0.2s ease both;
+}
+
+.animate-spin {
+  animation: spin 0.8s linear infinite;
+}
+
+/* Scroll area */
+.scroll-area {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-5) transparent;
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background: var(--ink-5);
+  border-radius: 3px;
 }
 
 @layer utilities {

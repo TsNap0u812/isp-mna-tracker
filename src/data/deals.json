@@ -1,0 +1,2310 @@
+[
+  {
+    "id": "deal-043",
+    "date": "2026-05-19",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "Great Plains Communications (GPC)",
+      "type": "ILEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Grain Management LLC",
+        "firmType": "Private Equity (Telecom-Focused)",
+        "aum": "$5B+",
+        "primaryFunds": [
+          "Grain Communications Opportunity Fund II",
+          "Grain Communications Opportunity Fund III"
+        ],
+        "otherTelecomPortfolio": [
+          "Segra (Southeast fiber CLEC)",
+          "Point Broadband (rural fiber roll-up)",
+          "TeleCove (historical)",
+          "Various rural CLEC acquisitions"
+        ],
+        "headquarters": "Washington, DC",
+        "website": "grainmanagement.com"
+      }
+    },
+    "acquired": {
+      "name": "Fastwyre Broadband (Nebraska Operations)",
+      "type": "ILEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Madison Dearborn Partners + Catania Capital Partners",
+        "firmType": "Private Equity",
+        "aum": "Madison Dearborn: $28B+ | Catania Capital: N/A",
+        "primaryFunds": [
+          "Madison Dearborn Capital Partners VIII",
+          "Catania Capital Fund I"
+        ],
+        "otherTelecomPortfolio": [
+          "American Broadband Holding Co. (Fastwyre parent)",
+          "Various broadband platform investments"
+        ],
+        "headquarters": "Chicago, IL (Madison Dearborn) / N/A (Catania)",
+        "website": "mdcp.com"
+      }
+    },
+    "dealValue": null,
+    "ownershipPct": 100,
+    "geography": [
+      "NE"
+    ],
+    "subscribers": null,
+    "reason": "GPC acquires Fastwyre's 26-community Nebraska broadband operations to consolidate its home-state fiber footprint as Fastwyre's parent (American Broadband Holding Co.) undergoes a multi-state wind-down and asset sale.",
+    "strategicImportance": "GPC's fifth acquisition under Grain Management ownership, extending its 20,000+ mile MEF-certified Midwest fiber network. Fastwyre Nebraska covers 26 communities including Blair, Fremont, Wayne, and Bellevue. Deal is part of a broader Fastwyre asset dissolution — Swyft Fiber acquired separate Fastwyre assets in Dec 2025; Socket Fiber acquired the Missouri network; and Anacoco Capital filed for Fastwyre's Alaska licenses. GPC gains 20+ Fastwyre Nebraska employees.",
+    "keyTerms": "Terms not disclosed. Subject to customary regulatory approvals. Transaction counsel: Alston & Bird. Announced May 19, 2026.",
+    "notes": "Grain Management also owns Point Broadband (rural fiber roll-up in VA/WV/TN/NC/SC/GA) and Segra (Southeast fiber CLEC). GPC and Point Broadband are separate Grain portfolio companies with complementary geographic footprints."
+  },
+  {
+    "id": "deal-044",
+    "date": "2026-05-14",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Joint Venture",
+    "acquirer": {
+      "name": "AT&T + T-Mobile + Verizon",
+      "type": "MNO / ILEC",
+      "ticker": "T / TMUS / VZ",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Satellite Direct-to-Device (D2D) JV Platform",
+      "type": "Satellite Broadband",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": null,
+    "ownershipPct": 33,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": null,
+    "reason": "AT&T, T-Mobile, and Verizon form a joint venture to create a unified, standards-based platform for direct-to-device satellite connectivity, pooling their nationally licensed spectrum to eliminate wireless dead zones — particularly in rural and underserved areas.",
+    "strategicImportance": "First-ever 3-carrier JV among the US 'big three.' The platform is carrier-agnostic and open to any qualifying satellite constellation, positioning the carriers collectively against SpaceX Starlink's direct-to-cell ambitions. Each carrier maintains separate bilateral satellite partnerships: T-Mobile + SpaceX (Starlink), AT&T + AST SpaceMobile, Verizon + AST SpaceMobile + Skylo. The JV unifies terrestrial spectrum integration and D2D technical standards above those bilateral deals. Critical for rural broadband coverage and compliance with FCC rural connectivity mandates.",
+    "keyTerms": "Agreement in principle announced May 14, 2026. Financial terms, equity structure, and governance not disclosed. Definitive agreements and regulatory approvals pending. Each of the three carriers holds a roughly equal stake.",
+    "notes": "The satellite D2D JV does not involve an acquisition of a satellite operator — it is a standards/spectrum pooling platform. The carriers' individual satellite partnerships (SpaceX, AST SpaceMobile, Skylo) remain separate and are not part of this JV."
+  },
+  {
+    "id": "deal-040",
+    "date": "2026-04-28",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Joint Venture",
+    "acquirer": {
+      "name": "T-Mobile US + Oak Hill Capital",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": {
+        "firm": "Oak Hill Capital",
+        "firmType": "Private Equity",
+        "aum": "$20B+",
+        "primaryFunds": [
+          "Oak Hill Capital Partners V",
+          "Oak Hill Capital Partners VI"
+        ],
+        "otherTelecomPortfolio": [
+          "GoNetspeed (fiber ISP, CT/NJ/NY/PA/MD/MA/ME/RI)",
+          "Greenlight Networks (fiber ISP, NY)",
+          "tw telecom (historical)",
+          "Hunter Communications (Oregon fiber ISP)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "oakhillcapital.com"
+      }
+    },
+    "acquired": {
+      "name": "GoNetspeed + Greenlight Networks (Combined Northeast Fiber Platform)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 2000000000,
+    "ownershipPct": 50,
+    "geography": [
+      "CT",
+      "ME",
+      "MD",
+      "MA",
+      "NJ",
+      "NY",
+      "PA",
+      "RI"
+    ],
+    "subscribers": null,
+    "reason": "T-Mobile partners with Oak Hill Capital to combine its two existing Northeast fiber portfolio companies — GoNetspeed and Greenlight Networks — into a single JV with T-Mobile owning 50% and providing retail distribution, branding, and wireless convergence capability.",
+    "strategicImportance": "Creates a scaled Northeast fiber platform passing 1.3M+ homes across 8 states by end of 2026. T-Mobile retail operations (branded T-Fiber by T-Mobile) are fully managed by T-Mobile with no annual service contracts. Oak Hill retains the infrastructure/wholesale side of the JV. Announced on same day as the separate Wren House/i3 Broadband JV (deal-042), marking T-Mobile's most aggressive single-day fiber expansion announcement.",
+    "keyTerms": "T-Mobile invests ~$2.0B for 50% stake. Oak Hill contributes GoNetspeed and Greenlight Networks platforms. T-Mobile 100% controls retail/customer operations. Expected close: H1 2027. Announced April 28, 2026 alongside the Wren House/i3 JV.",
+    "notes": "GoNetspeed operates in CT, ME, MD, MA, NJ, PA, and RI. Greenlight Networks focuses on Rochester, NY and surrounding upstate New York markets. Together they form a cohesive Northeast FTTH footprint with limited geographic overlap."
+  },
+  {
+    "id": "deal-042",
+    "date": "2026-04-28",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Joint Venture",
+    "acquirer": {
+      "name": "T-Mobile US + Wren House Infrastructure Management",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": {
+        "firm": "Wren House Infrastructure Management",
+        "firmType": "Infrastructure Asset Manager (Sovereign Wealth)",
+        "aum": "$10B+ (infrastructure)",
+        "primaryFunds": [
+          "Wren House Infrastructure Fund I",
+          "Wren House Infrastructure Fund II"
+        ],
+        "otherTelecomPortfolio": [
+          "T-Mobile Fiber Greenfield JV (deal-038)",
+          "i3 Broadband (MO/IL/RI)"
+        ],
+        "headquarters": "London, UK",
+        "website": "wrenhouseinfrastructure.com"
+      }
+    },
+    "acquired": {
+      "name": "i3 Broadband (T-Mobile + Wren House Fiber JV — Missouri / Illinois / Rhode Island)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 700000000,
+    "ownershipPct": 50,
+    "geography": [
+      "MO",
+      "IL",
+      "RI"
+    ],
+    "subscribers": null,
+    "reason": "T-Mobile and Wren House (Kuwait Investment Authority's infrastructure arm) expand their fiber JV relationship by acquiring i3 Broadband's existing FTTH network in Missouri, Illinois, and Rhode Island, adding a built network to their existing greenfield JV.",
+    "strategicImportance": "Second deal between T-Mobile and Wren House (first was the 2025 greenfield JV, deal-038). i3 Broadband brings an operating network with ~500K homes passed by end of 2026. Expands T-Mobile's fiber JV footprint into the Midwest (MO/IL) and into a new Northeast market (RI). Announced same day as the Oak Hill/GoNetspeed+Greenlight JV (deal-040), demonstrating T-Mobile's rapid fiber convergence strategy.",
+    "keyTerms": "T-Mobile invests ~$700M for 50% stake. Wren House contributes i3 Broadband. Expected close: H2 2026. Announced April 28, 2026. Combined T-Mobile fiber JV investment across both April 28 announcements: ~$2.7B.",
+    "notes": "i3 Broadband is a regional FTTH provider serving residential and commercial customers across Missouri, Illinois, and Rhode Island. This is Wren House's second US fiber transaction with T-Mobile, deepening the KIA/T-Mobile infrastructure partnership."
+  },
+  {
+    "id": "deal-048",
+    "date": "2026-04-30",
+    "status": "Completed",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "Socket Fiber (Oak Hill Capital + Pamlico Capital)",
+      "type": "ILEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Oak Hill Capital + Pamlico Capital",
+        "firmType": "Private Equity",
+        "aum": "Oak Hill: $20B+ | Pamlico: $3B+",
+        "primaryFunds": [
+          "Oak Hill Capital Partners V",
+          "Pamlico Capital Fund VI"
+        ],
+        "otherTelecomPortfolio": [
+          "GoNetspeed (CT/NJ/NY/PA/MD/MA/ME/RI)",
+          "Greenlight Networks (NY)",
+          "Socket Fiber (MO fiber ISP)"
+        ],
+        "headquarters": "New York, NY (Oak Hill) / Charlotte, NC (Pamlico)",
+        "website": "oakhillcapital.com"
+      }
+    },
+    "acquired": {
+      "name": "Fastwyre Broadband (Missouri Operations — 16 Communities)",
+      "type": "ILEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Madison Dearborn Partners + Catania Capital Partners",
+        "firmType": "Private Equity",
+        "aum": "Madison Dearborn: $28B+",
+        "primaryFunds": [
+          "Madison Dearborn Capital Partners VIII"
+        ],
+        "otherTelecomPortfolio": [
+          "American Broadband Holding Co. (Fastwyre parent)"
+        ],
+        "headquarters": "Chicago, IL (Madison Dearborn)",
+        "website": "mdcp.com"
+      }
+    },
+    "dealValue": null,
+    "ownershipPct": 100,
+    "geography": [
+      "MO"
+    ],
+    "subscribers": null,
+    "reason": "Socket Fiber acquires Fastwyre's 16-community Missouri broadband network to expand its home-state fiber footprint, adding communities including Hannibal, Kirksville, and Chillicothe to Socket's existing Missouri operations.",
+    "strategicImportance": "Part of the multi-state dissolution of American Broadband Holding Co. (Fastwyre's parent), which also produced the GPC/Nebraska acquisition (deal-043, May 2026) and the Swyft/Louisiana-Texas-Alabama acquisition (deal-047, announced Dec 2025). Socket Fiber is a Missouri-based fiber ISP backed by Oak Hill Capital and Pamlico Capital. The Fastwyre Missouri acquisition adds 16 communities and consolidates Socket's footprint in north-central and northeast Missouri. Oak Hill Capital also holds GoNetspeed and Greenlight Networks (contributed to the T-Mobile/Oak Hill JV, deal-040).",
+    "keyTerms": "Terms not disclosed. Closed April 30, 2026.",
+    "notes": "American Broadband Holding Co. (Fastwyre parent, backed by Madison Dearborn + Catania Capital) underwent a structured multi-state wind-down in 2025–2026, with operations sold to multiple regional buyers: GPC (Nebraska), Socket Fiber (Missouri), Swyft Fiber (LA/TX/AL), and Anacoco Capital (Alaska licenses)."
+  },
+  {
+    "id": "deal-051",
+    "date": "2026-03-11",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Merger",
+    "acquirer": {
+      "name": "Astound Broadband (Stonepeak Infrastructure Partners)",
+      "type": "MSO (Cable)",
+      "ticker": null,
+      "pe": {
+        "firm": "Stonepeak Infrastructure Partners",
+        "firmType": "Infrastructure Private Equity",
+        "aum": "$70B+",
+        "primaryFunds": [
+          "Stonepeak Infrastructure Partners IV",
+          "Stonepeak Infrastructure Partners V"
+        ],
+        "otherTelecomPortfolio": [
+          "Astound Broadband (full ownership)",
+          "Cirion Technologies / Lumen LatAm (deal-028)",
+          "IEX Group (exchange infrastructure)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "stonepeakpartners.com"
+      }
+    },
+    "acquired": {
+      "name": "GFiber LLC (Google Fiber — Alphabet Inc.)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": "GOOGL",
+      "pe": null
+    },
+    "dealValue": null,
+    "ownershipPct": 100,
+    "geography": [
+      "NY",
+      "NJ",
+      "PA",
+      "DC",
+      "IL",
+      "MA",
+      "WA",
+      "OR",
+      "CA",
+      "TX",
+      "KS",
+      "MO",
+      "TN",
+      "NC",
+      "GA",
+      "UT",
+      "AZ",
+      "CO"
+    ],
+    "subscribers": 2400000,
+    "reason": "Merge Google Fiber (GFiber) into Astound Broadband to create a scaled national fiber ISP combining Astound's existing cable/fiber footprint with GFiber's premium urban FTTH markets, with Stonepeak retaining majority control and Alphabet/Google receiving a minority equity stake.",
+    "strategicImportance": "Creates one of the largest fiber ISPs in the US at ~7.1M locations across 26 states. GFiber/Google Fiber has been slowly expanding in premium urban/suburban markets (Kansas City, Austin, Atlanta, Nashville, Charlotte, Salt Lake City, others). Astound brings operational scale, HFC upgrade expertise, and a national multi-state footprint. Alphabet retains a minority stake enabling potential Google services/broadband bundle integrations. Eliminates Alphabet's need to fund GFiber's capital-intensive buildout independently.",
+    "keyTerms": "Terms not disclosed. Announced March 11–12, 2026. Expected close Q4 2026. Stonepeak retains majority control of combined entity; Alphabet/Google receives minority equity stake. GFiber brand expected to be retained in existing Google Fiber markets post-merger.",
+    "notes": "Google Fiber launched in Kansas City in 2012 and expanded to ~20+ metro markets. Despite technical innovation, GFiber's capital requirements and limited geographic reach constrained scale. Astound (formerly RCN/WaveDivision/Grande, rebranded 2021) operates ~2M broadband subscribers across NY, NJ, PA, DC, TX, WA, OR, CA, IL, and MA. Combined platform targets 7.1M passings across 26 states."
+  },
+  {
+    "id": "deal-050",
+    "date": "2026-01-05",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Cable One Inc. (Sparklight)",
+      "type": "MSO (Cable)",
+      "ticker": "CABO",
+      "pe": null
+    },
+    "acquired": {
+      "name": "MBI Inc. (Mega Broadband Investments / Vyve Broadband — GTCR's Remaining 55%)",
+      "type": "MSO (Cable)",
+      "ticker": null,
+      "pe": {
+        "firm": "GTCR LLC",
+        "firmType": "Private Equity",
+        "aum": "$35B+",
+        "primaryFunds": [
+          "GTCR Fund XIII",
+          "GTCR Fund XIV"
+        ],
+        "otherTelecomPortfolio": [
+          "Vyve Broadband (via MBI)",
+          "Syniverse Technologies",
+          "TTEC Holdings"
+        ],
+        "headquarters": "Chicago, IL",
+        "website": "gtcr.com"
+      }
+    },
+    "dealValue": 485000000,
+    "ownershipPct": 55,
+    "geography": [
+      "TX",
+      "WY",
+      "CO",
+      "GA",
+      "NC"
+    ],
+    "subscribers": 120000,
+    "reason": "Cable One (Sparklight) acquires GTCR's remaining 55% stake in MBI (parent of Vyve Broadband) to gain full 100% ownership of Vyve's rural cable and fiber systems adjacent to Sparklight's existing footprint.",
+    "strategicImportance": "Cable One / Sparklight already owned 45% of MBI since 2020 and moves to full ownership. Vyve Broadband (via MBI) operates rural cable and fiber systems in states complementary to Sparklight's coverage. Full ownership enables operational integration, technology stack unification, and potential Sparklight rebranding of Vyve markets. GTCR has been actively selling its cable/telecom portfolio (previously sold separate Vyve markets to Mediacom in 2023, deal-020).",
+    "keyTerms": "Estimated ~$485M for GTCR's 55% stake (implied MBI enterprise value ~$880M total). Announced January 5, 2026; expected close October 1, 2026. Subject to FCC and DOJ review.",
+    "notes": "Cable One acquired its initial 45% stake in MBI in 2020. GTCR had built Vyve Broadband as a rural cable roll-up since 2013. Note: separate Vyve systems in OK/KS/AR/TX were previously sold to Mediacom in 2023 (deal-020); the MBI/Vyve systems being acquired by Cable One represent a distinct set of remaining markets."
+  },
+  {
+    "id": "deal-021",
+    "date": "2025-03-31",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Merger",
+    "acquirer": {
+      "name": "Charter Communications",
+      "type": "MSO (Cable)",
+      "ticker": "CHTR",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Cox Communications",
+      "type": "MSO (Cable)",
+      "ticker": null,
+      "pe": {
+        "firm": "Cox Enterprises (Private Family Ownership)",
+        "firmType": "Family-Controlled Conglomerate",
+        "aum": "N/A (private; estimated $25B+ assets)",
+        "primaryFunds": [
+          "N/A — family-owned conglomerate"
+        ],
+        "otherTelecomPortfolio": [
+          "Cox Automotive",
+          "Cox Media Group",
+          "Cox Business (enterprise)"
+        ],
+        "headquarters": "Atlanta, GA",
+        "website": "coxenterprises.com"
+      }
+    },
+    "dealValue": 34500000000,
+    "ownershipPct": 100,
+    "geography": [
+      "AZ",
+      "AR",
+      "CA",
+      "CT",
+      "FL",
+      "GA",
+      "ID",
+      "IA",
+      "KS",
+      "LA",
+      "MA",
+      "NE",
+      "NV",
+      "OH",
+      "OK",
+      "OR",
+      "RI",
+      "UT",
+      "VA",
+      "WA"
+    ],
+    "subscribers": 6500000,
+    "reason": "Consolidate the #2 and #3 US cable operators to compete against AT&T fiber, Verizon FiOS, and T-Mobile/Verizon fixed wireless access eroding cable broadband share.",
+    "strategicImportance": "Would create a near-Comcast-scale cable operator. Cox's Sun Belt and West footprint (AZ, NV, CA, VA, OK) is highly complementary to Charter's Midwest and Southeast presence with minimal overlap. Combined synergies estimated at $1B+/year. Charter's Spectrum brand likely absorbs Cox. Cox Enterprises would exit its core telecom business after 60+ years.",
+    "keyTerms": "Charter acquiring Cox in an all-cash and stock deal. Cox Enterprises to receive Charter shares as the primary consideration. Deal announced Q1 2025; awaiting FCC and DOJ review. Estimated enterprise value $34-38B.",
+    "notes": "Cox Enterprises has privately owned Cox Communications since its founding. This marks the end of Cox as an independent cable operator. FCC approved the merger in March 2026; the California Public Utilities Commission (CPUC) is the final remaining regulatory hurdle before close. Geographic overlap is minimal — Charter and Cox share few markets, making antitrust approval relatively straightforward."
+  },
+  {
+    "id": "deal-037",
+    "date": "2026-02-02",
+    "status": "Completed",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "AT&T Inc.",
+      "type": "MNO / ILEC",
+      "ticker": "T",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Lumen Technologies (Mass Markets / Quantum Fiber Consumer Business)",
+      "type": "ILEC / Fiber",
+      "ticker": "LUMN",
+      "pe": null
+    },
+    "dealValue": 5750000000,
+    "ownershipPct": 100,
+    "geography": [
+      "AZ",
+      "CO",
+      "FL",
+      "ID",
+      "IA",
+      "MN",
+      "NE",
+      "NV",
+      "OR",
+      "UT",
+      "WA"
+    ],
+    "subscribers": 1000000,
+    "reason": "AT&T acquires Lumen's remaining consumer broadband (Quantum Fiber) and ILEC operations to dramatically expand its fiber footprint into Mountain West, Pacific Northwest, and Upper Midwest markets where AT&T has no existing wireline presence.",
+    "strategicImportance": "Transformational expansion of AT&T's fiber broadband footprint into 11 states outside its traditional wireline territory. Lumen's Quantum Fiber operates in major markets including Denver (CO), Salt Lake City (UT), Las Vegas (NV), Phoenix (AZ), Minneapolis (MN), and Seattle (WA). Combined with AT&T Fiber and GigaPower, AT&T becomes one of the broadband providers with the largest fiber addressable market in the US. Accelerates AT&T's wireline/wireless convergence strategy.",
+    "keyTerms": "~$5.75B cash. Originally announced May 21, 2025; closed February 2, 2026. Includes Quantum Fiber FTTH/FTTC assets, ILEC copper plant, and associated enterprise/SMB customers in 11 acquired states. Lumen retains its enterprise networking, federal/government business, and core fiber backbone (Black Lotus Labs / Level 3 backbone).",
+    "notes": "Part of Lumen's ongoing divestiture strategy following its 2024 financial restructuring. Lumen had previously sold 20-state ILEC to Apollo/Brightspeed ($7.5B), EMEA to Colt ($1.8B), and LatAm to Stonepeak/Cirion ($2.7B). The final asset scope covers 11 states (AZ, CO, FL, ID, IA, MN, NE, NV, OR, UT, WA), completing Lumen's exit from the consumer broadband market."
+  },
+  {
+    "id": "deal-038",
+    "date": "2025-02-11",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Joint Venture",
+    "acquirer": {
+      "name": "T-Mobile US + Wren House Infrastructure Management",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": {
+        "firm": "Wren House Infrastructure Management",
+        "firmType": "Infrastructure Asset Manager (Sovereign Wealth)",
+        "aum": "$10B+ (infrastructure)",
+        "primaryFunds": [
+          "Wren House Infrastructure Fund I",
+          "Wren House Infrastructure Fund II"
+        ],
+        "otherTelecomPortfolio": [
+          "Thames Water (infrastructure)",
+          "Anglian Water",
+          "Sofidel (partial)",
+          "Various global infrastructure assets"
+        ],
+        "headquarters": "London, UK",
+        "website": "wrenhouseinfrastructure.com"
+      }
+    },
+    "acquired": {
+      "name": "T-Mobile Fiber JV (Greenfield FTTH Markets)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 2000000000,
+    "ownershipPct": 50,
+    "geography": [
+      "United States (Greenfield — TBD)"
+    ],
+    "subscribers": null,
+    "reason": "T-Mobile partners with Wren House (Kuwait Investment Authority's infrastructure arm) to deploy fiber-to-the-home in markets outside T-Mobile's existing fixed wireless footprint, funding FTTH buildout with sovereign infrastructure capital.",
+    "strategicImportance": "Mirrors AT&T's GigaPower model: T-Mobile provides brand, retail distribution, and wireless convergence capability; Wren House provides long-duration sovereign infrastructure capital. Enables T-Mobile to compete in fiber broadband without the full capex burden on its balance sheet. Targets markets where T-Mobile's FWA has demonstrated strong demand but fiber would be competitively superior.",
+    "keyTerms": "T-Mobile and Wren House each hold ~50% of the JV. Wren House contributing ~$2B initial equity capital. T-Mobile contributes brand, retail infrastructure, and bundling capability. Target: 1M+ FTTH passings.",
+    "notes": "Wren House Infrastructure Management is 100% owned by the Kuwait Investment Authority (KIA), one of the world's largest sovereign wealth funds (~$750B AUM). This is Wren House's first major US telecom infrastructure investment."
+  },
+  {
+    "id": "deal-039",
+    "date": "2025-04-01",
+    "status": "Completed",
+    "dealType": "Joint Venture",
+    "acquirer": {
+      "name": "T-Mobile US + EQT Infrastructure (Lumos Networks JV)",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": {
+        "firm": "EQT Infrastructure",
+        "firmType": "Infrastructure Private Equity",
+        "aum": "$250B+ (EQT total; $55B+ infrastructure)",
+        "primaryFunds": [
+          "EQT Infrastructure VI"
+        ],
+        "otherTelecomPortfolio": [
+          "Zayo Group",
+          "Conterra Networks",
+          "Hotwire Communications",
+          "Vertical Bridge (towers)"
+        ],
+        "headquarters": "Stockholm, Sweden (US: New York, NY)",
+        "website": "eqtgroup.com"
+      }
+    },
+    "acquired": {
+      "name": "Lumos Networks (Virginia + Carolinas FTTH — T-Mobile/EQT JV)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 950000000,
+    "ownershipPct": 50,
+    "geography": [
+      "VA",
+      "NC",
+      "SC"
+    ],
+    "subscribers": 475000,
+    "reason": "T-Mobile's first fiber JV — partners with EQT to acquire Lumos Networks, giving T-Mobile full retail ownership of Lumos fiber customers and a 50% stake in the fiber infrastructure across Virginia and the Carolinas.",
+    "strategicImportance": "Announced April 25, 2024; closed April 1, 2025. T-Mobile acquires 100% of Lumos retail operations (branded T-Fiber by T-Mobile) while the JV holds the fiber infrastructure. EQT's Infrastructure VI fund re-acquires Lumos from EQT Infrastructure III. Lumos serves 475K homes over 7,500 route miles; target 3.5M passings by 2028. First step in T-Mobile's multi-JV fiber convergence strategy.",
+    "keyTerms": "T-Mobile invested ~$950M at close for 50% of JV infrastructure; additional ~$500M planned for 2027–2028 buildout. EQT holds remaining 50%. T-Mobile owns 100% of retail/customer operations. Announced April 25, 2024; closed April 1, 2025.",
+    "notes": "Lumos Networks was acquired by EQT Infrastructure in 2017. This JV is distinct from Lumos's earlier sale of legacy CLEC assets to Grain Management (Point Broadband platform). T-Fiber by T-Mobile brand carries the retail service."
+  },
+  {
+    "id": "deal-041",
+    "date": "2025-07-24",
+    "status": "Completed",
+    "dealType": "Joint Venture",
+    "acquirer": {
+      "name": "T-Mobile US + KKR",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": {
+        "firm": "KKR & Co. Inc.",
+        "firmType": "Private Equity / Infrastructure",
+        "aum": "$600B+",
+        "primaryFunds": [
+          "KKR Infrastructure Fund V",
+          "KKR Americas XIII"
+        ],
+        "otherTelecomPortfolio": [
+          "MetroNet (contributed to T-Mobile JV)",
+          "Kokusai Electric",
+          "Telenet (Belgium, historical)",
+          "Altice France (partial, historical)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "kkr.com"
+      }
+    },
+    "acquired": {
+      "name": "MetroNet (T-Mobile + KKR Fiber JV — Midwest / South Central)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 4900000000,
+    "ownershipPct": 50,
+    "geography": [
+      "IN",
+      "IL",
+      "IA",
+      "OH",
+      "MI",
+      "MN",
+      "WI",
+      "KY",
+      "MO",
+      "NE",
+      "TX",
+      "CO",
+      "AZ",
+      "FL",
+      "VA",
+      "NC",
+      "OK"
+    ],
+    "subscribers": null,
+    "reason": "T-Mobile and KKR form a 50/50 JV to acquire MetroNet, one of the fastest-growing pure-fiber ISPs in the US. T-Mobile gains 100% of MetroNet's retail operations and a 50% infrastructure stake, adding a major fiber footprint in small-to-mid-size Midwest and South Central markets.",
+    "strategicImportance": "Largest of T-Mobile's fiber JVs at ~$4.9B T-Mobile investment. MetroNet serves 300+ communities across 17+ states, targeting 6.5M homes passed by 2030. KKR contributed its MetroNet stake (held since the 2022 recapitalization with Ares Management) to the JV structure. T-Mobile exclusively controls all retail/customer operations under T-Fiber by T-Mobile branding. MetroNet is expected to be self-funding post-close.",
+    "keyTerms": "Announced July 24, 2024; closed July 24, 2025. T-Mobile invested ~$4.9B for 50% equity in JV + 100% of MetroNet retail operations. KKR holds remaining 50% infrastructure stake. MetroNet founders (Cinelli family) and Ares Management both exited at close. T-Mobile fiber JV portfolio across Lumos + MetroNet targets 12–15M households by 2030.",
+    "notes": "MetroNet specializes in small-to-mid-size cities (20K–200K population) that cable incumbents have not upgraded with fiber. KKR and Ares Management had recapitalized MetroNet in 2022 (deal-028). Ares exited at close; KKR remained as JV partner. MetroNet brand retained operationally."
+  },
+  {
+    "id": "deal-046",
+    "date": "2025-12-31",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "DigitalBridge Group + Crestview Partners",
+      "type": "Infrastructure Private Equity",
+      "ticker": "DBRG",
+      "pe": {
+        "firm": "DigitalBridge Group / Crestview Partners",
+        "firmType": "Digital Infrastructure + Private Equity",
+        "aum": "DigitalBridge: $55B+ | Crestview: $10B+",
+        "primaryFunds": [
+          "DigitalBridge Partners III",
+          "Crestview Partners IV",
+          "Crestview Partners V"
+        ],
+        "otherTelecomPortfolio": [
+          "Vantage Data Centers",
+          "Vertical Bridge",
+          "DataBank",
+          "Scala Data Centers",
+          "Phoenix Tower International"
+        ],
+        "headquarters": "Boca Raton, FL (DigitalBridge) / New York, NY (Crestview)",
+        "website": "digitalbridge.com"
+      }
+    },
+    "acquired": {
+      "name": "WideOpenWest (WOW!) — Remaining Cable Systems (Take-Private)",
+      "type": "MSO (Cable)",
+      "ticker": "WOW",
+      "pe": null
+    },
+    "dealValue": 1500000000,
+    "ownershipPct": 100,
+    "geography": [
+      "OH",
+      "MI",
+      "AL",
+      "SC",
+      "GA",
+      "FL"
+    ],
+    "subscribers": 600000,
+    "reason": "Take WOW! private to accelerate DOCSIS 4.0 and fiber upgrades across its remaining cable systems free from public-market earnings pressure; DigitalBridge adds MSO cable infrastructure to its digital infrastructure portfolio.",
+    "strategicImportance": "WOW! had been underperforming as a public company against aggressive fiber competitors in Ohio and Sun Belt markets. DigitalBridge's infrastructure-focused model allows long-term capital allocation for HFC-to-fiber conversion. Crestview Partners, already a major WOW! shareholder, rolled its equity into the take-private structure, reducing cash outlay. WOW!'s remaining footprint (after the 2019-2021 divestitures of Chicago suburbs, Cleveland, and IL/IN/MD systems) spans OH, MI, and the Sun Belt markets acquired through Hargray in 2021 (AL, SC, GA, FL).",
+    "keyTerms": "$5.20 per share all-cash, approximately $1.5B enterprise value. DigitalBridge led as new majority investor; Crestview Partners rolled existing equity and retained a minority stake. Closed December 31, 2025.",
+    "notes": "WOW! had previously divested its Chicago-area systems (to RCN/Astound, 2019), Cleveland (to Mediacom, 2019), and IL/IN/MD cable systems (to Astound, 2021, deal-008). WOW! then acquired Hargray (SC/GA/FL/AL) in late 2021 (deal-016). The remaining OH/MI + Hargray Sun Belt portfolio is what DigitalBridge/Crestview acquired in this take-private."
+  },
+  {
+    "id": "deal-047",
+    "date": "2025-12-17",
+    "status": "Pending / Regulatory Review",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "Swyft Fiber (Macquarie Asset Management)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": {
+        "firm": "Macquarie Asset Management (MIRA)",
+        "firmType": "Infrastructure Asset Manager",
+        "aum": "$900B+ (total Macquarie) | $250B+ (infrastructure)",
+        "primaryFunds": [
+          "Macquarie Infrastructure Partners V",
+          "Macquarie Infrastructure Partners VI"
+        ],
+        "otherTelecomPortfolio": [
+          "altafiber (Cincinnati Bell — acquired 2021, deal-030)",
+          "Hawaiian Telcom (subsidiary of altafiber)"
+        ],
+        "headquarters": "Sydney, Australia (US: New York, NY)",
+        "website": "macquarie.com"
+      }
+    },
+    "acquired": {
+      "name": "Fastwyre Broadband (Louisiana, Texas & Alabama Operations)",
+      "type": "ILEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Madison Dearborn Partners + Catania Capital Partners",
+        "firmType": "Private Equity",
+        "aum": "Madison Dearborn: $28B+",
+        "primaryFunds": [
+          "Madison Dearborn Capital Partners VIII"
+        ],
+        "otherTelecomPortfolio": [
+          "American Broadband Holding Co. (Fastwyre parent)"
+        ],
+        "headquarters": "Chicago, IL (Madison Dearborn)",
+        "website": "mdcp.com"
+      }
+    },
+    "dealValue": null,
+    "ownershipPct": 100,
+    "geography": [
+      "LA",
+      "TX",
+      "AL"
+    ],
+    "subscribers": null,
+    "reason": "Swyft Fiber, Macquarie's US Gulf Coast fiber platform, acquires Fastwyre's Louisiana, Texas, and Alabama broadband operations as Fastwyre's parent (American Broadband Holding Co.) undergoes a multi-state wind-down and asset sale.",
+    "strategicImportance": "Expands Swyft Fiber's geographic footprint into the Gulf Coast and Deep South. Part of the same Fastwyre dissolution that produced the GPC/Nebraska (deal-043, May 2026), Socket Fiber/Missouri (deal-048, April 2026), and Anacoco Capital/Alaska transactions. Macquarie already owns altafiber (Cincinnati Bell) in the adjacent Midwest. Swyft Fiber is established as a separate Macquarie vehicle for greenfield and bolt-on fiber acquisitions in the South.",
+    "keyTerms": "Terms not disclosed. Announced December 17, 2025. Pending regulatory approvals. Subject to customary closing conditions.",
+    "notes": "Macquarie owns altafiber (Cincinnati Bell, acquired 2021, deal-030) as a separate infrastructure asset. Swyft Fiber was established as a new Macquarie platform for Southern/Gulf Coast fiber markets. American Broadband Holding Co. wound down its multi-state operations with assets sold to multiple regional buyers."
+  },
+  {
+    "id": "deal-045",
+    "date": "2025-08-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "BCE Inc. (Bell Canada Enterprises)",
+      "type": "ILEC / Fiber",
+      "ticker": "BCE",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Ziply Fiber (WaveDivision Capital)",
+      "type": "CLEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "WaveDivision Capital",
+        "firmType": "Private Equity (Telecom-Focused)",
+        "aum": "$2B+",
+        "primaryFunds": [
+          "WaveDivision Capital Fund I",
+          "WaveDivision Capital Fund II"
+        ],
+        "otherTelecomPortfolio": [
+          "Wave Broadband (sold to RCN/TPG 2019)"
+        ],
+        "headquarters": "Kirkland, WA",
+        "website": "wavedivisioncapital.com"
+      }
+    },
+    "dealValue": 3650000000,
+    "ownershipPct": 100,
+    "geography": [
+      "WA",
+      "OR",
+      "ID",
+      "MT"
+    ],
+    "subscribers": 1200000,
+    "reason": "BCE (Bell Canada) enters the US fiber broadband market by acquiring Ziply Fiber, the largest independent fiber ISP in the Pacific Northwest, providing geographic diversification and new fiber growth as BCE's Canadian core business faces subscriber pressure.",
+    "strategicImportance": "BCE's first major US fiber acquisition. Ziply Fiber serves 1.2M+ passings across Washington, Oregon, Idaho, and Montana with aggressive FTTH deployment ongoing. Creates a North American fiber operator spanning western Canada (Bell MTS) through the Pacific Northwest. WaveDivision Capital exits with a strong return — it purchased Frontier's PNW ILEC assets for $1.35B in 2020 (deal-005) and built Ziply into one of the fastest-growing US fiber ISPs.",
+    "keyTerms": "C$5.0B (approximately US$3.65B). Announced early 2025; closed August 1, 2025. Ziply retains existing brand and management team. WaveDivision Capital fully exits.",
+    "notes": "Ziply Fiber was carved out of Frontier Communications' Pacific Northwest operations (WA, OR, ID, MT) by WaveDivision Capital in 2020 for $1.35B (deal-005). BCE's acquisition at C$5.0B represents significant value creation driven by Ziply's FTTH buildout from ~450K passings to 1.2M+ over five years. BCE/Bell Canada is Canada's largest telecom company."
+  },
+  {
+    "id": "deal-049",
+    "date": "2025-07-16",
+    "status": "Completed",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "Brightspeed (Apollo Global Management)",
+      "type": "CLEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Apollo Global Management",
+        "firmType": "Private Equity / Alternative Asset Manager",
+        "aum": "$650B+",
+        "primaryFunds": [
+          "Apollo Investment Fund IX",
+          "Apollo Investment Fund X"
+        ],
+        "otherTelecomPortfolio": [
+          "Cox Media Group",
+          "ADT Inc.",
+          "Rackspace Technology"
+        ],
+        "headquarters": "New York, NY",
+        "website": "apollo.com"
+      }
+    },
+    "acquired": {
+      "name": "Cincinnati Communications (Fiber Assets — Warren, Preble & Greene Counties, OH)",
+      "type": "CLEC / Fiber",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": null,
+    "ownershipPct": 100,
+    "geography": [
+      "OH"
+    ],
+    "subscribers": null,
+    "reason": "Brightspeed acquires Cincinnati Communications' fiber infrastructure in the Cincinnati metro's outer counties to accelerate its Ohio fiber expansion and reach customers in high-growth suburban markets outside its existing footprint.",
+    "strategicImportance": "Brightspeed (Apollo's 20-state ILEC/fiber platform carved from Lumen in 2022) is targeting 3M+ fiber passings by 2028. The Cincinnati Communications acquisition adds 235 route miles of existing fiber in Warren, Preble, and Greene counties — suburban Cincinnati MSA markets outside altafiber/Cincinnati Bell's primary Hamilton County territory. Acquiring existing fiber plant accelerates Brightspeed's Ohio buildout at lower cost than greenfield construction.",
+    "keyTerms": "Terms not disclosed. Closed July 16, 2025. Includes 235 route miles of fiber infrastructure across three Ohio counties adjacent to the Cincinnati MSA.",
+    "notes": "Cincinnati Communications is not affiliated with Cincinnati Bell / altafiber (Macquarie, deal-030), which serves Hamilton County (Cincinnati proper). Cincinnati Communications serves the outer suburban counties (Warren, Preble, Greene), which are now part of Brightspeed's Ohio fiber footprint."
+  },
+  {
+    "id": "deal-022",
+    "date": "2024-09-30",
+    "status": "Terminated",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "DirecTV LLC",
+      "type": "DBS / Satellite TV",
+      "ticker": null,
+      "pe": {
+        "firm": "TPG Capital",
+        "firmType": "Private Equity",
+        "aum": "$185B+",
+        "primaryFunds": [
+          "TPG Capital X",
+          "TPG Capital XI"
+        ],
+        "otherTelecomPortfolio": [
+          "DirecTV LLC"
+        ],
+        "headquarters": "Fort Worth, TX",
+        "website": "tpg.com"
+      }
+    },
+    "acquired": {
+      "name": "DISH Network (Satellite TV + Sling TV)",
+      "type": "DBS / Satellite TV",
+      "ticker": "SATS",
+      "pe": null
+    },
+    "dealValue": 9750000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 7500000,
+    "reason": "Combine the two remaining US DBS operators as cord-cutting decimates satellite TV subscribers; achieve $1.5-2B in annual cost synergies to slow revenue decline and extend viability of the platform.",
+    "strategicImportance": "Creates a ~20M subscriber combined DBS/streaming platform (DirecTV ~12.5M + DISH ~7.5M). Both operators lose 1-2M subscribers per year. Merger preserves satellite TV economics longer and funds streaming transition. EchoStar retains valuable wireless spectrum (800 MHz EBS, 600 MHz licenses), which may be monetized via MVNO or sale. Significant rural broadband implications.",
+    "keyTerms": "DirecTV acquiring DISH satellite TV and Sling TV from EchoStar for minimal cash equity ($~1B); DirecTV assuming ~$9.75B of DISH Network debt. EchoStar retains wireless spectrum assets and satellite technology/manufacturing operations.",
+    "notes": "Deal terminated November 22, 2024 after EchoStar's bondholders rejected the debt exchange offer required to finance the acquisition. DirecTV needed bondholder consent to restructure DISH's ~$9.75B debt load, but the bondholders voted down the exchange. DirecTV withdrew its bid, leaving DISH/EchoStar as standalone entities. The FCC had not yet ruled on the merger at the time of termination. The failure effectively ended the last attempt to consolidate the two US DBS operators."
+  },
+  {
+    "id": "deal-023",
+    "date": "2025-07-02",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "TPG Capital",
+      "type": "Private Equity",
+      "ticker": "TPG",
+      "pe": null
+    },
+    "acquired": {
+      "name": "DirecTV LLC (AT&T's remaining 70% stake)",
+      "type": "DBS / Satellite TV",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 7600000000,
+    "ownershipPct": 70,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 12500000,
+    "reason": "AT&T fully exits the video distribution business to eliminate non-core asset complexity and focus entirely on fiber broadband (AT&T Fiber) and 5G wireless.",
+    "strategicImportance": "Completion of AT&T's retreat from DirecTV after the disastrous $67B acquisition in 2015. TPG gains full operational control ahead of DirecTV's proposed merger with DISH. AT&T receives $7.6B to pay down debt. TPG now controls the nation's largest satellite TV operator with ~12.5M subscribers.",
+    "keyTerms": "$7.6B for AT&T's 70% stake. Total DirecTV enterprise value implied at ~$10.9B — a fraction of AT&T's original $67B acquisition price in 2015.",
+    "notes": "AT&T originally acquired DirecTV in 2015 for $67.1B. TPG purchased 30% in 2021 (deal-033), now acquiring remaining 70%."
+  },
+  {
+    "id": "deal-024",
+    "date": "2025-08-01",
+    "status": "Completed",
+    "dealType": "Merger",
+    "acquirer": {
+      "name": "Uniti Group",
+      "type": "Fiber Infrastructure REIT",
+      "ticker": "UNIT",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Windstream Holdings (Kinetic by Windstream)",
+      "type": "ILEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Elliott Investment Management / Creditor Consortium",
+        "firmType": "Hedge Fund / Distressed Debt Investor",
+        "aum": "$65B+ (Elliott)",
+        "primaryFunds": [
+          "Elliott Associates LP",
+          "Elliott International Ltd"
+        ],
+        "otherTelecomPortfolio": [
+          "AT&T (activist stake)",
+          "Salesforce",
+          "NRG Energy",
+          "Various telecom companies"
+        ],
+        "headquarters": "New York, NY / West Palm Beach, FL",
+        "website": "elliottinvestment.com"
+      }
+    },
+    "dealValue": 13700000000,
+    "ownershipPct": 100,
+    "geography": [
+      "AR",
+      "GA",
+      "IA",
+      "KS",
+      "MN",
+      "MO",
+      "NE",
+      "NC",
+      "OH",
+      "OK",
+      "TX",
+      "SC",
+      "PA",
+      "NY",
+      "FL",
+      "IN",
+      "KY",
+      "VA",
+      "WV",
+      "CA",
+      "NM"
+    ],
+    "subscribers": 1000000,
+    "reason": "Recombine Uniti's fiber infrastructure REIT with Windstream/Kinetic ISP operations to create a vertically integrated fiber company able to invest more aggressively in FTTH upgrades.",
+    "strategicImportance": "Uniti was spun off from Windstream in 2015 as a sale-leaseback structure that Windstream later challenged in bankruptcy. Recombination eliminates the complex and expensive lease relationship between the two, freeing capital for Kinetic's fiber buildout. Windstream/Kinetic is pursuing aggressive FTTH deployment in rural markets, highly eligible for BEAD funding.",
+    "keyTerms": "$13.7B enterprise value. Closed August 2025. Windstream shareholders received $425M cash + $575M preferred equity + 38% common equity stake in the combined company. Uniti converted from REIT to C-Corp to enable the merger structure. The two companies had a troubled relationship since Windstream's 2019-2020 Chapter 11.",
+    "notes": "Windstream filed Chapter 11 in February 2019 and emerged in September 2020 under the 'Kinetic' brand. Elliott and other creditors own the reorganized entity."
+  },
+  {
+    "id": "deal-011",
+    "date": "2026-01-20",
+    "status": "Completed",
+    "dealType": "Merger",
+    "acquirer": {
+      "name": "Verizon Communications",
+      "type": "MNO / ILEC",
+      "ticker": "VZ",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Frontier Communications",
+      "type": "ILEC / Fiber",
+      "ticker": "FYBR",
+      "pe": null
+    },
+    "dealValue": 20000000000,
+    "ownershipPct": 100,
+    "geography": [
+      "TX",
+      "CA",
+      "FL",
+      "CT",
+      "NY",
+      "NJ",
+      "PA",
+      "WV",
+      "VA",
+      "NC",
+      "SC",
+      "GA",
+      "AL",
+      "MS",
+      "TN",
+      "IN",
+      "OH",
+      "IL",
+      "MN",
+      "WI",
+      "IA",
+      "NE",
+      "KS",
+      "MO",
+      "AR",
+      "LA",
+      "OK",
+      "NM",
+      "AZ",
+      "UT",
+      "NV",
+      "ID",
+      "WA",
+      "OR"
+    ],
+    "subscribers": 7200000,
+    "reason": "Acquire Frontier's nationwide fiber network to dramatically expand Verizon's broadband footprint and reduce reliance on wireless-only revenue.",
+    "strategicImportance": "Transformational for Verizon's fixed broadband strategy. Frontier's 7.2M fiber/copper subscribers + ongoing fiber buildout (5M+ FTTH passings planned) give Verizon a true wireline/wireless convergence platform to compete with AT&T and cable operators.",
+    "keyTerms": "$38.50/share all-cash ($20B). Largest US telecom deal since T-Mobile/Sprint.",
+    "notes": "FCC approved January 7, 2026; Verizon closed the acquisition January 20, 2026. Consumer groups had raised concerns about reduced competition in states where Verizon and Frontier previously competed. Frontier is being integrated into Verizon's network and branded under Verizon, significantly expanding Verizon's wireline fiber footprint outside its traditional Northeast/Mid-Atlantic territory."
+  },
+  {
+    "id": "deal-010",
+    "date": "2025-08-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "T-Mobile US",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": null
+    },
+    "acquired": {
+      "name": "US Cellular",
+      "type": "MNO (Regional Wireless)",
+      "ticker": "USM",
+      "pe": null
+    },
+    "dealValue": 4300000000,
+    "ownershipPct": 100,
+    "geography": [
+      "IL",
+      "WI",
+      "IA",
+      "NE",
+      "OR",
+      "WA",
+      "ID",
+      "WY",
+      "ME",
+      "NH",
+      "VT",
+      "NC",
+      "SC",
+      "TN",
+      "OK",
+      "TX",
+      "KS",
+      "MO",
+      "AR",
+      "LA",
+      "AL",
+      "GA",
+      "FL"
+    ],
+    "subscribers": 5000000,
+    "reason": "Acquire regional spectrum and rural subscribers to deepen rural 5G coverage and eliminate a marginal competitor.",
+    "strategicImportance": "US Cellular held valuable low-band (600/700 MHz) and mid-band spectrum in rural markets. Acquisition deepens T-Mobile's rural 5G lead and removes a competitor bidding against them for spectrum.",
+    "keyTerms": "$4.3B total: $2.0B cash for wireless ops + $2.3B for spectrum licenses. TDS (parent) retained wireline assets. Closed August 2025 following FCC/DOJ approval.",
+    "notes": "TDS retained US LEC wireline assets (US LEC, the wireline subsidiary, was not part of the transaction). T-Mobile integrated US Cellular's rural spectrum licenses and ~5M subscribers; US Cellular retail stores converted to T-Mobile. Deepens T-Mobile's rural 5G coverage in the Upper Midwest, Pacific Northwest, and Southeast."
+  },
+  {
+    "id": "deal-025",
+    "date": "2024-01-02",
+    "status": "Completed",
+    "dealType": "Merger",
+    "acquirer": {
+      "name": "EchoStar Corporation",
+      "type": "Satellite / Wireless",
+      "ticker": "SATS",
+      "pe": null
+    },
+    "acquired": {
+      "name": "DISH Network Corporation",
+      "type": "DBS / Satellite TV / MNO",
+      "ticker": "DISH",
+      "pe": null
+    },
+    "dealValue": 1100000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 9000000,
+    "reason": "Reunify EchoStar and DISH (separated since 2008) to simplify the balance sheet, address DISH's ~$22B debt load, and position for the DirecTV satellite TV acquisition.",
+    "strategicImportance": "DISH and EchoStar were separated in 2008 to allow independent growth. Declining satellite TV subscribers and DISH's failure to build a viable 5G network made the separation untenable. Recombination allows EchoStar to manage DISH's debt collectively and execute the DirecTV merger. EchoStar retains valuable 800 MHz EBS and 600 MHz wireless spectrum — potentially the most valuable remaining asset.",
+    "keyTerms": "All-stock merger valued at ~$1.1B. EchoStar issued shares to DISH public shareholders. DISH delisted from NASDAQ.",
+    "notes": "EchoStar's Charlie Ergen drove both the original 2008 separation and this 2024 recombination. DISH's 5G buildout largely failed to reach FCC buildout milestones."
+  },
+  {
+    "id": "deal-015",
+    "date": "2024-01-10",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Comcast Corporation",
+      "type": "MSO (Cable)",
+      "ticker": "CMCSA",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Xumo (Charter's 50% stake — full Xumo acquisition)",
+      "type": "Streaming / MVPD Platform",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 500000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 10000000,
+    "reason": "Consolidate streaming OS platform ownership; eliminate Charter's joint ownership stake as Charter's financial position weakened.",
+    "strategicImportance": "Xumo provides Comcast with a white-label streaming OS deployed on Comcast, Charter, and third-party devices. Full ownership enables Comcast to license Xumo broadly and compete with Roku/Fire TV.",
+    "keyTerms": "Comcast bought out Charter's ~50% stake. Estimated $500M. Charter exited.",
+    "notes": "Charter originally co-developed Xumo with Comcast as an OTT/streaming platform. Charter's exit reflects capital reallocation to fiber/network upgrades."
+  },
+  {
+    "id": "deal-019",
+    "date": "2024-03-14",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Calix Networks",
+      "type": "Broadband Platform / SaaS",
+      "ticker": "CALX",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Bark Technologies (ISP Parental Controls SaaS)",
+      "type": "SaaS / Software",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 50000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": null,
+    "reason": "Add family safety/parental control SaaS capability to Calix's broadband platform sold to community ISPs and cooperatives.",
+    "strategicImportance": "ISP-delivered family safety is a sticky, recurring ARPU add-on. Calix targets community telcos and cooperative ISPs where family/parental control features drive subscriber retention. Integration into AXOS platform extends Calix's managed services offering across 1,600+ ISP customers.",
+    "keyTerms": "~$50M. Bark founders partially reinvested.",
+    "notes": "Calix serves 1,600+ community ISPs. Adding Bark enables them to sell managed family safety as a monthly add-on without building it themselves."
+  },
+  {
+    "id": "deal-026",
+    "date": "2023-06-28",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "T-Mobile US",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Ka'ena Corporation (Mint Mobile / Ultra Mobile)",
+      "type": "MVNO (Prepaid)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 1350000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 3000000,
+    "reason": "Acquire the leading direct-to-consumer low-cost MVNO brand to expand T-Mobile's presence in the value/prepaid segment alongside Metro by T-Mobile.",
+    "strategicImportance": "Mint Mobile was the fastest-growing prepaid brand in the US, built on T-Mobile's own network via wholesale MVNO agreement. Acquisition brings ~3M subscribers in-house, eliminates MVNO wholesale discount, and adds premium brand awareness driven by co-owner Ryan Reynolds. Ultra Mobile serves international calling/remittance market segment.",
+    "keyTerms": "Up to $1.35B: $325M initial cash + up to $1.0B performance earnout tied to Mint's subscriber growth. Ka'ena operated independently under T-Mobile. Ryan Reynolds received significant proceeds as a co-owner.",
+    "notes": "Mint Mobile famously used Ryan Reynolds as both owner and spokesman. The earnout structure tied value creation directly to subscriber growth post-acquisition."
+  },
+  {
+    "id": "deal-027",
+    "date": "2023-05-30",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Viasat Inc.",
+      "type": "Satellite Broadband",
+      "ticker": "VSAT",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Inmarsat Holdings Ltd",
+      "type": "Satellite Broadband / Mobile",
+      "ticker": null,
+      "pe": {
+        "firm": "Apax Partners / Warburg Pincus / CPPIB Consortium",
+        "firmType": "Private Equity + Institutional Investor",
+        "aum": "Apax: $70B+ | Warburg: $85B+ | CPPIB: $575B+",
+        "primaryFunds": [
+          "Apax X",
+          "Warburg Pincus XIV",
+          "CPPIB Infrastructure Investments"
+        ],
+        "otherTelecomPortfolio": [
+          "Apax: Tele2 (historical), IGATE",
+          "Warburg: SBA Communications (partial), MetroPCS (historical)",
+          "CPPIB: Crown Castle (partial)"
+        ],
+        "headquarters": "Apax: London/New York | Warburg: New York | CPPIB: Toronto",
+        "website": "apax.com / warburgpincus.com"
+      }
+    },
+    "dealValue": 7300000000,
+    "ownershipPct": 100,
+    "geography": [
+      "Global (100+ countries)"
+    ],
+    "subscribers": 1800000,
+    "reason": "Create a global broadband satellite powerhouse combining Viasat's ViaSat-3 GEO constellation with Inmarsat's global L-band, Ka-band, and hybrid LEO/GEO network to compete with Starlink.",
+    "strategicImportance": "Inmarsat is the dominant global satellite provider for maritime, aviation, and government/defense markets. Combined with Viasat's consumer broadband satellite, the deal creates one of the world's largest satellite ISPs able to serve all segments globally. Critical to competing with SpaceX Starlink's rapid LEO expansion.",
+    "keyTerms": "~$7.3B including $3.4B net debt assumption. Viasat issued ~46.36M shares (35% of combined entity). UK Competition and Markets Authority (CMA) review delayed close from 2022 to May 2023.",
+    "notes": "Inmarsat was taken private by Apax/Warburg in 2020 for ~$6B, just three years before Viasat acquired it. UK regulatory review took 18+ months and included conditional remedies."
+  },
+  {
+    "id": "deal-007",
+    "date": "2023-09-05",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Lumos Networks (Lumos Fiber)",
+      "type": "CLEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "EQT Infrastructure",
+        "firmType": "Infrastructure Private Equity",
+        "aum": "$250B+ (EQT total; $55B+ infrastructure)",
+        "primaryFunds": [
+          "EQT Infrastructure V",
+          "EQT Infrastructure VI"
+        ],
+        "otherTelecomPortfolio": [
+          "Zayo Group",
+          "Conterra Networks",
+          "Vertical Bridge (towers)"
+        ],
+        "headquarters": "Stockholm, Sweden (US: New York, NY)",
+        "website": "eqtgroup.com"
+      }
+    },
+    "acquired": {
+      "name": "Hotwire Communications",
+      "type": "Fiber ISP (MDU/HOA)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 600000000,
+    "ownershipPct": 100,
+    "geography": [
+      "FL",
+      "PA",
+      "SC",
+      "NC",
+      "MD"
+    ],
+    "subscribers": 120000,
+    "reason": "Expand Lumos footprint into the high-margin MDU/HOA fiber market in the Southeast; acquire Hotwire's dense urban/suburban fiber plant.",
+    "strategicImportance": "MDU fiber is a sticky, captive-subscriber segment with minimal churn. Hotwire had pre-wired hundreds of HOA communities and MDUs with fiber. Combined with Lumos's greenfield FTTH buildout, EQT gains exposure to multiple fiber segments across the Southeast.",
+    "keyTerms": "All-cash. Estimated ~$600M. Terms not publicly disclosed.",
+    "notes": "Hotwire specialized in HOA and MDU (multi-dwelling unit) fiber — a distinct and defensible market segment with low competitive risk once a community is wired."
+  },
+  {
+    "id": "deal-008",
+    "date": "2021-11-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Astound Broadband (Stonepeak Infrastructure Partners)",
+      "type": "MSO (Cable) / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Stonepeak Infrastructure Partners",
+        "firmType": "Infrastructure Private Equity",
+        "aum": "$70B+",
+        "primaryFunds": [
+          "Stonepeak Infrastructure Partners IV",
+          "Stonepeak Infrastructure Partners V"
+        ],
+        "otherTelecomPortfolio": [
+          "Astound Broadband (full ownership)",
+          "IEX Group (exchange infrastructure)",
+          "Cologix (data centers)",
+          "Lumen CDN (partial historical)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "stonepeakpartners.com"
+      }
+    },
+    "acquired": {
+      "name": "WideOpenWest (WOW!) — Illinois, Indiana & Maryland Cable Systems",
+      "type": "MSO (Cable)",
+      "ticker": "WOW",
+      "pe": {
+        "firm": "Crestview Partners",
+        "firmType": "Private Equity",
+        "aum": "$10B+",
+        "primaryFunds": [
+          "Crestview Partners IV",
+          "Crestview Partners V"
+        ],
+        "otherTelecomPortfolio": [
+          "WideOpenWest (WOW! — retained remaining systems)",
+          "Other media/telecom investments"
+        ],
+        "headquarters": "New York, NY",
+        "website": "crestview.com"
+      }
+    },
+    "dealValue": 661000000,
+    "ownershipPct": 100,
+    "geography": [
+      "IL",
+      "IN",
+      "MD"
+    ],
+    "subscribers": 350000,
+    "reason": "Astound acquires WOW!'s non-core Illinois, Indiana, and Maryland cable markets to expand its Midwest and Mid-Atlantic footprint; WOW! divests to reduce leverage and focus on its remaining core markets.",
+    "strategicImportance": "WOW! had been divesting non-core systems since 2019. The IL/IN/MD systems added ~350K subscribers to Astound, extending its reach from the East Coast (RCN) and Texas (Grande) into the Midwest and Mid-Atlantic. Stonepeak acquired Astound from TPG Capital in August 2021 for $8.1B; this WOW! tuck-in was one of the first acquisitions under Stonepeak ownership.",
+    "keyTerms": "$661M all-cash. Announced June 2021; closed November 2021. Stonepeak had completed its $8.1B Astound acquisition from TPG in August 2021, just weeks before this deal closed.",
+    "notes": "WOW! retained its core Ohio, Michigan, Georgia, Florida, and Alabama markets. These divested IL/IN/MD systems became part of Astound's expanded national footprint. Note: GPC (Great Plains Communications) is a separate, independent Grain Management portfolio company and was never affiliated with Astound or TPG."
+  },
+  {
+    "id": "deal-017",
+    "date": "2023-05-03",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "E8 Partners / Creditor Consortium",
+      "type": "Distressed Asset Acquisition",
+      "ticker": null,
+      "pe": {
+        "firm": "E8 Partners",
+        "firmType": "Distressed Debt / Special Situations",
+        "aum": "N/A",
+        "primaryFunds": [
+          "Secured lender consortium"
+        ],
+        "otherTelecomPortfolio": [],
+        "headquarters": "New York, NY",
+        "website": null
+      }
+    },
+    "acquired": {
+      "name": "Starry Group Holdings (Chapter 11 asset sale)",
+      "type": "Fixed Wireless / Licensed mmWave",
+      "ticker": "STRY",
+      "pe": null
+    },
+    "dealValue": 160000000,
+    "ownershipPct": 100,
+    "geography": [
+      "NY",
+      "MA",
+      "CO",
+      "DC",
+      "IN",
+      "OH",
+      "WI"
+    ],
+    "subscribers": 100000,
+    "reason": "Starry filed Chapter 11; secured lenders acquired assets via credit bid after Starry failed to raise growth capital in rising interest rate environment.",
+    "strategicImportance": "Starry demonstrated licensed fixed wireless internet is viable in urban MDU markets using LMDS/37GHz spectrum. Bankruptcy highlighted the capital intensity of licensed FWA vs. cable incumbents. Assets included valuable spectrum licenses and 100K+ MDU contracts in dense urban markets.",
+    "keyTerms": "Credit bid ~$160M by secured lenders led by E8. Starry had raised $500M+ from investors including Tiger Global, Hercules Capital, and ARYA Sciences.",
+    "notes": "Starry's failure underscored difficulty of scaling licensed mmWave fixed wireless against incumbents. The MDU spectrum licenses retained value even after bankruptcy."
+  },
+  {
+    "id": "deal-014",
+    "date": "2023-06-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Cox Communications",
+      "type": "MSO (Cable)",
+      "ticker": null,
+      "pe": {
+        "firm": "Cox Enterprises (Private Family Ownership)",
+        "firmType": "Family-Controlled Conglomerate",
+        "aum": "N/A (private)",
+        "primaryFunds": [
+          "N/A"
+        ],
+        "otherTelecomPortfolio": [
+          "Cox Automotive",
+          "Cox Media Group",
+          "Cox Business"
+        ],
+        "headquarters": "Atlanta, GA",
+        "website": "coxenterprises.com"
+      }
+    },
+    "acquired": {
+      "name": "Prepared Fiber (Atlanta-Area FTTH Assets)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 100000000,
+    "ownershipPct": 100,
+    "geography": [
+      "GA"
+    ],
+    "subscribers": 25000,
+    "reason": "Acquire in-territory fiber overbuilder to prevent subscriber loss in Cox's home market; absorb fiber plant at lower cost than building.",
+    "strategicImportance": "Defensive acquisition in Cox's Atlanta home market. Prepared Fiber had begun overbuilding Cox's footprint with FTTH. Acquisition eliminates competitive threat and adds FTTH passings to Cox's upgrade roadmap.",
+    "keyTerms": "Estimated ~$100M. Included fiber plant, customer contracts, and headend infrastructure.",
+    "notes": "Cox is privately held by Cox Enterprises. Acquisition is consistent with Cox's FTTH upgrade strategy and reflects cable industry's need to defend against fiber overbuilders."
+  },
+  {
+    "id": "deal-020",
+    "date": "2023-11-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Mediacom Communications",
+      "type": "MSO (Cable)",
+      "ticker": null,
+      "pe": {
+        "firm": "Mediacom (Founder-Owned / Private)",
+        "firmType": "Privately Held (Founder)",
+        "aum": "N/A",
+        "primaryFunds": [
+          "N/A"
+        ],
+        "otherTelecomPortfolio": [],
+        "headquarters": "Chester, NY",
+        "website": "mediacomcc.com"
+      }
+    },
+    "acquired": {
+      "name": "Vyve Broadband (Selected Systems)",
+      "type": "MSO (Cable) / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "GTCR LLC",
+        "firmType": "Private Equity",
+        "aum": "$35B+",
+        "primaryFunds": [
+          "GTCR Fund XIII"
+        ],
+        "otherTelecomPortfolio": [
+          "Hargray (sold to WOW)",
+          "Syniverse Technologies",
+          "TTEC Holdings"
+        ],
+        "headquarters": "Chicago, IL",
+        "website": "gtcr.com"
+      }
+    },
+    "dealValue": 450000000,
+    "ownershipPct": 100,
+    "geography": [
+      "OK",
+      "KS",
+      "AR",
+      "TX"
+    ],
+    "subscribers": 95000,
+    "reason": "Contiguous geographic expansion in South-Central US; add Vyve's rural cable/fiber systems adjacent to Mediacom's existing footprint.",
+    "strategicImportance": "Mediacom has been consolidating rural cable markets for years. Vyve systems in OK/KS/TX/AR are adjacent to Mediacom's South-Central footprint, driving synergies in rural broadband — a key BEAD-eligible area.",
+    "keyTerms": "Estimated ~$450M. GTCR exited Vyve systems piecemeal across multiple buyers.",
+    "notes": "GTCR built Vyve as a rural cable roll-up. Vyve has sold different market clusters to different strategic buyers."
+  },
+  {
+    "id": "deal-028",
+    "date": "2022-08-01",
+    "status": "Completed",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "Stonepeak Infrastructure Partners",
+      "type": "Infrastructure Private Equity",
+      "ticker": null,
+      "pe": {
+        "firm": "Stonepeak Infrastructure Partners",
+        "firmType": "Infrastructure Private Equity",
+        "aum": "$70B+",
+        "primaryFunds": [
+          "Stonepeak Infrastructure Fund IV",
+          "Stonepeak Infrastructure Fund V"
+        ],
+        "otherTelecomPortfolio": [
+          "Phoenix Tower International (cell towers)",
+          "Astound Broadband (co-invest minority)",
+          "Calpine (power infrastructure)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "stonepeakpartners.com"
+      }
+    },
+    "acquired": {
+      "name": "Lumen Technologies Latin America (Cirion Technologies)",
+      "type": "Enterprise Fiber / Carrier",
+      "ticker": "LUMN",
+      "pe": null
+    },
+    "dealValue": 2700000000,
+    "ownershipPct": 100,
+    "geography": [
+      "Brazil",
+      "Argentina",
+      "Chile",
+      "Colombia",
+      "Peru",
+      "Mexico",
+      "Venezuela",
+      "Ecuador",
+      "Bolivia",
+      "Paraguay",
+      "Uruguay",
+      "Costa Rica",
+      "Guatemala",
+      "Puerto Rico",
+      "USVI"
+    ],
+    "subscribers": null,
+    "reason": "Lumen divested its LatAm operations to raise $2.7B for US debt reduction; Stonepeak acquired a dominant enterprise fiber network across 15 Latin American countries.",
+    "strategicImportance": "Cirion Technologies (rebranded) operates the #1 or #2 enterprise fiber network in most Latin American markets. Stonepeak gains a stable infrastructure asset with strong recurring enterprise revenue in fast-growing Latin American data center and cloud markets. Lumen raised proceeds to reduce leverage after CenturyLink/Level 3 debt load.",
+    "keyTerms": "$2.7B cash. Included submarine cables, data centers, enterprise fiber, and cloud connectivity assets across 15 countries + PR and USVI. Operations rebranded as Cirion Technologies.",
+    "notes": "Part of Lumen's broader $9B+ divestiture strategy (2021-2022) that also included the Brightspeed (ILEC) and Colt EMEA sales."
+  },
+  {
+    "id": "deal-003",
+    "date": "2022-10-03",
+    "status": "Completed",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "Brightspeed",
+      "type": "CLEC / Fiber ILEC",
+      "ticker": null,
+      "pe": {
+        "firm": "Apollo Global Management",
+        "firmType": "Private Equity / Alternative Asset Manager",
+        "aum": "$650B+",
+        "primaryFunds": [
+          "Apollo Investment Fund IX",
+          "Apollo Investment Fund X"
+        ],
+        "otherTelecomPortfolio": [
+          "Cox Media Group",
+          "ADT Inc.",
+          "Rackspace Technology",
+          "Presidio"
+        ],
+        "headquarters": "New York, NY",
+        "website": "apollo.com"
+      }
+    },
+    "acquired": {
+      "name": "Lumen Technologies (ILEC Assets — 20 States)",
+      "type": "ILEC / DSL",
+      "ticker": "LUMN",
+      "pe": null
+    },
+    "dealValue": 7500000000,
+    "ownershipPct": 100,
+    "geography": [
+      "NC",
+      "SC",
+      "OH",
+      "IN",
+      "WI",
+      "MN",
+      "IA",
+      "NE",
+      "KS",
+      "MO",
+      "AR",
+      "LA",
+      "AL",
+      "MS",
+      "TN",
+      "KY",
+      "VA",
+      "WV",
+      "PA",
+      "NY"
+    ],
+    "subscribers": 1200000,
+    "reason": "Apollo acquired Lumen's legacy copper ILEC footprint across 20 states to convert to fiber, targeting 3M+ passings via greenfield FTTH deployment.",
+    "strategicImportance": "One of the largest copper-to-fiber conversion projects in US history. Brightspeed aims to pass 3M+ homes with fiber by 2028. Represents Apollo's bet on rural/suburban fiber demand and BEAD subsidy capture across the Southeast and Midwest.",
+    "keyTerms": "$7.5B cash. Lumen retained enterprise/federal segment and urban fiber assets.",
+    "notes": "Renamed to Brightspeed. Targeting 3M fiber passings by 2028. Eligible for significant BEAD funding across its rural footprint."
+  },
+  {
+    "id": "deal-018",
+    "date": "2022-05-16",
+    "status": "Completed",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "Colt Technology Services",
+      "type": "Enterprise Fiber / Carrier",
+      "ticker": null,
+      "pe": {
+        "firm": "Fidelity Investments (Colt Owner)",
+        "firmType": "Institutional Asset Manager (Strategic Owner)",
+        "aum": "$4.5T+",
+        "primaryFunds": [
+          "Fidelity Strategic Investments"
+        ],
+        "otherTelecomPortfolio": [
+          "Colt Technology Services"
+        ],
+        "headquarters": "Boston, MA",
+        "website": "fidelity.com"
+      }
+    },
+    "acquired": {
+      "name": "Lumen Technologies EMEA Business",
+      "type": "Enterprise Fiber / Carrier",
+      "ticker": "LUMN",
+      "pe": null
+    },
+    "dealValue": 1800000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United Kingdom",
+      "Germany",
+      "France",
+      "Netherlands",
+      "Belgium",
+      "Spain",
+      "Italy"
+    ],
+    "subscribers": null,
+    "reason": "Lumen divested non-core EMEA enterprise assets to reduce debt; Colt gains Lumen's European enterprise fiber network to significantly expand its pan-European footprint.",
+    "strategicImportance": "Colt absorbed Lumen's EMEA enterprise customers and network, making Colt one of the largest pan-European enterprise fiber operators. Lumen exits international markets entirely, raising $1.8B toward debt reduction.",
+    "keyTerms": "$1.8B cash. Colt (owned by Fidelity) absorbed all Lumen EMEA operations.",
+    "notes": "Part of Lumen's ~$9B+ divestiture strategy (2021-2022) that included LatAm/Cirion and Brightspeed sales."
+  },
+  {
+    "id": "deal-012",
+    "date": "2022-01-13",
+    "status": "Completed",
+    "dealType": "Recapitalization",
+    "acquirer": {
+      "name": "MetroNet",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": {
+        "firm": "KKR & Co. / Ares Management",
+        "firmType": "Private Equity / Infrastructure",
+        "aum": "KKR: $550B+ | Ares: $400B+",
+        "primaryFunds": [
+          "KKR Infrastructure IV",
+          "KKR Americas XII",
+          "Ares Infrastructure Opportunities Fund II"
+        ],
+        "otherTelecomPortfolio": [
+          "KKR: Tele2 (partial), GigaPower (AT&T JV)",
+          "Ares: Uniti Group (partial), Consolidated Fiber"
+        ],
+        "headquarters": "KKR: New York, NY | Ares: Los Angeles, CA",
+        "website": "kkr.com / aresmgmt.com"
+      }
+    },
+    "acquired": {
+      "name": "MetroNet (Recapitalization / Growth Investment)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 900000000,
+    "ownershipPct": 100,
+    "geography": [
+      "IN",
+      "IL",
+      "OH",
+      "MI",
+      "KY",
+      "TN",
+      "WI",
+      "MN",
+      "MO",
+      "IA",
+      "KS",
+      "OK",
+      "TX",
+      "AR",
+      "AL",
+      "GA",
+      "FL",
+      "NC",
+      "SC",
+      "VA",
+      "WV",
+      "PA",
+      "NY",
+      "MD",
+      "NJ"
+    ],
+    "subscribers": 500000,
+    "reason": "Provide growth capital for MetroNet's aggressive FTTH expansion into underserved Midwest and Southeast communities.",
+    "strategicImportance": "MetroNet is one of the fastest-growing pure-fiber ISPs in the US, targeting small-to-mid-size cities (20K-200K population) ignored by cable incumbents unwilling to absorb upgrade capex. KKR/Ares recapitalization funded expansion from ~40 markets to 250+ markets.",
+    "keyTerms": "KKR led recapitalization; Ares co-invested. Founders retained minority stake.",
+    "notes": "MetroNet targets markets where cable operators have not upgraded to DOCSIS 3.1/4.0, creating a greenfield fiber opportunity with limited competition."
+  },
+  {
+    "id": "deal-013",
+    "date": "2022-08-23",
+    "status": "Completed",
+    "dealType": "Joint Venture",
+    "acquirer": {
+      "name": "GigaPower LLC (AT&T + BlackRock JV)",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": {
+        "firm": "BlackRock Infrastructure",
+        "firmType": "Infrastructure Asset Manager",
+        "aum": "$50B+ (Infrastructure)",
+        "primaryFunds": [
+          "BlackRock Global Infrastructure Fund IV",
+          "BlackRock Infrastructure Debt Fund"
+        ],
+        "otherTelecomPortfolio": [
+          "Telxius Towers (partial)",
+          "Crown Infrastructure Partners",
+          "Tillman Infrastructure (partial)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "blackrock.com"
+      }
+    },
+    "acquired": {
+      "name": "AT&T Fiber Expansion Assets (Greenfield Markets)",
+      "type": "ILEC / Pure Fiber",
+      "ticker": "T",
+      "pe": null
+    },
+    "dealValue": 950000000,
+    "ownershipPct": 50,
+    "geography": [
+      "United States (Greenfield Markets)"
+    ],
+    "subscribers": null,
+    "reason": "AT&T monetizes fiber expansion capital needs via an infrastructure equity partner; BlackRock gains infrastructure-like returns from fiber broadband growth.",
+    "strategicImportance": "GigaPower allows AT&T to accelerate fiber deployment into markets outside its traditional wireline footprint without fully funding capex. JV structure keeps debt off AT&T's balance sheet while sharing revenue upside. Target: 1.5M+ greenfield passings competing as an overbuilder.",
+    "keyTerms": "AT&T and BlackRock each hold ~50%. AT&T contributes network expertise; BlackRock contributes $950M+ initial equity.",
+    "notes": "GigaPower operates as a separate entity, competing as an overbuilder in markets where AT&T has no existing wireline presence."
+  },
+  {
+    "id": "deal-006",
+    "date": "2022-03-04",
+    "status": "Completed",
+    "dealType": "Merger",
+    "acquirer": {
+      "name": "Verizon Communications",
+      "type": "MNO / ILEC",
+      "ticker": "VZ",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Tracfone Wireless",
+      "type": "MVNO (Prepaid)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 6250000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 21000000,
+    "reason": "Enter the prepaid/MVNO market and acquire 21M subscribers from América Móvil to offset postpaid saturation and compete in the value segment.",
+    "strategicImportance": "Gave Verizon a major foothold in value/prepaid, historically dominated by T-Mobile (Metro) and AT&T (Cricket). Tracfone resells on all major networks, providing Verizon with competitive intelligence and a large low-ARPU subscriber base.",
+    "keyTerms": "$3.125B cash + up to $650M contingent earnout + ~$2.98B in Verizon stock. FCC required Verizon to maintain MVNO agreements on rival networks for 3 years post-close.",
+    "notes": "FCC condition required Verizon to honor existing MVNO wholesale agreements for 3 years, protecting rival MVNO operators that relied on Tracfone's network relationships."
+  },
+  {
+    "id": "deal-029",
+    "date": "2022-06-15",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Point Broadband",
+      "type": "Pure Fiber (FTTH)",
+      "ticker": null,
+      "pe": {
+        "firm": "Grain Management LLC",
+        "firmType": "Private Equity (Telecom-Focused)",
+        "aum": "$5B+",
+        "primaryFunds": [
+          "Grain Communications Opportunity Fund II",
+          "Grain Communications Opportunity Fund III"
+        ],
+        "otherTelecomPortfolio": [
+          "Segra (Southeast fiber CLEC)",
+          "TeleCove (historical)",
+          "Various rural CLEC acquisitions"
+        ],
+        "headquarters": "Washington, DC",
+        "website": "grainmanagement.com"
+      }
+    },
+    "acquired": {
+      "name": "Several Rural Fiber ISPs (Southeast / Mid-Atlantic Roll-Up)",
+      "type": "ILEC / Fiber / Rural ISP",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 400000000,
+    "ownershipPct": 100,
+    "geography": [
+      "VA",
+      "WV",
+      "KY",
+      "TN",
+      "NC",
+      "SC",
+      "GA",
+      "OH",
+      "IN"
+    ],
+    "subscribers": 80000,
+    "reason": "Build a rural fiber broadband roll-up platform across the Southeast and Mid-Atlantic targeting underserved communities with FTTH and fixed wireless.",
+    "strategicImportance": "Grain Management is one of the most active telecom-focused PE firms in rural broadband. Point Broadband serves as the platform for multiple bolt-on acquisitions of rural ILECs and cable systems across Appalachia and the Southeast — markets with significant BEAD and RDOF subsidy eligibility.",
+    "keyTerms": "Estimated $400M+ across multiple transactions. Individual deal sizes typically $20-100M each. Ongoing roll-up strategy.",
+    "notes": "Grain also owns Segra, a major Southeast fiber CLEC (former Spirit Communications + Lumos Networks assets). Point Broadband focuses on residential/SMB rural broadband."
+  },
+  {
+    "id": "deal-004",
+    "date": "2022-07-27",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Consolidated Communications (Searchlight Capital take-private)",
+      "type": "ILEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "Searchlight Capital Partners",
+        "firmType": "Private Equity",
+        "aum": "$10B+",
+        "primaryFunds": [
+          "Searchlight Capital Partners III",
+          "Searchlight Capital Partners IV"
+        ],
+        "otherTelecomPortfolio": [
+          "Cogeco Inc. (minority stake)",
+          "Xplornet Communications",
+          "Boingo Wireless (historical)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "searchlightcap.com"
+      }
+    },
+    "acquired": {
+      "name": "Consolidated Communications Holdings (Take-Private)",
+      "type": "ILEC / Fiber",
+      "ticker": "CNSL",
+      "pe": null
+    },
+    "dealValue": 3100000000,
+    "ownershipPct": 100,
+    "geography": [
+      "NH",
+      "VT",
+      "ME",
+      "MN",
+      "WI",
+      "IL",
+      "TX",
+      "CA",
+      "PA",
+      "WV",
+      "KS"
+    ],
+    "subscribers": 780000,
+    "reason": "Take-private to accelerate fiber deployment without public market pressure on short-term earnings; remove capital constraints from Consolidated's copper-to-fiber conversion.",
+    "strategicImportance": "Enabled aggressive fiber overbuilding of Consolidated's copper footprint. Searchlight's telecom expertise (via Cogeco/Boingo) brought operational depth. Strong BEAD positioning across rural New England and Midwest markets.",
+    "keyTerms": "$4.70/share all-cash. Searchlight led the consortium. Announcement in 2021; close in July 2022 after regulatory approvals.",
+    "notes": "Searchlight initially invested in Consolidated in 2020 before taking full control in 2022. Accelerated fiber buildout followed."
+  },
+  {
+    "id": "deal-030",
+    "date": "2021-09-20",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Macquarie Infrastructure & Real Assets (MIRA)",
+      "type": "Infrastructure Private Equity",
+      "ticker": null,
+      "pe": {
+        "firm": "Macquarie Asset Management (MIRA)",
+        "firmType": "Infrastructure Asset Manager",
+        "aum": "$900B+ (total Macquarie) | $250B+ (infrastructure)",
+        "primaryFunds": [
+          "Macquarie Infrastructure Partners V",
+          "Macquarie Infrastructure Partners VI"
+        ],
+        "otherTelecomPortfolio": [
+          "Aquarion Water Company",
+          "Dulles Greenway",
+          "IMTT (liquid terminal storage)",
+          "Cleco Power"
+        ],
+        "headquarters": "Sydney, Australia (US: New York, NY)",
+        "website": "macquarie.com"
+      }
+    },
+    "acquired": {
+      "name": "Cincinnati Bell Inc.",
+      "type": "ILEC / Fiber",
+      "ticker": "CBB",
+      "pe": null
+    },
+    "dealValue": 2900000000,
+    "ownershipPct": 100,
+    "geography": [
+      "OH",
+      "KY",
+      "IN",
+      "HI"
+    ],
+    "subscribers": 500000,
+    "reason": "Acquire underinvested ILEC with strong market position in Cincinnati and Hawaii to accelerate fiber-to-the-home deployment as a pure-infrastructure investment.",
+    "strategicImportance": "Cincinnati Bell (rebranded altafiber) holds a dominant position in the Cincinnati metro market with existing fiber infrastructure and strong brand loyalty. Macquarie's infrastructure capital enables aggressive FTTH expansion without the constraints of public market earnings pressure. Hawaiian Telcom (acquired by CBB in 2018) adds a defensible island market.",
+    "keyTerms": "$2.9B. Announced December 2020; closed September 2021. Company rebranded to altafiber post-acquisition.",
+    "notes": "altafiber now provides fiber internet to 600K+ passings in Cincinnati MSA. Hawaiian Telcom operates as a subsidiary under Macquarie ownership."
+  },
+  {
+    "id": "deal-031",
+    "date": "2021-07-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "EQT Infrastructure",
+      "type": "Infrastructure Private Equity",
+      "ticker": "EQT",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Lumos Networks",
+      "type": "CLEC / Fiber",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 950000000,
+    "ownershipPct": 100,
+    "geography": [
+      "VA",
+      "WV",
+      "NC",
+      "KY",
+      "TN",
+      "MD",
+      "PA"
+    ],
+    "subscribers": 130000,
+    "reason": "Acquire a fiber-rich CLEC platform in Virginia and the Southeast to build a regional pure-fiber ISP with significant FTTH greenfield expansion potential.",
+    "strategicImportance": "Lumos Networks provided EQT with a proven fiber CLEC platform across the Virginia/Southeast market. EQT used this as a base for further acquisitions (Hotwire Communications in 2023) to build a diversified fiber ISP. Strong positioning for BEAD funding in rural Virginia and West Virginia.",
+    "keyTerms": "Estimated ~$950M enterprise value. EQT Infrastructure Fund V vehicle. Lumos had been privately held since de-listing.",
+    "notes": "Lumos Networks had been a public company (NASDAQ: LMOS) before going private. EQT's acquisition provided the platform for subsequent Hotwire acquisition to expand into MDU/HOA fiber."
+  },
+  {
+    "id": "deal-032",
+    "date": "2021-04-01",
+    "status": "Completed",
+    "dealType": "Consolidation",
+    "acquirer": {
+      "name": "TPG Capital (Astound Broadband Formation)",
+      "type": "MSO (Cable) / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "TPG Capital",
+        "firmType": "Private Equity",
+        "aum": "$185B+",
+        "primaryFunds": [
+          "TPG Capital VIII",
+          "TPG Capital IX"
+        ],
+        "otherTelecomPortfolio": [
+          "DirecTV LLC",
+          "WideOpenWest (partial — sold IL/IN/MD to Astound 2021)",
+          "Astound Broadband (sold to Stonepeak 2021)"
+        ],
+        "headquarters": "Fort Worth, TX",
+        "website": "tpg.com"
+      }
+    },
+    "acquired": {
+      "name": "RCN Telecom + WaveDivision + Grande Communications (Consolidated into Astound)",
+      "type": "MSO (Cable) / Fiber",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 8100000000,
+    "ownershipPct": 100,
+    "geography": [
+      "NY",
+      "NJ",
+      "PA",
+      "DC",
+      "IL",
+      "MA",
+      "WA",
+      "OR",
+      "CA",
+      "TX"
+    ],
+    "subscribers": 1100000,
+    "reason": "Consolidate TPG's three separately owned cable/fiber ISP assets — RCN, WaveDivision (Wave), and Grande Communications — into a single national brand to achieve scale efficiencies.",
+    "strategicImportance": "Astound became the 6th-largest US cable operator at formation with 1.1M subscribers across 10 states. Combined ~$8B enterprise value. Unified brand, technology stack, and network operations drive cost synergies. Single platform better positioned for capex investment in fiber upgrades and DOCSIS 3.1/4.0 rollout.",
+    "keyTerms": "TPG merged three portfolio companies it had owned separately (RCN since 2010, WaveDivision since 2012, Grande since 2014). No external acquisition price — internal consolidation at ~$8.1B combined EV.",
+    "notes": "WaveDivision had previously sold Wave Broadband's assets to the RCN/Grande platform. Astound brand launched Q2 2021. TPG sold Astound to Stonepeak Infrastructure Partners in August 2021 for $8.1B (deal-052). Under Stonepeak, Astound acquired WOW!'s Illinois/Indiana/Maryland systems in November 2021 (deal-008)."
+  },
+  {
+    "id": "deal-052",
+    "date": "2021-08-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Stonepeak Infrastructure Partners",
+      "type": "Infrastructure Private Equity",
+      "ticker": null,
+      "pe": {
+        "firm": "Stonepeak Infrastructure Partners",
+        "firmType": "Infrastructure Private Equity",
+        "aum": "$70B+",
+        "primaryFunds": ["Stonepeak Infrastructure Partners IV", "Stonepeak Infrastructure Partners V"],
+        "otherTelecomPortfolio": ["Astound Broadband (acquired here)", "Cirion Technologies / Lumen LatAm (deal-028)", "IEX Group (exchange infrastructure)"],
+        "headquarters": "New York, NY",
+        "website": "stonepeakpartners.com"
+      }
+    },
+    "acquired": {
+      "name": "Astound Broadband (from TPG Capital)",
+      "type": "MSO (Cable) / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "TPG Capital",
+        "firmType": "Private Equity",
+        "aum": "$185B+",
+        "primaryFunds": ["TPG Capital VIII", "TPG Capital IX"],
+        "otherTelecomPortfolio": ["DirecTV LLC", "WideOpenWest (partial — sold IL/IN/MD to Astound 2021)"],
+        "headquarters": "Fort Worth, TX",
+        "website": "tpg.com"
+      }
+    },
+    "dealValue": 8100000000,
+    "ownershipPct": 100,
+    "geography": ["NY", "NJ", "PA", "DC", "IL", "MA", "WA", "OR", "CA", "TX"],
+    "subscribers": 1100000,
+    "reason": "Stonepeak acquires Astound Broadband (the consolidated RCN / WaveDivision / Grande platform) in a secondary LBO from TPG Capital, gaining a scaled national cable/fiber ISP as a long-term infrastructure hold.",
+    "strategicImportance": "Stonepeak's largest US telecom investment at time of close. Astound was the 6th-largest US cable operator with 1.1M subscribers across 10 states. Infrastructure-focused Stonepeak's long-term hold model suited the asset better than TPG's PE exit timeline. Astound subsequently acquired WOW!'s IL/IN/MD systems (deal-008) and is now pursuing a merger with Google Fiber / GFiber (deal-051) to become one of the largest national fiber ISPs.",
+    "keyTerms": "$8.1B total enterprise value. Stonepeak equity check approximately $661M; remainder financed with assumed and new debt (~$7.4B). Secondary LBO from TPG Capital. Closed August 2021.",
+    "notes": "TPG originally assembled the Astound platform by consolidating RCN (acquired 2010), WaveDivision (acquired 2012), and Grande Communications (acquired 2014), rebranding as Astound in Q2 2021 before completing the sale to Stonepeak (deal-032). Highly leveraged structure (~$7.4B debt) reflects cable sector's stable, recurring subscription revenue base."
+  },
+  {
+    "id": "deal-033",
+    "date": "2021-08-02",
+    "status": "Completed",
+    "dealType": "Partial Stake Sale",
+    "acquirer": {
+      "name": "TPG Capital (30% stake purchase)",
+      "type": "Private Equity",
+      "ticker": null,
+      "pe": null
+    },
+    "acquired": {
+      "name": "DirecTV LLC (AT&T's first 30% sale)",
+      "type": "DBS / Satellite TV",
+      "ticker": "T",
+      "pe": null
+    },
+    "dealValue": 1800000000,
+    "ownershipPct": 30,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 15000000,
+    "reason": "AT&T deleverages after disastrous $67B DirecTV acquisition (2015) by selling 30% to TPG; creates JV structure to manage the rapidly declining satellite TV asset.",
+    "strategicImportance": "First step in AT&T's full exit from the video distribution business. DirecTV spun out as an independently managed JV (AT&T 70%, TPG 30%) with $16.25B implied enterprise value — a fraction of AT&T's original $67B acquisition price. AT&T received $7.1B (cash + debt relief) to pay down debt.",
+    "keyTerms": "$1.8B cash from TPG for 30%, implying $16.25B enterprise value for DirecTV LLC. AT&T contributed U-verse and AT&T TV assets. DirecTV operates independently. TPG acquired remaining 70% from AT&T in 2024 (deal-023).",
+    "notes": "AT&T's DirecTV acquisition (2015, $67B) is widely considered one of the worst acquisitions in telecom history. Cord-cutting destroyed the strategic rationale within 3 years of closing."
+  },
+  {
+    "id": "deal-005",
+    "date": "2021-09-15",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "Ziply Fiber",
+      "type": "CLEC / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "WaveDivision Capital",
+        "firmType": "Private Equity (Telecom-Focused)",
+        "aum": "$2B+",
+        "primaryFunds": [
+          "WaveDivision Capital Fund I",
+          "WaveDivision Capital Fund II"
+        ],
+        "otherTelecomPortfolio": [
+          "Wave Broadband (sold to RCN/TPG)",
+          "Astound Broadband (partial historical)"
+        ],
+        "headquarters": "Kirkland, WA",
+        "website": "wavedivisioncapital.com"
+      }
+    },
+    "acquired": {
+      "name": "Frontier Communications (Pacific NW ILEC Assets — WA, OR, ID, MT)",
+      "type": "ILEC / DSL",
+      "ticker": "FYBR",
+      "pe": null
+    },
+    "dealValue": 1350000000,
+    "ownershipPct": 100,
+    "geography": [
+      "WA",
+      "OR",
+      "ID",
+      "MT"
+    ],
+    "subscribers": 450000,
+    "reason": "Acquire underinvested Frontier DSL assets in the Pacific Northwest and rapidly convert to FTTH in markets where Comcast and CenturyLink had underinvested.",
+    "strategicImportance": "Ziply became the largest independent fiber provider in the Pacific Northwest. Rapid FTTH deployment in markets long underserved by cable and DSL. Strong BEAD candidate in rural WA/OR/ID. WaveDivision Capital's Pacific NW operating expertise was directly applicable.",
+    "keyTerms": "$1.35B. Part of Frontier's Chapter 11 restructuring asset sales. Deal completed as Frontier emerged from bankruptcy.",
+    "notes": "Frontier was in bankruptcy at time of sale. Ziply has since deployed fiber to 1M+ passings and continues to expand aggressively in the Pacific Northwest."
+  },
+  {
+    "id": "deal-016",
+    "date": "2021-11-18",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "WideOpenWest (WOW!)",
+      "type": "MSO (Cable) / Fiber",
+      "ticker": "WOW",
+      "pe": {
+        "firm": "Crestview Partners",
+        "firmType": "Private Equity",
+        "aum": "$10B+",
+        "primaryFunds": [
+          "Crestview Partners IV",
+          "Crestview Partners V"
+        ],
+        "otherTelecomPortfolio": [
+          "WideOpenWest",
+          "Other media/telecom investments"
+        ],
+        "headquarters": "New York, NY",
+        "website": "crestview.com"
+      }
+    },
+    "acquired": {
+      "name": "Hargray Communications",
+      "type": "MSO / ILEC (Cable + Fiber)",
+      "ticker": null,
+      "pe": {
+        "firm": "GTCR LLC",
+        "firmType": "Private Equity",
+        "aum": "$35B+",
+        "primaryFunds": [
+          "GTCR Fund XII",
+          "GTCR Fund XIII"
+        ],
+        "otherTelecomPortfolio": [
+          "Vyve Broadband (partial, sold to Mediacom)",
+          "Syniverse Technologies",
+          "TTEC Holdings"
+        ],
+        "headquarters": "Chicago, IL",
+        "website": "gtcr.com"
+      }
+    },
+    "dealValue": 2200000000,
+    "ownershipPct": 100,
+    "geography": [
+      "SC",
+      "GA",
+      "FL",
+      "AL"
+    ],
+    "subscribers": 230000,
+    "reason": "WOW expands into the fast-growing Sun Belt Southeast markets; geographic diversification from WOW's Midwest/Mid-Atlantic cable footprint.",
+    "strategicImportance": "Hargray operated in high-growth South Carolina and Georgia coastal markets (Hilton Head, Savannah, Augusta, Bluffton). High-ARPU markets with significant MDU/HOA fiber. Strategic entry into the Sun Belt for WOW.",
+    "keyTerms": "$2.2B. GTCR generated strong returns on Hargray investment (owned since 2016). Crestview funded via WOW credit facility.",
+    "notes": "GTCR had owned Hargray since 2016. WOW sold several non-core cable systems in 2019-2020 to fund this expansion."
+  },
+  {
+    "id": "deal-002",
+    "date": "2020-04-01",
+    "status": "Completed",
+    "dealType": "Merger",
+    "acquirer": {
+      "name": "T-Mobile US",
+      "type": "MNO (Wireless)",
+      "ticker": "TMUS",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Sprint Corporation",
+      "type": "MNO (Wireless)",
+      "ticker": "S",
+      "pe": null
+    },
+    "dealValue": 26500000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 54000000,
+    "reason": "Acquire spectrum, subscribers, and network infrastructure to build a nationwide 5G network and compete with AT&T and Verizon.",
+    "strategicImportance": "Combined spectrum holdings (especially Sprint's 2.5GHz mid-band) created the most extensive 5G network in the US. Elevated T-Mobile to a true third-place competitor and enabled fixed wireless access (FWA) broadband push that disrupted cable operators.",
+    "keyTerms": "0.10256 T-Mobile shares per Sprint share. Deal cleared after DOJ/FCC approval with divestiture of Boost Mobile to DISH Network (deal-035).",
+    "notes": "Sprint shareholders received 0.10256 T-Mobile shares per share. Dish acquired Boost Mobile as condition of DOJ approval."
+  },
+  {
+    "id": "deal-034",
+    "date": "2020-05-08",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "EQT Infrastructure + Digital Colony Partners (DigitalBridge)",
+      "type": "Infrastructure Private Equity",
+      "ticker": null,
+      "pe": {
+        "firm": "EQT Infrastructure / DigitalBridge (co-lead)",
+        "firmType": "Infrastructure Private Equity / Digital Infrastructure",
+        "aum": "EQT: $250B+ | DigitalBridge: $55B+",
+        "primaryFunds": [
+          "EQT Infrastructure IV",
+          "Digital Colony Partners II"
+        ],
+        "otherTelecomPortfolio": [
+          "EQT: Lumos Networks, Conterra, Vertical Bridge",
+          "DigitalBridge: Vantage Data Centers, Scala Data Centers, Andean Telecom Partners, Phoenix Tower"
+        ],
+        "headquarters": "EQT: Stockholm/New York | DigitalBridge: Boca Raton, FL",
+        "website": "eqtgroup.com / digitalbridge.com"
+      }
+    },
+    "acquired": {
+      "name": "Zayo Group Holdings",
+      "type": "Enterprise Fiber / Dark Fiber / Carrier",
+      "ticker": "ZAYO",
+      "pe": null
+    },
+    "dealValue": 14300000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)",
+      "United Kingdom",
+      "France",
+      "Germany",
+      "Netherlands",
+      "Belgium",
+      "Ireland"
+    ],
+    "subscribers": null,
+    "reason": "Take Zayo private to accelerate operational transformation of the world's largest independent dark fiber and bandwidth infrastructure provider, capitalizing on surging demand from hyperscalers, cloud providers, and enterprise customers.",
+    "strategicImportance": "Zayo operates 130,000+ route miles of fiber across North America and Europe, providing dark fiber, wavelengths, IP/internet, and colocation to major cloud companies, carriers, and enterprises. EQT and DigitalBridge believed Zayo's infrastructure was undervalued as a public company. Take-private allowed operational restructuring and capital reallocation without quarterly earnings pressure.",
+    "keyTerms": "$35.00/share (~$8.2B equity value) + assumption of ~$6.1B net debt = ~$14.3B enterprise value. Announced May 2019; closed May 2020 after extensive regulatory review (EU + US).",
+    "notes": "One of the largest infrastructure take-privates in history. Digital Colony Partners later rebranded to DigitalBridge in 2021. Zayo remains private and continues expanding its fiber network."
+  },
+  {
+    "id": "deal-035",
+    "date": "2020-07-01",
+    "status": "Completed",
+    "dealType": "Acquisition",
+    "acquirer": {
+      "name": "DISH Network Corporation",
+      "type": "DBS / Satellite TV / MNO",
+      "ticker": "DISH",
+      "pe": null
+    },
+    "acquired": {
+      "name": "Boost Mobile (from T-Mobile post-Sprint merger)",
+      "type": "MVNO (Prepaid)",
+      "ticker": null,
+      "pe": null
+    },
+    "dealValue": 1400000000,
+    "ownershipPct": 100,
+    "geography": [
+      "United States (National)"
+    ],
+    "subscribers": 9000000,
+    "reason": "DISH acquires Boost Mobile as a DOJ-mandated divestiture condition of T-Mobile/Sprint merger; provides DISH with an existing customer base and retail distribution to launch as a fourth facilities-based MNO.",
+    "strategicImportance": "Transformational for DISH's wireless ambitions. Boost's ~9M prepaid subscribers gave DISH an immediate revenue base and ~800 retail locations while DISH raced to build out its own 5G network. Also included ~800 MHz MVNO rights for 7 years. DISH was required to commit to building a nationwide 5G network as a condition of approval.",
+    "keyTerms": "$1.4B cash. Included Boost brand, ~9M subscribers, ~800 retail stores, and MVNO access to T-Mobile/Sprint networks for 7 years. DISH committed to covering 70% of US population with 5G by 2023.",
+    "notes": "DISH ultimately failed to meet FCC buildout milestones and its 5G network never reached commercial viability. The spectrum assets retained by EchoStar post-DISH reacquisition remain valuable."
+  },
+  {
+    "id": "deal-036",
+    "date": "2019-11-01",
+    "status": "Completed",
+    "dealType": "Asset Acquisition",
+    "acquirer": {
+      "name": "RCN Telecom Services (now Astound Broadband)",
+      "type": "MSO (Cable) / Fiber",
+      "ticker": null,
+      "pe": {
+        "firm": "TPG Capital",
+        "firmType": "Private Equity",
+        "aum": "$185B+",
+        "primaryFunds": [
+          "TPG Capital VIII",
+          "TPG Capital IX"
+        ],
+        "otherTelecomPortfolio": [
+          "Grande Communications",
+          "WaveDivision/Wave Broadband",
+          "DirecTV LLC"
+        ],
+        "headquarters": "Fort Worth, TX",
+        "website": "tpg.com"
+      }
+    },
+    "acquired": {
+      "name": "WideOpenWest (WOW!) Chicago-Area Cable System",
+      "type": "MSO (Cable)",
+      "ticker": "WOW",
+      "pe": {
+        "firm": "Crestview Partners",
+        "firmType": "Private Equity",
+        "aum": "$10B+",
+        "primaryFunds": [
+          "Crestview Partners IV"
+        ],
+        "otherTelecomPortfolio": [
+          "WideOpenWest (WOW!)"
+        ],
+        "headquarters": "New York, NY",
+        "website": "crestview.com"
+      }
+    },
+    "dealValue": 225000000,
+    "ownershipPct": 100,
+    "geography": [
+      "IL"
+    ],
+    "subscribers": 70000,
+    "reason": "WOW divests non-core Chicago suburban cable systems to raise capital; RCN/TPG adds the Chicago-area cable footprint to its existing Chicago fiber network.",
+    "strategicImportance": "RCN already operated a fiber/cable network in Chicago proper. Acquiring WOW's northwest suburban Chicago systems (Evanston, Waukegan, Elgin area) extended RCN's Chicago-area footprint, creating greater scale in the third-largest US market. WOW used proceeds for debt reduction ahead of its Hargray acquisition.",
+    "keyTerms": "Estimated ~$225M. WOW divested Chicago suburbs to focus on its primary cable markets. Systems later became part of Astound Broadband under TPG.",
+    "notes": "Part of WOW's strategic portfolio rationalization. WOW retained its Cleveland, Columbus, and other core cable markets."
+  }
+]

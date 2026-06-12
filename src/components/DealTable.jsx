@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import { ArrowUp, ArrowDown, ArrowUpDown, ArrowRight, Clock, X, Search, GitBranch } from 'lucide-react'
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -148,7 +148,7 @@ function SortIcon({ col, sort }) {
 
 // ── Column layout ────────────────────────────────────────────────────────────
 
-const GRID = '110px 1.4fr 18px 1.4fr 130px 100px 130px'
+const GRID = '110px 1.4fr 18px 1.4fr 130px 100px 210px'
 
 const S = {
   wrapper: {
@@ -229,6 +229,17 @@ const S = {
 
 export default function DealTable({ deals, selectedId, onSelect, sort, onSort, onTrace }) {
   const [hoveredId, setHoveredId] = useState(null)
+  // display:contents elements have no layout box so onMouseEnter won't fire on them.
+  // Track hover per-cell with a small debounce so moving between cells in the same
+  // row doesn't briefly clear hoveredId and flicker the Trace button.
+  const hoverTimer = useRef(null)
+  const onRowEnter = useCallback((id) => {
+    clearTimeout(hoverTimer.current)
+    setHoveredId(id)
+  }, [])
+  const onRowLeave = useCallback(() => {
+    hoverTimer.current = setTimeout(() => setHoveredId(null), 120)
+  }, [])
 
   const H = (col, label, align = 'left') => (
     <div
@@ -271,14 +282,12 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort, o
               key={deal.id}
               style={{ display: 'contents' }}
               onClick={() => onSelect(deal.id === selectedId ? null : deal.id)}
-              onMouseEnter={() => setHoveredId(deal.id)}
-              onMouseLeave={() => setHoveredId(null)}
             >
               {/* Date */}
               <div
                 style={cell(0)}
-                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
-                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)'; onRowEnter(deal.id) }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff'; onRowLeave() }}
               >
                 <DateCell deal={deal} />
               </div>
@@ -286,8 +295,8 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort, o
               {/* Acquirer */}
               <div
                 style={cell(1)}
-                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
-                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)'; onRowEnter(deal.id) }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff'; onRowLeave() }}
               >
                 <div style={S.nameBlock}>
                   <span style={S.name}>{deal.acquirer.name}</span>
@@ -301,8 +310,8 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort, o
               {/* Arrow */}
               <div
                 style={{ ...cell(2), justifyContent: 'center', padding: '14px 0' }}
-                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
-                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)'; onRowEnter(deal.id) }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff'; onRowLeave() }}
               >
                 <ArrowRight size={14} style={{ color: '#aeaeb2', flexShrink: 0 }} />
               </div>
@@ -310,8 +319,8 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort, o
               {/* Target */}
               <div
                 style={cell(3)}
-                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
-                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)'; onRowEnter(deal.id) }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff'; onRowLeave() }}
               >
                 <div style={S.nameBlock}>
                   <span style={S.name}>{deal.acquired.name}</span>
@@ -325,8 +334,8 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort, o
               {/* Type */}
               <div
                 style={{ ...cell(4) }}
-                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
-                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)'; onRowEnter(deal.id) }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff'; onRowLeave() }}
               >
                 <span style={{ fontSize: 13, color: '#424245' }}>{deal.dealType}</span>
               </div>
@@ -334,8 +343,8 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort, o
               {/* Value */}
               <div
                 style={{ ...cell(5), justifyContent: 'flex-end' }}
-                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
-                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)'; onRowEnter(deal.id) }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff'; onRowLeave() }}
               >
                 <span style={{
                   fontSize: 14,
@@ -348,11 +357,11 @@ export default function DealTable({ deals, selectedId, onSelect, sort, onSort, o
                 </span>
               </div>
 
-              {/* Status */}
+              {/* Status — overflow:visible so Trace button isn't clipped */}
               <div
-                style={{ ...cell(6), gap: 6 }}
-                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)' }}
-                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff' }}
+                style={{ ...cell(6), gap: 6, overflow: 'visible' }}
+                onMouseEnter={e => { if (!selected) e.currentTarget.style.background = 'rgba(0,0,0,0.025)'; onRowEnter(deal.id) }}
+                onMouseLeave={e => { if (!selected) e.currentTarget.style.background = '#ffffff'; onRowLeave() }}
               >
                 <StatusPill status={deal.status} />
                 {onTrace && hoveredId === deal.id && (

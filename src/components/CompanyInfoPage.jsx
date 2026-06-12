@@ -39,6 +39,11 @@ const ISP_MATCH = {
 
 // ── Data builders ─────────────────────────────────────────────────────────────
 
+// Strip all parenthetical groups but keep words outside them, then normalize.
+// "Astound Broadband (from TPG Capital)"           → "astound broadband"
+// "WideOpenWest (WOW!) Chicago-Area Cable System"  → "wideopenwest chicago-area cable system"
+const baseName = str => str.replace(/\s*\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase()
+
 function buildPEDirectory(deals) {
   const map = new Map()
 
@@ -76,6 +81,39 @@ function buildPEDirectory(deals) {
     add(d.acquired?.pe,  'Backed target')
   })
 
+  // Remove portfolio companies that were sold. Three signals:
+  // 1. Global sold set: any completed deal's acquired entity — catches co-investors
+  //    whose stake isn't explicitly tracked (e.g. WaveDivision Capital partial Astound).
+  // 2. Bought set per firm: if this firm is the acquirer in that deal, keep it in their
+  //    portfolio — they're the buyer, not the seller (e.g. Stonepeak bought Astound).
+  //    Two ways a firm can be the buyer: via d.acquirer.pe.firm (PE backing an ISP acquirer)
+  //    OR via d.acquirer.name directly matching a PE firm (e.g. "TPG Capital" buying DirecTV).
+  // 3. Annotation: paren content starts with "sold" (e.g. "Wave Broadband (sold to RCN/TPG)").
+  const globalSold = new Set()
+  const boughtByFirm = new Map()
+  const addBought = (firmName, acqName) => {
+    if (!firmName || !acqName) return
+    if (!boughtByFirm.has(firmName)) boughtByFirm.set(firmName, new Set())
+    boughtByFirm.get(firmName).add(baseName(acqName))
+  }
+  deals.forEach(d => {
+    if (d.status !== 'Completed' || !d.acquired?.name) return
+    globalSold.add(baseName(d.acquired.name))
+    addBought(d.acquirer?.pe?.firm, d.acquired.name)
+    // Also catch cases where the PE firm itself is the named acquirer (no pe wrapper)
+    if (map.has(d.acquirer?.name)) addBought(d.acquirer.name, d.acquired.name)
+  })
+
+  for (const e of map.values()) {
+    const bought = boughtByFirm.get(e.firm) ?? new Set()
+    e.otherTelecomPortfolio = e.otherTelecomPortfolio.filter(p => {
+      const bn = baseName(p)
+      if (globalSold.has(bn) && !bought.has(bn)) return false
+      if (/\(sold\b/i.test(p)) return false
+      return true
+    })
+  }
+
   return [...map.values()].sort((a, b) => a.firm.localeCompare(b.firm))
 }
 
@@ -103,7 +141,7 @@ function buildCompanyDirectory(deals, filterId) {
 
 // ── PE Firm Card ──────────────────────────────────────────────────────────────
 
-function PECard({ firm }) {
+function PECard({ firm, onNavigateToDeal }) {
   const dealRefs   = [...firm.dealRefs].sort((a, b) => new Date(b.date) - new Date(a.date))
   const portfolio  = (firm.otherTelecomPortfolio ?? []).filter(Boolean)
   const hasWebsite = firm.website && firm.website !== 'null'
@@ -190,7 +228,11 @@ function PECard({ firm }) {
             </p>
             <div className="space-y-2">
               {dealRefs.map((ref, i) => (
-                <div key={`${ref.id}-${i}`} className="bg-gray-50 rounded-lg px-3 py-2.5 text-xs">
+                <button
+                  key={`${ref.id}-${i}`}
+                  onClick={() => onNavigateToDeal?.(ref.id)}
+                  className="w-full text-left bg-gray-50 hover:bg-indigo-50 rounded-lg px-3 py-2.5 text-xs transition-colors group"
+                >
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <span className={`px-1.5 py-0.5 rounded font-medium ${
                       ref.role === 'Backed acquirer'
@@ -199,7 +241,10 @@ function PECard({ firm }) {
                     }`}>
                       {ref.role}
                     </span>
-                    <span className="text-gray-400 tabular-nums">{ref.date.slice(0, 7)}</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-gray-400 tabular-nums">{ref.date.slice(0, 7)}</span>
+                      <ExternalLink className="h-3 w-3 text-gray-300 group-hover:text-indigo-400 transition-colors" />
+                    </div>
                   </div>
                   <div
                     className="text-gray-800 font-medium leading-tight truncate"
@@ -215,7 +260,7 @@ function PECard({ firm }) {
                       {ref.status}
                     </span>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -228,7 +273,7 @@ function PECard({ firm }) {
 
 // ── Company Card (non-PE) ─────────────────────────────────────────────────────
 
-function CompanyCard({ company }) {
+function CompanyCard({ company, onNavigateToDeal }) {
   const dealRefs = [...company.dealRefs].sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
@@ -248,7 +293,11 @@ function CompanyCard({ company }) {
       </div>
       <div className="px-5 py-3 space-y-2.5">
         {dealRefs.map((ref, i) => (
-          <div key={`${ref.id}-${i}`} className="text-xs pb-2.5 border-b border-gray-50 last:border-0 last:pb-0">
+          <button
+            key={`${ref.id}-${i}`}
+            onClick={() => onNavigateToDeal?.(ref.id)}
+            className="w-full text-left text-xs pb-2.5 border-b border-gray-50 last:border-0 last:pb-0 hover:bg-indigo-50 -mx-2 px-2 rounded transition-colors group"
+          >
             <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
               <span className={`px-1.5 py-0.5 rounded font-medium ${
                 ref.role === 'Acquirer' ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700'
@@ -260,12 +309,13 @@ function CompanyCard({ company }) {
               <span className={`px-1.5 py-0 rounded font-medium ${STATUS_BADGE[ref.status] ?? 'bg-gray-100 text-gray-600'}`}>
                 {ref.status}
               </span>
+              <ExternalLink className="h-3 w-3 text-gray-300 group-hover:text-indigo-400 ml-auto transition-colors" />
             </div>
             <div className="text-gray-600 pl-0.5 truncate" title={ref.counterparty}>
               {ref.role === 'Acquirer' ? `Acquired: ` : `Acquired by: `}
               <span className="text-gray-800 font-medium">{ref.counterparty}</span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     </div>
@@ -274,7 +324,7 @@ function CompanyCard({ company }) {
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
 
-export default function CompanyInfoPage({ deals }) {
+export default function CompanyInfoPage({ deals, onNavigateToDeal }) {
   const [activeFilter, setActiveFilter] = useState('pe')
   const [search, setSearch]             = useState('')
 
@@ -355,11 +405,11 @@ export default function CompanyInfoPage({ deals }) {
           </div>
         ) : activeFilter === 'pe' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-            {displayList.map(firm => <PECard key={firm.firm} firm={firm} />)}
+            {displayList.map(firm => <PECard key={firm.firm} firm={firm} onNavigateToDeal={onNavigateToDeal} />)}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {displayList.map(co => <CompanyCard key={co.name} company={co} />)}
+            {displayList.map(co => <CompanyCard key={co.name} company={co} onNavigateToDeal={onNavigateToDeal} />)}
           </div>
         )}
       </div>

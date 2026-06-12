@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react'
 import { Wifi, List, BarChart2, Building2, Wallet, RefreshCw, Plus, GitBranch } from 'lucide-react'
-import staticDeals from './data/deals.json'
+import { legacyDeals } from './data/db'
+
+const staticDeals = legacyDeals()
 import FilterBar from './components/FilterBar'
 import DealTable from './components/DealTable'
 import DealDetailPanel from './components/DealDetailPanel'

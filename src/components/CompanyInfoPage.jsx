@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Building2, MapPin, Globe, Search, ExternalLink } from 'lucide-react'
+import { db, portfolioOf, fundsOf } from '../data/db'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -39,82 +40,30 @@ const ISP_MATCH = {
 
 // ── Data builders ─────────────────────────────────────────────────────────────
 
-// Strip all parenthetical groups but keep words outside them, then normalize.
-// "Astound Broadband (from TPG Capital)"           → "astound broadband"
-// "WideOpenWest (WOW!) Chicago-Area Cable System"  → "wideopenwest chicago-area cable system"
-const baseName = str => str.replace(/\s*\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase()
-
-function buildPEDirectory(deals) {
-  const map = new Map()
-
-  deals.forEach(d => {
-    const add = (pe, role) => {
-      if (!pe?.firm) return
-      if (!map.has(pe.firm)) {
-        map.set(pe.firm, {
-          ...pe,
-          primaryFunds: pe.primaryFunds ?? [],
-          otherTelecomPortfolio: pe.otherTelecomPortfolio ?? [],
-          dealRefs: [],
+function buildPEDirectory() {
+  return db.firms
+    .map(firm => {
+      const dealRefs = db.participants
+        .filter(p => p.partyType === 'firm' && p.partyId === firm.id)
+        .map(p => {
+          const d = db.deal.get(p.dealId)
+          return {
+            id: d.id, date: d.date,
+            role: p.role === 'seller' ? 'Backed target' : 'Backed acquirer',
+            acquirer: d.display.acquirerName, acquired: d.display.acquiredName,
+            dealValue: d.valueUSD, dealType: d.dealType, status: d.status,
+          }
         })
+      return {
+        firm: firm.name, firmType: firm.firmType, aum: firm.aum,
+        headquarters: firm.headquarters, website: firm.website,
+        primaryFunds: fundsOf(firm.id).map(f => f.name),
+        otherTelecomPortfolio: portfolioOf(firm.id).map(a => a.name),
+        dealRefs,
       }
-      const e = map.get(pe.firm)
-      // Keep richest data across appearances
-      if (!e.firmType && pe.firmType)                                         e.firmType = pe.firmType
-      if ((!e.aum || e.aum === 'N/A') && pe.aum && pe.aum !== 'N/A')         e.aum = pe.aum
-      if (!e.headquarters && pe.headquarters)                                  e.headquarters = pe.headquarters
-      if (!e.website && pe.website)                                            e.website = pe.website
-      if ((pe.primaryFunds?.length ?? 0) > e.primaryFunds.length)             e.primaryFunds = pe.primaryFunds
-      if ((pe.otherTelecomPortfolio?.length ?? 0) > e.otherTelecomPortfolio.length)
-                                                                               e.otherTelecomPortfolio = pe.otherTelecomPortfolio
-      // Deduplicate deal refs
-      if (!e.dealRefs.some(r => r.id === d.id && r.role === role)) {
-        e.dealRefs.push({
-          id: d.id, date: d.date, role,
-          acquirer: d.acquirer.name, acquired: d.acquired.name,
-          dealValue: d.dealValue, dealType: d.dealType, status: d.status,
-        })
-      }
-    }
-
-    add(d.acquirer?.pe, 'Backed acquirer')
-    add(d.acquired?.pe,  'Backed target')
-  })
-
-  // Remove portfolio companies that were sold. Three signals:
-  // 1. Global sold set: any completed deal's acquired entity — catches co-investors
-  //    whose stake isn't explicitly tracked (e.g. WaveDivision Capital partial Astound).
-  // 2. Bought set per firm: if this firm is the acquirer in that deal, keep it in their
-  //    portfolio — they're the buyer, not the seller (e.g. Stonepeak bought Astound).
-  //    Two ways a firm can be the buyer: via d.acquirer.pe.firm (PE backing an ISP acquirer)
-  //    OR via d.acquirer.name directly matching a PE firm (e.g. "TPG Capital" buying DirecTV).
-  // 3. Annotation: paren content starts with "sold" (e.g. "Wave Broadband (sold to RCN/TPG)").
-  const globalSold = new Set()
-  const boughtByFirm = new Map()
-  const addBought = (firmName, acqName) => {
-    if (!firmName || !acqName) return
-    if (!boughtByFirm.has(firmName)) boughtByFirm.set(firmName, new Set())
-    boughtByFirm.get(firmName).add(baseName(acqName))
-  }
-  deals.forEach(d => {
-    if (d.status !== 'Completed' || !d.acquired?.name) return
-    globalSold.add(baseName(d.acquired.name))
-    addBought(d.acquirer?.pe?.firm, d.acquired.name)
-    // Also catch cases where the PE firm itself is the named acquirer (no pe wrapper)
-    if (map.has(d.acquirer?.name)) addBought(d.acquirer.name, d.acquired.name)
-  })
-
-  for (const e of map.values()) {
-    const bought = boughtByFirm.get(e.firm) ?? new Set()
-    e.otherTelecomPortfolio = e.otherTelecomPortfolio.filter(p => {
-      const bn = baseName(p)
-      if (globalSold.has(bn) && !bought.has(bn)) return false
-      if (/\(sold\b/i.test(p)) return false
-      return true
     })
-  }
-
-  return [...map.values()].sort((a, b) => a.firm.localeCompare(b.firm))
+    .filter(f => f.dealRefs.length > 0)
+    .sort((a, b) => a.firm.localeCompare(b.firm))
 }
 
 function buildCompanyDirectory(deals, filterId) {
@@ -328,7 +277,7 @@ export default function CompanyInfoPage({ deals, onNavigateToDeal }) {
   const [activeFilter, setActiveFilter] = useState('pe')
   const [search, setSearch]             = useState('')
 
-  const peDirectory = useMemo(() => buildPEDirectory(deals), [deals])
+  const peDirectory = useMemo(() => buildPEDirectory(), [])
 
   const companyDirs = useMemo(() =>
     Object.fromEntries(

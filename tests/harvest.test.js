@@ -46,6 +46,21 @@ describe('upsertFund', () => {
       .toEqual(['firm-crestview-partners', 'firm-digitalbridge-group'])
     expect(reg.funds.size).toBe(1)
   })
+  it('flags when two different names merge into one fund', () => {
+    const reg = createRegistry()
+    const [sp] = upsertFirm(reg, 'Stonepeak Infrastructure Partners', null)
+    upsertFund(reg, 'Stonepeak Infrastructure Partners IV', [sp])
+    upsertFund(reg, 'Stonepeak Infrastructure Fund IV', [sp])
+    expect(reg.funds.size).toBe(1)
+    expect(reg.flags.some(f => f.includes('Stonepeak Infrastructure Fund IV'))).toBe(true)
+  })
+  it('keys numberless funds by full slug', () => {
+    const reg = createRegistry()
+    const [f] = upsertFirm(reg, 'Cox Enterprises', null)
+    const fund = upsertFund(reg, 'Cox Family Evergreen Fund', [f])
+    expect(fund.id).toBe('fund-cox-family-evergreen-fund')
+    expect(fund.number).toBe(null)
+  })
 })
 
 describe('upsertAsset', () => {
@@ -79,5 +94,11 @@ describe('sponsorFor', () => {
     const firms = upsertFirm(reg, 'Oak Hill Capital + Pamlico Capital', null)
     expect(sponsorFor('Pamlico Capital Fund VI', firms).id).toBe('firm-pamlico-capital')
     expect(sponsorFor('Oak Hill Capital Partners V', firms).id).toBe('firm-oak-hill-capital')
+  })
+  it('flags the fallback when no firm matches', () => {
+    const reg = createRegistry()
+    const firms = upsertFirm(reg, 'TPG Capital', null)
+    expect(sponsorFor('Berkshire Fund IX', firms, reg).id).toBe('firm-tpg-capital')
+    expect(reg.flags.some(f => f.includes('Berkshire Fund IX'))).toBe(true)
   })
 })

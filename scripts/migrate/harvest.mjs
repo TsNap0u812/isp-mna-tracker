@@ -16,6 +16,7 @@ export function upsertFirm(reg, name, pe = null) {
       })
     }
     const f = reg.firms.get(key)
+    // parts.length === 1: compound names must not alias-pollute their sibling parts
     if (parts.length === 1 && name !== f.name && !f.aliases.includes(name)) {
       f.aliases.push(name)
     }
@@ -33,19 +34,31 @@ export function upsertFirm(reg, name, pe = null) {
   })
 }
 
-export function sponsorFor(fundName, firms) {
+export function sponsorFor(fundName, firms, reg = null) {
   const fw = fundName.split(/\s+/)[0].toLowerCase()
-  return firms.find(f => f.name.toLowerCase().startsWith(fw)) ?? firms[0]
+  const match = firms.find(f => f.name.toLowerCase().startsWith(fw))
+  if (!match && firms.length > 0) {
+    if (reg) {
+      const flag = `fund "${fundName}": no sponsor name match — defaulted to "${firms[0].name}", verify`
+      if (!reg.flags.includes(flag)) reg.flags.push(flag)
+    }
+    return firms[0]
+  }
+  return match ?? firms[0]
 }
 
 export function upsertFund(reg, fundName, sponsorFirms) {
   const num = extractFundNum(fundName)
-  const fw = fundName.split(/\s+/)[0].toLowerCase()
+  const fw = baseName(fundName).split(/\s+/)[0].toLowerCase()
   const key = num != null ? `${fw}-${num}` : slugify(fundName)
   if (!reg.funds.has(key)) {
     reg.funds.set(key, { id: `fund-${key}`, name: fundName, number: num, sponsorFirmIds: [] })
   }
   const fund = reg.funds.get(key)
+  if (fundName !== fund.name) {
+    const flag = `fund "${fundName}" merged into "${fund.name}" (key ${key}) — verify same vehicle`
+    if (!reg.flags.includes(flag)) reg.flags.push(flag)
+  }
   for (const firm of sponsorFirms) {
     if (firm && !fund.sponsorFirmIds.includes(firm.id)) fund.sponsorFirmIds.push(firm.id)
   }

@@ -34,6 +34,7 @@ describe('buildChain — Trace button seeds (raw legacy acquirer names)', () => 
     'Cable One Inc. (Sparklight)',
     'Swyft Fiber (Macquarie Asset Management)',
     'TPG Capital (Astound Broadband Formation)',
+    'GigaPower LLC (AT&T + BlackRock JV)',
   ]
   for (const seed of seeds) {
     it(`resolves "${seed}"`, () => {

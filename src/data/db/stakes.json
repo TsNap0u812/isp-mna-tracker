@@ -631,20 +631,9 @@
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-fastwyre-broadband",
-    "ownerType": "firm",
-    "ownerId": "firm-oak-hill-capital",
-    "pct": 50,
-    "startDate": "2026-04-30",
-    "openedByDealId": "deal-048"
-  },
-  {
-    "id": "stake-059",
-    "endDate": null,
-    "closedByDealId": null,
-    "assetId": "asset-fastwyre-broadband",
-    "ownerType": "firm",
-    "ownerId": "firm-pamlico-capital",
-    "pct": 50,
+    "ownerType": "asset",
+    "ownerId": "asset-socket-fiber",
+    "pct": 100,
     "startDate": "2026-04-30",
     "openedByDealId": "deal-048"
   }

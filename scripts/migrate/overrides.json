@@ -4,10 +4,6 @@
     "deal-013": [
       { "partyType": "asset", "partyId": "asset-at-and-t-inc",               "pct": 0.5 },
       { "partyType": "firm",  "partyId": "firm-blackrock-infrastructure",     "pct": 0.5 }
-    ],
-    "deal-048": [
-      { "partyType": "firm",  "partyId": "firm-oak-hill-capital",             "pct": 0.5 },
-      { "partyType": "firm",  "partyId": "firm-pamlico-capital",              "pct": 0.5 }
     ]
   },
   "firmMerges": {

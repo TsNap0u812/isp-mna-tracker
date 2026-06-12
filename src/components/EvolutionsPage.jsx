@@ -65,7 +65,16 @@ function resolveEntity(query) {
 
 export function buildChain(query, deals) {
   const entity = resolveEntity(query)
-  if (!entity) return { chain: [], predecessors: [] }
+  if (!entity) {
+    // Entity not in the registry (e.g. JV vehicles replaced by buyer overrides) —
+    // fall back to substring matching on the legacy deal names so Trace always lands.
+    const q = query.trim().toLowerCase().replace(/\s*\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim()
+    if (!q) return { chain: [], predecessors: [] }
+    const chain = deals
+      .filter(d => d.acquirer.name.toLowerCase().includes(q) || d.acquired.name.toLowerCase().includes(q))
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+    return { chain, predecessors: [] }
+  }
   const isFirm = entity.id.startsWith('firm-')
   const dealIds = isFirm
     ? new Set(db.participants.filter(p => p.partyId === entity.id).map(p => p.dealId))

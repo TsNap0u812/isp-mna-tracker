@@ -120,19 +120,27 @@
     "dealId": "deal-042"
   },
   {
-    "pct": 0.5,
+    "pct": 1,
     "fundId": null,
-    "partyType": "firm",
-    "partyId": "firm-oak-hill-capital",
+    "partyType": "asset",
+    "partyId": "asset-socket-fiber",
     "role": "buyer",
     "dealId": "deal-048"
   },
   {
-    "pct": 0.5,
+    "pct": null,
+    "fundId": null,
+    "partyType": "firm",
+    "partyId": "firm-oak-hill-capital",
+    "role": "backer",
+    "dealId": "deal-048"
+  },
+  {
+    "pct": null,
     "fundId": null,
     "partyType": "firm",
     "partyId": "firm-pamlico-capital",
-    "role": "buyer",
+    "role": "backer",
     "dealId": "deal-048"
   },
   {

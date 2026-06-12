@@ -434,6 +434,15 @@
     "successorAssetId": null
   },
   {
+    "id": "asset-socket-fiber",
+    "name": "Socket Fiber",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
     "id": "asset-sprint-corporation",
     "name": "Sprint Corporation",
     "aliases": [],

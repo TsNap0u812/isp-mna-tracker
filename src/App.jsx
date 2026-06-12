@@ -17,8 +17,8 @@ import { useLocalDeals } from './hooks/useLocalDeals'
 const TABS = [
   { id: 'tracker',      label: 'Deal Tracker',  icon: List },
   { id: 'analytics',   label: 'Analytics',     icon: BarChart2 },
-  { id: 'fund-mgmt',   label: 'Fund Mgmt',     icon: Wallet },
   { id: 'company-info', label: 'Companies',    icon: Building2 },
+  { id: 'fund-mgmt',   label: 'Fund Mgmt',     icon: Wallet },
   { id: 'evolutions',  label: 'Evolutions',    icon: GitBranch },
 ]
 

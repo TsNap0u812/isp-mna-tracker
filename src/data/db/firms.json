@@ -1,0 +1,266 @@
+[
+  {
+    "id": "firm-apax-partners",
+    "name": "Apax Partners",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-apollo-global-management",
+    "name": "Apollo Global Management",
+    "aliases": [],
+    "firmType": "Private Equity / Alternative Asset Manager",
+    "aum": "$650B+",
+    "headquarters": "New York, NY",
+    "website": "apollo.com"
+  },
+  {
+    "id": "firm-ares-management",
+    "name": "Ares Management",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-blackrock-infrastructure",
+    "name": "BlackRock Infrastructure",
+    "aliases": [],
+    "firmType": "Infrastructure Asset Manager",
+    "aum": "$50B+ (Infrastructure)",
+    "headquarters": "New York, NY",
+    "website": "blackrock.com"
+  },
+  {
+    "id": "firm-catania-capital-partners",
+    "name": "Catania Capital Partners",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-cox-enterprises",
+    "name": "Cox Enterprises",
+    "aliases": [
+      "Cox Enterprises (Private Family Ownership)"
+    ],
+    "firmType": "Family-Controlled Conglomerate",
+    "aum": "N/A (private; estimated $25B+ assets)",
+    "headquarters": "Atlanta, GA",
+    "website": "coxenterprises.com"
+  },
+  {
+    "id": "firm-cppib-consortium",
+    "name": "CPPIB Consortium",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-creditor-consortium",
+    "name": "Creditor Consortium",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-crestview-partners",
+    "name": "Crestview Partners",
+    "aliases": [],
+    "firmType": "Private Equity",
+    "aum": "$10B+",
+    "headquarters": "New York, NY",
+    "website": "crestview.com"
+  },
+  {
+    "id": "firm-digitalbridge-group",
+    "name": "DigitalBridge Group",
+    "aliases": [
+      "DigitalBridge"
+    ],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-e8-partners",
+    "name": "E8 Partners",
+    "aliases": [],
+    "firmType": "Distressed Debt / Special Situations",
+    "aum": "N/A",
+    "headquarters": "New York, NY",
+    "website": null
+  },
+  {
+    "id": "firm-elliott-investment-management",
+    "name": "Elliott Investment Management",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-eqt-infrastructure",
+    "name": "EQT Infrastructure",
+    "aliases": [],
+    "firmType": "Infrastructure Private Equity",
+    "aum": "$250B+ (EQT total; $55B+ infrastructure)",
+    "headquarters": "Stockholm, Sweden (US: New York, NY)",
+    "website": "eqtgroup.com"
+  },
+  {
+    "id": "firm-fidelity-investments",
+    "name": "Fidelity Investments",
+    "aliases": [
+      "Fidelity Investments (Colt Owner)"
+    ],
+    "firmType": "Institutional Asset Manager (Strategic Owner)",
+    "aum": "$4.5T+",
+    "headquarters": "Boston, MA",
+    "website": "fidelity.com"
+  },
+  {
+    "id": "firm-grain-management-llc",
+    "name": "Grain Management LLC",
+    "aliases": [],
+    "firmType": "Private Equity (Telecom-Focused)",
+    "aum": "$5B+",
+    "headquarters": "Washington, DC",
+    "website": "grainmanagement.com"
+  },
+  {
+    "id": "firm-gtcr-llc",
+    "name": "GTCR LLC",
+    "aliases": [],
+    "firmType": "Private Equity",
+    "aum": "$35B+",
+    "headquarters": "Chicago, IL",
+    "website": "gtcr.com"
+  },
+  {
+    "id": "firm-kkr-and-co-inc",
+    "name": "KKR & Co. Inc.",
+    "aliases": [
+      "KKR & Co."
+    ],
+    "firmType": "Private Equity / Infrastructure",
+    "aum": "$600B+",
+    "headquarters": "New York, NY",
+    "website": "kkr.com"
+  },
+  {
+    "id": "firm-macquarie-asset-management",
+    "name": "Macquarie Asset Management",
+    "aliases": [
+      "Macquarie Asset Management (MIRA)"
+    ],
+    "firmType": "Infrastructure Asset Manager",
+    "aum": "$900B+ (total Macquarie) | $250B+ (infrastructure)",
+    "headquarters": "Sydney, Australia (US: New York, NY)",
+    "website": "macquarie.com"
+  },
+  {
+    "id": "firm-madison-dearborn-partners",
+    "name": "Madison Dearborn Partners",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-mediacom",
+    "name": "Mediacom",
+    "aliases": [
+      "Mediacom (Founder-Owned / Private)"
+    ],
+    "firmType": "Privately Held (Founder)",
+    "aum": "N/A",
+    "headquarters": "Chester, NY",
+    "website": "mediacomcc.com"
+  },
+  {
+    "id": "firm-oak-hill-capital",
+    "name": "Oak Hill Capital",
+    "aliases": [],
+    "firmType": "Private Equity",
+    "aum": "$20B+",
+    "headquarters": "New York, NY",
+    "website": "oakhillcapital.com"
+  },
+  {
+    "id": "firm-pamlico-capital",
+    "name": "Pamlico Capital",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-searchlight-capital-partners",
+    "name": "Searchlight Capital Partners",
+    "aliases": [],
+    "firmType": "Private Equity",
+    "aum": "$10B+",
+    "headquarters": "New York, NY",
+    "website": "searchlightcap.com"
+  },
+  {
+    "id": "firm-stonepeak-infrastructure-partners",
+    "name": "Stonepeak Infrastructure Partners",
+    "aliases": [],
+    "firmType": "Infrastructure Private Equity",
+    "aum": "$70B+",
+    "headquarters": "New York, NY",
+    "website": "stonepeakpartners.com"
+  },
+  {
+    "id": "firm-tpg-capital",
+    "name": "TPG Capital",
+    "aliases": [],
+    "firmType": "Private Equity",
+    "aum": "$185B+",
+    "headquarters": "Fort Worth, TX",
+    "website": "tpg.com"
+  },
+  {
+    "id": "firm-warburg-pincus",
+    "name": "Warburg Pincus",
+    "aliases": [],
+    "firmType": null,
+    "aum": null,
+    "headquarters": null,
+    "website": null
+  },
+  {
+    "id": "firm-wavedivision-capital",
+    "name": "WaveDivision Capital",
+    "aliases": [],
+    "firmType": "Private Equity (Telecom-Focused)",
+    "aum": "$2B+",
+    "headquarters": "Kirkland, WA",
+    "website": "wavedivisioncapital.com"
+  },
+  {
+    "id": "firm-wren-house-infrastructure-management",
+    "name": "Wren House Infrastructure Management",
+    "aliases": [],
+    "firmType": "Infrastructure Asset Manager (Sovereign Wealth)",
+    "aum": "$10B+ (infrastructure)",
+    "headquarters": "London, UK",
+    "website": "wrenhouseinfrastructure.com"
+  }
+]

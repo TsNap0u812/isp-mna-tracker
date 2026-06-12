@@ -84,7 +84,9 @@ export function upsertAsset(reg, party) {
 // A party name is a firm if a registered firm shares its first word.
 // Run AFTER pass-1 harvesting so reg.firms is fully populated.
 export function classifyParty(reg, name) {
-  const fw = baseName(name).split(/\s+/)[0].toLowerCase()
+  const base = baseName(name).toLowerCase()
+  if (reg.notFirms?.has(base)) return { kind: 'asset', record: null }
+  const fw = base.split(/\s+/)[0]
   for (const f of reg.firms.values()) {
     if (f.name.split(/\s+/)[0].toLowerCase() === fw) return { kind: 'firm', record: f }
   }

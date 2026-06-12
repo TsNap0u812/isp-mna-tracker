@@ -86,6 +86,13 @@ describe('classifyParty', () => {
     expect(classifyParty(reg, 'KKR').kind).toBe('firm')
     expect(classifyParty(reg, 'T-Mobile US').kind).toBe('asset')
   })
+  it('never classifies names in reg.notFirms as firms', () => {
+    const reg = createRegistry()
+    upsertFirm(reg, 'Cox Enterprises', null)
+    reg.notFirms = new Set(['cox communications'])
+    expect(classifyParty(reg, 'Cox Communications').kind).toBe('asset')
+    expect(classifyParty(reg, 'Cox Enterprises').kind).toBe('firm')
+  })
 })
 
 describe('sponsorFor', () => {

@@ -11,6 +11,7 @@
     "refresh-data": "node scripts/refresh-data.mjs",
     "fund-data": "node scripts/fund-data-query.mjs",
     "fund-data:dry": "node scripts/fund-data-query.mjs --dry-run",
+    "migrate": "node scripts/migrate/index.mjs",
     "test": "vitest run"
   },
   "dependencies": {

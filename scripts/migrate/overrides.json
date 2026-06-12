@@ -1,0 +1,21 @@
+{
+  "notFirms": ["Cox Communications"],
+  "firmMerges": {
+    "firm-kkr-and-co": "firm-kkr-and-co-inc",
+    "firm-digitalbridge": "firm-digitalbridge-group"
+  },
+  "assetMerges": {
+    "asset-astound": "asset-astound-broadband",
+    "asset-at-and-t": "asset-at-and-t-inc",
+    "asset-consolidated-communications-holdings": "asset-consolidated-communications",
+    "asset-dish-network": "asset-dish-network-corporation",
+    "asset-rcn-telecom": "asset-rcn-telecom-services",
+    "asset-verizon": "asset-verizon-communications",
+    "asset-t-mobile": "asset-t-mobile-us"
+  },
+  "parentAssets": {
+    "asset-wideopenwest-chicago-area-cable-system": "asset-wideopenwest",
+    "asset-wideopenwest-illinois-indiana-and-maryland-cable-systems": "asset-wideopenwest",
+    "asset-wideopenwest-remaining-cable-systems": "asset-wideopenwest"
+  }
+}

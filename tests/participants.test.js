@@ -54,4 +54,35 @@ it('splits consolidation targets and records the successor', () => {
   expect(targets).toEqual(['asset-rcn-telecom', 'asset-wavedivision', 'asset-grande-communications'])
   expect(rows.find(r => r.role === 'successor').partyId).toBe('asset-astound')
   expect(rows.find(r => r.role === 'buyer').partyId).toBe('firm-tpg-capital')
+  expect(rows.filter(r => r.partyId === 'firm-tpg-capital')).toHaveLength(1)
+})
+
+it('flags an unrecognized "(from X)" seller with no seller row', () => {
+  const d = { id: 'deal-x1', date: '2024-01-01', status: 'Completed', dealType: 'Acquisition',
+    acquirer: { name: 'EchoStar Corporation', type: 'DBS', ticker: 'SATS', pe: null },
+    acquired: { name: 'Boost Mobile (from T-Mobile post-Sprint merger)', type: 'MVNO (Prepaid)', ticker: null, pe: null },
+    ownershipPct: 100 }
+  const { rows, flags } = buildDealParticipants(d, reg)
+  expect(rows.some(r => r.role === 'seller')).toBe(false)
+  expect(flags.some(f => f.includes('not a known firm'))).toBe(true)
+})
+
+it('flags a consolidation without successor annotation', () => {
+  const d = { id: 'deal-x2', date: '2024-01-01', status: 'Completed', dealType: 'Consolidation',
+    acquirer: { name: 'TPG Capital', type: 'Private Equity', ticker: null, pe: null },
+    acquired: { name: 'Alpha Cable + Beta Fiber', type: 'MSO (Cable)', ticker: null, pe: null },
+    ownershipPct: 100 }
+  const { rows, flags } = buildDealParticipants(d, reg)
+  expect(rows.some(r => r.role === 'successor')).toBe(false)
+  expect(flags.some(f => f.includes('no successor annotation'))).toBe(true)
+})
+
+it('flags when "(from X)" conflicts with acquired.pe.firm', () => {
+  const d = { id: 'deal-x3', date: '2024-01-01', status: 'Completed', dealType: 'Acquisition',
+    acquirer: { name: 'Stonepeak Infrastructure Partners', type: 'Infrastructure Private Equity', ticker: null, pe: null },
+    acquired: { name: 'SomeISP (from Apollo Global)', type: 'MSO (Cable)', ticker: null,
+      pe: { firm: 'TPG Capital', firmType: 'Private Equity' } },
+    ownershipPct: 100 }
+  const { flags } = buildDealParticipants(d, reg)
+  expect(flags.some(f => f.includes('conflicts with pe.firm'))).toBe(true)
 })

@@ -4,6 +4,7 @@ import { upsertFirm, upsertAsset, classifyParty } from './harvest.mjs'
 export function buildDealParticipants(deal, reg) {
   const rows = []
   const flags = []
+  // dealId always wins — placed after the spread intentionally
   const push = r => rows.push({ pct: null, fundId: null, ...r, dealId: deal.id })
 
   // ── Buyers: split compound acquirer, classify each part as firm or asset
@@ -56,12 +57,17 @@ export function buildDealParticipants(deal, reg) {
     push({ partyType: 'asset', partyId: s.id, role: 'successor' })
   } else if (isConsolidation) {
     flags.push(`${deal.id}: consolidation with no successor annotation — set successor in overrides.json`)
+    // asset-graph wiring (target.successorAssetId) happens in the orchestrator pass
   }
 
   // ── Seller: acquired.pe is the selling sponsor; "(from X)" is the fallback signal
   if (deal.acquired.pe?.firm) {
     for (const f of upsertFirm(reg, deal.acquired.pe.firm, deal.acquired.pe)) {
       push({ partyType: 'firm', partyId: f.id, role: 'seller' })
+    }
+    const from = deal.acquired.name.match(/\(from\s+([^)]+)\)/i)
+    if (from && !deal.acquired.pe.firm.toLowerCase().includes(from[1].trim().toLowerCase().split(/\s+/)[0])) {
+      flags.push(`${deal.id}: seller annotation "(from ${from[1].trim()})" conflicts with pe.firm "${deal.acquired.pe.firm}" — verify`)
     }
   } else {
     const from = deal.acquired.name.match(/\(from\s+([^)]+)\)/i)

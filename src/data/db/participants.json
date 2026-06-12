@@ -120,27 +120,19 @@
     "dealId": "deal-042"
   },
   {
-    "pct": 1,
+    "pct": 0.5,
     "fundId": null,
-    "partyType": "asset",
-    "partyId": "asset-socket-fiber",
+    "partyType": "firm",
+    "partyId": "firm-oak-hill-capital",
     "role": "buyer",
     "dealId": "deal-048"
   },
   {
-    "pct": null,
-    "fundId": null,
-    "partyType": "firm",
-    "partyId": "firm-oak-hill-capital",
-    "role": "backer",
-    "dealId": "deal-048"
-  },
-  {
-    "pct": null,
+    "pct": 0.5,
     "fundId": null,
     "partyType": "firm",
     "partyId": "firm-pamlico-capital",
-    "role": "backer",
+    "role": "buyer",
     "dealId": "deal-048"
   },
   {
@@ -872,19 +864,19 @@
     "dealId": "deal-012"
   },
   {
-    "pct": 1,
+    "pct": 0.5,
     "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-gigapower-llc",
+    "partyId": "asset-at-and-t-inc",
     "role": "buyer",
     "dealId": "deal-013"
   },
   {
-    "pct": null,
+    "pct": 0.5,
     "fundId": null,
     "partyType": "firm",
     "partyId": "firm-blackrock-infrastructure",
-    "role": "backer",
+    "role": "buyer",
     "dealId": "deal-013"
   },
   {

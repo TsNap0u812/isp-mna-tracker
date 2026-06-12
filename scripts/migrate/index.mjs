@@ -28,8 +28,9 @@ for (const d of legacy) {
 // ── Pass 2: participants + normalized deal records ───────────────────────────
 const participants = []
 const flagSet = new Set(reg.flags)
+const buyerOverrides = overrides.buyerOverrides ?? {}
 const deals = legacy.map(d => {
-  const { rows, flags } = buildDealParticipants(d, reg)
+  const { rows, flags } = buildDealParticipants(d, reg, buyerOverrides)
   participants.push(...rows)
   flags.forEach(f => flagSet.add(f))
   return {
@@ -47,6 +48,15 @@ const deals = legacy.map(d => {
   }
 })
 reg.flags.forEach(f => flagSet.add(f))   // pick up flags added during pass 2 upserts
+
+// ── Integrity check: buyer override partyIds must reference known entities ───
+for (const [dealId, entries] of Object.entries(buyerOverrides)) {
+  for (const { partyType, partyId } of entries) {
+    const key = partyId.replace(/^(asset-|firm-)/, '')
+    const known = partyType === 'asset' ? reg.assets.has(key) : reg.firms.has(key)
+    if (!known) flagSet.add(`buyer override ${partyId} on ${dealId}: unknown entity`)
+  }
+}
 
 // ── Pass 3: apply merges (assets AND firms) ──────────────────────────────────
 function applyMerge(idPrefix, registryMap, mergeSpec) {

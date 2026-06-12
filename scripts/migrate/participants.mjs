@@ -1,29 +1,36 @@
 import { slugify, splitCompoundFirm } from './helpers.mjs'
 import { upsertFirm, upsertAsset, classifyParty } from './harvest.mjs'
 
-export function buildDealParticipants(deal, reg) {
+export function buildDealParticipants(deal, reg, buyerOverrides = {}) {
   const rows = []
   const flags = []
   // dealId always wins — placed after the spread intentionally
   const push = r => rows.push({ pct: null, fundId: null, ...r, dealId: deal.id })
 
-  // ── Buyers: split compound acquirer, classify each part as firm or asset
-  const buyerParts = splitCompoundFirm(deal.acquirer.name)
-  const pct = +(1 / buyerParts.length).toFixed(4)
-  if (buyerParts.length > 1) {
-    flags.push(`${deal.id}: compound buyer "${deal.acquirer.name}" split equally at ${pct} — verify against deal terms`)
-  }
-  for (const part of buyerParts) {
-    const cls = classifyParty(reg, part)
-    if (cls.kind === 'firm') {
-      if (slugify(part) !== slugify(cls.record.name)) {
-        flags.push(`${deal.id}: buyer "${part}" fuzzy-matched to firm "${cls.record.name}" — verify`)
+  // ── Buyers: apply override verbatim, or split compound acquirer and classify
+  const override = buyerOverrides[deal.id]
+  if (override) {
+    for (const b of override) {
+      push({ partyType: b.partyType, partyId: b.partyId, role: 'buyer', pct: b.pct })
+    }
+  } else {
+    const buyerParts = splitCompoundFirm(deal.acquirer.name)
+    const pct = +(1 / buyerParts.length).toFixed(4)
+    if (buyerParts.length > 1) {
+      flags.push(`${deal.id}: compound buyer "${deal.acquirer.name}" split equally at ${pct} — verify against deal terms`)
+    }
+    for (const part of buyerParts) {
+      const cls = classifyParty(reg, part)
+      if (cls.kind === 'firm') {
+        if (slugify(part) !== slugify(cls.record.name)) {
+          flags.push(`${deal.id}: buyer "${part}" fuzzy-matched to firm "${cls.record.name}" — verify`)
+        }
+        push({ partyType: 'firm', partyId: cls.record.id, role: 'buyer', pct })
+      } else {
+        const a = upsertAsset(reg, { name: part, type: deal.acquirer.type,
+          ticker: buyerParts.length === 1 ? deal.acquirer.ticker : null })
+        push({ partyType: 'asset', partyId: a.id, role: 'buyer', pct })
       }
-      push({ partyType: 'firm', partyId: cls.record.id, role: 'buyer', pct })
-    } else {
-      const a = upsertAsset(reg, { name: part, type: deal.acquirer.type,
-        ticker: buyerParts.length === 1 ? deal.acquirer.ticker : null })
-      push({ partyType: 'asset', partyId: a.id, role: 'buyer', pct })
     }
   }
 

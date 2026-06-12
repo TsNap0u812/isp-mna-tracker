@@ -86,3 +86,20 @@ it('flags when "(from X)" conflicts with acquired.pe.firm', () => {
   const { flags } = buildDealParticipants(d, reg)
   expect(flags.some(f => f.includes('conflicts with pe.firm'))).toBe(true)
 })
+
+it('applies buyer overrides verbatim, replacing parsed buyers', () => {
+  const d = { id: 'deal-bo', date: '2023-01-01', status: 'Completed', dealType: 'Joint Venture',
+    acquirer: { name: 'GigaPower LLC (AT&T + BlackRock JV)', type: 'Pure Fiber (FTTH)', ticker: null, pe: null },
+    acquired: { name: 'SomeFiber', type: 'Pure Fiber (FTTH)', ticker: null, pe: null },
+    ownershipPct: 100 }
+  const overrides = { 'deal-bo': [
+    { partyType: 'asset', partyId: 'asset-at-and-t-inc', pct: 0.5 },
+    { partyType: 'firm', partyId: 'firm-blackrock-infrastructure', pct: 0.5 },
+  ] }
+  const { rows } = buildDealParticipants(d, reg, overrides)
+  const buyers = rows.filter(r => r.role === 'buyer')
+  expect(buyers).toHaveLength(2)
+  expect(buyers.map(b => b.partyId).sort())
+    .toEqual(['asset-at-and-t-inc', 'firm-blackrock-infrastructure'])
+  expect(buyers.every(b => b.pct === 0.5)).toBe(true)
+})

@@ -6,10 +6,10 @@ Generated from src/data/deals.json (50 deals).
 |---|---|
 | firms | 28 |
 | funds | 49 |
-| assets | 64 |
+| assets | 62 |
 | deals | 50 |
-| participants | 153 |
-| stakes | 57 |
+| participants | 152 |
+| stakes | 59 |
 
 ## Flags for review (38)
 

@@ -247,13 +247,24 @@
     "closedByDealId": null,
     "assetId": "asset-at-and-t-fiber-expansion-assets",
     "ownerType": "asset",
-    "ownerId": "asset-gigapower-llc",
-    "pct": 50,
+    "ownerId": "asset-at-and-t-inc",
+    "pct": 25,
     "startDate": "2022-08-23",
     "openedByDealId": "deal-013"
   },
   {
     "id": "stake-024",
+    "endDate": null,
+    "closedByDealId": null,
+    "assetId": "asset-at-and-t-fiber-expansion-assets",
+    "ownerType": "firm",
+    "ownerId": "firm-blackrock-infrastructure",
+    "pct": 25,
+    "startDate": "2022-08-23",
+    "openedByDealId": "deal-013"
+  },
+  {
+    "id": "stake-025",
     "endDate": "2026-02-02",
     "closedByDealId": "deal-037",
     "assetId": "asset-lumen-technologies",
@@ -264,7 +275,7 @@
     "openedByDealId": "deal-003"
   },
   {
-    "id": "stake-025",
+    "id": "stake-026",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-starry-group-holdings",
@@ -275,7 +286,7 @@
     "openedByDealId": "deal-017"
   },
   {
-    "id": "stake-026",
+    "id": "stake-027",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-starry-group-holdings",
@@ -286,7 +297,7 @@
     "openedByDealId": "deal-017"
   },
   {
-    "id": "stake-027",
+    "id": "stake-028",
     "endDate": "2023-05-30",
     "closedByDealId": "deal-027",
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -297,7 +308,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-028",
+    "id": "stake-029",
     "endDate": "2023-05-30",
     "closedByDealId": "deal-027",
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -308,7 +319,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-029",
+    "id": "stake-030",
     "endDate": "2023-05-30",
     "closedByDealId": "deal-027",
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -319,7 +330,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-030",
+    "id": "stake-031",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -330,7 +341,7 @@
     "openedByDealId": "deal-027"
   },
   {
-    "id": "stake-031",
+    "id": "stake-032",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-prepared-fiber",
@@ -341,7 +352,7 @@
     "openedByDealId": "deal-014"
   },
   {
-    "id": "stake-032",
+    "id": "stake-033",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-ka-ena-corporation",
@@ -352,7 +363,7 @@
     "openedByDealId": "deal-026"
   },
   {
-    "id": "stake-033",
+    "id": "stake-034",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-hotwire-communications",
@@ -363,7 +374,7 @@
     "openedByDealId": "deal-007"
   },
   {
-    "id": "stake-034",
+    "id": "stake-035",
     "endDate": "2023-11-01",
     "closedByDealId": "deal-020",
     "assetId": "asset-vyve-broadband",
@@ -374,7 +385,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-035",
+    "id": "stake-036",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-vyve-broadband",
@@ -385,7 +396,7 @@
     "openedByDealId": "deal-020"
   },
   {
-    "id": "stake-036",
+    "id": "stake-037",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-dish-network-corporation",
@@ -396,7 +407,7 @@
     "openedByDealId": "deal-025"
   },
   {
-    "id": "stake-037",
+    "id": "stake-038",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-xumo",
@@ -407,7 +418,7 @@
     "openedByDealId": "deal-015"
   },
   {
-    "id": "stake-038",
+    "id": "stake-039",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-bark-technologies",
@@ -418,7 +429,7 @@
     "openedByDealId": "deal-019"
   },
   {
-    "id": "stake-039",
+    "id": "stake-040",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-lumos-networks",
@@ -429,7 +440,7 @@
     "openedByDealId": "deal-039"
   },
   {
-    "id": "stake-040",
+    "id": "stake-041",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-lumos-networks",
@@ -440,7 +451,7 @@
     "openedByDealId": "deal-039"
   },
   {
-    "id": "stake-041",
+    "id": "stake-042",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-directv-llc",
@@ -451,7 +462,7 @@
     "openedByDealId": "deal-023"
   },
   {
-    "id": "stake-042",
+    "id": "stake-043",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-cincinnati-communications",
@@ -462,7 +473,7 @@
     "openedByDealId": "deal-049"
   },
   {
-    "id": "stake-043",
+    "id": "stake-044",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-metronet",
@@ -473,7 +484,7 @@
     "openedByDealId": "deal-041"
   },
   {
-    "id": "stake-044",
+    "id": "stake-045",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-metronet",
@@ -484,7 +495,7 @@
     "openedByDealId": "deal-041"
   },
   {
-    "id": "stake-045",
+    "id": "stake-046",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-us-cellular",
@@ -495,7 +506,7 @@
     "openedByDealId": "deal-010"
   },
   {
-    "id": "stake-046",
+    "id": "stake-047",
     "endDate": "2025-08-01",
     "closedByDealId": "deal-024",
     "assetId": "asset-windstream-holdings",
@@ -506,7 +517,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-047",
+    "id": "stake-048",
     "endDate": "2025-08-01",
     "closedByDealId": "deal-024",
     "assetId": "asset-windstream-holdings",
@@ -517,7 +528,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-048",
+    "id": "stake-049",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-windstream-holdings",
@@ -528,7 +539,7 @@
     "openedByDealId": "deal-024"
   },
   {
-    "id": "stake-049",
+    "id": "stake-050",
     "endDate": "2025-08-01",
     "closedByDealId": "deal-045",
     "assetId": "asset-ziply-fiber",
@@ -539,7 +550,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-050",
+    "id": "stake-051",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-ziply-fiber",
@@ -550,7 +561,7 @@
     "openedByDealId": "deal-045"
   },
   {
-    "id": "stake-051",
+    "id": "stake-052",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-wideopenwest-remaining-cable-systems",
@@ -561,7 +572,7 @@
     "openedByDealId": "deal-046"
   },
   {
-    "id": "stake-052",
+    "id": "stake-053",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-wideopenwest-remaining-cable-systems",
@@ -572,7 +583,7 @@
     "openedByDealId": "deal-046"
   },
   {
-    "id": "stake-053",
+    "id": "stake-054",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-frontier-communications",
@@ -583,7 +594,7 @@
     "openedByDealId": "deal-011"
   },
   {
-    "id": "stake-054",
+    "id": "stake-055",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-lumen-technologies",
@@ -594,7 +605,7 @@
     "openedByDealId": "deal-037"
   },
   {
-    "id": "stake-055",
+    "id": "stake-056",
     "endDate": "2026-04-30",
     "closedByDealId": "deal-048",
     "assetId": "asset-fastwyre-broadband",
@@ -605,7 +616,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-056",
+    "id": "stake-057",
     "endDate": "2026-04-30",
     "closedByDealId": "deal-048",
     "assetId": "asset-fastwyre-broadband",
@@ -616,13 +627,24 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-057",
+    "id": "stake-058",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-fastwyre-broadband",
-    "ownerType": "asset",
-    "ownerId": "asset-socket-fiber",
-    "pct": 100,
+    "ownerType": "firm",
+    "ownerId": "firm-oak-hill-capital",
+    "pct": 50,
+    "startDate": "2026-04-30",
+    "openedByDealId": "deal-048"
+  },
+  {
+    "id": "stake-059",
+    "endDate": null,
+    "closedByDealId": null,
+    "assetId": "asset-fastwyre-broadband",
+    "ownerType": "firm",
+    "ownerId": "firm-pamlico-capital",
+    "pct": 50,
     "startDate": "2026-04-30",
     "openedByDealId": "deal-048"
   }

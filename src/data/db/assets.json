@@ -237,15 +237,6 @@
     "successorAssetId": null
   },
   {
-    "id": "asset-gigapower-llc",
-    "name": "GigaPower LLC",
-    "aliases": [],
-    "type": "Pure Fiber (FTTH)",
-    "ticker": null,
-    "parentAssetId": null,
-    "successorAssetId": null
-  },
-  {
     "id": "asset-gonetspeed-greenlight-networks",
     "name": "GoNetspeed + Greenlight Networks",
     "aliases": [
@@ -438,15 +429,6 @@
       "Several Rural Fiber ISPs (Southeast / Mid-Atlantic Roll-Up)"
     ],
     "type": "ILEC / Fiber / Rural ISP",
-    "ticker": null,
-    "parentAssetId": null,
-    "successorAssetId": null
-  },
-  {
-    "id": "asset-socket-fiber",
-    "name": "Socket Fiber",
-    "aliases": [],
-    "type": "ILEC / Fiber",
     "ticker": null,
     "parentAssetId": null,
     "successorAssetId": null

@@ -5,6 +5,7 @@ import {
   ResponsiveContainer, Cell, PieChart, Pie,
 } from 'recharts'
 import { DollarSign, Activity, Layers, TrendingUp, Users, X, ExternalLink } from 'lucide-react'
+import { db, partyName } from '../data/db'
 
 // ── Color palettes ────────────────────────────────────────────────────────────
 
@@ -20,56 +21,6 @@ const ACQTYPE_COLORS = {
 }
 const ACQTYPES = Object.keys(ACQTYPE_COLORS)
 
-// ── Co-acquirer deal splits ───────────────────────────────────────────────────
-// Maps compound acquirer name → [ {name, pct, type} ]
-// Capital is attributed proportionally to each party's equity stake.
-// "pct" values must sum to 1.0 per entry.
-const CO_ACQUIRER_SPLITS = {
-  // T-Mobile JVs — all 50/50; T-Mobile acquires 50% of JV infrastructure
-  'T-Mobile US + EQT Infrastructure (Lumos Networks JV)': [
-    { name: 'T-Mobile US',        pct: 0.5, type: 'Wireless Carrier'    },
-    { name: 'EQT Infrastructure', pct: 0.5, type: 'Infrastructure Fund' },
-  ],
-  'T-Mobile US + KKR': [
-    { name: 'T-Mobile US', pct: 0.5, type: 'Wireless Carrier'    },
-    { name: 'KKR',         pct: 0.5, type: 'Infrastructure Fund' },
-  ],
-  'T-Mobile US + Oak Hill Capital': [
-    { name: 'T-Mobile US',    pct: 0.5, type: 'Wireless Carrier' },
-    { name: 'Oak Hill Capital', pct: 0.5, type: 'Private Equity' },
-  ],
-  'T-Mobile US + Wren House Infrastructure Management': [
-    { name: 'T-Mobile US',     pct: 0.5, type: 'Wireless Carrier'    },
-    { name: 'Wren House',      pct: 0.5, type: 'Infrastructure Fund' },
-  ],
-  // AT&T + BlackRock GigaPower JV — "each hold ~50%"
-  'GigaPower LLC (AT&T + BlackRock JV)': [
-    { name: 'AT&T Inc.',              pct: 0.5, type: 'Wireless Carrier'    },
-    { name: 'BlackRock Infrastructure', pct: 0.5, type: 'Infrastructure Fund' },
-  ],
-  // EQT + Digital Colony (Zayo) — co-equal co-lead
-  'EQT Infrastructure + Digital Colony Partners (DigitalBridge)': [
-    { name: 'EQT Infrastructure', pct: 0.5, type: 'Infrastructure Fund' },
-    { name: 'DigitalBridge Group', pct: 0.5, type: 'Infrastructure Fund' },
-  ],
-  // DigitalBridge + Crestview (WOW!) — DigitalBridge led; Crestview rolled minority equity
-  // exact split undisclosed — using 50/50 as neutral proxy
-  'DigitalBridge Group + Crestview Partners': [
-    { name: 'DigitalBridge Group', pct: 0.5, type: 'Infrastructure Fund' },
-    { name: 'Crestview Partners',  pct: 0.5, type: 'Private Equity'      },
-  ],
-  // Socket Fiber — Oak Hill + Pamlico; split undisclosed, assume equal
-  'Socket Fiber (Oak Hill Capital + Pamlico Capital)': [
-    { name: 'Oak Hill Capital', pct: 0.5, type: 'Private Equity' },
-    { name: 'Pamlico Capital',  pct: 0.5, type: 'Private Equity' },
-  ],
-  // 3-way carrier JV — "each of the three carriers holds a roughly equal stake"
-  'AT&T + T-Mobile + Verizon': [
-    { name: 'AT&T Inc.',              pct: 1/3, type: 'Wireless Carrier' },
-    { name: 'T-Mobile US',            pct: 1/3, type: 'Wireless Carrier' },
-    { name: 'Verizon Communications', pct: 1/3, type: 'Wireless Carrier' },
-  ],
-}
 
 const TIER_COLORS = {
   'Mega (≥$5B)':           '#2d3068',
@@ -189,40 +140,30 @@ function buildPipelineStages(deals) {
   ]
 }
 
-function buildLeaderboard(deals) {
-  // map: canonical party name → { name, value, count, type, matchNames }
-  // matchNames = Set of raw acquirer.name strings that feed this party
+const acqTypeOf = p => p.partyType === 'firm'
+  ? (db.firm.get(p.partyId)?.firmType ?? 'PE / Infrastructure')
+  : (db.asset.get(p.partyId)?.type ?? 'Strategic')
+
+export function buildLeaderboard() {
   const map = new Map()
-
-  const upsert = (canonicalName, value, type, rawAcquirerName) => {
-    if (!map.has(canonicalName)) {
-      map.set(canonicalName, { name: canonicalName, value: 0, count: 0, type, matchNames: new Set() })
+  for (const d of db.deals) {
+    if (d.status === 'Terminated') continue
+    for (const p of db.participants) {
+      if (p.dealId !== d.id || p.role !== 'buyer') continue
+      const name = partyName(p)
+      if (!map.has(name)) {
+        map.set(name, { name, value: 0, count: 0, type: acqTypeOf(p), dealIds: new Set() })
+      }
+      const e = map.get(name)
+      e.count++
+      e.value += (d.valueUSD ?? 0) * (p.pct ?? 1)
+      e.dealIds.add(d.id)
     }
-    const e = map.get(canonicalName)
-    e.count++
-    e.value += value
-    e.matchNames.add(rawAcquirerName)
   }
-
-  deals.filter(d => d.status !== 'Terminated').forEach(d => {
-    const rawName = d.acquirer?.name
-    if (!rawName) return
-    const splits = CO_ACQUIRER_SPLITS[rawName]
-    if (splits) {
-      // Co-acquirer deal: attribute dealValue proportionally to each party
-      splits.forEach(({ name: partyName, pct, type }) => {
-        upsert(partyName, (d.dealValue ?? 0) * pct, type, rawName)
-      })
-    } else {
-      // Single acquirer: attribute full value
-      upsert(rawName, d.dealValue ?? 0, acqType(d), rawName)
-    }
-  })
-
   return [...map.values()]
     .sort((a, b) => b.value - a.value)
     .slice(0, 12)
-    .map(d => ({ ...d, valueB: +(d.value / 1e9).toFixed(2) }))
+    .map(e => ({ ...e, valueB: +(e.value / 1e9).toFixed(2) }))
 }
 
 function buildSizeTiers(deals) {
@@ -451,7 +392,7 @@ export default function AnalyticsPage({ deals, onNavigateToDeal }) {
 
   const qData    = useMemo(() => buildQuarterlyData(deals),  [deals])
   const pipe     = useMemo(() => buildPipelineStages(deals), [deals])
-  const leader   = useMemo(() => buildLeaderboard(deals),    [deals])
+  const leader   = useMemo(() => buildLeaderboard(),         [])
   const tiers    = useMemo(() => buildSizeTiers(deals),      [deals])
   const platform = useMemo(() => buildPEPlatform(deals),     [deals])
   const conv     = useMemo(() => buildConvergence(deals),    [deals])
@@ -475,12 +416,8 @@ export default function AnalyticsPage({ deals, onNavigateToDeal }) {
   }
 
   const openAcquirerDrill = row => {
-    if (!row) return
-    // matchNames contains all raw acquirer.name strings that rolled up to this row
-    // (e.g. "T-Mobile US" matchNames includes "T-Mobile US + KKR" etc.)
-    const names = row.matchNames ?? new Set([row.name])
     const matched = deals
-      .filter(d => d.status !== 'Terminated' && names.has(d.acquirer?.name))
+      .filter(d => row.dealIds.has(d.id))
       .sort((a, b) => new Date(b.date) - new Date(a.date))
     setDrilldown({ title: row.name, deals: matched })
   }

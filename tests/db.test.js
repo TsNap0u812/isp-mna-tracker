@@ -23,6 +23,11 @@ describe('portfolioOf', () => {
     const names = portfolioOf('firm-tpg-capital', '2021-06-01').map(a => a.name)
     expect(names.join('|')).toMatch(/astound/i)
   })
+  it('dedupes assets held via multiple layered stakes', () => {
+    const ids = portfolioOf('firm-tpg-capital').map(a => a.id)
+    expect(new Set(ids).size).toBe(ids.length)
+    expect(ids).toContain('asset-directv-llc')
+  })
 })
 
 describe('legacyDeals', () => {

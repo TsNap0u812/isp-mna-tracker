@@ -26,10 +26,8 @@ export function openStakes(asOf = null) {
 }
 
 export function portfolioOf(ownerId, asOf = null) {
-  return openStakes(asOf)
-    .filter(s => s.ownerId === ownerId)
-    .map(s => db.asset.get(s.assetId))
-    .filter(Boolean)
+  const ids = new Set(openStakes(asOf).filter(s => s.ownerId === ownerId).map(s => s.assetId))
+  return [...ids].map(id => db.asset.get(id)).filter(Boolean)
 }
 
 export const fundsOf = firmId => funds.filter(f => f.sponsorFirmIds.includes(firmId))

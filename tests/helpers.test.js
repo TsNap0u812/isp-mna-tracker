@@ -17,6 +17,12 @@ describe('baseName', () => {
   })
 })
 
+describe('assetKey', () => {
+  it('composes baseName then slugify', () => {
+    expect(assetKey('Astound Broadband (from TPG Capital)')).toBe('astound-broadband')
+  })
+})
+
 describe('splitCompoundFirm', () => {
   it('splits on slash and plus separators', () => {
     expect(splitCompoundFirm('Oak Hill Capital + Pamlico Capital'))
@@ -48,5 +54,8 @@ describe('extractFundNum', () => {
   })
   it('returns null when there is no number', () => {
     expect(extractFundNum('Apollo Global Management')).toBe(null)
+  })
+  it('ignores mid-string roman numerals', () => {
+    expect(extractFundNum('Apollo IV Global Fund')).toBe(null)
   })
 })

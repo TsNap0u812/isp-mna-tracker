@@ -341,7 +341,7 @@
     "aliases": [],
     "type": "Enterprise Fiber / Carrier",
     "ticker": "LUMN",
-    "parentAssetId": null,
+    "parentAssetId": "asset-lumen-technologies",
     "successorAssetId": null
   },
   {
@@ -352,7 +352,7 @@
     ],
     "type": "Enterprise Fiber / Carrier",
     "ticker": "LUMN",
-    "parentAssetId": null,
+    "parentAssetId": "asset-lumen-technologies",
     "successorAssetId": null
   },
   {

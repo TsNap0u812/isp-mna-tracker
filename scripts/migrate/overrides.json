@@ -16,6 +16,8 @@
   "parentAssets": {
     "asset-wideopenwest-chicago-area-cable-system": "asset-wideopenwest",
     "asset-wideopenwest-illinois-indiana-and-maryland-cable-systems": "asset-wideopenwest",
-    "asset-wideopenwest-remaining-cable-systems": "asset-wideopenwest"
+    "asset-wideopenwest-remaining-cable-systems": "asset-wideopenwest",
+    "asset-lumen-technologies-emea-business": "asset-lumen-technologies",
+    "asset-lumen-technologies-latin-america": "asset-lumen-technologies"
   }
 }

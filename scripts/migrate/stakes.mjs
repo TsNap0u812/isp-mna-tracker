@@ -25,7 +25,7 @@ export function deriveStakes(deals, participants) {
 
   const completed = deals
     .filter(d => d.status === 'Completed')
-    .sort((a, b) => a.date.localeCompare(b.date))
+    .sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id))
 
   for (const deal of completed) {
     const parts = participants.filter(p => p.dealId === deal.id)
@@ -52,6 +52,8 @@ export function deriveStakes(deals, participants) {
         flags.push(`${deal.id}: partial deal (${ownPct}%) — prior stakes on ${t.partyId} left open, review`)
       }
     }
+
+    if (buyers.length > 1 && buyers.some(b => b.pct == null)) flags.push(`${deal.id}: multi-buyer deal with missing pct — stakes default to full ownPct each, review`)
 
     const stakeAssetIds = successor ? [successor.partyId] : targets.map(t => t.partyId)
     for (const assetId of stakeAssetIds) {

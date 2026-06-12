@@ -57,3 +57,54 @@ describe('deriveStakes — pre-history synthesis', () => {
     expect(flags.some(f => f.includes('pre-history'))).toBe(true)
   })
 })
+
+describe('deriveStakes — partial deals', () => {
+  it('leaves prior stakes open, opens fractional buyer stakes, and flags', () => {
+    const deals = [
+      { id: 'd1', date: '2020-01-01', status: 'Completed', dealType: 'Acquisition', ownershipPct: 100 },
+      { id: 'd2', date: '2022-01-01', status: 'Completed', dealType: 'Partial Stake Sale', ownershipPct: 50 },
+    ]
+    const parts = [
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: 1, fundId: null },
+      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundId: null },
+      { dealId: 'd2', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: 0.5, fundId: null },
+      { dealId: 'd2', partyType: 'firm', partyId: 'firm-c', role: 'buyer', pct: 0.5, fundId: null },
+      { dealId: 'd2', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundId: null },
+    ]
+    const { stakes, flags } = deriveStakes(deals, parts)
+    const a = stakes.find(s => s.ownerId === 'firm-a')
+    expect(a.endDate).toBe(null)
+    expect(stakes.find(s => s.ownerId === 'firm-b').pct).toBe(25)
+    expect(stakes.find(s => s.ownerId === 'firm-c').pct).toBe(25)
+    expect(flags.some(f => f.includes('partial deal'))).toBe(true)
+  })
+})
+
+describe('deriveStakes — determinism', () => {
+  it('assigns identical stake ids regardless of input deal order', () => {
+    const deals = [
+      { id: 'd-b', date: '2021-01-01', status: 'Completed', dealType: 'Acquisition', ownershipPct: 100 },
+      { id: 'd-a', date: '2021-01-01', status: 'Completed', dealType: 'Acquisition', ownershipPct: 100 },
+    ]
+    const parts = [
+      { dealId: 'd-a', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: 1, fundId: null },
+      { dealId: 'd-a', partyType: 'asset', partyId: 'asset-1', role: 'target', pct: null, fundId: null },
+      { dealId: 'd-b', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: 1, fundId: null },
+      { dealId: 'd-b', partyType: 'asset', partyId: 'asset-2', role: 'target', pct: null, fundId: null },
+    ]
+    const r1 = deriveStakes(deals, parts).stakes
+    const r2 = deriveStakes([...deals].reverse(), parts).stakes
+    expect(r1.map(s => `${s.id}:${s.ownerId}`)).toEqual(r2.map(s => `${s.id}:${s.ownerId}`))
+  })
+
+  it('flags multi-buyer deals with missing pct instead of silently over-allocating', () => {
+    const deals = [{ id: 'd1', date: '2021-01-01', status: 'Completed', dealType: 'Acquisition', ownershipPct: 100 }]
+    const parts = [
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: null, fundId: null },
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: null, fundId: null },
+      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundId: null },
+    ]
+    const { flags } = deriveStakes(deals, parts)
+    expect(flags.some(f => f.includes('missing pct'))).toBe(true)
+  })
+})

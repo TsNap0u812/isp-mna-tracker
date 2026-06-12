@@ -11,6 +11,7 @@ const legacy = JSON.parse(readFileSync(join(ROOT, 'src/data/deals.json'), 'utf8'
 const overrides = JSON.parse(readFileSync(join(ROOT, 'scripts/migrate/overrides.json'), 'utf8'))
 
 const reg = createRegistry()
+// notFirms matches against baseName(name).toLowerCase() — parenthetical annotations are stripped before comparison
 reg.notFirms = new Set((overrides.notFirms ?? []).map(n => n.toLowerCase()))
 
 // ── Pass 1: harvest all firms + funds from every pe blob ─────────────────────
@@ -49,6 +50,10 @@ reg.flags.forEach(f => flagSet.add(f))   // pick up flags added during pass 2 up
 
 // ── Pass 3: apply merges (assets AND firms) ──────────────────────────────────
 function applyMerge(idPrefix, registryMap, mergeSpec) {
+  const toSet = new Set(Object.values(mergeSpec ?? {}))
+  for (const fromId of Object.keys(mergeSpec ?? {})) {
+    if (toSet.has(fromId)) flagSet.add(`override merge: "${fromId}" is both a source and a target — chain detected, verify order`)
+  }
   for (const [fromId, toId] of Object.entries(mergeSpec ?? {})) {
     const fromKey = fromId.replace(idPrefix, '')
     const toKey = toId.replace(idPrefix, '')
@@ -58,7 +63,7 @@ function applyMerge(idPrefix, registryMap, mergeSpec) {
     for (const alias of [from.name, ...from.aliases]) {
       if (alias !== to.name && !to.aliases.includes(alias)) to.aliases.push(alias)
     }
-    // keep richest scalar fields
+    // prefer 'to' values; backfill nulls from 'from'
     for (const k of Object.keys(from)) {
       if (k !== 'id' && k !== 'name' && k !== 'aliases' && to[k] == null && from[k] != null) to[k] = from[k]
     }
@@ -114,7 +119,7 @@ const report = [
   `Generated from src/data/deals.json (${legacy.length} deals).`, '',
   `| Collection | Count |`, `|---|---|`,
   `| firms | ${reg.firms.size} |`, `| funds | ${reg.funds.size} |`,
-  `| assets | ${reg.assets.size} |`, `| participants | ${participants.length} |`,
+  `| assets | ${reg.assets.size} |`, `| deals | ${deals.length} |`, `| participants | ${participants.length} |`,
   `| stakes | ${stakes.length} |`, '',
   `## Flags for review (${allFlags.length})`, '',
   ...allFlags.map(f => `- [ ] ${f}`), '',

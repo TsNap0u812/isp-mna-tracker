@@ -7,6 +7,7 @@ Generated from src/data/deals.json (50 deals).
 | firms | 28 |
 | funds | 49 |
 | assets | 64 |
+| deals | 50 |
 | participants | 153 |
 | stakes | 57 |
 

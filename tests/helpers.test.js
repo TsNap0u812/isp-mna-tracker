@@ -42,6 +42,10 @@ describe('extractFundNum', () => {
     expect(extractFundNum('Crestview Partners IV')).toBe(4)
     expect(extractFundNum('Stonepeak Infrastructure Fund 4')).toBe(4)
   })
+  it('handles high roman numerals found in real fund names', () => {
+    expect(extractFundNum('KKR Americas XIII')).toBe(13)
+    expect(extractFundNum('Insight Partners XV')).toBe(15)
+  })
   it('returns null when there is no number', () => {
     expect(extractFundNum('Apollo Global Management')).toBe(null)
   })

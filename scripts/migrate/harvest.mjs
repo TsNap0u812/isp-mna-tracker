@@ -26,7 +26,8 @@ export function upsertFirm(reg, name, pe = null) {
       f.headquarters ??= pe.headquarters ?? null
       f.website ??= pe.website ?? null
     } else if (pe && parts.length > 1) {
-      reg.flags.push(`firm enrichment skipped for compound "${name}" — assign firmType/aum manually`)
+      const flag = `firm enrichment skipped for compound "${name}" — assign firmType/aum manually`
+      if (!reg.flags.includes(flag)) reg.flags.push(flag)
     }
     return f
   })

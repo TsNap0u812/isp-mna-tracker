@@ -25,6 +25,13 @@ describe('upsertFirm', () => {
     upsertFirm(reg, 'TPG Capital (Astound Broadband Formation)', null)
     expect(reg.firms.size).toBe(1)
   })
+  it('flags a compound firm with pe blob only once', () => {
+    const reg = createRegistry()
+    const pe = { firm: 'Madison Dearborn Partners + Catania Capital Partners', firmType: 'Private Equity' }
+    upsertFirm(reg, 'Madison Dearborn Partners + Catania Capital Partners', pe)
+    upsertFirm(reg, 'Madison Dearborn Partners + Catania Capital Partners', pe)
+    expect(reg.flags).toHaveLength(1)
+  })
 })
 
 describe('upsertFund', () => {

@@ -53,10 +53,14 @@ function resolveEntity(query) {
   const q = query.trim().toLowerCase()
   if (!q) return null
   const pool = [...db.assets, ...db.firms]
-  return pool.find(e => e.name.toLowerCase() === q)
-    ?? pool.find(e => e.name.toLowerCase().includes(q)
-      || (e.aliases ?? []).some(a => a.toLowerCase().includes(q)))
-    ?? null
+  const lookup = needle =>
+    pool.find(e => e.name.toLowerCase() === needle)
+    ?? pool.find(e => e.name.toLowerCase().includes(needle)
+      || (e.aliases ?? []).some(a => a.toLowerCase().includes(needle)))
+  // Trace seeds carry raw legacy names like "Astound Broadband (Stonepeak ...)" —
+  // retry with parentheticals stripped when the raw string misses.
+  const stripped = q.replace(/\s*\([^)]*\)/g, ' ').replace(/\s+/g, ' ').trim()
+  return lookup(q) ?? (stripped !== q ? lookup(stripped) : null)
 }
 
 export function buildChain(query, deals) {

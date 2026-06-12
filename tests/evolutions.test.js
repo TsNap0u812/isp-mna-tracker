@@ -26,6 +26,22 @@ describe('buildChain', () => {
   })
 })
 
+describe('buildChain — Trace button seeds (raw legacy acquirer names)', () => {
+  const seeds = [
+    'Astound Broadband (Stonepeak Infrastructure Partners)',
+    'Great Plains Communications (GPC)',
+    'Socket Fiber (Oak Hill Capital + Pamlico Capital)',
+    'Cable One Inc. (Sparklight)',
+    'Swyft Fiber (Macquarie Asset Management)',
+    'TPG Capital (Astound Broadband Formation)',
+  ]
+  for (const seed of seeds) {
+    it(`resolves "${seed}"`, () => {
+      expect(buildChain(seed, deals).chain.length).toBeGreaterThanOrEqual(1)
+    })
+  }
+})
+
 describe('getSearchSuggestions', () => {
   it('suggests entities with deal counts', () => {
     const s = getSearchSuggestions('astound', deals)

@@ -10,7 +10,8 @@
     "api": "node api/server.mjs",
     "refresh-data": "node scripts/refresh-data.mjs",
     "fund-data": "node scripts/fund-data-query.mjs",
-    "fund-data:dry": "node scripts/fund-data-query.mjs --dry-run"
+    "fund-data:dry": "node scripts/fund-data-query.mjs --dry-run",
+    "test": "vitest run"
   },
   "dependencies": {
     "lucide-react": "^0.441.0",
@@ -26,6 +27,7 @@
     "concurrently": "^9.2.1",
     "postcss": "^8.4.45",
     "tailwindcss": "^3.4.11",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vitest": "^4.1.8"
   }
 }

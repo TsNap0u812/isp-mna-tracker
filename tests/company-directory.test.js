@@ -1,25 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { db, portfolioOf, fundsOf } from '../src/data/db.js'
-
-// Mirrors CompanyInfoPage.buildPEDirectory — guards the page's data contract
-function buildPEDirectory() {
-  return db.firms
-    .map(firm => {
-      const dealRefs = db.participants
-        .filter(p => p.partyType === 'firm' && p.partyId === firm.id)
-        .map(p => {
-          const d = db.deal.get(p.dealId)
-          return { id: d.id, role: p.role === 'seller' ? 'Backed target' : 'Backed acquirer', status: d.status }
-        })
-      return {
-        firm: firm.name,
-        primaryFunds: fundsOf(firm.id).map(f => f.name),
-        otherTelecomPortfolio: portfolioOf(firm.id).map(a => a.name),
-        dealRefs,
-      }
-    })
-    .filter(f => f.dealRefs.length > 0)
-}
+import { buildPEDirectory } from '../src/components/CompanyInfoPage.jsx'
 
 describe('PE directory data contract', () => {
   const dir = buildPEDirectory()

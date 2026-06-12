@@ -40,7 +40,7 @@ const ISP_MATCH = {
 
 // ── Data builders ─────────────────────────────────────────────────────────────
 
-function buildPEDirectory() {
+export function buildPEDirectory() {
   return db.firms
     .map(firm => {
       const dealRefs = db.participants

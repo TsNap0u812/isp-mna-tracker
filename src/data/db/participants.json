@@ -19,7 +19,7 @@
     "pct": null,
     "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-fastwyre-broadband",
+    "partyId": "asset-fastwyre-nebraska",
     "role": "target",
     "dealId": "deal-043"
   },
@@ -147,7 +147,7 @@
     "pct": null,
     "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-fastwyre-broadband",
+    "partyId": "asset-fastwyre-missouri",
     "role": "target",
     "dealId": "deal-048"
   },
@@ -251,7 +251,7 @@
     "pct": null,
     "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-lumen-technologies",
+    "partyId": "asset-lumen-mass-markets",
     "role": "target",
     "dealId": "deal-037"
   },
@@ -371,7 +371,7 @@
     "pct": null,
     "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-fastwyre-broadband",
+    "partyId": "asset-fastwyre-louisiana-texas-alabama",
     "role": "target",
     "dealId": "deal-047"
   },
@@ -811,7 +811,7 @@
     "pct": null,
     "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-lumen-technologies",
+    "partyId": "asset-lumen-ilec-20-states",
     "role": "target",
     "dealId": "deal-003"
   },
@@ -1075,7 +1075,7 @@
     "pct": null,
     "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-frontier-communications",
+    "partyId": "asset-frontier-pnw-ilec",
     "role": "target",
     "dealId": "deal-005"
   },

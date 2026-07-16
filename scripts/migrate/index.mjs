@@ -6,6 +6,7 @@ import { createRegistry, upsertFirm, upsertFund, sponsorFor } from './harvest.mj
 import { buildDealParticipants } from './participants.mjs'
 import { deriveStakes } from './stakes.mjs'
 import { applyStakeOverrides } from './stake-overrides.mjs'
+import { injectNewAssets, applyTargetOverrides, validateParentAssets } from './target-overrides.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const legacy = JSON.parse(readFileSync(join(ROOT, 'src/data/deals.json'), 'utf8'))
@@ -69,6 +70,14 @@ for (const [dealId, entries] of Object.entries(buyerOverrides)) {
   }
 }
 
+// ── Carve-outs: inject authored child assets, retarget their deals ───────────
+// Runs BEFORE pass 3 merges so merges (and everything downstream) see the
+// corrected targets. Stakes derivation then lands seller pre-history on the
+// child assets instead of inventing whole-parent transfers.
+injectNewAssets(reg, overrides.newAssets).flags.forEach(f => flagSet.add(f))
+applyTargetOverrides(participants, overrides.targetOverrides, reg, new Set(deals.map(d => d.id)))
+  .flags.forEach(f => flagSet.add(f))
+
 // ── Pass 3: apply merges (assets AND firms) ──────────────────────────────────
 function applyMerge(idPrefix, registryMap, mergeSpec) {
   const toSet = new Set(Object.values(mergeSpec ?? {}))
@@ -121,6 +130,9 @@ for (const [childId, parentId] of Object.entries(overrides.parentAssets ?? {})) 
   if (child) child.parentAssetId = parentId
   else flagSet.add(`override parent ${childId}: id not found, skipped`)
 }
+
+// Every parentAssetId (authored via newAssets or parentAssets) must resolve.
+validateParentAssets(reg).flags.forEach(f => flagSet.add(f))
 
 // ── Pass 4: lineage — successor participants set successorAssetId ────────────
 for (const d of deals) {

@@ -6,7 +6,7 @@ Generated from src/data/deals.json (50 deals).
 |---|---|
 | firms | 28 |
 | funds | 46 |
-| assets | 62 |
+| assets | 68 |
 | deals | 50 |
 | participants | 150 |
 | stakes | 62 |
@@ -47,4 +47,4 @@ Generated from src/data/deals.json (50 deals).
 - [ ] deal-023: partial deal (70%) — prior stakes on asset-directv-llc left open, review
 - [ ] deal-024: synthesized pre-history stake for seller(s) on asset-windstream-holdings
 - [ ] deal-045: synthesized pre-history stake for seller(s) on asset-ziply-fiber
-- [ ] deal-048: synthesized pre-history stake for seller(s) on asset-fastwyre-broadband
+- [ ] deal-048: synthesized pre-history stake for seller(s) on asset-fastwyre-missouri

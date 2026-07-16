@@ -205,6 +205,33 @@
     "successorAssetId": null
   },
   {
+    "id": "asset-fastwyre-louisiana-texas-alabama",
+    "name": "Fastwyre Broadband — Louisiana, Texas & Alabama Operations",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-fastwyre-broadband",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-fastwyre-missouri",
+    "name": "Fastwyre Broadband — Missouri Operations",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-fastwyre-broadband",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-fastwyre-nebraska",
+    "name": "Fastwyre Broadband — Nebraska Operations",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-fastwyre-broadband",
+    "successorAssetId": null
+  },
+  {
     "id": "asset-frontier-communications",
     "name": "Frontier Communications",
     "aliases": [
@@ -213,6 +240,15 @@
     "type": "ILEC / Fiber",
     "ticker": "FYBR",
     "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-frontier-pnw-ilec",
+    "name": "Frontier Pacific NW ILEC Assets",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-frontier-communications",
     "successorAssetId": null
   },
   {
@@ -302,6 +338,24 @@
     "type": "MVNO (Prepaid)",
     "ticker": null,
     "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumen-ilec-20-states",
+    "name": "Lumen ILEC Assets (20 States)",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-lumen-technologies",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumen-mass-markets",
+    "name": "Lumen Mass Markets / Quantum Fiber",
+    "aliases": [],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": "asset-lumen-technologies",
     "successorAssetId": null
   },
   {

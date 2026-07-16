@@ -66,6 +66,28 @@
       "stake": { "assetId": "asset-boost-mobile", "ownerType": "asset", "ownerId": "asset-t-mobile-us", "pct": 100,
                  "startDate": null, "endDate": "2020-07-01", "openedByDealId": null, "closedByDealId": "deal-035" } }
   ],
+  "newAssets": [
+    { "id": "asset-lumen-ilec-20-states", "name": "Lumen ILEC Assets (20 States)",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-lumen-technologies" },
+    { "id": "asset-lumen-mass-markets", "name": "Lumen Mass Markets / Quantum Fiber",
+      "type": "Pure Fiber (FTTH)", "ticker": null, "parentAssetId": "asset-lumen-technologies" },
+    { "id": "asset-frontier-pnw-ilec", "name": "Frontier Pacific NW ILEC Assets",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-frontier-communications" },
+    { "id": "asset-fastwyre-nebraska", "name": "Fastwyre Broadband — Nebraska Operations",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-fastwyre-broadband" },
+    { "id": "asset-fastwyre-louisiana-texas-alabama", "name": "Fastwyre Broadband — Louisiana, Texas & Alabama Operations",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-fastwyre-broadband" },
+    { "id": "asset-fastwyre-missouri", "name": "Fastwyre Broadband — Missouri Operations",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-fastwyre-broadband" }
+  ],
+  "targetOverrides": {
+    "deal-003": ["asset-lumen-ilec-20-states"],
+    "deal-037": ["asset-lumen-mass-markets"],
+    "deal-005": ["asset-frontier-pnw-ilec"],
+    "deal-043": ["asset-fastwyre-nebraska"],
+    "deal-047": ["asset-fastwyre-louisiana-texas-alabama"],
+    "deal-048": ["asset-fastwyre-missouri"]
+  },
   "parentAssets": {
     "asset-wideopenwest-chicago-area-cable-system": "asset-wideopenwest",
     "asset-wideopenwest-illinois-indiana-and-maryland-cable-systems": "asset-wideopenwest",

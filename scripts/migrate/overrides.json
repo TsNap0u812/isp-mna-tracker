@@ -49,6 +49,23 @@
     "asset-verizon": "asset-verizon-communications",
     "asset-t-mobile": "asset-t-mobile-us"
   },
+  "stakeOverrides": [
+    { "action": "patch",
+      "match": { "assetId": "asset-lumos-networks", "ownerId": "firm-eqt-infrastructure", "openedByDealId": "deal-031" },
+      "set": { "endDate": "2025-04-01", "closedByDealId": "deal-039" } },
+    { "action": "add",
+      "stake": { "assetId": "asset-lumos-networks", "ownerType": "firm", "ownerId": "firm-eqt-infrastructure", "pct": 50,
+                 "startDate": "2025-04-01", "endDate": null, "openedByDealId": "deal-039", "closedByDealId": null } },
+    { "action": "add",
+      "stake": { "assetId": "asset-directv-llc", "ownerType": "asset", "ownerId": "asset-at-and-t-inc", "pct": 100,
+                 "startDate": null, "endDate": "2021-08-02", "openedByDealId": null, "closedByDealId": "deal-033" } },
+    { "action": "add",
+      "stake": { "assetId": "asset-directv-llc", "ownerType": "asset", "ownerId": "asset-at-and-t-inc", "pct": 70,
+                 "startDate": "2021-08-02", "endDate": "2025-07-02", "openedByDealId": "deal-033", "closedByDealId": "deal-023" } },
+    { "action": "add",
+      "stake": { "assetId": "asset-boost-mobile", "ownerType": "asset", "ownerId": "asset-t-mobile-us", "pct": 100,
+                 "startDate": null, "endDate": "2020-07-01", "openedByDealId": null, "closedByDealId": "deal-035" } }
+  ],
   "parentAssets": {
     "asset-wideopenwest-chicago-area-cable-system": "asset-wideopenwest",
     "asset-wideopenwest-illinois-indiana-and-maryland-cable-systems": "asset-wideopenwest",

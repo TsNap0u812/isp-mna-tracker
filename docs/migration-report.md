@@ -9,7 +9,7 @@ Generated from src/data/deals.json (50 deals).
 | assets | 62 |
 | deals | 50 |
 | participants | 150 |
-| stakes | 58 |
+| stakes | 62 |
 
 ## Flags for review (35)
 

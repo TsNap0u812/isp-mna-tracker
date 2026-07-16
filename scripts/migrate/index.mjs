@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { createRegistry, upsertFirm, upsertFund, sponsorFor } from './harvest.mjs'
 import { buildDealParticipants } from './participants.mjs'
 import { deriveStakes } from './stakes.mjs'
+import { applyStakeOverrides } from './stake-overrides.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const legacy = JSON.parse(readFileSync(join(ROOT, 'src/data/deals.json'), 'utf8'))
@@ -135,6 +136,14 @@ for (const d of deals) {
 // ── Pass 5: stakes ───────────────────────────────────────────────────────────
 const { stakes, flags: stakeFlags } = deriveStakes(deals, participants)
 stakeFlags.forEach(f => flagSet.add(f))
+
+// ── Stake overrides: manual corrections for residuals deriveStakes can't infer ─
+const { flags: stakeOverrideFlags } = applyStakeOverrides(stakes, overrides.stakeOverrides, {
+  assetIds: new Set([...reg.assets.values()].map(a => a.id)),
+  firmIds: new Set([...reg.firms.values()].map(f => f.id)),
+  dealIds: new Set(deals.map(d => d.id)),
+})
+stakeOverrideFlags.forEach(f => flagSet.add(f))
 
 // ── Write output ─────────────────────────────────────────────────────────────
 const outDir = join(ROOT, 'src/data/db')

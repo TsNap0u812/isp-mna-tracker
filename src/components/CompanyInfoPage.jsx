@@ -40,8 +40,8 @@ const ISP_MATCH = {
 
 // ── Data builders ─────────────────────────────────────────────────────────────
 
-export function buildPEDirectory() {
-  return db.firms
+export function buildPEDirectory(deals = []) {
+  const directory = db.firms
     .map(firm => {
       const dealRefs = db.participants
         .filter(p => p.partyType === 'firm' && p.partyId === firm.id)
@@ -62,6 +62,41 @@ export function buildPEDirectory() {
         dealRefs,
       }
     })
+
+  // Locally-added deals (Add-deal form → localStorage) never reach the db —
+  // fold their PE blobs in: match existing cards by firm name/alias, else add one.
+  for (const d of deals) {
+    if (db.deal.has(d.id)) continue
+    for (const side of ['acquirer', 'acquired']) {
+      const pe = d[side]?.pe
+      if (!pe?.firm) continue
+      const q = pe.firm.toLowerCase()
+      const dbFirm = db.firms.find(f =>
+        f.name.toLowerCase() === q ||
+        (f.aliases ?? []).some(a => a.toLowerCase() === q))
+      const entry = directory.find(e =>
+        e.firm.toLowerCase() === q || (dbFirm && e.firm === dbFirm.name))
+      const ref = {
+        id: d.id, date: d.date,
+        role: side === 'acquired' ? 'Backed target' : 'Backed acquirer',
+        acquirer: d.acquirer?.name, acquired: d.acquired?.name,
+        dealValue: d.dealValue, dealType: d.dealType, status: d.status,
+      }
+      if (entry) {
+        entry.dealRefs.push(ref)
+      } else {
+        directory.push({
+          firm: pe.firm, firmType: pe.firmType, aum: pe.aum,
+          headquarters: pe.headquarters, website: pe.website,
+          primaryFunds: pe.primaryFunds ?? [],
+          otherTelecomPortfolio: pe.otherTelecomPortfolio ?? [],
+          dealRefs: [ref],
+        })
+      }
+    }
+  }
+
+  return directory
     .filter(f => f.dealRefs.length > 0)
     .sort((a, b) => a.firm.localeCompare(b.firm))
 }
@@ -277,7 +312,7 @@ export default function CompanyInfoPage({ deals, onNavigateToDeal }) {
   const [activeFilter, setActiveFilter] = useState('pe')
   const [search, setSearch]             = useState('')
 
-  const peDirectory = useMemo(() => buildPEDirectory(), [])
+  const peDirectory = useMemo(() => buildPEDirectory(deals), [deals])
 
   const companyDirs = useMemo(() =>
     Object.fromEntries(

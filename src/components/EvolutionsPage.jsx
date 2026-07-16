@@ -79,8 +79,17 @@ export function buildChain(query, deals) {
   const dealIds = isFirm
     ? new Set(db.participants.filter(p => p.partyId === entity.id).map(p => p.dealId))
     : new Set(evolutionChain(entity.id).map(d => d.id))
+  // Locally-added deals (Add-deal form → localStorage) never reach the db —
+  // append any whose party names mention the entity or one of its aliases.
+  const needles = [entity.name, ...(entity.aliases ?? [])].map(s => s.toLowerCase())
+  const localDeals = deals.filter(d =>
+    !db.deal.has(d.id) && !dealIds.has(d.id) &&
+    needles.some(n =>
+      (d.acquirer?.name ?? '').toLowerCase().includes(n) ||
+      (d.acquired?.name ?? '').toLowerCase().includes(n)))
   const chain = deals
     .filter(d => dealIds.has(d.id))
+    .concat(localDeals)
     .sort((a, b) => new Date(b.date) - new Date(a.date))
   const predecessors = isFirm ? [] : db.assets
     .filter(a => a.successorAssetId === entity.id || a.parentAssetId === entity.id)

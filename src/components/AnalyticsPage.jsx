@@ -144,7 +144,7 @@ const acqTypeOf = p => p.partyType === 'firm'
   ? (db.firm.get(p.partyId)?.firmType ?? 'PE / Infrastructure')
   : (db.asset.get(p.partyId)?.type ?? 'Strategic')
 
-export function buildLeaderboard() {
+export function buildLeaderboard(deals = []) {
   const map = new Map()
   for (const d of db.deals) {
     if (d.status === 'Terminated') continue
@@ -159,6 +159,20 @@ export function buildLeaderboard() {
       e.value += (d.valueUSD ?? 0) * (p.pct ?? 1)
       e.dealIds.add(d.id)
     }
+  }
+  // Locally-added deals (Add-deal form → localStorage) never reach the db —
+  // fold them in from the legacy-shaped prop: acquirer as single buyer, pct 1.
+  for (const d of deals) {
+    if (db.deal.has(d.id) || d.status === 'Terminated') continue
+    const name = d.acquirer?.name
+    if (!name) continue
+    if (!map.has(name)) {
+      map.set(name, { name, value: 0, count: 0, type: acqType(d), dealIds: new Set() })
+    }
+    const e = map.get(name)
+    e.count++
+    e.value += d.dealValue ?? 0
+    e.dealIds.add(d.id)
   }
   return [...map.values()]
     .sort((a, b) => b.value - a.value)
@@ -392,7 +406,7 @@ export default function AnalyticsPage({ deals, onNavigateToDeal }) {
 
   const qData    = useMemo(() => buildQuarterlyData(deals),  [deals])
   const pipe     = useMemo(() => buildPipelineStages(deals), [deals])
-  const leader   = useMemo(() => buildLeaderboard(),         [])
+  const leader   = useMemo(() => buildLeaderboard(deals),    [deals])
   const tiers    = useMemo(() => buildSizeTiers(deals),      [deals])
   const platform = useMemo(() => buildPEPlatform(deals),     [deals])
   const conv     = useMemo(() => buildConvergence(deals),    [deals])

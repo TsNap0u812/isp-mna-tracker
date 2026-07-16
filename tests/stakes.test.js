@@ -7,14 +7,14 @@ const DEALS = [
   { id: 'd-rumor', date: '2025-01-01', status: 'Pending / Regulatory Review', dealType: 'Merger', ownershipPct: 100 },
 ]
 const PARTS = [
-  { dealId: 'd-cons', partyType: 'firm', partyId: 'firm-tpg', role: 'buyer', pct: 1, fundId: null },
-  { dealId: 'd-cons', partyType: 'asset', partyId: 'asset-rcn', role: 'target', pct: null, fundId: null },
-  { dealId: 'd-cons', partyType: 'asset', partyId: 'asset-wave', role: 'target', pct: null, fundId: null },
-  { dealId: 'd-cons', partyType: 'asset', partyId: 'asset-astound', role: 'successor', pct: null, fundId: null },
-  { dealId: 'd-sale', partyType: 'firm', partyId: 'firm-stonepeak', role: 'buyer', pct: 1, fundId: null },
-  { dealId: 'd-sale', partyType: 'asset', partyId: 'asset-astound', role: 'target', pct: null, fundId: null },
-  { dealId: 'd-sale', partyType: 'firm', partyId: 'firm-tpg', role: 'seller', pct: null, fundId: null },
-  { dealId: 'd-rumor', partyType: 'asset', partyId: 'asset-astound', role: 'target', pct: null, fundId: null },
+  { dealId: 'd-cons', partyType: 'firm', partyId: 'firm-tpg', role: 'buyer', pct: 1, fundIds: [] },
+  { dealId: 'd-cons', partyType: 'asset', partyId: 'asset-rcn', role: 'target', pct: null, fundIds: [] },
+  { dealId: 'd-cons', partyType: 'asset', partyId: 'asset-wave', role: 'target', pct: null, fundIds: [] },
+  { dealId: 'd-cons', partyType: 'asset', partyId: 'asset-astound', role: 'successor', pct: null, fundIds: [] },
+  { dealId: 'd-sale', partyType: 'firm', partyId: 'firm-stonepeak', role: 'buyer', pct: 1, fundIds: [] },
+  { dealId: 'd-sale', partyType: 'asset', partyId: 'asset-astound', role: 'target', pct: null, fundIds: [] },
+  { dealId: 'd-sale', partyType: 'firm', partyId: 'firm-tpg', role: 'seller', pct: null, fundIds: [] },
+  { dealId: 'd-rumor', partyType: 'asset', partyId: 'asset-astound', role: 'target', pct: null, fundIds: [] },
 ]
 
 describe('deriveStakes — Astound chain', () => {
@@ -45,9 +45,9 @@ describe('deriveStakes — pre-history synthesis', () => {
   it('synthesizes a seller stake when the asset has no tracked opening', () => {
     const deals = [{ id: 'd1', date: '2021-05-01', status: 'Completed', dealType: 'Acquisition', ownershipPct: 100 }]
     const parts = [
-      { dealId: 'd1', partyType: 'firm', partyId: 'firm-buyer', role: 'buyer', pct: 1, fundId: null },
-      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundId: null },
-      { dealId: 'd1', partyType: 'firm', partyId: 'firm-old-owner', role: 'seller', pct: null, fundId: null },
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-buyer', role: 'buyer', pct: 1, fundIds: [] },
+      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundIds: [] },
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-old-owner', role: 'seller', pct: null, fundIds: [] },
     ]
     const { stakes, flags } = deriveStakes(deals, parts)
     const pre = stakes.find(s => s.ownerId === 'firm-old-owner')
@@ -65,11 +65,11 @@ describe('deriveStakes — partial deals', () => {
       { id: 'd2', date: '2022-01-01', status: 'Completed', dealType: 'Partial Stake Sale', ownershipPct: 50 },
     ]
     const parts = [
-      { dealId: 'd1', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: 1, fundId: null },
-      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundId: null },
-      { dealId: 'd2', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: 0.5, fundId: null },
-      { dealId: 'd2', partyType: 'firm', partyId: 'firm-c', role: 'buyer', pct: 0.5, fundId: null },
-      { dealId: 'd2', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundId: null },
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: 1, fundIds: [] },
+      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundIds: [] },
+      { dealId: 'd2', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: 0.5, fundIds: [] },
+      { dealId: 'd2', partyType: 'firm', partyId: 'firm-c', role: 'buyer', pct: 0.5, fundIds: [] },
+      { dealId: 'd2', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundIds: [] },
     ]
     const { stakes, flags } = deriveStakes(deals, parts)
     const a = stakes.find(s => s.ownerId === 'firm-a')
@@ -87,10 +87,10 @@ describe('deriveStakes — determinism', () => {
       { id: 'd-a', date: '2021-01-01', status: 'Completed', dealType: 'Acquisition', ownershipPct: 100 },
     ]
     const parts = [
-      { dealId: 'd-a', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: 1, fundId: null },
-      { dealId: 'd-a', partyType: 'asset', partyId: 'asset-1', role: 'target', pct: null, fundId: null },
-      { dealId: 'd-b', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: 1, fundId: null },
-      { dealId: 'd-b', partyType: 'asset', partyId: 'asset-2', role: 'target', pct: null, fundId: null },
+      { dealId: 'd-a', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: 1, fundIds: [] },
+      { dealId: 'd-a', partyType: 'asset', partyId: 'asset-1', role: 'target', pct: null, fundIds: [] },
+      { dealId: 'd-b', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: 1, fundIds: [] },
+      { dealId: 'd-b', partyType: 'asset', partyId: 'asset-2', role: 'target', pct: null, fundIds: [] },
     ]
     const r1 = deriveStakes(deals, parts).stakes
     const r2 = deriveStakes([...deals].reverse(), parts).stakes
@@ -100,9 +100,9 @@ describe('deriveStakes — determinism', () => {
   it('flags multi-buyer deals with missing pct instead of silently over-allocating', () => {
     const deals = [{ id: 'd1', date: '2021-01-01', status: 'Completed', dealType: 'Acquisition', ownershipPct: 100 }]
     const parts = [
-      { dealId: 'd1', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: null, fundId: null },
-      { dealId: 'd1', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: null, fundId: null },
-      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundId: null },
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-a', role: 'buyer', pct: null, fundIds: [] },
+      { dealId: 'd1', partyType: 'firm', partyId: 'firm-b', role: 'buyer', pct: null, fundIds: [] },
+      { dealId: 'd1', partyType: 'asset', partyId: 'asset-x', role: 'target', pct: null, fundIds: [] },
     ]
     const { flags } = deriveStakes(deals, parts)
     expect(flags.some(f => f.includes('missing pct'))).toBe(true)

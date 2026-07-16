@@ -53,7 +53,7 @@ export function applyTargetOverrides(participants, targetOverrides, reg, dealIds
       if (participants[i].dealId === dealId && participants[i].role === 'target') participants.splice(i, 1)
     }
     const rows = assetIds.map(partyId =>
-      ({ pct: null, fundId: null, partyType: 'asset', partyId, role: 'target', dealId }))
+      ({ pct: null, fundIds: [], partyType: 'asset', partyId, role: 'target', dealId }))
     participants.splice(firstIdx === -1 ? participants.length : firstIdx, 0, ...rows)
   }
   return { flags }

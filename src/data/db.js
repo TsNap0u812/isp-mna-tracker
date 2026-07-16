@@ -71,7 +71,11 @@ export function legacyDeals() {
       return {
         firm: f.name, firmType: f.firmType, aum: f.aum,
         headquarters: f.headquarters, website: f.website,
-        primaryFunds: fundsOf(f.id).map(x => x.name),
+        // per-deal attribution when the participant row carries fundIds;
+        // otherwise fall back to every fund the firm sponsors
+        primaryFunds: ref.fundIds?.length
+          ? ref.fundIds.map(id => db.fund.get(id)?.name).filter(Boolean)
+          : fundsOf(f.id).map(x => x.name),
         otherTelecomPortfolio: portfolioOf(f.id).map(a => a.name),
       }
     }

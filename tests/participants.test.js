@@ -1,12 +1,14 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import { createRegistry, upsertFirm } from '../scripts/migrate/harvest.mjs'
+import { createRegistry, upsertFirm, upsertFund } from '../scripts/migrate/harvest.mjs'
 import { buildDealParticipants } from '../scripts/migrate/participants.mjs'
 
 let reg
 beforeEach(() => {
   reg = createRegistry()
-  // pass-1 firms already harvested
-  upsertFirm(reg, 'TPG Capital', { firm: 'TPG Capital', firmType: 'Private Equity' })
+  // pass-1 firms + funds already harvested
+  const [tpg] = upsertFirm(reg, 'TPG Capital', { firm: 'TPG Capital', firmType: 'Private Equity' })
+  upsertFund(reg, 'TPG Capital VIII', [tpg])
+  upsertFund(reg, 'TPG Capital IX', [tpg])
   upsertFirm(reg, 'Stonepeak Infrastructure Partners',
     { firm: 'Stonepeak Infrastructure Partners', firmType: 'Infrastructure Private Equity' })
   upsertFirm(reg, 'KKR & Co. Inc.', { firm: 'KKR & Co. Inc.', firmType: 'Private Equity' })
@@ -16,18 +18,68 @@ const DEAL_052 = {
   id: 'deal-052', date: '2021-08-01', status: 'Completed', dealType: 'Acquisition',
   acquirer: { name: 'Stonepeak Infrastructure Partners', type: 'Infrastructure Private Equity', ticker: null, pe: null },
   acquired: { name: 'Astound Broadband (from TPG Capital)', type: 'MSO (Cable) / Fiber', ticker: null,
-    pe: { firm: 'TPG Capital', firmType: 'Private Equity' } },
+    pe: { firm: 'TPG Capital', firmType: 'Private Equity',
+      primaryFunds: ['TPG Capital VIII', 'TPG Capital IX'] } },
   ownershipPct: 100,
 }
 
 it('emits buyer, target and seller rows for a sponsor-to-sponsor sale', () => {
   const { rows } = buildDealParticipants(DEAL_052, reg)
   expect(rows).toContainEqual({ dealId: 'deal-052', partyType: 'firm',
-    partyId: 'firm-stonepeak-infrastructure-partners', role: 'buyer', pct: 1, fundId: null })
+    partyId: 'firm-stonepeak-infrastructure-partners', role: 'buyer', pct: 1, fundIds: [] })
   expect(rows).toContainEqual({ dealId: 'deal-052', partyType: 'asset',
-    partyId: 'asset-astound-broadband', role: 'target', pct: null, fundId: null })
+    partyId: 'asset-astound-broadband', role: 'target', pct: null, fundIds: [] })
   expect(rows).toContainEqual({ dealId: 'deal-052', partyType: 'firm',
-    partyId: 'firm-tpg-capital', role: 'seller', pct: null, fundId: null })
+    partyId: 'firm-tpg-capital', role: 'seller', pct: null,
+    fundIds: ['fund-tpg-8', 'fund-tpg-9'] })
+})
+
+describe('per-deal fund attribution (fundIds)', () => {
+  it('resolves seller fundIds from acquired.pe.primaryFunds; asset rows stay empty', () => {
+    const { rows } = buildDealParticipants(DEAL_052, reg)
+    const seller = rows.find(r => r.role === 'seller')
+    expect(seller.fundIds).toEqual(['fund-tpg-8', 'fund-tpg-9'])
+    for (const r of rows.filter(x => x.partyType === 'asset')) {
+      expect(r.fundIds).toEqual([])
+    }
+  })
+
+  it('resolves buyer-firm fundIds from acquirer.pe when the buyer IS the pe firm', () => {
+    const d = { id: 'deal-032', date: '2021-04-01', status: 'Completed', dealType: 'Acquisition',
+      acquirer: { name: 'TPG Capital (Astound Broadband Formation)', type: 'MSO (Cable) / Fiber', ticker: null,
+        pe: { firm: 'TPG Capital', firmType: 'Private Equity',
+          primaryFunds: ['TPG Capital VIII', 'TPG Capital IX'] } },
+      acquired: { name: 'RCN Telecom', type: 'MSO (Cable)', ticker: null, pe: null },
+      ownershipPct: 100 }
+    const { rows } = buildDealParticipants(d, reg)
+    const buyer = rows.find(r => r.role === 'buyer')
+    expect(buyer.partyId).toBe('firm-tpg-capital')
+    expect(buyer.fundIds).toEqual(['fund-tpg-8', 'fund-tpg-9'])
+    // no duplicate backer row for the same firm
+    expect(rows.filter(r => r.partyId === 'firm-tpg-capital')).toHaveLength(1)
+  })
+
+  it('resolves backer fundIds when the pe firm sponsors a distinct buyer', () => {
+    const d = { id: 'deal-bk', date: '2021-04-01', status: 'Completed', dealType: 'Acquisition',
+      acquirer: { name: 'SomePortCo Holdings', type: 'Pure Fiber (FTTH)', ticker: null,
+        pe: { firm: 'TPG Capital', firmType: 'Private Equity',
+          primaryFunds: ['TPG Capital VIII'] } },
+      acquired: { name: 'TinyFiber', type: 'Pure Fiber (FTTH)', ticker: null, pe: null },
+      ownershipPct: 100 }
+    const { rows } = buildDealParticipants(d, reg)
+    const backer = rows.find(r => r.role === 'backer')
+    expect(backer.partyId).toBe('firm-tpg-capital')
+    expect(backer.fundIds).toEqual(['fund-tpg-8'])
+  })
+
+  it('omits primaryFunds names that resolve to no registry fund', () => {
+    const d = { ...DEAL_052, id: 'deal-junk',
+      acquired: { ...DEAL_052.acquired,
+        pe: { firm: 'TPG Capital', firmType: 'Private Equity',
+          primaryFunds: ['N/A', 'TPG Capital IX'] } } }
+    const { rows } = buildDealParticipants(d, reg)
+    expect(rows.find(r => r.role === 'seller').fundIds).toEqual(['fund-tpg-9'])
+  })
 })
 
 it('splits compound buyers 50/50 with a flag', () => {

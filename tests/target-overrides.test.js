@@ -44,10 +44,10 @@ describe('injectNewAssets', () => {
 
 describe('applyTargetOverrides', () => {
   const makeParticipants = () => [
-    { pct: 1, fundId: null, partyType: 'asset', partyId: 'asset-buyer', role: 'buyer', dealId: 'deal-001' },
-    { pct: null, fundId: null, partyType: 'asset', partyId: 'asset-parent-co', role: 'target', dealId: 'deal-001' },
-    { pct: null, fundId: null, partyType: 'firm', partyId: 'firm-seller', role: 'seller', dealId: 'deal-001' },
-    { pct: null, fundId: null, partyType: 'asset', partyId: 'asset-parent-co', role: 'target', dealId: 'deal-002' },
+    { pct: 1, fundIds: [], partyType: 'asset', partyId: 'asset-buyer', role: 'buyer', dealId: 'deal-001' },
+    { pct: null, fundIds: [], partyType: 'asset', partyId: 'asset-parent-co', role: 'target', dealId: 'deal-001' },
+    { pct: null, fundIds: [], partyType: 'firm', partyId: 'firm-seller', role: 'seller', dealId: 'deal-001' },
+    { pct: null, fundIds: [], partyType: 'asset', partyId: 'asset-parent-co', role: 'target', dealId: 'deal-002' },
   ]
   const dealIds = new Set(['deal-001', 'deal-002'])
 
@@ -63,7 +63,7 @@ describe('applyTargetOverrides', () => {
     expect(flags).toEqual([])
     const targets = participants.filter(p => p.dealId === 'deal-001' && p.role === 'target')
     expect(targets.map(t => t.partyId)).toEqual(['asset-parent-co-east', 'asset-parent-co-west'])
-    expect(targets.every(t => t.partyType === 'asset' && t.pct === null && t.fundId === null)).toBe(true)
+    expect(targets.every(t => t.partyType === 'asset' && t.pct === null && t.fundIds.length === 0)).toBe(true)
     // buyer and seller rows untouched, replacement sits at the original position
     expect(participants[0].role).toBe('buyer')
     expect(participants[1].partyId).toBe('asset-parent-co-east')

@@ -83,6 +83,22 @@ describe('legacyDeals', () => {
     expect(d.acquired.pe.firm).toBe('TPG Capital')
     expect(d.acquired.pe.otherTelecomPortfolio.join('|')).not.toMatch(/astound/i)
   })
+
+  it('shows era-correct funds per deal, not every fund the firm ever had', () => {
+    const all = legacyDeals()
+    const d032 = all.find(x => x.id === 'deal-032')   // TPG 2021
+    expect(d032.acquirer.pe.primaryFunds).toContain('TPG Capital VIII')
+    expect(d032.acquirer.pe.primaryFunds).not.toContain('TPG Capital X')
+    const d022 = all.find(x => x.id === 'deal-022')   // TPG 2024
+    expect(d022.acquirer.pe.primaryFunds).toContain('TPG Capital X')
+    expect(d022.acquirer.pe.primaryFunds).not.toContain('TPG Capital VIII')
+  })
+
+  it('seller pe blocks carry era-correct funds too', () => {
+    const d052 = legacyDeals().find(x => x.id === 'deal-052')   // TPG sold Astound in 2021
+    expect(d052.acquired.pe.primaryFunds).toContain('TPG Capital VIII')
+    expect(d052.acquired.pe.primaryFunds).not.toContain('TPG Capital X')
+  })
 })
 
 describe('evolutionChain', () => {

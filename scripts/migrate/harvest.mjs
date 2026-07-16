@@ -47,6 +47,25 @@ export function sponsorFor(fundName, firms, reg = null) {
   return match ?? firms[0]
 }
 
+// Shared key derivation: first word of the base name + fund number when one
+// exists, else the full slug. upsertFund and resolveFundIds must agree on this.
+export function fundKey(fundName) {
+  const num = extractFundNum(fundName)
+  const fw = baseName(fundName).split(/\s+/)[0].toLowerCase()
+  return num != null ? `${fw}-${num}` : slugify(fundName)
+}
+
+// Map legacy pe.primaryFunds names to registry fund ids. Names with no
+// registry entry (junk that upsertFund skipped, typos) are silently omitted.
+export function resolveFundIds(reg, primaryFunds) {
+  const ids = []
+  for (const name of primaryFunds ?? []) {
+    const fund = reg.funds.get(fundKey(name))
+    if (fund && !ids.includes(fund.id)) ids.push(fund.id)
+  }
+  return ids
+}
+
 export function upsertFund(reg, fundName, sponsorFirms) {
   // Junk placeholders ("N/A", "N/A — family-owned conglomerate") and names
   // listed in reg.notFunds (lowercase) are not real vehicles — create nothing.
@@ -54,8 +73,7 @@ export function upsertFund(reg, fundName, sponsorFirms) {
     return null
   }
   const num = extractFundNum(fundName)
-  const fw = baseName(fundName).split(/\s+/)[0].toLowerCase()
-  const key = num != null ? `${fw}-${num}` : slugify(fundName)
+  const key = fundKey(fundName)
   if (!reg.funds.has(key)) {
     reg.funds.set(key, { id: `fund-${key}`, name: fundName, number: num, sponsorFirmIds: [] })
   }

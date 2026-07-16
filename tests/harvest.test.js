@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { createRegistry, upsertFirm, upsertFund, upsertAsset, classifyParty, sponsorFor }
+import { createRegistry, upsertFirm, upsertFund, upsertAsset, classifyParty, sponsorFor, resolveFundIds }
   from '../scripts/migrate/harvest.mjs'
 
 const TPG_PE = { firm: 'TPG Capital', firmType: 'Private Equity', aum: '$185B+',
@@ -77,6 +77,28 @@ describe('upsertFund', () => {
     const fund = upsertFund(reg, 'Cox Family Evergreen Fund', [f])
     expect(fund.id).toBe('fund-cox-family-evergreen-fund')
     expect(fund.number).toBe(null)
+  })
+})
+
+describe('resolveFundIds', () => {
+  it('resolves names to registry fund ids via the upsertFund key derivation', () => {
+    const reg = createRegistry()
+    const [tpg] = upsertFirm(reg, 'TPG Capital', null)
+    upsertFund(reg, 'TPG Capital VIII', [tpg])
+    upsertFund(reg, 'TPG Capital IX', [tpg])
+    // alternate spelling of the same vehicle resolves to the same key
+    expect(resolveFundIds(reg, ['TPG VIII', 'TPG Capital IX']))
+      .toEqual(['fund-tpg-8', 'fund-tpg-9'])
+  })
+  it('omits names with no registry fund (junk skipped by upsertFund)', () => {
+    const reg = createRegistry()
+    const [f] = upsertFirm(reg, 'Cox Enterprises', null)
+    upsertFund(reg, 'N/A', [f])   // returns null, creates nothing
+    expect(resolveFundIds(reg, ['N/A', 'Unknown Fund XII'])).toEqual([])
+  })
+  it('returns [] for missing input', () => {
+    const reg = createRegistry()
+    expect(resolveFundIds(reg, undefined)).toEqual([])
   })
 })
 

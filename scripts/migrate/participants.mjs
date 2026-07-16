@@ -1,11 +1,11 @@
 import { slugify, splitCompoundFirm } from './helpers.mjs'
-import { upsertFirm, upsertAsset, classifyParty } from './harvest.mjs'
+import { upsertFirm, upsertAsset, classifyParty, resolveFundIds } from './harvest.mjs'
 
 export function buildDealParticipants(deal, reg, buyerOverrides = {}) {
   const rows = []
   const flags = []
   // dealId always wins — placed after the spread intentionally
-  const push = r => rows.push({ pct: null, fundId: null, ...r, dealId: deal.id })
+  const push = r => rows.push({ pct: null, fundIds: [], ...r, dealId: deal.id })
 
   // ── Buyers: apply override verbatim, or split compound acquirer and classify
   const override = buyerOverrides[deal.id]
@@ -34,12 +34,14 @@ export function buildDealParticipants(deal, reg, buyerOverrides = {}) {
     }
   }
 
-  // ── Backer: acquirer.pe sponsors the buyer (skip when the buyer IS that firm)
+  // ── Backer: acquirer.pe sponsors the buyer. When the buyer IS that firm the
+  // deal's primaryFunds attach to its existing buyer row instead of a new backer.
   if (deal.acquirer.pe?.firm) {
+    const fundIds = resolveFundIds(reg, deal.acquirer.pe.primaryFunds)
     for (const f of upsertFirm(reg, deal.acquirer.pe.firm, deal.acquirer.pe)) {
-      if (!rows.some(r => r.partyId === f.id)) {
-        push({ partyType: 'firm', partyId: f.id, role: 'backer' })
-      }
+      const existing = rows.find(r => r.partyId === f.id)
+      if (existing) existing.fundIds = fundIds
+      else push({ partyType: 'firm', partyId: f.id, role: 'backer', fundIds })
     }
   }
 
@@ -69,8 +71,9 @@ export function buildDealParticipants(deal, reg, buyerOverrides = {}) {
 
   // ── Seller: acquired.pe is the selling sponsor; "(from X)" is the fallback signal
   if (deal.acquired.pe?.firm) {
+    const fundIds = resolveFundIds(reg, deal.acquired.pe.primaryFunds)
     for (const f of upsertFirm(reg, deal.acquired.pe.firm, deal.acquired.pe)) {
-      push({ partyType: 'firm', partyId: f.id, role: 'seller' })
+      push({ partyType: 'firm', partyId: f.id, role: 'seller', fundIds })
     }
     const from = deal.acquired.name.match(/\(from\s+([^)]+)\)/i)
     if (from && !deal.acquired.pe.firm.toLowerCase().includes(from[1].trim().toLowerCase().split(/\s+/)[0])) {

@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "generated": "2026-05-26T16:54:15.430Z",
+    "generated": "2026-07-16T15:38:32.081Z",
     "generatedBy": "scripts/fund-data-query.mjs",
     "dealsFile": "src/data/deals.json",
-    "dealCount": 49,
+    "dealCount": 50,
     "firmCount": 25,
     "queryMode": "live",
     "nextQueryTip": [
@@ -11,7 +11,14 @@
       "For a single firm: node scripts/fund-data-query.mjs --firm \"Stonepeak\"",
       "For fund-level detail (committed/called/NAV), see lpPortalRefs below",
       "For paid data: Infralogic (60-day trial), PitchBook, Preqin"
-    ]
+    ],
+    "fundOverrides": {
+      "file": "scripts/fund-overrides.json",
+      "applied": true,
+      "appliedAt": "2026-07-16",
+      "firmEntries": 9,
+      "note": "Manual capital-structure (capitalType/capitalNote) and web-verified announcedFunds merged at generation time"
+    }
   },
   "lpPortalRefs": [
     {
@@ -73,7 +80,7 @@
     }
   ],
   "calPERS": {
-    "lastFetched": "2026-05-26T16:54:15.429Z",
+    "lastFetched": "2026-07-16T15:38:32.080Z",
     "error": null,
     "fundCount": 43,
     "funds": [
@@ -867,19 +874,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Grain Spectrum Holdings III, L.P.  (CIK 0001822636)",
-            "cik": 1822636,
-            "adsh": "0000950142-20-002359",
-            "filingDate": "2020-10-05",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1822636/000095014220002359/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1822636&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "GRAIN INFRASTRUCTURE FUND II, L.P.  (CIK 0001560873)",
             "cik": 1560873,
             "adsh": "0000950142-18-000593",
@@ -888,6 +882,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1560873/000095014218000593/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1560873&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Grain Spectrum Holdings III, L.P.  (CIK 0001822636)",
+            "cik": 1822636,
+            "adsh": "0000950142-20-002359",
+            "filingDate": "2020-10-05",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1822636/000095014220002359/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1822636&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -945,19 +952,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Grain Communications Opportunity Fund IV-E, L.P.  (CIK 0001976127)",
-            "cik": 1976127,
-            "adsh": "0000950142-24-001966",
-            "filingDate": "2024-07-18",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1976127/000095014224001966/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1976127&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Grain Communications Opportunity Fund IV-C, L.P.  (CIK 0001975948)",
             "cik": 1975948,
             "adsh": "0000950142-23-002055",
@@ -966,6 +960,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1975948/000095014223002055/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1975948&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Grain Communications Opportunity Fund IV-E, L.P.  (CIK 0001976127)",
+            "cik": 1976127,
+            "adsh": "0000950142-24-001966",
+            "filingDate": "2024-07-18",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1976127/000095014224001966/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1976127&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -1069,7 +1076,17 @@
           "20 Form D filing(s) found on EDGAR",
           "1 fund(s) matched in CalPERS"
         ]
-      }
+      },
+      "capitalType": "fund",
+      "announcedFunds": [
+        {
+          "fundName": "Grain Communications Opportunity Fund III",
+          "sizeUSD": 2250000000,
+          "announcedDate": "2021-04-06",
+          "sourceUrl": "https://www.businesswire.com/news/home/20210406005571/en/Grain-Management-Closes-Flagship-and-Spectrum-Funds-with-$3.75-Billion-in-Total-Commitments",
+          "note": "GCOF III closed at $2.25B (target $1.5B), part of a $3.75B combined flagship + spectrum close. Grain press release via Business Wire."
+        }
+      ]
     },
     {
       "firmKey": "madison-dearborn-partners-catania-capital-partners",
@@ -1188,19 +1205,6 @@
             "numberOfInvestors": 29
           },
           {
-            "entityName": "MADISON DEARBORN CAPITAL PARTNERS VI EXECUTIVE-A, L.P.  (CIK 0001421279)",
-            "cik": 1421279,
-            "adsh": "0001421279-10-000003",
-            "filingDate": "2010-02-25",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1421279/000142127910000003/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1421279&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": 125000000,
-            "totalAmountSold": 67085000,
-            "numberOfInvestors": 29
-          },
-          {
             "entityName": "Madison Dearborn Capital Partners VI-A, L.P.  (CIK 0001417975)",
             "cik": 1417975,
             "adsh": "0001417975-10-000003",
@@ -1212,6 +1216,19 @@
             "totalOfferingAmount": 6843000000,
             "totalAmountSold": 3083060000,
             "numberOfInvestors": 166
+          },
+          {
+            "entityName": "MADISON DEARBORN CAPITAL PARTNERS VI EXECUTIVE-A, L.P.  (CIK 0001421279)",
+            "cik": 1421279,
+            "adsh": "0001421279-10-000003",
+            "filingDate": "2010-02-25",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1421279/000142127910000003/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1421279&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": 125000000,
+            "totalAmountSold": 67085000,
+            "numberOfInvestors": 29
           },
           {
             "entityName": "Madison Dearborn Capital Partners IX Executive-A, L.P.  (CIK 0002070674)",
@@ -1344,19 +1361,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "MDP Arevi Fund I Executive-A, L.P.  (CIK 0002088764)",
-            "cik": 2088764,
-            "adsh": "0002088764-25-000001",
-            "filingDate": "2025-12-12",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2088764/000208876425000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2088764&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "MDP Arevi Co-Investors (Rome), L.P.  (CIK 0002094872)",
             "cik": 2094872,
             "adsh": "0002094872-25-000001",
@@ -1365,6 +1369,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2094872/000209487225000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2094872&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "MDP Arevi Fund I Executive-A, L.P.  (CIK 0002088764)",
+            "cik": 2088764,
+            "adsh": "0002088764-25-000001",
+            "filingDate": "2025-12-12",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2088764/000208876425000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2088764&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -1453,7 +1470,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "oak-hill-capital",
@@ -1555,6 +1573,19 @@
           {
             "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
             "cik": 1279805,
+            "adsh": "0000950142-12-000642",
+            "filingDate": "2012-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 337440260,
+            "numberOfInvestors": 108
+          },
+          {
+            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
+            "cik": 1279805,
             "adsh": "0000950142-13-000700",
             "filingDate": "2013-03-27",
             "formType": "D/A",
@@ -1574,19 +1605,6 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014212000644/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 22935000,
-            "numberOfInvestors": 18
-          },
-          {
-            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
-            "cik": 1279805,
-            "adsh": "0000950142-12-000642",
-            "filingDate": "2012-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -1618,19 +1636,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "NODAR Inc.  (CIK 0001762994)",
-            "cik": 1762994,
-            "adsh": "0001762994-26-000004",
-            "filingDate": "2026-03-19",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1762994/000176299426000004/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1762994&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Tri-Land Hub Investors LLC  (CIK 0001963424)",
             "cik": 1963424,
             "adsh": "0001963424-23-000001",
@@ -1639,6 +1644,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1963424/000196342423000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1963424&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "NODAR Inc.  (CIK 0001762994)",
+            "cik": 1762994,
+            "adsh": "0001762994-26-000004",
+            "filingDate": "2026-03-19",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1762994/000176299426000004/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1762994&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -1683,6 +1701,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "OAK HILL CREDIT OPPORTUNITIES FUND LTD  (CIK 0001350427)",
+            "cik": 1350427,
+            "adsh": "0000950142-10-000459",
+            "filingDate": "2010-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1350427/000095014210000459/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1350427&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Tri-Land Equity Investors III LLC  (CIK 0001750479)",
             "cik": 1750479,
             "adsh": "0001750479-19-000001",
@@ -1696,14 +1727,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "OAK HILL CREDIT OPPORTUNITIES FUND LTD  (CIK 0001350427)",
-            "cik": 1350427,
-            "adsh": "0000950142-10-000459",
+            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
+            "cik": 1341921,
+            "adsh": "0000950142-10-000449",
             "filingDate": "2010-03-16",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1350427/000095014210000459/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1350427&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -1730,19 +1761,6 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1333545/000095014210000435/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1333545&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
-            "cik": 1341921,
-            "adsh": "0000950142-10-000449",
-            "filingDate": "2010-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -1861,7 +1879,8 @@
           "20 Form D filing(s) found on EDGAR",
           "3 fund(s) matched in CalPERS"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "wren-house-infrastructure-management",
@@ -1974,7 +1993,9 @@
         "notes": [
           "AUM from deals.json (self-reported / press)"
         ]
-      }
+      },
+      "capitalType": "evergreen",
+      "capitalNote": "Kuwait Investment Authority's infrastructure arm — sovereign single-LP evergreen capital; never appears in Form D or US pension LP disclosures."
     },
     {
       "firmKey": "oak-hill-capital-pamlico-capital",
@@ -2077,6 +2098,19 @@
           {
             "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
             "cik": 1279805,
+            "adsh": "0000950142-12-000642",
+            "filingDate": "2012-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 337440260,
+            "numberOfInvestors": 108
+          },
+          {
+            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
+            "cik": 1279805,
             "adsh": "0000950142-13-000700",
             "filingDate": "2013-03-27",
             "formType": "D/A",
@@ -2096,19 +2130,6 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014212000644/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 22935000,
-            "numberOfInvestors": 18
-          },
-          {
-            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
-            "cik": 1279805,
-            "adsh": "0000950142-12-000642",
-            "filingDate": "2012-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2140,19 +2161,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "NODAR Inc.  (CIK 0001762994)",
-            "cik": 1762994,
-            "adsh": "0001762994-26-000004",
-            "filingDate": "2026-03-19",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1762994/000176299426000004/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1762994&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Tri-Land Hub Investors LLC  (CIK 0001963424)",
             "cik": 1963424,
             "adsh": "0001963424-23-000001",
@@ -2161,6 +2169,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1963424/000196342423000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1963424&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "NODAR Inc.  (CIK 0001762994)",
+            "cik": 1762994,
+            "adsh": "0001762994-26-000004",
+            "filingDate": "2026-03-19",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1762994/000176299426000004/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1762994&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2205,6 +2226,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "OAK HILL CREDIT OPPORTUNITIES FUND LTD  (CIK 0001350427)",
+            "cik": 1350427,
+            "adsh": "0000950142-10-000459",
+            "filingDate": "2010-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1350427/000095014210000459/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1350427&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Tri-Land Equity Investors III LLC  (CIK 0001750479)",
             "cik": 1750479,
             "adsh": "0001750479-19-000001",
@@ -2218,14 +2252,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "OAK HILL CREDIT OPPORTUNITIES FUND LTD  (CIK 0001350427)",
-            "cik": 1350427,
-            "adsh": "0000950142-10-000459",
+            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
+            "cik": 1341921,
+            "adsh": "0000950142-10-000449",
             "filingDate": "2010-03-16",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1350427/000095014210000459/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1350427&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2252,19 +2286,6 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1333545/000095014210000435/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1333545&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
-            "cik": 1341921,
-            "adsh": "0000950142-10-000449",
-            "filingDate": "2010-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2340,7 +2361,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "stonepeak-infrastructure-partners",
@@ -2351,7 +2373,7 @@
       "firmType": "Infrastructure Private Equity",
       "headquarters": "New York, NY",
       "website": "stonepeakpartners.com",
-      "dealCount": 3,
+      "dealCount": 4,
       "dealsData": {
         "aumRaw": "$70B+",
         "primaryFunds": [
@@ -2387,6 +2409,15 @@
             "acquirerName": "Stonepeak Infrastructure Partners",
             "targetName": "Lumen Technologies Latin America (Cirion Technologies)",
             "role": "acquirer"
+          },
+          {
+            "id": "deal-052",
+            "date": "2021-08-01",
+            "status": "Completed",
+            "dealValue": 8100000000,
+            "acquirerName": "Stonepeak Infrastructure Partners",
+            "targetName": "Astound Broadband (from TPG Capital)",
+            "role": "acquirer"
           }
         ]
       },
@@ -2394,19 +2425,6 @@
         "source": "SEC EDGAR EFTS full-text search",
         "queryUrl": "https://efts.sec.gov/LATEST/search-index?q=\"Stonepeak\"&forms=D&dateRange=custom&startdt=2018-01-01",
         "formD": [
-          {
-            "entityName": "Stonepeak Asia Infrastructure Feeder Fund LP  (CIK 0001884424)",
-            "cik": 1884424,
-            "adsh": "0001884424-24-000001",
-            "filingDate": "2024-03-07",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1884424/000188442424000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1884424&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 3292105000,
-            "numberOfInvestors": 43
-          },
           {
             "entityName": "Stonepeak Infrastructure Fund V (Lux) SCSP  (CIK 0002003496)",
             "cik": 2003496,
@@ -2419,6 +2437,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 7286605900,
             "numberOfInvestors": 44
+          },
+          {
+            "entityName": "Stonepeak Asia Infrastructure Feeder Fund LP  (CIK 0001884424)",
+            "cik": 1884424,
+            "adsh": "0001884424-24-000001",
+            "filingDate": "2024-03-07",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1884424/000188442424000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1884424&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 3292105000,
+            "numberOfInvestors": 43
           },
           {
             "entityName": "Stonepeak Asia Infrastructure Fund LP  (CIK 0001884432)",
@@ -2447,6 +2478,32 @@
             "numberOfInvestors": 373
           },
           {
+            "entityName": "Stonepeak Core Fund (Lux) SCSp  (CIK 0001932971)",
+            "cik": 1932971,
+            "adsh": "0001932971-24-000001",
+            "filingDate": "2024-12-31",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1932971/000193297124000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1932971&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 3707901965,
+            "numberOfInvestors": 5
+          },
+          {
+            "entityName": "Stonepeak Catalyst Fund LP  (CIK 0002075791)",
+            "cik": 2075791,
+            "adsh": "0002075791-25-000001",
+            "filingDate": "2025-08-14",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2075791/000207579125000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2075791&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Stonepeak Core Fund (A) LP  (CIK 0001932975)",
             "cik": 1932975,
             "adsh": "0001932975-24-000001",
@@ -2469,19 +2526,6 @@
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1884353/000188435323000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1884353&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
-            "totalAmountSold": 3067105000,
-            "numberOfInvestors": 38
-          },
-          {
-            "entityName": "Stonepeak Catalyst Fund LP  (CIK 0002075791)",
-            "cik": 2075791,
-            "adsh": "0002075791-25-000001",
-            "filingDate": "2025-08-14",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2075791/000207579125000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2075791&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
           },
@@ -2494,19 +2538,6 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1794742/000179474221000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1794742&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Stonepeak Core Fund (Lux) SCSp  (CIK 0001932971)",
-            "cik": 1932971,
-            "adsh": "0001932971-24-000001",
-            "filingDate": "2024-12-31",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1932971/000193297124000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1932971&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2525,6 +2556,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "Stonepeak Core Fund (A) LP  (CIK 0001932975)",
+            "cik": 1932975,
+            "adsh": "0001932975-26-000003",
+            "filingDate": "2026-03-31",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1932975/000193297526000003/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1932975&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Stonepeak Infrastructure Fund V LP  (CIK 0002003495)",
             "cik": 2003495,
             "adsh": "0002003495-25-000001",
@@ -2532,6 +2576,45 @@
             "formType": "D/A",
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2003495/000200349525000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2003495&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Stonepeak Asia Infrastructure Feeder Fund (Lux) SCSp  (CIK 0001884350)",
+            "cik": 1884350,
+            "adsh": "0001884350-23-000001",
+            "filingDate": "2023-10-11",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1884350/000188435023000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1884350&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Stonepeak Core Fund (B) LP  (CIK 0001932974)",
+            "cik": 1932974,
+            "adsh": "0001932974-24-000001",
+            "filingDate": "2024-12-31",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1932974/000193297424000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1932974&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Stonepeak Infrastructure Fund V LP  (CIK 0002003495)",
+            "cik": 2003495,
+            "adsh": "0002003495-23-000001",
+            "filingDate": "2023-12-21",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2003495/000200349523000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2003495&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -2551,79 +2634,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Stonepeak-Plus Infrastructure Fund (TE) LP  (CIK 0002065257)",
-            "cik": 2065257,
-            "adsh": "0002065257-26-000001",
-            "filingDate": "2026-05-01",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2065257/000206525726000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2065257&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Stonepeak Asia Infrastructure Feeder Fund (Lux) SCSp  (CIK 0001884350)",
-            "cik": 1884350,
-            "adsh": "0001884350-23-000001",
-            "filingDate": "2023-10-11",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1884350/000188435023000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1884350&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Stonepeak Core Fund (A) LP  (CIK 0001932975)",
-            "cik": 1932975,
-            "adsh": "0001932975-26-000003",
-            "filingDate": "2026-03-31",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1932975/000193297526000003/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1932975&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Stonepeak Infrastructure Fund V - N (Side Car) LP  (CIK 0002005536)",
-            "cik": 2005536,
-            "adsh": "0002005536-23-000001",
-            "filingDate": "2023-12-27",
+            "entityName": "Stonepeak Catalyst Fund - C (Side Car) LP  (CIK 0002073853)",
+            "cik": 2073853,
+            "adsh": "0002073853-25-000001",
+            "filingDate": "2025-08-14",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2005536/000200553623000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2005536&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Stonepeak Midband Opportunities Feeder Fund (DE) LLC  (CIK 0002082174)",
-            "cik": 2082174,
-            "adsh": "0002082174-25-000001",
-            "filingDate": "2025-08-26",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2082174/000208217425000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2082174&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Stonepeak Infrastructure Fund V LP  (CIK 0002003495)",
-            "cik": 2003495,
-            "adsh": "0002003495-23-000001",
-            "filingDate": "2023-12-21",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2003495/000200349523000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2003495&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2073853/000207385325000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2073853&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2642,14 +2660,27 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Stonepeak Infrastructure Fund - M (Side Car) LP  (CIK 0002101660)",
-            "cik": 2101660,
-            "adsh": "0002101660-26-000001",
-            "filingDate": "2026-04-30",
+            "entityName": "Stonepeak Asia Infrastructure Fund LP  (CIK 0001884432)",
+            "cik": 1884432,
+            "adsh": "0001884432-24-000001",
+            "filingDate": "2024-03-07",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1884432/000188443224000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1884432&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Stonepeak Midband Opportunities Feeder Fund (DE) LLC  (CIK 0002082174)",
+            "cik": 2082174,
+            "adsh": "0002082174-25-000001",
+            "filingDate": "2025-08-26",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2101660/000210166026000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2101660&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2082174/000208217425000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2082174&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2765,7 +2796,17 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund",
+      "announcedFunds": [
+        {
+          "fundName": "Stonepeak Infrastructure Fund IV",
+          "sizeUSD": 14000000000,
+          "announcedDate": "2022-02-02",
+          "sourceUrl": "https://www.businesswire.com/news/home/20220202005746/en/Stonepeak-Closes-Fourth-North-American-Infrastructure-Fund-with-$14-Billion-of-Commitments",
+          "note": "Final close at $14B hard cap, oversubscribed; ~40% already committed incl. Astound Broadband. Stonepeak press release via Business Wire."
+        }
+      ]
     },
     {
       "firmKey": "gtcr-llc",
@@ -2936,19 +2977,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "STHI Holdings, LLC  (CIK 0001517448)",
-            "cik": 1517448,
-            "adsh": "0001517448-11-000001",
-            "filingDate": "2011-04-06",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1517448/000151744811000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1517448&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "GTCR FUND XI/A LP  (CIK 0001591434)",
             "cik": 1591434,
             "adsh": "0001591434-13-000001",
@@ -2957,6 +2985,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1591434/000159143413000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1591434&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "STHI Holdings, LLC  (CIK 0001517448)",
+            "cik": 1517448,
+            "adsh": "0001517448-11-000001",
+            "filingDate": "2011-04-06",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1517448/000151744811000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1517448&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3014,19 +3055,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "GTCR Capital Solutions Co-Invest LP  (CIK 0002014459)",
-            "cik": 2014459,
-            "adsh": "0002014459-26-000002",
-            "filingDate": "2026-05-07",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2014459/000201445926000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2014459&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "DEVICOR MEDICAL PRODUCTS GROUP LLC  (CIK 0001450033)",
             "cik": 1450033,
             "adsh": "0001450033-10-000003",
@@ -3035,6 +3063,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1450033/000145003310000003/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1450033&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "GTCR Capital Solutions Co-Invest LP  (CIK 0002014459)",
+            "cik": 2014459,
+            "adsh": "0002014459-26-000002",
+            "filingDate": "2026-05-07",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2014459/000201445926000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2014459&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3053,19 +3094,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "ConvergEx Holdings, LLC  (CIK 0001378709)",
-            "cik": 1378709,
-            "adsh": "0001378709-09-000006",
-            "filingDate": "2009-11-16",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1378709/000137870909000006/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1378709&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Six3 Systems Holdings, LLC  (CIK 0001468508)",
             "cik": 1468508,
             "adsh": "0001468508-09-000004",
@@ -3074,6 +3102,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1468508/000146850809000004/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1468508&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "ConvergEx Holdings, LLC  (CIK 0001378709)",
+            "cik": 1378709,
+            "adsh": "0001378709-09-000006",
+            "filingDate": "2009-11-16",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1378709/000137870909000006/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1378709&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3169,7 +3210,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "cox-enterprises-private-family-ownership",
@@ -3282,7 +3324,9 @@
         "notes": [
           "AUM from deals.json (self-reported / press)"
         ]
-      }
+      },
+      "capitalType": "balance-sheet",
+      "capitalNote": "Family-owned conglomerate — acquisitions funded from the balance sheet; no external funds exist."
     },
     {
       "firmKey": "eqt-infrastructure",
@@ -3326,19 +3370,6 @@
         "queryUrl": "https://efts.sec.gov/LATEST/search-index?q=\"EQT\"&forms=D&dateRange=custom&startdt=2018-01-01",
         "formD": [
           {
-            "entityName": "EQT X (No.2) USD SCSp  (CIK 0001925427)",
-            "cik": 1925427,
-            "adsh": "0001925427-23-000001",
-            "filingDate": "2023-04-27",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1925427/000192542723000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1925427&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 18821193866,
-            "numberOfInvestors": 35
-          },
-          {
             "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
             "cik": 1923616,
             "adsh": "0001923616-24-000001",
@@ -3350,6 +3381,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 21935265175,
             "numberOfInvestors": 5
+          },
+          {
+            "entityName": "EQT X (No.2) USD SCSp  (CIK 0001925427)",
+            "cik": 1925427,
+            "adsh": "0001925427-23-000001",
+            "filingDate": "2023-04-27",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1925427/000192542723000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1925427&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 18821193866,
+            "numberOfInvestors": 35
           },
           {
             "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
@@ -3469,19 +3513,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
-            "cik": 1923616,
-            "adsh": "0001900942-22-000001",
-            "filingDate": "2022-04-27",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923616/000190094222000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923616&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "EQT Active Core Infrastructure (No.2) SCSp  (CIK 0001923502)",
             "cik": 1923502,
             "adsh": "0001923502-24-000001",
@@ -3490,6 +3521,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923502/000192350224000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923502&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
+            "cik": 1923616,
+            "adsh": "0001900942-22-000001",
+            "filingDate": "2022-04-27",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923616/000190094222000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923616&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3521,19 +3565,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "EQT X (No.2) EUR SCSp  (CIK 0001923548)",
-            "cik": 1923548,
-            "adsh": "0001923548-22-000001",
-            "filingDate": "2022-04-27",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923548/000192354822000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923548&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "EQT Credit (No. 1) Limited Partnership  (CIK 0001479180)",
             "cik": 1479180,
             "adsh": "0001479180-10-000002",
@@ -3547,27 +3578,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "EQT Active Core Infrastructure (No.2) SCSp  (CIK 0001923502)",
-            "cik": 1923502,
-            "adsh": "0001923502-23-000002",
-            "filingDate": "2023-08-18",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923502/000192350223000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923502&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "EQT Credit Opportunities III Employee LP  (CIK 0001676099)",
-            "cik": 1676099,
-            "adsh": "0001676099-17-000003",
-            "filingDate": "2017-06-02",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1676099/000167609917000003/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1676099&type=D&dateb=&owner=include&count=10",
+            "entityName": "EQT X (No.2) EUR SCSp  (CIK 0001923548)",
+            "cik": 1923548,
+            "adsh": "0001923548-22-000001",
+            "filingDate": "2022-04-27",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923548/000192354822000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923548&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3581,6 +3599,32 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923537/000192353724000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923537&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "EQT Credit Opportunities III IAC LP  (CIK 0001676108)",
+            "cik": 1676108,
+            "adsh": "0001676108-16-000002",
+            "filingDate": "2016-06-30",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1676108/000167610816000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1676108&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "EQT Ventures Employee Co-Investment SCSp  (CIK 0001671765)",
+            "cik": 1671765,
+            "adsh": "0001671765-16-000002",
+            "filingDate": "2016-04-11",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1671765/000167176516000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1671765&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3699,7 +3743,8 @@
           "20 Form D filing(s) found on EDGAR",
           "3 fund(s) matched in CalPERS"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "kkr-co-inc",
@@ -3838,27 +3883,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
-            "cik": 2078963,
-            "adsh": "0002078963-25-000002",
-            "filingDate": "2025-07-28",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "KKR Asia Tactical Credit (Overseas) Fund SCSp  (CIK 0001964029)",
-            "cik": 1964029,
-            "adsh": "0000950142-23-001535",
-            "filingDate": "2023-05-25",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1964029/000095014223001535/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1964029&type=D&dateb=&owner=include&count=10",
+            "entityName": "KKR Revolving Credit Partners Europe II SCSp  (CIK 0001887735)",
+            "cik": 1887735,
+            "adsh": "0000950142-23-002539",
+            "filingDate": "2023-10-04",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1887735/000095014223002539/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1887735&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3890,14 +3922,27 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR Opportunities (EEA) Fund Private Investors II SCSp  (CIK 0001887737)",
-            "cik": 1887737,
-            "adsh": "0000950142-22-003090",
-            "filingDate": "2022-11-04",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1887737/000095014222003090/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1887737&type=D&dateb=&owner=include&count=10",
+            "entityName": "KKR Asia Tactical Credit (Overseas) Fund SCSp  (CIK 0001964029)",
+            "cik": 1964029,
+            "adsh": "0000950142-23-001535",
+            "filingDate": "2023-05-25",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1964029/000095014223001535/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1964029&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
+            "cik": 2078963,
+            "adsh": "0002078963-25-000002",
+            "filingDate": "2025-07-28",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3911,6 +3956,45 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1903288/000095014222000360/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1903288&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "KKR Dislocation Opportunities (EEA) Fund SCSp  (CIK 0001780581)",
+            "cik": 1780581,
+            "adsh": "0000950142-20-001442",
+            "filingDate": "2020-05-28",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1780581/000095014220001442/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1780581&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "KKR Dislocation Opportunities (EEA) Fund Private Investors SCSp  (CIK 0001802785)",
+            "cik": 1802785,
+            "adsh": "0000950142-20-001437",
+            "filingDate": "2020-05-28",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1802785/000095014220001437/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802785&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "KKR Opportunities (EEA) Fund Private Investors II SCSp  (CIK 0001887737)",
+            "cik": 1887737,
+            "adsh": "0000950142-22-003090",
+            "filingDate": "2022-11-04",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1887737/000095014222003090/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1887737&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3942,53 +4026,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR Dislocation Opportunities (EEA) Fund SCSp  (CIK 0001780581)",
-            "cik": 1780581,
-            "adsh": "0000950142-20-001442",
-            "filingDate": "2020-05-28",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1780581/000095014220001442/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1780581&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "KKR Real Estate Partners Americas IV SCSp  (CIK 0001979658)",
-            "cik": 1979658,
-            "adsh": "0002001738-25-000002",
-            "filingDate": "2025-07-30",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1979658/000200173825000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1979658&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "KKR US CLO Equity Partners III (Onshore) Feeder L.P.  (CIK 0001915352)",
-            "cik": 1915352,
-            "adsh": "0000950142-22-000922",
-            "filingDate": "2022-03-07",
+            "entityName": "KKR Asia Tactical Credit (Overseas) Feeder LP  (CIK 0002003985)",
+            "cik": 2003985,
+            "adsh": "0000950142-25-000237",
+            "filingDate": "2025-01-31",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1915352/000095014222000922/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1915352&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "KKR Dislocation Opportunities (EEA) Fund Private Investors SCSp  (CIK 0001802785)",
-            "cik": 1802785,
-            "adsh": "0000950142-20-001437",
-            "filingDate": "2020-05-28",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1802785/000095014220001437/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1802785&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2003985/000095014225000237/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2003985&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -4177,7 +4222,8 @@
           "20 Form D filing(s) found on EDGAR",
           "8 fund(s) matched in CalPERS"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "digitalbridge-group-crestview-partners",
@@ -4213,6 +4259,19 @@
         "source": "SEC EDGAR EFTS full-text search",
         "queryUrl": "https://efts.sec.gov/LATEST/search-index?q=\"DigitalBridge\"&forms=D&dateRange=custom&startdt=2018-01-01",
         "formD": [
+          {
+            "entityName": "DigitalBridge Credit II (Onshore), LP  (CIK 0002014474), DigitalBridge Credit II (Ont), LP  (CIK 0002014841), DigitalBridge Credit II (Lux), SCSp  (CIK 0002018246), DigitalBridge Credit II (Offshore), LP  (CIK 0002014517)",
+            "cik": 2014474,
+            "adsh": "0002014474-26-000004",
+            "filingDate": "2026-07-15",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2014474/000201447426000004/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2014474&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 711350516,
+            "numberOfInvestors": 9
+          },
           {
             "entityName": "DigitalBridge Credit II (Onshore), LP  (CIK 0002014474), DigitalBridge Credit II (Ont), LP  (CIK 0002014841), DigitalBridge Credit II (Lux), SCSp  (CIK 0002018246), DigitalBridge Credit II (Offshore), LP  (CIK 0002014517)",
             "cik": 2014474,
@@ -4301,8 +4360,21 @@
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1964375/000196437524000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1964375&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
-            "totalAmountSold": 3379873286,
-            "numberOfInvestors": 56
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "DigitalBridge Strategic Assets Fund, LP  (CIK 0001930492)",
+            "cik": 1930492,
+            "adsh": "0001930492-23-000001",
+            "filingDate": "2023-07-19",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1930492/000193049223000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1930492&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
           },
           {
             "entityName": "DigitalBridge Partners III, LP  (CIK 0001964375)",
@@ -4326,19 +4398,6 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1935876/000193587623000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1935876&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "DigitalBridge Strategic Assets Fund, LP  (CIK 0001930492)",
-            "cik": 1930492,
-            "adsh": "0001930492-23-000001",
-            "filingDate": "2023-07-19",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1930492/000193049223000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1930492&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -4459,19 +4518,6 @@
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
-          },
-          {
-            "entityName": "DigitalBridge Zeus Partners VI, LP  (CIK 0001991614)",
-            "cik": 1991614,
-            "adsh": "0001991614-23-000001",
-            "filingDate": "2023-09-20",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1991614/000199161423000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1991614&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
           }
         ],
         "bulkDownloadNote": [
@@ -4564,7 +4610,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "macquarie-asset-management-mira",
@@ -4647,19 +4694,6 @@
             "numberOfInvestors": 36
           },
           {
-            "entityName": "Brambles Ltd  (CIK 0001404475)",
-            "cik": 1404475,
-            "adsh": "0001404475-12-000003",
-            "filingDate": "2012-07-05",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1404475/000140447512000003/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1404475&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": 51853829,
-            "totalAmountSold": 51853829,
-            "numberOfInvestors": 21
-          },
-          {
             "entityName": "Macquarie Infrastructure Partners VI, L.P.  (CIK 0001940742)",
             "cik": 1940742,
             "adsh": "0001940742-23-000001",
@@ -4671,6 +4705,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 4166398109,
             "numberOfInvestors": 78
+          },
+          {
+            "entityName": "Brambles Ltd  (CIK 0001404475)",
+            "cik": 1404475,
+            "adsh": "0001404475-12-000003",
+            "filingDate": "2012-07-05",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1404475/000140447512000003/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1404475&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": 51853829,
+            "totalAmountSold": 51853829,
+            "numberOfInvestors": 21
           },
           {
             "entityName": "Macquarie Infrastructure Partners VI, L.P.  (CIK 0001940742)",
@@ -4699,19 +4746,6 @@
             "numberOfInvestors": 30
           },
           {
-            "entityName": "Macquarie Infrastructure Partners V, L.P.  (CIK 0001798259)",
-            "cik": 1798259,
-            "adsh": "0001798259-20-000002",
-            "filingDate": "2020-08-10",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1798259/000179825920000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1798259&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Macquarie Infrastructure Partners VI, L.P.  (CIK 0001940742)",
             "cik": 1940742,
             "adsh": "0001940742-24-000001",
@@ -4720,6 +4754,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1940742/000194074224000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1940742&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Macquarie Infrastructure Partners V, L.P.  (CIK 0001798259)",
+            "cik": 1798259,
+            "adsh": "0001798259-20-000002",
+            "filingDate": "2020-08-10",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1798259/000179825920000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1798259&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -4777,45 +4824,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "MACQUARIE INFRASTRUCTURE PARTNERS II INTERNATIONAL LP  (CIK 0001438611)",
-            "cik": 1438611,
-            "adsh": "0001411071-10-000002",
-            "filingDate": "2010-03-12",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1438611/000141107110000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1438611&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Macquarie Green Energy Transition Solutions SCSp  (CIK 0001942418)",
-            "cik": 1942418,
-            "adsh": "0001942418-25-000001",
-            "filingDate": "2025-01-31",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1942418/000194241825000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1942418&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Macquarie Global Infrastructure Fund SCSp  (CIK 0001888549)",
-            "cik": 1888549,
-            "adsh": "0001888549-21-000001",
-            "filingDate": "2021-10-18",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1888549/000188854921000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1888549&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Macquarie Infrastructure Partners IV, L.P.  (CIK 0001696947)",
             "cik": 1696947,
             "adsh": "0001696947-19-000001",
@@ -4842,14 +4850,53 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Macquarie Alliance Partners Infrastructure Fund, L.P.  (CIK 0001954511)",
-            "cik": 1954511,
-            "adsh": "0001954511-24-000001",
-            "filingDate": "2024-08-22",
+            "entityName": "Macquarie Green Energy Transition Solutions SCSp  (CIK 0001942418)",
+            "cik": 1942418,
+            "adsh": "0001942418-25-000001",
+            "filingDate": "2025-01-31",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1954511/000195451124000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1954511&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1942418/000194241825000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1942418&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "MACQUARIE INFRASTRUCTURE PARTNERS II INTERNATIONAL LP  (CIK 0001438611)",
+            "cik": 1438611,
+            "adsh": "0001411071-10-000002",
+            "filingDate": "2010-03-12",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1438611/000141107110000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1438611&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Macquarie Global Infrastructure Fund SCSp  (CIK 0001888549)",
+            "cik": 1888549,
+            "adsh": "0001888549-21-000001",
+            "filingDate": "2021-10-18",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1888549/000188854921000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1888549&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Macquarie Asia Infrastructure Fund 2 LP  (CIK 0001724649)",
+            "cik": 1724649,
+            "adsh": "0001724649-17-000001",
+            "filingDate": "2017-12-14",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1724649/000172464917000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1724649&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -4938,7 +4985,24 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund",
+      "announcedFunds": [
+        {
+          "fundName": "Macquarie Infrastructure Partners V",
+          "sizeUSD": 6900000000,
+          "announcedDate": "2021-07-27",
+          "sourceUrl": "https://www.macquarie.com/us/en/about/news/2021/macquarie-asset-management-closes-sixth-americas-infrastructure-fund-with-6-9-billion-usd-in-commitments.html",
+          "note": "MIP V (Macquarie's sixth Americas infrastructure fund) closed at $6.9B, exceeding $5.0B target. Macquarie press release."
+        },
+        {
+          "fundName": "Macquarie Infrastructure Partners VI",
+          "sizeUSD": 8000000000,
+          "announcedDate": "2025-06-17",
+          "sourceUrl": "https://www.macquarie.com/au/en/about/news/2025/macquarie-asset-management-closes-macquarie-infrastructure-partners-vi.html",
+          "note": "MIP VI closed with over $8B of total fund and co-investment commitments. Macquarie press release."
+        }
+      ]
     },
     {
       "firmKey": "wavedivision-capital",
@@ -5065,7 +5129,8 @@
           "AUM from deals.json (self-reported / press)",
           "1 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "apollo-global-management",
@@ -5150,19 +5215,6 @@
           {
             "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
             "cik": 1411494,
-            "adsh": "0001411494-10-000004",
-            "filingDate": "2010-08-06",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000141149410000004/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": 218750,
-            "totalAmountSold": 218750,
-            "numberOfInvestors": 1
-          },
-          {
-            "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
-            "cik": 1411494,
             "adsh": "0001411494-10-000003",
             "filingDate": "2010-07-23",
             "formType": "D",
@@ -5171,6 +5223,19 @@
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": 10777760,
             "totalAmountSold": 10777760,
+            "numberOfInvestors": 1
+          },
+          {
+            "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
+            "cik": 1411494,
+            "adsh": "0001411494-10-000004",
+            "filingDate": "2010-08-06",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000141149410000004/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": 218750,
+            "totalAmountSold": 218750,
             "numberOfInvestors": 1
           },
           {
@@ -5202,11 +5267,11 @@
           {
             "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
             "cik": 1411494,
-            "adsh": "0001181431-15-006073",
-            "filingDate": "2015-04-27",
+            "adsh": "0001411494-11-000002",
+            "filingDate": "2011-03-29",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000118143115006073/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000141149411000002/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -5215,11 +5280,11 @@
           {
             "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
             "cik": 1411494,
-            "adsh": "0001411494-11-000002",
-            "filingDate": "2011-03-29",
+            "adsh": "0001411494-10-000005",
+            "filingDate": "2010-10-14",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000141149411000002/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000141149410000005/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -5267,11 +5332,11 @@
           {
             "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
             "cik": 1411494,
-            "adsh": "0001411494-10-000005",
-            "filingDate": "2010-10-14",
+            "adsh": "0001181431-15-006073",
+            "filingDate": "2015-04-27",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000141149410000005/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000118143115006073/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -5293,11 +5358,11 @@
           {
             "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
             "cik": 1411494,
-            "adsh": "0001181431-14-020476",
-            "filingDate": "2014-05-21",
+            "adsh": "0001181431-13-008327",
+            "filingDate": "2013-02-11",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000118143114020476/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000118143113008327/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -5306,11 +5371,11 @@
           {
             "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
             "cik": 1411494,
-            "adsh": "0001181431-13-008327",
-            "filingDate": "2013-02-11",
+            "adsh": "0001181431-14-020476",
+            "filingDate": "2014-05-21",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000118143113008327/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000118143114020476/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -5358,11 +5423,11 @@
           {
             "entityName": "Apollo Global Management LLC  (CIK 0001411494)",
             "cik": 1411494,
-            "adsh": "0001181431-13-012762",
-            "filingDate": "2013-02-26",
+            "adsh": "0001411494-10-000002",
+            "filingDate": "2010-03-26",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000118143113012762/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1411494/000141149410000002/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1411494&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -5552,7 +5617,8 @@
           "20 Form D filing(s) found on EDGAR",
           "8 fund(s) matched in CalPERS"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "tpg-capital",
@@ -5563,7 +5629,7 @@
       "firmType": "Private Equity",
       "headquarters": "Fort Worth, TX",
       "website": "tpg.com",
-      "dealCount": 3,
+      "dealCount": 4,
       "dealsData": {
         "aumRaw": "$185B+",
         "primaryFunds": [
@@ -5590,6 +5656,15 @@
             "acquirerName": "TPG Capital (Astound Broadband Formation)",
             "targetName": "RCN Telecom + WaveDivision + Grande Communications (Consolidated into Astound)",
             "role": "acquirer"
+          },
+          {
+            "id": "deal-052",
+            "date": "2021-08-01",
+            "status": "Completed",
+            "dealValue": 8100000000,
+            "acquirerName": "Stonepeak Infrastructure Partners",
+            "targetName": "Astound Broadband (from TPG Capital)",
+            "role": "target"
           },
           {
             "id": "deal-036",
@@ -5620,19 +5695,6 @@
             "numberOfInvestors": 125
           },
           {
-            "entityName": "TPG PUBLIC EQUITY PARTNERS-B, LTD.  (CIK 0001615928)",
-            "cik": 1615928,
-            "adsh": "0001615928-18-000002",
-            "filingDate": "2018-12-17",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615928/000161592818000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1615928&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 1211708856,
-            "numberOfInvestors": 124
-          },
-          {
             "entityName": "TPG Public Equity Partners Long Opportunities-B, Ltd.  (CIK 0001773237)",
             "cik": 1773237,
             "adsh": "0001773237-24-000001",
@@ -5657,6 +5719,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 741060946,
             "numberOfInvestors": 75
+          },
+          {
+            "entityName": "TPG PUBLIC EQUITY PARTNERS-B, LTD.  (CIK 0001615928)",
+            "cik": 1615928,
+            "adsh": "0001615928-18-000002",
+            "filingDate": "2018-12-17",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615928/000161592818000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1615928&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 1211708856,
+            "numberOfInvestors": 124
           },
           {
             "entityName": "TPG AG Essential Housing Fund III Holdings (DE), L.P.  (CIK 0002015463)",
@@ -5685,19 +5760,6 @@
             "numberOfInvestors": 158
           },
           {
-            "entityName": "TPG Real Estate Personnel II, L.P.  (CIK 0001643852)",
-            "cik": 1643852,
-            "adsh": "0001643852-15-000001",
-            "filingDate": "2015-06-05",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1643852/000164385215000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1643852&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": 3930000,
-            "totalAmountSold": 3930000,
-            "numberOfInvestors": 31
-          },
-          {
             "entityName": "TPG AG CS Holdings Fund III, L.P.  (CIK 0002019454)",
             "cik": 2019454,
             "adsh": "0002019454-24-000001",
@@ -5706,6 +5768,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2019454/000201945424000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2019454&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "TPG Real Estate Personnel II, L.P.  (CIK 0001643852)",
+            "cik": 1643852,
+            "adsh": "0001643852-15-000001",
+            "filingDate": "2015-06-05",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1643852/000164385215000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1643852&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -5750,6 +5825,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "TPG-Axon Partners, LP  (CIK 0001321376)",
+            "cik": 1321376,
+            "adsh": "0000902664-15-001729",
+            "filingDate": "2015-03-13",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1321376/000090266415001729/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1321376&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "TPG PUBLIC EQUITY PARTNERS-A, L.P.  (CIK 0001615924)",
             "cik": 1615924,
             "adsh": "0001615924-18-000001",
@@ -5776,14 +5864,27 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "TPG-Axon Partners, LP  (CIK 0001321376)",
-            "cik": 1321376,
-            "adsh": "0000902664-15-001729",
-            "filingDate": "2015-03-13",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1321376/000090266415001729/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1321376&type=D&dateb=&owner=include&count=10",
+            "entityName": "TPG GROWTH II GATOR, L.P.  (CIK 0001798133)",
+            "cik": 1798133,
+            "adsh": "0001798133-19-000001",
+            "filingDate": "2019-12-27",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1798133/000179813319000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1798133&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "TPG AG CS Non-U.S. Holdings Fund III, L.P.  (CIK 0002019456)",
+            "cik": 2019456,
+            "adsh": "0002019456-24-000001",
+            "filingDate": "2024-05-30",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2019456/000201945624000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2019456&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -5804,64 +5905,38 @@
           {
             "entityName": "TPG PUBLIC EQUITY PARTNERS-A, L.P.  (CIK 0001615924)",
             "cik": 1615924,
-            "adsh": "0001615924-17-000001",
-            "filingDate": "2017-12-15",
+            "adsh": "0001615924-16-000003",
+            "filingDate": "2016-12-21",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615924/000161592417000001/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615924/000161592416000003/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1615924&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
           },
           {
-            "entityName": "TPG GROWTH II GATOR, L.P.  (CIK 0001798133)",
-            "cik": 1798133,
-            "adsh": "0001798133-19-000001",
-            "filingDate": "2019-12-27",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1798133/000179813319000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1798133&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "TPG Real Estate II FOF-QP, L.P.  (CIK 0001654817)",
-            "cik": 1654817,
-            "adsh": "0001654817-15-000002",
-            "filingDate": "2015-10-13",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1654817/000165481715000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1654817&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "TPG AG Credit Solutions Fund III, L.P.  (CIK 0002019453)",
-            "cik": 2019453,
-            "adsh": "0002019453-24-000001",
-            "filingDate": "2024-05-30",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2019453/000201945324000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2019453&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "TPG TPEP Co-Invest L.P.  (CIK 0001587196)",
-            "cik": 1587196,
-            "adsh": "0001587196-18-000001",
-            "filingDate": "2018-12-17",
+            "entityName": "TPG Public Equity Partners Long Opportunities-B, Ltd.  (CIK 0001773237)",
+            "cik": 1773237,
+            "adsh": "0001773237-25-000001",
+            "filingDate": "2025-01-16",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1587196/000158719618000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1587196&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1773237/000177323725000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1773237&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "TPG PUBLIC EQUITY PARTNERS-B, LTD.  (CIK 0001615928)",
+            "cik": 1615928,
+            "adsh": "0001615928-24-000001",
+            "filingDate": "2024-01-17",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615928/000161592824000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1615928&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6216,7 +6291,8 @@
           "20 Form D filing(s) found on EDGAR",
           "17 fund(s) matched in CalPERS"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "elliott-investment-management-creditor-consortium",
@@ -6348,7 +6424,8 @@
           "AUM from deals.json (self-reported / press)",
           "2 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "apax-partners-warburg-pincus-cppib-consortium",
@@ -6425,6 +6502,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "Apax Helix US Fund L.P.  (CIK 0002123985)",
+            "cik": 2123985,
+            "adsh": "0002123985-26-000001",
+            "filingDate": "2026-05-29",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2123985/000212398526000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2123985&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Apax IX USD Co-Investment L.P.  (CIK 0001693586)",
             "cik": 1693586,
             "adsh": "0001693586-17-000001",
@@ -6490,19 +6580,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Apax Vantage Software I L.P.  (CIK 0002054113)",
-            "cik": 2054113,
-            "adsh": "0002054113-25-000001",
-            "filingDate": "2025-02-12",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2054113/000205411325000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2054113&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "A11 EUR (Feeder) L.P.  (CIK 0001934587)",
             "cik": 1934587,
             "adsh": "0001934587-22-000001",
@@ -6511,6 +6588,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1934587/000193458722000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1934587&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Apax Vantage Software I L.P.  (CIK 0002054113)",
+            "cik": 2054113,
+            "adsh": "0002054113-25-000001",
+            "filingDate": "2025-02-12",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2054113/000205411325000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2054113&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6555,6 +6645,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "Apax IX EUR L.P.  (CIK 0001673138)",
+            "cik": 1673138,
+            "adsh": "0001673138-16-000001",
+            "filingDate": "2016-05-10",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1673138/000167313816000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1673138&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Apax Digital III SCSp  (CIK 0002115105)",
             "cik": 2115105,
             "adsh": "0002115105-26-000001",
@@ -6568,14 +6671,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Apax IX EUR L.P.  (CIK 0001673138)",
-            "cik": 1673138,
-            "adsh": "0001673138-16-000001",
-            "filingDate": "2016-05-10",
+            "entityName": "Apax Helix US Fund (TE) L.P.  (CIK 0002123860)",
+            "cik": 2123860,
+            "adsh": "0002123860-26-000001",
+            "filingDate": "2026-05-29",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1673138/000167313816000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1673138&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2123860/000212386026000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2123860&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6594,19 +6697,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Apax XI EUR L.P.  (CIK 0001934594)",
-            "cik": 1934594,
-            "adsh": "0001934594-22-000001",
-            "filingDate": "2022-06-28",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1934594/000193459422000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1934594&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Apax X USD L.P.  (CIK 0001781247)",
             "cik": 1781247,
             "adsh": "0001781247-19-000001",
@@ -6620,27 +6710,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Apax Digital L.P.  (CIK 0001705603)",
-            "cik": 1705603,
-            "adsh": "0001705603-17-000001",
-            "filingDate": "2017-05-30",
+            "entityName": "Apax XI EUR L.P.  (CIK 0001934594)",
+            "cik": 1934594,
+            "adsh": "0001934594-22-000001",
+            "filingDate": "2022-06-28",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1705603/000170560317000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1705603&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Apax Credit Opportunities SCSp  (CIK 0001907264)",
-            "cik": 1907264,
-            "adsh": "0001907264-23-000001",
-            "filingDate": "2023-10-23",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1907264/000190726423000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1907264&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1934594/000193459422000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1934594&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6736,7 +6813,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "crestview-partners",
@@ -6815,32 +6893,6 @@
             "numberOfInvestors": 14
           },
           {
-            "entityName": "Crestview Offshore Holdings III (FF), L.P.  (CIK 0001589487)",
-            "cik": 1589487,
-            "adsh": "0000950103-13-006493",
-            "filingDate": "2013-11-06",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589487/000095010313006493/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589487&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Crestview Holdings IV (Offshore), L.P.  (CIK 0001741476)",
-            "cik": 1741476,
-            "adsh": "0001741483-18-000009",
-            "filingDate": "2018-05-31",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1741476/000174148318000009/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1741476&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Crestview Partners IV (FF), L.P.  (CIK 0001741469)",
             "cik": 1741469,
             "adsh": "0001741469-19-000001",
@@ -6867,17 +6919,30 @@
             "numberOfInvestors": 1
           },
           {
-            "entityName": "Crestview Offshore Holdings II (892 Cayman), L.P.  (CIK 0001480255)",
-            "cik": 1480255,
-            "adsh": "0000950103-10-000047",
-            "filingDate": "2010-01-08",
+            "entityName": "Crestview Offshore Holdings III (FF), L.P.  (CIK 0001589487)",
+            "cik": 1589487,
+            "adsh": "0000950103-13-006493",
+            "filingDate": "2013-11-06",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1480255/000095010310000047/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1480255&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": 150000000,
-            "totalAmountSold": 150000000,
-            "numberOfInvestors": 1
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589487/000095010313006493/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589487&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Crestview Holdings IV (Offshore), L.P.  (CIK 0001741476)",
+            "cik": 1741476,
+            "adsh": "0001741483-18-000009",
+            "filingDate": "2018-05-31",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1741476/000174148318000009/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1741476&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
           },
           {
             "entityName": "Crestview Holdings IV (FF Offshore), L.P.  (CIK 0001741477)",
@@ -6893,14 +6958,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Crestview Partners III (Offshore), L.P.  (CIK 0001589480)",
-            "cik": 1589480,
-            "adsh": "0000950103-13-006488",
-            "filingDate": "2013-11-06",
+            "entityName": "Crestview Offshore Holdings II (892 Cayman), L.P.  (CIK 0001480255)",
+            "cik": 1480255,
+            "adsh": "0000950103-10-000047",
+            "filingDate": "2010-01-08",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589480/000095010313006488/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589480&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1480255/000095010310000047/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1480255&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6932,6 +6997,32 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "Crestview Partners III (Offshore), L.P.  (CIK 0001589480)",
+            "cik": 1589480,
+            "adsh": "0000950103-13-006488",
+            "filingDate": "2013-11-06",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589480/000095010313006488/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589480&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Crestview Holdings IV (892), L.P.  (CIK 0001741484)",
+            "cik": 1741484,
+            "adsh": "0001741484-20-000001",
+            "filingDate": "2020-05-29",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1741484/000174148420000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1741484&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Crestview Partners V, L.P.  (CIK 0001996734)",
             "cik": 1996734,
             "adsh": "0000950142-23-002573",
@@ -6958,14 +7049,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Crestview Holdings IV (892), L.P.  (CIK 0001741484)",
-            "cik": 1741484,
-            "adsh": "0001741484-20-000001",
-            "filingDate": "2020-05-29",
+            "entityName": "Crestview Holdings III (TE), L.P.  (CIK 0001591184)",
+            "cik": 1591184,
+            "adsh": "0000950103-14-007050",
+            "filingDate": "2014-10-08",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1741484/000174148420000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1741484&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1591184/000095010314007050/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1591184&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6984,14 +7075,27 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Crestview Holdings III (TE), L.P.  (CIK 0001591184)",
-            "cik": 1591184,
-            "adsh": "0000950103-14-007050",
-            "filingDate": "2014-10-08",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1591184/000095010314007050/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1591184&type=D&dateb=&owner=include&count=10",
+            "entityName": "Crestview Partners III Co-Investors, L.P.  (CIK 0001589482)",
+            "cik": 1589482,
+            "adsh": "0000950103-13-006494",
+            "filingDate": "2013-11-06",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589482/000095010313006494/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589482&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Crestview Partners III (FF Offshore), L.P.  (CIK 0001589477)",
+            "cik": 1589477,
+            "adsh": "0000950103-13-006490",
+            "filingDate": "2013-11-06",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589477/000095010313006490/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589477&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7010,40 +7114,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Crestview Partners III Co-Investors, L.P.  (CIK 0001589482)",
-            "cik": 1589482,
-            "adsh": "0000950103-13-006494",
-            "filingDate": "2013-11-06",
+            "entityName": "Crestview Holdings IV (TE), L.P.  (CIK 0001741473)",
+            "cik": 1741473,
+            "adsh": "0001741483-18-000010",
+            "filingDate": "2018-05-31",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589482/000095010313006494/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589482&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Crestview Partners III (DE), L.P.  (CIK 0001737413)",
-            "cik": 1737413,
-            "adsh": "0000950103-18-004760",
-            "filingDate": "2018-04-13",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1737413/000095010318004760/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1737413&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Crestview Partners III (FF Offshore), L.P.  (CIK 0001589477)",
-            "cik": 1589477,
-            "adsh": "0000950103-13-006490",
-            "filingDate": "2013-11-06",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1589477/000095010313006490/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1589477&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1741473/000174148318000010/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1741473&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7119,7 +7197,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "e8-partners",
@@ -7398,7 +7477,8 @@
         "notes": [
           "15 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "mediacom-founder-owned-private",
@@ -7481,7 +7561,9 @@
         "level": "very-low",
         "score": 10,
         "notes": []
-      }
+      },
+      "capitalType": "balance-sheet",
+      "capitalNote": "Founder-owned — balance-sheet acquirer; no fundraising disclosures."
     },
     {
       "firmKey": "fidelity-investments-colt-owner",
@@ -7564,7 +7646,9 @@
         "notes": [
           "AUM from deals.json (self-reported / press)"
         ]
-      }
+      },
+      "capitalType": "balance-sheet",
+      "capitalNote": "Corporate strategic investments from Fidelity's balance sheet — not a drawdown fund."
     },
     {
       "firmKey": "kkr-co-ares-management",
@@ -7705,14 +7789,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR Asia Tactical Credit (Overseas) Fund SCSp  (CIK 0001964029)",
-            "cik": 1964029,
-            "adsh": "0000950142-23-001535",
-            "filingDate": "2023-05-25",
+            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
+            "cik": 2078963,
+            "adsh": "0002078963-25-000002",
+            "filingDate": "2025-07-28",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1964029/000095014223001535/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1964029&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7757,14 +7841,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
-            "cik": 2078963,
-            "adsh": "0002078963-25-000002",
-            "filingDate": "2025-07-28",
+            "entityName": "KKR Asia Tactical Credit (Overseas) Fund SCSp  (CIK 0001964029)",
+            "cik": 1964029,
+            "adsh": "0000950142-23-001535",
+            "filingDate": "2023-05-25",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1964029/000095014223001535/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1964029&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7778,6 +7862,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1903288/000095014222000360/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1903288&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "KKR Dislocation Opportunities (EEA) Fund SCSp  (CIK 0001780581)",
+            "cik": 1780581,
+            "adsh": "0000950142-20-001442",
+            "filingDate": "2020-05-28",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1780581/000095014220001442/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1780581&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7835,27 +7932,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR Dislocation Opportunities (EEA) Fund SCSp  (CIK 0001780581)",
-            "cik": 1780581,
-            "adsh": "0000950142-20-001442",
-            "filingDate": "2020-05-28",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1780581/000095014220001442/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1780581&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "KKR Real Estate Partners Americas IV SCSp  (CIK 0001979658)",
-            "cik": 1979658,
-            "adsh": "0002001738-25-000002",
-            "filingDate": "2025-07-30",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1979658/000200173825000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1979658&type=D&dateb=&owner=include&count=10",
+            "entityName": "KKR US CLO Equity Partners III (Onshore) Feeder L.P.  (CIK 0001915352)",
+            "cik": 1915352,
+            "adsh": "0000950142-22-000922",
+            "filingDate": "2022-03-07",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1915352/000095014222000922/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1915352&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7951,7 +8035,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "blackrock-infrastructure",
@@ -7986,17 +8071,17 @@
         "queryUrl": "https://efts.sec.gov/LATEST/search-index?q=\"BlackRock\"&forms=D&dateRange=custom&startdt=2018-01-01",
         "formD": [
           {
-            "entityName": "BlackRock Diamond Property Fund, Inc.  (CIK 0001323369)",
-            "cik": 1323369,
-            "adsh": "0000950172-13-000045",
-            "filingDate": "2013-04-18",
+            "entityName": "R3 (B), L.P.  (CIK 0001484759)",
+            "cik": 1484759,
+            "adsh": "0001387082-12-000009",
+            "filingDate": "2012-03-16",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1323369/000095017213000045/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1323369&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484759/000138708212000009/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484759&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
-            "totalAmountSold": 1138887126,
-            "numberOfInvestors": 246
+            "totalAmountSold": 109178890,
+            "numberOfInvestors": 13
           },
           {
             "entityName": "GIP CAPS III Alacrity Holding Partnership (T5), L.P.  (CIK 0002096769)",
@@ -8012,17 +8097,17 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "R3 (B), L.P.  (CIK 0001484759)",
-            "cik": 1484759,
-            "adsh": "0001387082-12-000009",
-            "filingDate": "2012-03-16",
+            "entityName": "BlackRock Diamond Property Fund, Inc.  (CIK 0001323369)",
+            "cik": 1323369,
+            "adsh": "0000950172-13-000045",
+            "filingDate": "2013-04-18",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484759/000138708212000009/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484759&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1323369/000095017213000045/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1323369&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
-            "totalAmountSold": 109178890,
-            "numberOfInvestors": 13
+            "totalAmountSold": 1138887126,
+            "numberOfInvestors": 246
           },
           {
             "entityName": "R3 (B), L.P.  (CIK 0001484759)",
@@ -8051,6 +8136,19 @@
             "numberOfInvestors": 234
           },
           {
+            "entityName": "R3 (B), L.P.  (CIK 0001484759)",
+            "cik": 1484759,
+            "adsh": "0001065854-11-000003",
+            "filingDate": "2011-03-21",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484759/000106585411000003/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484759&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 54597917,
+            "numberOfInvestors": 10
+          },
+          {
             "entityName": "BlackRock Granite Property Fund, Inc.  (CIK 0001378958)",
             "cik": 1378958,
             "adsh": "0000950172-14-000077",
@@ -8071,19 +8169,6 @@
             "formType": "D/A",
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484759/000148475913000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484759&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 113574905,
-            "numberOfInvestors": 14
-          },
-          {
-            "entityName": "R3 (B), L.P.  (CIK 0001484759)",
-            "cik": 1484759,
-            "adsh": "0001065854-11-000003",
-            "filingDate": "2011-03-21",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484759/000106585411000003/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484759&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -8129,32 +8214,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "BlackRock Granite Property Fund, Inc.  (CIK 0001378958)",
-            "cik": 1378958,
-            "adsh": "0001030815-11-000006",
-            "filingDate": "2011-04-20",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1378958/000103081511000006/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1378958&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "BlackRock Diamond Property Fund, Inc.  (CIK 0001323369)",
-            "cik": 1323369,
-            "adsh": "0000950172-12-000025",
-            "filingDate": "2012-04-19",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1323369/000095017212000025/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1323369&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "R3 (C), Ltd.  (CIK 0001484760)",
             "cik": 1484760,
             "adsh": "0001484760-14-000001",
@@ -8181,6 +8240,32 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "BlackRock Granite Property Fund, Inc.  (CIK 0001378958)",
+            "cik": 1378958,
+            "adsh": "0001030815-11-000006",
+            "filingDate": "2011-04-20",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1378958/000103081511000006/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1378958&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "BlackRock Diamond Property Fund, Inc.  (CIK 0001323369)",
+            "cik": 1323369,
+            "adsh": "0000950172-12-000025",
+            "filingDate": "2012-04-19",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1323369/000095017212000025/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1323369&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "GIP Capital Solutions Fund III, L.P.  (CIK 0002044829)",
             "cik": 2044829,
             "adsh": "0002044829-25-000002",
@@ -8189,32 +8274,6 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2044829/000204482925000002/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2044829&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "R3 (B), L.P.  (CIK 0001484759)",
-            "cik": 1484759,
-            "adsh": "0001484759-14-000001",
-            "filingDate": "2014-03-18",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484759/000148475914000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484759&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Global Infrastructure Partners V-A/B, L.P.  (CIK 0001950597)",
-            "cik": 1950597,
-            "adsh": "0001950597-25-000002",
-            "filingDate": "2025-03-31",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1950597/000195059725000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1950597&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -8233,13 +8292,39 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "BlackRock Fixed Income GlobalAlpha Fund, a sub-fund of BlackRock Fixed Income GlobalAlpha Fund (Dublin)  (CIK 0001573739)",
-            "cik": 1573739,
-            "adsh": "0002036867-25-000002",
-            "filingDate": "2025-05-06",
+            "entityName": "R3 (C), Ltd.  (CIK 0001484760)",
+            "cik": 1484760,
+            "adsh": "0001433510-11-000002",
+            "filingDate": "2011-03-15",
             "formType": "D/A",
             "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1573739/000203686725000002/primary_doc.xml",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484760/000143351011000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484760&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "R3 (B), L.P.  (CIK 0001484759)",
+            "cik": 1484759,
+            "adsh": "0001484759-14-000001",
+            "filingDate": "2014-03-18",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1484759/000148475914000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1484759&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "BlackRock Fixed Income GlobalAlpha Fund  (CIK 0001573739)",
+            "cik": 1573739,
+            "adsh": "0001835107-22-000030",
+            "filingDate": "2022-04-14",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1573739/000183510722000030/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1573739&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
@@ -8316,7 +8401,8 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund"
     },
     {
       "firmKey": "searchlight-capital-partners",
@@ -8377,19 +8463,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Searchlight Capital II, L.P.  (CIK 0001648706)",
-            "cik": 1648706,
-            "adsh": "0001140361-15-028461",
-            "filingDate": "2015-07-24",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1648706/000114036115028461/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1648706&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 82050000,
-            "numberOfInvestors": 8
-          },
-          {
             "entityName": "Searchlight Capital III PV, L.P.  (CIK 0001774841)",
             "cik": 1774841,
             "adsh": "0001567619-19-014650",
@@ -8401,6 +8474,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 1249424735,
             "numberOfInvestors": 36
+          },
+          {
+            "entityName": "Searchlight Capital II, L.P.  (CIK 0001648706)",
+            "cik": 1648706,
+            "adsh": "0001140361-15-028461",
+            "filingDate": "2015-07-24",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1648706/000114036115028461/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1648706&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 82050000,
+            "numberOfInvestors": 8
           },
           {
             "entityName": "Searchlight Capital II PV, L.P.  (CIK 0001648707)",
@@ -8585,6 +8671,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "Searchlight Capital III CVL Co-Invest Partners II, L.P.  (CIK 0001993188)",
+            "cik": 1993188,
+            "adsh": "0001993188-24-000001",
+            "filingDate": "2024-12-26",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1993188/000199318824000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1993188&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "Searchlight Capital, L.P.  (CIK 0001511766)",
             "cik": 1511766,
             "adsh": "0001511766-12-000002",
@@ -8593,19 +8692,6 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1511766/000151176612000002/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1511766&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "Searchlight Capital III CVL Co-Invest Partners, L.P.  (CIK 0001828398)",
-            "cik": 1828398,
-            "adsh": "0001567619-20-018141",
-            "filingDate": "2020-10-23",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1828398/000156761920018141/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1828398&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -8681,7 +8767,17 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund",
+      "announcedFunds": [
+        {
+          "fundName": "Searchlight Capital Partners III",
+          "sizeUSD": 3400000000,
+          "announcedDate": "2020-11-18",
+          "sourceUrl": "https://www.businesswire.com/news/home/20201118005300/en/Searchlight-Capital-Partners-Closes-Third-Fund-at-$3.4-Billion",
+          "note": "Final close at $3.4B, exceeding $2.75B target. Searchlight press release via Business Wire."
+        }
+      ]
     },
     {
       "firmKey": "eqt-infrastructure-digitalbridge-co-lead",
@@ -8717,19 +8813,6 @@
         "queryUrl": "https://efts.sec.gov/LATEST/search-index?q=\"EQT\"&forms=D&dateRange=custom&startdt=2018-01-01",
         "formD": [
           {
-            "entityName": "EQT X (No.2) USD SCSp  (CIK 0001925427)",
-            "cik": 1925427,
-            "adsh": "0001925427-23-000001",
-            "filingDate": "2023-04-27",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1925427/000192542723000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1925427&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 18821193866,
-            "numberOfInvestors": 35
-          },
-          {
             "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
             "cik": 1923616,
             "adsh": "0001923616-24-000001",
@@ -8741,6 +8824,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 21935265175,
             "numberOfInvestors": 5
+          },
+          {
+            "entityName": "EQT X (No.2) USD SCSp  (CIK 0001925427)",
+            "cik": 1925427,
+            "adsh": "0001925427-23-000001",
+            "filingDate": "2023-04-27",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1925427/000192542723000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1925427&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 18821193866,
+            "numberOfInvestors": 35
           },
           {
             "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
@@ -8860,19 +8956,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
-            "cik": 1923616,
-            "adsh": "0001900942-22-000001",
-            "filingDate": "2022-04-27",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923616/000190094222000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923616&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "EQT Active Core Infrastructure (No.2) SCSp  (CIK 0001923502)",
             "cik": 1923502,
             "adsh": "0001923502-24-000001",
@@ -8881,6 +8964,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923502/000192350224000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923502&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "EQT X (No.1) USD SCSp  (CIK 0001923616)",
+            "cik": 1923616,
+            "adsh": "0001900942-22-000001",
+            "filingDate": "2022-04-27",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923616/000190094222000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923616&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -8912,19 +9008,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "EQT X (No.2) EUR SCSp  (CIK 0001923548)",
-            "cik": 1923548,
-            "adsh": "0001923548-22-000001",
-            "filingDate": "2022-04-27",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923548/000192354822000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923548&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "EQT Credit (No. 1) Limited Partnership  (CIK 0001479180)",
             "cik": 1479180,
             "adsh": "0001479180-10-000002",
@@ -8938,27 +9021,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "EQT Active Core Infrastructure (No.2) SCSp  (CIK 0001923502)",
-            "cik": 1923502,
-            "adsh": "0001923502-23-000002",
-            "filingDate": "2023-08-18",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923502/000192350223000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923502&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "EQT Credit Opportunities III Employee LP  (CIK 0001676099)",
-            "cik": 1676099,
-            "adsh": "0001676099-17-000003",
-            "filingDate": "2017-06-02",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1676099/000167609917000003/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1676099&type=D&dateb=&owner=include&count=10",
+            "entityName": "EQT X (No.2) EUR SCSp  (CIK 0001923548)",
+            "cik": 1923548,
+            "adsh": "0001923548-22-000001",
+            "filingDate": "2022-04-27",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923548/000192354822000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923548&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -8972,6 +9042,32 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1923537/000192353724000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1923537&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "EQT Credit Opportunities III IAC LP  (CIK 0001676108)",
+            "cik": 1676108,
+            "adsh": "0001676108-16-000002",
+            "filingDate": "2016-06-30",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1676108/000167610816000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1676108&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "EQT Ventures Employee Co-Investment SCSp  (CIK 0001671765)",
+            "cik": 1671765,
+            "adsh": "0001671765-16-000002",
+            "filingDate": "2016-04-11",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1671765/000167176516000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1671765&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -9047,7 +9143,24 @@
           "AUM from deals.json (self-reported / press)",
           "20 Form D filing(s) found on EDGAR"
         ]
-      }
+      },
+      "capitalType": "fund",
+      "announcedFunds": [
+        {
+          "fundName": "EQT Infrastructure IV",
+          "sizeUSD": 10100000000,
+          "announcedDate": "2019-03-12",
+          "sourceUrl": "https://eqtgroup.com/news/eqt-closes-fourth-infrastructure-fund-at-eur-9-billion-strengthens-position-as-a-leading-global-infrastructure-investor-2019-03-12",
+          "note": "First and final close at EUR 9.0B hard cap (~USD 10.1B at close date). EQT press release."
+        },
+        {
+          "fundName": "Digital Colony Partners II",
+          "sizeUSD": 8300000000,
+          "announcedDate": "2022-01-19",
+          "sourceUrl": "https://www.digitalbridge.com/news/2022-01-19-digitalbridge-surpasses-target-to-close-second-flagship-fund-at-83-billion",
+          "note": "Final close at $8.3B, surpassing $6.0B target. DigitalBridge press release."
+        }
+      ]
     }
   ]
 }

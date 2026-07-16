@@ -33,12 +33,13 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'fs'
-import { fileURLToPath } from 'url'
+import { fileURLToPath, pathToFileURL } from 'url'
 import { dirname, join } from 'path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const DEALS_PATH    = join(__dirname, '../src/data/deals.json')
-const OUTPUT_PATH   = join(__dirname, '../src/data/fund-data.json')
+const DEALS_PATH     = join(__dirname, '../src/data/deals.json')
+const OUTPUT_PATH    = join(__dirname, '../src/data/fund-data.json')
+const OVERRIDES_PATH = join(__dirname, 'fund-overrides.json')
 
 // ── CLI flags ─────────────────────────────────────────────────────────────────
 
@@ -607,6 +608,54 @@ function identifyGaps(firmEntry) {
   return { gaps, confidence: { level, score: confidence.score, notes: confidence.notes } }
 }
 
+// ── Manual overrides merge ────────────────────────────────────────────────────
+// scripts/fund-overrides.json is a manual-input file merged into each firm entry
+// at output-assembly time. Because this script regenerates fund-data.json
+// wholesale, manual data (capital structure, web-verified announced fund sizes)
+// must live here rather than in fund-data.json itself.
+//
+// Schema: { "firms": { "<firmRaw>": { capitalType, capitalNote, announcedFunds } } }
+//   capitalType    'fund' | 'evergreen' | 'balance-sheet'  (default 'fund')
+//   capitalNote    human-readable explanation shown in the UI
+//   announcedFunds [{ fundName, sizeUSD, announcedDate, sourceUrl, note }]
+
+/**
+ * Pure merge: returns a new firms array where every firm carries capitalType
+ * (default 'fund'), plus capitalNote / announcedFunds when overridden.
+ * Unknown firmRaw keys in the overrides produce a console.warn, never an error.
+ */
+export function applyFundOverrides(firms, overrides) {
+  const firmOverrides = overrides?.firms ?? {}
+
+  const known   = new Set(firms.map(f => f.firmRaw))
+  const unknown = Object.keys(firmOverrides).filter(k => !known.has(k))
+  if (unknown.length) {
+    console.warn(
+      `⚠ fund-overrides: ${unknown.length} firmRaw key(s) do not match any firm and were ignored: ${unknown.join(', ')}`
+    )
+  }
+
+  return firms.map(firm => {
+    const o      = firmOverrides[firm.firmRaw]
+    const merged = { ...firm, capitalType: o?.capitalType ?? 'fund' }
+    if (o?.capitalNote != null) merged.capitalNote = o.capitalNote
+    if (Array.isArray(o?.announcedFunds) && o.announcedFunds.length) {
+      merged.announcedFunds = o.announcedFunds.map(f => ({ ...f }))
+    }
+    return merged
+  })
+}
+
+function loadFundOverrides() {
+  if (!existsSync(OVERRIDES_PATH)) return { firms: {} }
+  try {
+    return JSON.parse(readFileSync(OVERRIDES_PATH, 'utf8'))
+  } catch (e) {
+    console.warn(`⚠ fund-overrides: could not parse ${OVERRIDES_PATH}: ${e.message}`)
+    return { firms: {} }
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -879,6 +928,19 @@ async function main() {
     }),
   }
 
+  // ── Merge manual overrides (scripts/fund-overrides.json) ────────────────────
+  const fundOverrides   = loadFundOverrides()
+  output.firms          = applyFundOverrides(output.firms, fundOverrides)
+  const overrideEntries = Object.keys(fundOverrides.firms ?? {}).length
+  output._meta.fundOverrides = {
+    file:        'scripts/fund-overrides.json',
+    applied:     true,
+    appliedAt:   new Date().toISOString().slice(0, 10),
+    firmEntries: overrideEntries,
+    note:        'Manual capital-structure (capitalType/capitalNote) and web-verified announcedFunds merged at generation time',
+  }
+  console.log(`  ✓ Merged fund-overrides.json (${overrideEntries} firm entr${overrideEntries === 1 ? 'y' : 'ies'})`)
+
   // ── Write output ─────────────────────────────────────────────────────────────
   if (DRY_RUN) {
     console.log(`\n⚠  DRY RUN — not writing to ${OUTPUT_PATH} (add data would be empty)`)
@@ -926,7 +988,12 @@ async function main() {
   console.log('     • Add source citations to the sources[] array')
 }
 
-main().catch(e => {
-  console.error('\n✗ Fatal error:', e)
-  process.exit(1)
-})
+// Only run when executed directly (`node scripts/fund-data-query.mjs`), not when
+// imported for its exported helpers (applyFundOverrides) by tests or one-off scripts.
+const isDirectRun = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
+if (isDirectRun) {
+  main().catch(e => {
+    console.error('\n✗ Fatal error:', e)
+    process.exit(1)
+  })
+}

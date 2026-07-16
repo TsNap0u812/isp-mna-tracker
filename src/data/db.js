@@ -33,7 +33,7 @@ export function portfolioOf(ownerId, asOf = null) {
 export const fundsOf = firmId => funds.filter(f => f.sponsorFirmIds.includes(firmId))
 
 // All deals touching an asset's full lineage (successors forward, predecessors
-// and child systems backward), newest first.
+// and child systems backward, parents upward from carve-outs), newest first.
 export function evolutionChain(assetId) {
   const lineage = new Set([assetId])
   const queue = [assetId]
@@ -42,6 +42,9 @@ export function evolutionChain(assetId) {
     const a = db.asset.get(id)
     if (a?.successorAssetId && !lineage.has(a.successorAssetId)) {
       lineage.add(a.successorAssetId); queue.push(a.successorAssetId)
+    }
+    if (a?.parentAssetId && !lineage.has(a.parentAssetId)) {
+      lineage.add(a.parentAssetId); queue.push(a.parentAssetId)
     }
     for (const p of assets) {
       if ((p.successorAssetId === id || p.parentAssetId === id) && !lineage.has(p.id)) {

@@ -91,6 +91,12 @@ describe('evolutionChain', () => {
     expect(chain.length).toBeGreaterThanOrEqual(2)
     expect(chain.some(d => d.dealType === 'Consolidation')).toBe(true)
   })
+
+  it('walks up from a carve-out child to its parent lineage', () => {
+    const childChain = evolutionChain('asset-lumen-ilec-20-states').map(d => d.id)
+    const parentChain = evolutionChain('asset-lumen-technologies').map(d => d.id)
+    expect(childChain.sort()).toEqual(parentChain.sort())
+  })
 })
 
 describe('participantsOf', () => {

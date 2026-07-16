@@ -7,10 +7,21 @@ import { buildDealParticipants } from './participants.mjs'
 import { deriveStakes } from './stakes.mjs'
 import { applyStakeOverrides } from './stake-overrides.mjs'
 import { injectNewAssets, applyTargetOverrides, validateParentAssets } from './target-overrides.mjs'
+import { validateInput } from './validate.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
-const legacy = JSON.parse(readFileSync(join(ROOT, 'src/data/deals.json'), 'utf8'))
+const frozenLegacy = JSON.parse(readFileSync(join(ROOT, 'src/data/deals.json'), 'utf8'))
+const newDeals = JSON.parse(readFileSync(join(ROOT, 'src/data/new-deals.json'), 'utf8'))
+const inputDeals = [...frozenLegacy, ...newDeals]
 const overrides = JSON.parse(readFileSync(join(ROOT, 'scripts/migrate/overrides.json'), 'utf8'))
+
+// ── Input validation: refuse to write anything on malformed input ────────────
+const { errors: inputErrors } = validateInput(inputDeals)
+if (inputErrors.length > 0) {
+  console.error(`Input validation failed (${inputErrors.length} error${inputErrors.length === 1 ? '' : 's'}):`)
+  for (const e of inputErrors) console.error(`  - ${e}`)
+  process.exit(1)
+}
 
 const reg = createRegistry()
 // notFirms matches against baseName(name).toLowerCase() — parenthetical annotations are stripped before comparison
@@ -19,7 +30,7 @@ reg.notFirms = new Set((overrides.notFirms ?? []).map(n => n.toLowerCase()))
 reg.notFunds = new Set((overrides.notFunds ?? []).map(n => n.toLowerCase()))
 
 // ── Pass 1: harvest all firms + funds from every pe blob ─────────────────────
-for (const d of legacy) {
+for (const d of inputDeals) {
   for (const party of [d.acquirer, d.acquired]) {
     if (!party?.pe?.firm) continue
     const firms = upsertFirm(reg, party.pe.firm, party.pe)
@@ -33,7 +44,7 @@ for (const d of legacy) {
 const participants = []
 const flagSet = new Set(reg.flags)
 const buyerOverrides = overrides.buyerOverrides ?? {}
-const deals = legacy.map(d => {
+const deals = inputDeals.map(d => {
   const { rows, flags } = buildDealParticipants(d, reg, buyerOverrides)
   participants.push(...rows)
   flags.forEach(f => flagSet.add(f))
@@ -171,20 +182,33 @@ write('deals.json', deals)
 write('participants.json', participants)
 write('stakes.json', stakes)
 
-const allFlags = [...flagSet]
+// ── Flag lifecycle: partition into new vs acknowledged ───────────────────────
+// Sorted so the report (and the partition) is deterministic run-to-run.
+const allFlags = [...flagSet].sort((a, b) => a.localeCompare(b))
+const acknowledged = new Set(overrides.acknowledgedFlags ?? [])
+const newFlags = allFlags.filter(f => !acknowledged.has(f))
+const ackedFlags = allFlags.filter(f => acknowledged.has(f))
+
 const report = [
   '# Migration report', '',
-  `Generated from src/data/deals.json (${legacy.length} deals).`, '',
+  `Generated from src/data/deals.json + src/data/new-deals.json (${inputDeals.length} deals).`, '',
   `| Collection | Count |`, `|---|---|`,
   `| firms | ${reg.firms.size} |`, `| funds | ${reg.funds.size} |`,
   `| assets | ${reg.assets.size} |`, `| deals | ${deals.length} |`, `| participants | ${participants.length} |`,
   `| stakes | ${stakes.length} |`, '',
-  `## Flags for review (${allFlags.length})`, '',
-  ...allFlags.map(f => `- [ ] ${f}`), '',
+  `## New flags (${newFlags.length})`, '',
+  ...(newFlags.length > 0 ? [...newFlags.map(f => `- [ ] ${f}`), ''] : ['None — all flags acknowledged.', '']),
+  `## Acknowledged flags (${ackedFlags.length})`, '',
+  '<details><summary>Previously triaged — acknowledged in scripts/migrate/overrides.json</summary>', '',
+  ...ackedFlags.map(f => `- ${f}`), '',
+  '</details>', '',
 ].join('\n')
 
 mkdirSync(join(ROOT, 'docs'), { recursive: true })
 writeFileSync(join(ROOT, 'docs/migration-report.md'), report)
 
 console.log(`Wrote src/data/db/ — firms:${reg.firms.size} funds:${reg.funds.size} assets:${reg.assets.size} participants:${participants.length} stakes:${stakes.length}`)
-console.log(`${allFlags.length} flags → docs/migration-report.md`)
+console.log(`${newFlags.length} new flags, ${ackedFlags.length} acknowledged → docs/migration-report.md`)
+if (newFlags.length > 0) {
+  for (const f of newFlags) console.log(`  NEW: ${f}`)
+}

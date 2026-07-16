@@ -32,7 +32,7 @@
  *   CALPERS_TIMEOUT    CalPERS fetch timeout ms (default: 15000)
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'fs'
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs'
 import { fileURLToPath, pathToFileURL } from 'url'
 import { dirname, join } from 'path'
 
@@ -40,6 +40,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const DEALS_PATH     = join(__dirname, '../src/data/deals.json')
 const OUTPUT_PATH    = join(__dirname, '../src/data/fund-data.json')
 const OVERRIDES_PATH = join(__dirname, 'fund-overrides.json')
+const LP_DATA_DIR    = join(__dirname, 'lp-data')
 
 // ── CLI flags ─────────────────────────────────────────────────────────────────
 
@@ -69,13 +70,23 @@ const LP_PORTAL_REFS = [
     autoScraped: true,
   },
   {
+    name: 'CalSTRS Private Equity Portfolio Performance',
+    type: 'pdf',
+    url: 'https://www.calstrs.com/private-equity-portfolio-performance',
+    cadence: 'Semi-annual',
+    notes: 'PDF report (fund name, VY, committed, contributed, distributed, market value, since-inception IRR). Extracted once per release into scripts/lp-data/calstrs.csv (rows for tracked firms only) and ingested at generation time.',
+    autoScraped: false,
+    ingestFile: 'scripts/lp-data/calstrs.csv',
+  },
+  {
     name: 'WSIB Quarterly Investment Report',
     type: 'pdf',
     url: 'https://www.sib.wa.gov/information/publications/quarterly-reports',
     urlTemplate: 'https://www.sib.wa.gov/docs/reports/quarterly/ir{MMDDYY}.pdf',
     cadence: 'Quarterly',
-    notes: 'PDF, ~200 pages. Private markets section lists fund names, committed $ and market value. Look for "Private Equity" and "Infrastructure" appendix tables.',
+    notes: 'PDF, ~200 pages. Private markets section lists fund names, committed $ and market value. Look for "Private Equity" and "Infrastructure" appendix tables. Transcribe tracked-firm rows into scripts/lp-data/wsib.csv (currently header-only template).',
     autoScraped: false,
+    ingestFile: 'scripts/lp-data/wsib.csv',
   },
   {
     name: 'Oregon Treasury Alternative Investments',
@@ -142,6 +153,25 @@ function searchName(firm) {
     .split(' ')
     .slice(0, 3)
     .join(' ')
+}
+
+// Sub-names that are too short or generic to safely match against fund names
+// (e.g. "Private)" from extractFirmNames splitting "Mediacom (Founder-Owned / Private)").
+const GENERIC_TOKENS = new Set(['private)', 'private', 'inc.', 'llc', 'lp', 'co-lead)'])
+
+// Candidate match names for a firm: firmRaw + split sub-names, minus short/generic tokens.
+function firmMatchNames(firm) {
+  return [firm.firmRaw, ...(firm.firmNames ?? [])].filter(
+    n => n && n.trim().length >= 5 && !GENERIC_TOKENS.has(n.trim().toLowerCase())
+  )
+}
+
+// CalPERS-style fund-name match: does the firm's first search-name word appear
+// in the fund name? (case-insensitive, firmFirstWord guard via firmMatchNames)
+function nameMatchesFund(fundName, candidateName) {
+  const firstWord = searchName(candidateName).split(' ')[0]?.toLowerCase()
+  if (!firstWord || firstWord.length < 3) return false
+  return fundName.toLowerCase().includes(firstWord)
 }
 
 // ── Rate-limited fetch wrappers ───────────────────────────────────────────────
@@ -656,6 +686,142 @@ function loadFundOverrides() {
   }
 }
 
+// ── LP-disclosure CSV ingest (scripts/lp-data/*.csv) ─────────────────────────
+// Generic ingest for LP portal disclosures that arrive as CSV (hand-extracted
+// from CalSTRS/WSIB PDFs, or auto-converted). Any *.csv in scripts/lp-data/
+// with the schema header below is parsed and matched to firms at output
+// assembly, landing as firm.lpDisclosures. Like fund-overrides, this is a
+// merged input file — fund-data.json is regenerated wholesale.
+
+const LP_CSV_COLUMNS = [
+  'source', 'fundName', 'vintage', 'committedM', 'calledM',
+  'distributedM', 'navM', 'irr', 'asOf', 'sourceUrl',
+]
+const LP_NUMERIC_COLUMNS = new Set(['vintage', 'committedM', 'calledM', 'distributedM', 'navM', 'irr'])
+
+// Minimal CSV parser: handles quoted fields with embedded commas and doubled
+// ("") quotes. Returns array of string-cell arrays, one per non-blank line.
+function parseCsvLines(text) {
+  const lines = []
+  let cells = [], cell = '', inQuotes = false, sawAny = false
+
+  const endLine = () => {
+    if (sawAny || cells.length) {
+      cells.push(cell)
+      lines.push(cells)
+    }
+    cells = []; cell = ''; sawAny = false
+  }
+
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i]
+    if (inQuotes) {
+      if (ch === '"') {
+        if (text[i + 1] === '"') { cell += '"'; i++ }
+        else inQuotes = false
+      } else cell += ch
+    } else if (ch === '"') {
+      inQuotes = true; sawAny = true
+    } else if (ch === ',') {
+      cells.push(cell); cell = ''; sawAny = true
+    } else if (ch === '\n') {
+      endLine()
+    } else if (ch === '\r') {
+      // swallow (CRLF handled by the following \n; bare \r treated as newline)
+      if (text[i + 1] !== '\n') endLine()
+    } else {
+      cell += ch; sawAny = true
+    }
+  }
+  endLine()
+  return lines
+}
+
+/**
+ * Pure CSV → row objects for the LP-disclosure schema.
+ * Numeric columns parsed to numbers ("1,000" → 1000); blank cells → null.
+ * Throws if the header row does not match the LP-disclosure schema.
+ */
+export function ingestLpCsv(csvText) {
+  const lines = parseCsvLines(csvText ?? '')
+  if (!lines.length) throw new Error(`lp-data CSV: missing header row (expected: ${LP_CSV_COLUMNS.join(',')})`)
+
+  const header = lines[0].map(c => c.trim())
+  if (header.length !== LP_CSV_COLUMNS.length || header.some((c, i) => c !== LP_CSV_COLUMNS[i])) {
+    throw new Error(
+      `lp-data CSV: unexpected header "${header.join(',')}" — expected "${LP_CSV_COLUMNS.join(',')}"`
+    )
+  }
+
+  return lines.slice(1).map(cells => {
+    const row = {}
+    LP_CSV_COLUMNS.forEach((col, i) => {
+      const raw = (cells[i] ?? '').trim()
+      if (raw === '') { row[col] = null; return }
+      if (LP_NUMERIC_COLUMNS.has(col)) {
+        const n = parseFloat(raw.replace(/[$,%]/g, ''))
+        row[col] = isNaN(n) ? null : n
+      } else {
+        row[col] = raw
+      }
+    })
+    return row
+  })
+}
+
+/**
+ * Pure match: assigns LP-disclosure rows to firms using the CalPERS-style
+ * fund-name match (firm first-word, generic-token guard). Returns a NEW firms
+ * array; matched firms carry firm.lpDisclosures (row copies, source preserved).
+ * Unmatched rows produce a single console.warn with count + fund names.
+ */
+export function matchLpRows(rows, firms) {
+  const byFirm = new Map()   // firmRaw → rows
+  const unmatched = []
+
+  for (const row of rows) {
+    const firm = firms.find(f =>
+      firmMatchNames(f).some(name => nameMatchesFund(row.fundName ?? '', name))
+    )
+    if (firm) {
+      if (!byFirm.has(firm.firmRaw)) byFirm.set(firm.firmRaw, [])
+      byFirm.get(firm.firmRaw).push({ ...row })
+    } else {
+      unmatched.push(row)
+    }
+  }
+
+  if (unmatched.length) {
+    console.warn(
+      `⚠ lp-data: ${unmatched.length} row(s) did not match any tracked firm: ${unmatched.map(r => r.fundName).join(', ')}`
+    )
+  }
+
+  return firms.map(firm => {
+    const matched = byFirm.get(firm.firmRaw)
+    if (!matched) return firm
+    return { ...firm, lpDisclosures: [...(firm.lpDisclosures ?? []), ...matched] }
+  })
+}
+
+// Load every scripts/lp-data/*.csv → { files: [names], rows: [all rows] }.
+// A malformed file warns and is skipped (never breaks the pipeline).
+function loadLpData(dir = LP_DATA_DIR) {
+  if (!existsSync(dir)) return { files: [], rows: [] }
+  const files = readdirSync(dir).filter(f => f.toLowerCase().endsWith('.csv')).sort()
+  const rows = []
+  const loaded = []
+  for (const file of files) {
+    try {
+      rows.push(...ingestLpCsv(readFileSync(join(dir, file), 'utf8')))
+      loaded.push(file)
+    } catch (e) {
+      console.warn(`⚠ lp-data: skipped ${file}: ${e.message}`)
+    }
+  }
+  return { files: loaded, rows }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -786,7 +952,6 @@ async function main() {
         'Fidelity Investments (Colt Owner)',
         'E8 Partners',
       ])
-      const GENERIC_TOKENS = new Set(['private)', 'private', 'inc.', 'llc', 'lp', 'co-lead)'])
       const allNames = [
         ...new Set(
           firms
@@ -940,6 +1105,19 @@ async function main() {
     note:        'Manual capital-structure (capitalType/capitalNote) and web-verified announcedFunds merged at generation time',
   }
   console.log(`  ✓ Merged fund-overrides.json (${overrideEntries} firm entr${overrideEntries === 1 ? 'y' : 'ies'})`)
+
+  // ── Merge LP-disclosure CSVs (scripts/lp-data/*.csv) ────────────────────────
+  const lpData     = loadLpData()
+  output.firms     = matchLpRows(lpData.rows, output.firms)
+  const lpMatched  = output.firms.reduce((n, f) => n + (f.lpDisclosures?.length ?? 0), 0)
+  output._meta.lpData = {
+    dir:          'scripts/lp-data',
+    files:        lpData.files,
+    rowCount:     lpData.rows.length,
+    matchedRows:  lpMatched,
+    note:         'LP-portal disclosures (CalSTRS/WSIB/…) ingested from CSV at generation time; matched rows land as firms[n].lpDisclosures',
+  }
+  console.log(`  ✓ Merged lp-data CSVs (${lpData.files.length} file(s), ${lpData.rows.length} row(s), ${lpMatched} matched)`)
 
   // ── Write output ─────────────────────────────────────────────────────────────
   if (DRY_RUN) {

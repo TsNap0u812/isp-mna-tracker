@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated": "2026-07-16T15:38:32.081Z",
+    "generated": "2026-07-16T16:16:56.072Z",
     "generatedBy": "scripts/fund-data-query.mjs",
     "dealsFile": "src/data/deals.json",
     "dealCount": 50,
@@ -18,6 +18,16 @@
       "appliedAt": "2026-07-16",
       "firmEntries": 9,
       "note": "Manual capital-structure (capitalType/capitalNote) and web-verified announcedFunds merged at generation time"
+    },
+    "lpData": {
+      "dir": "scripts/lp-data",
+      "files": [
+        "calstrs.csv",
+        "wsib.csv"
+      ],
+      "rowCount": 38,
+      "matchedRows": 38,
+      "note": "LP-portal disclosures (CalSTRS/WSIB/…) ingested from CSV at generation time; matched rows land as firms[n].lpDisclosures"
     }
   },
   "lpPortalRefs": [
@@ -30,13 +40,23 @@
       "autoScraped": true
     },
     {
+      "name": "CalSTRS Private Equity Portfolio Performance",
+      "type": "pdf",
+      "url": "https://www.calstrs.com/private-equity-portfolio-performance",
+      "cadence": "Semi-annual",
+      "notes": "PDF report (fund name, VY, committed, contributed, distributed, market value, since-inception IRR). Extracted once per release into scripts/lp-data/calstrs.csv (rows for tracked firms only) and ingested at generation time.",
+      "autoScraped": false,
+      "ingestFile": "scripts/lp-data/calstrs.csv"
+    },
+    {
       "name": "WSIB Quarterly Investment Report",
       "type": "pdf",
       "url": "https://www.sib.wa.gov/information/publications/quarterly-reports",
       "urlTemplate": "https://www.sib.wa.gov/docs/reports/quarterly/ir{MMDDYY}.pdf",
       "cadence": "Quarterly",
-      "notes": "PDF, ~200 pages. Private markets section lists fund names, committed $ and market value. Look for \"Private Equity\" and \"Infrastructure\" appendix tables.",
-      "autoScraped": false
+      "notes": "PDF, ~200 pages. Private markets section lists fund names, committed $ and market value. Look for \"Private Equity\" and \"Infrastructure\" appendix tables. Transcribe tracked-firm rows into scripts/lp-data/wsib.csv (currently header-only template).",
+      "autoScraped": false,
+      "ingestFile": "scripts/lp-data/wsib.csv"
     },
     {
       "name": "Oregon Treasury Alternative Investments",
@@ -80,7 +100,7 @@
     }
   ],
   "calPERS": {
-    "lastFetched": "2026-07-16T15:38:32.080Z",
+    "lastFetched": "2026-07-16T16:16:56.070Z",
     "error": null,
     "fundCount": 43,
     "funds": [
@@ -1471,7 +1491,21 @@
           "20 Form D filing(s) found on EDGAR"
         ]
       },
-      "capitalType": "fund"
+      "capitalType": "fund",
+      "lpDisclosures": [
+        {
+          "source": "CalSTRS",
+          "fundName": "Madison Dearborn Capital VII-A/B",
+          "vintage": 2015,
+          "committedM": 200,
+          "calledM": 203.9,
+          "distributedM": 211.5,
+          "navM": 168.6,
+          "irr": 13.27,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        }
+      ]
     },
     {
       "firmKey": "oak-hill-capital",
@@ -1521,19 +1555,6 @@
           {
             "entityName": "Lone Star Parent, Inc.  (CIK 0001897823)",
             "cik": 1897823,
-            "adsh": "0001897823-22-000001",
-            "filingDate": "2022-04-11",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1897823/000189782322000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1897823&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": 22616000,
-            "totalAmountSold": 22616000,
-            "numberOfInvestors": 93
-          },
-          {
-            "entityName": "Lone Star Parent, Inc.  (CIK 0001897823)",
-            "cik": 1897823,
             "adsh": "0001897823-21-000001",
             "filingDate": "2021-12-15",
             "formType": "D",
@@ -1543,6 +1564,19 @@
             "totalOfferingAmount": 21811000,
             "totalAmountSold": 21811000,
             "numberOfInvestors": 84
+          },
+          {
+            "entityName": "Lone Star Parent, Inc.  (CIK 0001897823)",
+            "cik": 1897823,
+            "adsh": "0001897823-22-000001",
+            "filingDate": "2022-04-11",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1897823/000189782322000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1897823&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": 22616000,
+            "totalAmountSold": 22616000,
+            "numberOfInvestors": 93
           },
           {
             "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
@@ -1573,19 +1607,6 @@
           {
             "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
             "cik": 1279805,
-            "adsh": "0000950142-12-000642",
-            "filingDate": "2012-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 337440260,
-            "numberOfInvestors": 108
-          },
-          {
-            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
-            "cik": 1279805,
             "adsh": "0000950142-13-000700",
             "filingDate": "2013-03-27",
             "formType": "D/A",
@@ -1595,6 +1616,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 367877760,
             "numberOfInvestors": 111
+          },
+          {
+            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
+            "cik": 1279805,
+            "adsh": "0000950142-12-000642",
+            "filingDate": "2012-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 337440260,
+            "numberOfInvestors": 108
           },
           {
             "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
@@ -1727,19 +1761,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
-            "cik": 1341921,
-            "adsh": "0000950142-10-000449",
-            "filingDate": "2010-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Tri-Land Grocery Plus LLC  (CIK 0001989684)",
             "cik": 1989684,
             "adsh": "0001989684-24-000001",
@@ -1761,6 +1782,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1333545/000095014210000435/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1333545&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
+            "cik": 1341921,
+            "adsh": "0000950142-10-000449",
+            "filingDate": "2010-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -2046,19 +2080,6 @@
           {
             "entityName": "Lone Star Parent, Inc.  (CIK 0001897823)",
             "cik": 1897823,
-            "adsh": "0001897823-22-000001",
-            "filingDate": "2022-04-11",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1897823/000189782322000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1897823&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": 22616000,
-            "totalAmountSold": 22616000,
-            "numberOfInvestors": 93
-          },
-          {
-            "entityName": "Lone Star Parent, Inc.  (CIK 0001897823)",
-            "cik": 1897823,
             "adsh": "0001897823-21-000001",
             "filingDate": "2021-12-15",
             "formType": "D",
@@ -2068,6 +2089,19 @@
             "totalOfferingAmount": 21811000,
             "totalAmountSold": 21811000,
             "numberOfInvestors": 84
+          },
+          {
+            "entityName": "Lone Star Parent, Inc.  (CIK 0001897823)",
+            "cik": 1897823,
+            "adsh": "0001897823-22-000001",
+            "filingDate": "2022-04-11",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1897823/000189782322000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1897823&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": 22616000,
+            "totalAmountSold": 22616000,
+            "numberOfInvestors": 93
           },
           {
             "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
@@ -2098,19 +2132,6 @@
           {
             "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
             "cik": 1279805,
-            "adsh": "0000950142-12-000642",
-            "filingDate": "2012-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": 337440260,
-            "numberOfInvestors": 108
-          },
-          {
-            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
-            "cik": 1279805,
             "adsh": "0000950142-13-000700",
             "filingDate": "2013-03-27",
             "formType": "D/A",
@@ -2120,6 +2141,19 @@
             "totalOfferingAmount": null,
             "totalAmountSold": 367877760,
             "numberOfInvestors": 111
+          },
+          {
+            "entityName": "OAK HILL CREDIT ALPHA FUND L P  (CIK 0001279805)",
+            "cik": 1279805,
+            "adsh": "0000950142-12-000642",
+            "filingDate": "2012-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1279805/000095014212000642/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1279805&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": 337440260,
+            "numberOfInvestors": 108
           },
           {
             "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
@@ -2252,19 +2286,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
-            "cik": 1341921,
-            "adsh": "0000950142-10-000449",
-            "filingDate": "2010-03-16",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Tri-Land Grocery Plus LLC  (CIK 0001989684)",
             "cik": 1989684,
             "adsh": "0001989684-24-000001",
@@ -2286,6 +2307,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1333545/000095014210000435/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1333545&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "Oak Hill Credit Opportunities Fund LP  (CIK 0001341921)",
+            "cik": 1341921,
+            "adsh": "0000950142-10-000449",
+            "filingDate": "2010-03-16",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1341921/000095014210000449/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1341921&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -3883,6 +3917,19 @@
             "numberOfInvestors": null
           },
           {
+            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
+            "cik": 2078963,
+            "adsh": "0002078963-25-000002",
+            "filingDate": "2025-07-28",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
             "entityName": "KKR Revolving Credit Partners Europe II SCSp  (CIK 0001887735)",
             "cik": 1887735,
             "adsh": "0000950142-23-002539",
@@ -3930,19 +3977,6 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1964029/000095014223001535/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1964029&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
-            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
-            "cik": 2078963,
-            "adsh": "0002078963-25-000002",
-            "filingDate": "2025-07-28",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -4223,7 +4257,93 @@
           "8 fund(s) matched in CalPERS"
         ]
       },
-      "capitalType": "fund"
+      "capitalType": "fund",
+      "lpDisclosures": [
+        {
+          "source": "CalSTRS",
+          "fundName": "KKR 2006 Fund L.P.",
+          "vintage": 2007,
+          "committedM": 300,
+          "calledM": 311.8,
+          "distributedM": 554.1,
+          "navM": null,
+          "irr": 8.35,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "KKR Americas Fund XII L.P.",
+          "vintage": 2017,
+          "committedM": 300,
+          "calledM": 305.2,
+          "distributedM": 277.8,
+          "navM": 381.9,
+          "irr": 19.4,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "KKR Asian Fund III",
+          "vintage": 2018,
+          "committedM": 180,
+          "calledM": 176.2,
+          "distributedM": 150.1,
+          "navM": 200.1,
+          "irr": 19.11,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "KKR Asian Fund IV SCSp",
+          "vintage": 2021,
+          "committedM": 300,
+          "calledM": 198.6,
+          "distributedM": 38.9,
+          "navM": 266,
+          "irr": 19.22,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "KKR North America Fund XI",
+          "vintage": 2013,
+          "committedM": 150,
+          "calledM": 160.4,
+          "distributedM": 330.5,
+          "navM": 54.6,
+          "irr": 18.87,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "KKR North America XIII SCSp",
+          "vintage": 2022,
+          "committedM": 275,
+          "calledM": 241.3,
+          "distributedM": 5.2,
+          "navM": 284.4,
+          "irr": 10.82,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "KKR North America XIV SCSp",
+          "vintage": 2025,
+          "committedM": 400,
+          "calledM": null,
+          "distributedM": null,
+          "navM": null,
+          "irr": 0,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        }
+      ]
     },
     {
       "firmKey": "digitalbridge-group-crestview-partners",
@@ -4429,19 +4549,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "DigitalBridge Strategic Assets Fund, LP  (CIK 0001930492)",
-            "cik": 1930492,
-            "adsh": "0001930492-22-000001",
-            "filingDate": "2022-06-17",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1930492/000193049222000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1930492&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "DigitalBridge Concentrated Alpha Fund, LP  (CIK 0001826755)",
             "cik": 1826755,
             "adsh": "0001826755-23-000001",
@@ -4463,6 +4570,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1826755/000182675524000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1826755&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "DigitalBridge Strategic Assets Fund, LP  (CIK 0001930492)",
+            "cik": 1930492,
+            "adsh": "0001930492-22-000001",
+            "filingDate": "2022-06-17",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1930492/000193049222000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1930492&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -4902,14 +5022,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "HPC Domestic Holdings, L.P.  (CIK 0002123646)",
-            "cik": 2123646,
-            "adsh": "0002123646-26-000001",
-            "filingDate": "2026-04-10",
+            "entityName": "Macquarie Green Energy & Climate Opportunities Fund SCSp  (CIK 0002032872)",
+            "cik": 2032872,
+            "adsh": "0002032872-24-000001",
+            "filingDate": "2024-08-06",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2123646/000212364626000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2123646&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2032872/000203287224000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2032872&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -5618,7 +5738,69 @@
           "8 fund(s) matched in CalPERS"
         ]
       },
-      "capitalType": "fund"
+      "capitalType": "fund",
+      "lpDisclosures": [
+        {
+          "source": "CalSTRS",
+          "fundName": "Apollo Hybrid Value Fund II LP",
+          "vintage": 2021,
+          "committedM": 250,
+          "calledM": 240,
+          "distributedM": 49.1,
+          "navM": 244.2,
+          "irr": 11.25,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apollo Investment Fund IX, L.P.",
+          "vintage": 2019,
+          "committedM": 300,
+          "calledM": 300.6,
+          "distributedM": 172.1,
+          "navM": 281.8,
+          "irr": 15.41,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apollo Investment Fund VI, L.P.",
+          "vintage": 2006,
+          "committedM": 250,
+          "calledM": 239.5,
+          "distributedM": 399.3,
+          "navM": 4.3,
+          "irr": 8.57,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apollo Investment Fund VII, L.P.",
+          "vintage": 2008,
+          "committedM": 350,
+          "calledM": 302.1,
+          "distributedM": 622,
+          "navM": null,
+          "irr": 22.53,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apollo Investment Fund X L.P.",
+          "vintage": 2023,
+          "committedM": 300,
+          "calledM": 136.1,
+          "distributedM": 27.4,
+          "navM": 134.5,
+          "irr": 19.14,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        }
+      ]
     },
     {
       "firmKey": "tpg-capital",
@@ -5890,19 +6072,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "TPG PUBLIC EQUITY PARTNERS-B, LTD.  (CIK 0001615928)",
-            "cik": 1615928,
-            "adsh": "0001615928-17-000001",
-            "filingDate": "2017-12-15",
-            "formType": "D/A",
-            "isAmendment": true,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615928/000161592817000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1615928&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "TPG PUBLIC EQUITY PARTNERS-A, L.P.  (CIK 0001615924)",
             "cik": 1615924,
             "adsh": "0001615924-16-000003",
@@ -5911,6 +6080,19 @@
             "isAmendment": true,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615924/000161592416000003/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1615924&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "TPG PUBLIC EQUITY PARTNERS-B, LTD.  (CIK 0001615928)",
+            "cik": 1615928,
+            "adsh": "0001615928-17-000001",
+            "filingDate": "2017-12-15",
+            "formType": "D/A",
+            "isAmendment": true,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1615928/000161592817000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1615928&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6292,7 +6474,153 @@
           "17 fund(s) matched in CalPERS"
         ]
       },
-      "capitalType": "fund"
+      "capitalType": "fund",
+      "lpDisclosures": [
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Asia V, L.P.",
+          "vintage": 2007,
+          "committedM": 180,
+          "calledM": 153,
+          "distributedM": 222.1,
+          "navM": 6.8,
+          "irr": 6.27,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Asia VII (A), L.P.",
+          "vintage": 2019,
+          "committedM": 150,
+          "calledM": 163.7,
+          "distributedM": 105,
+          "navM": 134,
+          "irr": 11.22,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Asia VIII (A)",
+          "vintage": 2024,
+          "committedM": 100,
+          "calledM": 42.6,
+          "distributedM": null,
+          "navM": 49.6,
+          "irr": 17.51,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Growth II, LP",
+          "vintage": 2011,
+          "committedM": 125,
+          "calledM": 126.5,
+          "distributedM": 241.4,
+          "navM": 53.5,
+          "irr": 15.73,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Growth III (A), L.P.",
+          "vintage": 2016,
+          "committedM": 200,
+          "calledM": 220.5,
+          "distributedM": 264.2,
+          "navM": 102.1,
+          "irr": 15.21,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Growth IV, L.P.",
+          "vintage": 2018,
+          "committedM": 200,
+          "calledM": 225.8,
+          "distributedM": 222.5,
+          "navM": 157.1,
+          "irr": 14.34,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Growth V L.P.",
+          "vintage": 2021,
+          "committedM": 100,
+          "calledM": 102.5,
+          "distributedM": 21.3,
+          "navM": 124.1,
+          "irr": 14.5,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Partners IV, L.P.",
+          "vintage": 2003,
+          "committedM": 350,
+          "calledM": 324.1,
+          "distributedM": 678.7,
+          "navM": 0.8,
+          "irr": 15.15,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Partners IX, L.P.",
+          "vintage": 2023,
+          "committedM": 200,
+          "calledM": 122.9,
+          "distributedM": 1.6,
+          "navM": 146.3,
+          "irr": 22.67,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Partners V, L.P.",
+          "vintage": 2006,
+          "committedM": 1000,
+          "calledM": 869,
+          "distributedM": 1247.6,
+          "navM": null,
+          "irr": 4.8,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Partners VI, L.P.",
+          "vintage": 2008,
+          "committedM": 450,
+          "calledM": 430.4,
+          "distributedM": 665.9,
+          "navM": 3.9,
+          "irr": 9.38,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "TPG Partners VIII, L.P.",
+          "vintage": 2019,
+          "committedM": 200,
+          "calledM": 205.1,
+          "distributedM": 84.1,
+          "navM": 236,
+          "irr": 17.23,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        }
+      ]
     },
     {
       "firmKey": "elliott-investment-management-creditor-consortium",
@@ -6580,19 +6908,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "A11 EUR (Feeder) L.P.  (CIK 0001934587)",
-            "cik": 1934587,
-            "adsh": "0001934587-22-000001",
-            "filingDate": "2022-06-28",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1934587/000193458722000001/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1934587&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Apax Vantage Software I L.P.  (CIK 0002054113)",
             "cik": 2054113,
             "adsh": "0002054113-25-000001",
@@ -6601,6 +6916,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2054113/000205411325000001/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2054113&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "A11 EUR (Feeder) L.P.  (CIK 0001934587)",
+            "cik": 1934587,
+            "adsh": "0001934587-22-000001",
+            "filingDate": "2022-06-28",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1934587/000193458722000001/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1934587&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -6814,7 +7142,69 @@
           "20 Form D filing(s) found on EDGAR"
         ]
       },
-      "capitalType": "fund"
+      "capitalType": "fund",
+      "lpDisclosures": [
+        {
+          "source": "CalSTRS",
+          "fundName": "Apax Europe VI - A, L.P.",
+          "vintage": 2005,
+          "committedM": 293.5,
+          "calledM": 309.9,
+          "distributedM": 617.8,
+          "navM": 11,
+          "irr": 12.68,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apax Europe VII",
+          "vintage": 2007,
+          "committedM": 446.1,
+          "calledM": 518.5,
+          "distributedM": 656.9,
+          "navM": 2,
+          "irr": 4.35,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apax IX USD L.P.",
+          "vintage": 2017,
+          "committedM": 300,
+          "calledM": 325.2,
+          "distributedM": 435.5,
+          "navM": 185.3,
+          "irr": 17.83,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apax X USD L.P.",
+          "vintage": 2020,
+          "committedM": 250,
+          "calledM": 249.5,
+          "distributedM": 43.2,
+          "navM": 282.7,
+          "irr": 9.88,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Apax XI USD L.P.",
+          "vintage": 2024,
+          "committedM": 150,
+          "calledM": 34.2,
+          "distributedM": null,
+          "navM": 39.7,
+          "irr": 23.83,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        }
+      ]
     },
     {
       "firmKey": "crestview-partners",
@@ -6945,19 +7335,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "Crestview Holdings IV (FF Offshore), L.P.  (CIK 0001741477)",
-            "cik": 1741477,
-            "adsh": "0001741483-18-000008",
-            "filingDate": "2018-05-31",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1741477/000174148318000008/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1741477&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "Crestview Offshore Holdings II (892 Cayman), L.P.  (CIK 0001480255)",
             "cik": 1480255,
             "adsh": "0000950103-10-000047",
@@ -6966,6 +7343,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1480255/000095010310000047/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1480255&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": 150000000,
+            "totalAmountSold": 150000000,
+            "numberOfInvestors": 1
+          },
+          {
+            "entityName": "Crestview Holdings IV (FF Offshore), L.P.  (CIK 0001741477)",
+            "cik": 1741477,
+            "adsh": "0001741483-18-000008",
+            "filingDate": "2018-05-31",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1741477/000174148318000008/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1741477&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7789,19 +8179,6 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
-            "cik": 2078963,
-            "adsh": "0002078963-25-000002",
-            "filingDate": "2025-07-28",
-            "formType": "D",
-            "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
-            "totalOfferingAmount": null,
-            "totalAmountSold": null,
-            "numberOfInvestors": null
-          },
-          {
             "entityName": "KKR Revolving Credit Partners Europe II SCSp  (CIK 0001887735)",
             "cik": 1887735,
             "adsh": "0000950142-23-002539",
@@ -7849,6 +8226,19 @@
             "isAmendment": false,
             "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1964029/000095014223001535/primary_doc.xml",
             "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1964029&type=D&dateb=&owner=include&count=10",
+            "totalOfferingAmount": null,
+            "totalAmountSold": null,
+            "numberOfInvestors": null
+          },
+          {
+            "entityName": "KKR Sustainable Asset Credit Fund L.P.  (CIK 0002078963)",
+            "cik": 2078963,
+            "adsh": "0002078963-25-000002",
+            "filingDate": "2025-07-28",
+            "formType": "D",
+            "isAmendment": false,
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2078963/000207896325000002/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2078963&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -7932,14 +8322,14 @@
             "numberOfInvestors": null
           },
           {
-            "entityName": "KKR US CLO Equity Partners III (Onshore) Feeder L.P.  (CIK 0001915352)",
-            "cik": 1915352,
-            "adsh": "0000950142-22-000922",
-            "filingDate": "2022-03-07",
+            "entityName": "KKR Asia Tactical Credit (Overseas) Feeder LP  (CIK 0002003985)",
+            "cik": 2003985,
+            "adsh": "0000950142-25-000237",
+            "filingDate": "2025-01-31",
             "formType": "D",
             "isAmendment": false,
-            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/1915352/000095014222000922/primary_doc.xml",
-            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1915352&type=D&dateb=&owner=include&count=10",
+            "xmlUrl": "https://www.sec.gov/Archives/edgar/data/2003985/000095014225000237/primary_doc.xml",
+            "filingUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2003985&type=D&dateb=&owner=include&count=10",
             "totalOfferingAmount": null,
             "totalAmountSold": null,
             "numberOfInvestors": null
@@ -8036,7 +8426,81 @@
           "20 Form D filing(s) found on EDGAR"
         ]
       },
-      "capitalType": "fund"
+      "capitalType": "fund",
+      "lpDisclosures": [
+        {
+          "source": "CalSTRS",
+          "fundName": "Ares Corporate Opportunities Fund IV, L.P.",
+          "vintage": 2012,
+          "committedM": 150,
+          "calledM": 138.5,
+          "distributedM": 253.2,
+          "navM": 21.3,
+          "irr": 13.96,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Ares Corporate Opportunities Fund V, L.P.",
+          "vintage": 2017,
+          "committedM": 300,
+          "calledM": 335.2,
+          "distributedM": 174.8,
+          "navM": 260.7,
+          "irr": 5.97,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Ares Corporate Opportunities VI, L.P.",
+          "vintage": 2020,
+          "committedM": 200,
+          "calledM": 223.9,
+          "distributedM": 77.3,
+          "navM": 240.7,
+          "irr": 15.58,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Ares Special Opportunities Fund II",
+          "vintage": 2022,
+          "committedM": 100,
+          "calledM": 84.4,
+          "distributedM": null,
+          "navM": 106.6,
+          "irr": 13.41,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Ares Special Opportunities Fund, L.P.",
+          "vintage": 2020,
+          "committedM": 50,
+          "calledM": 49.3,
+          "distributedM": 47.9,
+          "navM": 28,
+          "irr": 14.65,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Ares Special Opportunities III",
+          "vintage": 2025,
+          "committedM": 150,
+          "calledM": null,
+          "distributedM": null,
+          "navM": null,
+          "irr": 0,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        }
+      ]
     },
     {
       "firmKey": "blackrock-infrastructure",
@@ -8776,6 +9240,32 @@
           "announcedDate": "2020-11-18",
           "sourceUrl": "https://www.businesswire.com/news/home/20201118005300/en/Searchlight-Capital-Partners-Closes-Third-Fund-at-$3.4-Billion",
           "note": "Final close at $3.4B, exceeding $2.75B target. Searchlight press release via Business Wire."
+        }
+      ],
+      "lpDisclosures": [
+        {
+          "source": "CalSTRS",
+          "fundName": "Searchlight Capital III LP",
+          "vintage": 2020,
+          "committedM": 150,
+          "calledM": 152.3,
+          "distributedM": 69.7,
+          "navM": 197,
+          "irr": 22.9,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
+        },
+        {
+          "source": "CalSTRS",
+          "fundName": "Searchlight Capital IV LP",
+          "vintage": 2024,
+          "committedM": 150,
+          "calledM": 45.1,
+          "distributedM": 0.2,
+          "navM": 54.2,
+          "irr": 34.21,
+          "asOf": "2025-06-30",
+          "sourceUrl": "https://www.calstrs.com/files/6765c6592/CalSTRSPrivateEquityPerformanceReportFYE2025.pdf"
         }
       ]
     },

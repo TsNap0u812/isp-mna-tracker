@@ -280,7 +280,7 @@
     "dealId": "deal-038"
   },
   {
-    "pct": 0.5,
+    "pct": 1,
     "fundId": null,
     "partyType": "asset",
     "partyId": "asset-t-mobile-us",
@@ -288,11 +288,11 @@
     "dealId": "deal-039"
   },
   {
-    "pct": 0.5,
+    "pct": null,
     "fundId": null,
     "partyType": "firm",
     "partyId": "firm-eqt-infrastructure",
-    "role": "buyer",
+    "role": "backer",
     "dealId": "deal-039"
   },
   {
@@ -840,27 +840,19 @@
     "dealId": "deal-018"
   },
   {
-    "pct": 1,
+    "pct": 0.5,
     "fundId": null,
-    "partyType": "asset",
-    "partyId": "asset-metronet",
+    "partyType": "firm",
+    "partyId": "firm-kkr-and-co-inc",
     "role": "buyer",
     "dealId": "deal-012"
   },
   {
-    "pct": null,
-    "fundId": null,
-    "partyType": "firm",
-    "partyId": "firm-kkr-and-co-inc",
-    "role": "backer",
-    "dealId": "deal-012"
-  },
-  {
-    "pct": null,
+    "pct": 0.5,
     "fundId": null,
     "partyType": "firm",
     "partyId": "firm-ares-management",
-    "role": "backer",
+    "role": "buyer",
     "dealId": "deal-012"
   },
   {
@@ -938,24 +930,16 @@
   {
     "pct": 1,
     "fundId": null,
-    "partyType": "asset",
-    "partyId": "asset-consolidated-communications",
+    "partyType": "firm",
+    "partyId": "firm-searchlight-capital-partners",
     "role": "buyer",
     "dealId": "deal-004"
   },
   {
     "pct": null,
     "fundId": null,
-    "partyType": "firm",
-    "partyId": "firm-searchlight-capital-partners",
-    "role": "backer",
-    "dealId": "deal-004"
-  },
-  {
-    "pct": null,
-    "fundId": null,
     "partyType": "asset",
-    "partyId": "asset-consolidated-communications",
+    "partyId": "asset-consolidated-communications-holdings",
     "role": "target",
     "dealId": "deal-004"
   },
@@ -1154,17 +1138,9 @@
   {
     "pct": 0.5,
     "fundId": null,
-    "partyType": "asset",
-    "partyId": "asset-digital-colony-partners",
-    "role": "buyer",
-    "dealId": "deal-034"
-  },
-  {
-    "pct": null,
-    "fundId": null,
     "partyType": "firm",
     "partyId": "firm-digitalbridge-group",
-    "role": "backer",
+    "role": "buyer",
     "dealId": "deal-034"
   },
   {

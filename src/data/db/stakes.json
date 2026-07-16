@@ -48,8 +48,8 @@
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-zayo-group-holdings",
-    "ownerType": "asset",
-    "ownerId": "asset-digital-colony-partners",
+    "ownerType": "firm",
+    "ownerId": "firm-digitalbridge-group",
     "pct": 50,
     "startDate": "2020-05-08",
     "openedByDealId": "deal-034"
@@ -177,17 +177,28 @@
   },
   {
     "id": "stake-017",
-    "endDate": null,
-    "closedByDealId": null,
+    "endDate": "2025-07-24",
+    "closedByDealId": "deal-041",
     "assetId": "asset-metronet",
-    "ownerType": "asset",
-    "ownerId": "asset-metronet",
-    "pct": 100,
+    "ownerType": "firm",
+    "ownerId": "firm-kkr-and-co-inc",
+    "pct": 50,
     "startDate": "2022-01-13",
     "openedByDealId": "deal-012"
   },
   {
     "id": "stake-018",
+    "endDate": "2025-07-24",
+    "closedByDealId": "deal-041",
+    "assetId": "asset-metronet",
+    "ownerType": "firm",
+    "ownerId": "firm-ares-management",
+    "pct": 50,
+    "startDate": "2022-01-13",
+    "openedByDealId": "deal-012"
+  },
+  {
+    "id": "stake-019",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-tracfone-wireless",
@@ -198,7 +209,7 @@
     "openedByDealId": "deal-006"
   },
   {
-    "id": "stake-019",
+    "id": "stake-020",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-lumen-technologies-emea-business",
@@ -209,7 +220,7 @@
     "openedByDealId": "deal-018"
   },
   {
-    "id": "stake-020",
+    "id": "stake-021",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-several-rural-fiber-isps",
@@ -220,18 +231,18 @@
     "openedByDealId": "deal-029"
   },
   {
-    "id": "stake-021",
+    "id": "stake-022",
     "endDate": null,
     "closedByDealId": null,
-    "assetId": "asset-consolidated-communications",
-    "ownerType": "asset",
-    "ownerId": "asset-consolidated-communications",
+    "assetId": "asset-consolidated-communications-holdings",
+    "ownerType": "firm",
+    "ownerId": "firm-searchlight-capital-partners",
     "pct": 100,
     "startDate": "2022-07-27",
     "openedByDealId": "deal-004"
   },
   {
-    "id": "stake-022",
+    "id": "stake-023",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-lumen-technologies-latin-america",
@@ -242,29 +253,29 @@
     "openedByDealId": "deal-028"
   },
   {
-    "id": "stake-023",
+    "id": "stake-024",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-at-and-t-fiber-expansion-assets",
     "ownerType": "asset",
     "ownerId": "asset-at-and-t-inc",
-    "pct": 25,
-    "startDate": "2022-08-23",
-    "openedByDealId": "deal-013"
-  },
-  {
-    "id": "stake-024",
-    "endDate": null,
-    "closedByDealId": null,
-    "assetId": "asset-at-and-t-fiber-expansion-assets",
-    "ownerType": "firm",
-    "ownerId": "firm-blackrock-infrastructure",
-    "pct": 25,
+    "pct": 50,
     "startDate": "2022-08-23",
     "openedByDealId": "deal-013"
   },
   {
     "id": "stake-025",
+    "endDate": null,
+    "closedByDealId": null,
+    "assetId": "asset-at-and-t-fiber-expansion-assets",
+    "ownerType": "firm",
+    "ownerId": "firm-blackrock-infrastructure",
+    "pct": 50,
+    "startDate": "2022-08-23",
+    "openedByDealId": "deal-013"
+  },
+  {
+    "id": "stake-026",
     "endDate": "2026-02-02",
     "closedByDealId": "deal-037",
     "assetId": "asset-lumen-technologies",
@@ -275,7 +286,7 @@
     "openedByDealId": "deal-003"
   },
   {
-    "id": "stake-026",
+    "id": "stake-027",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-starry-group-holdings",
@@ -286,7 +297,7 @@
     "openedByDealId": "deal-017"
   },
   {
-    "id": "stake-027",
+    "id": "stake-028",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-starry-group-holdings",
@@ -297,7 +308,7 @@
     "openedByDealId": "deal-017"
   },
   {
-    "id": "stake-028",
+    "id": "stake-029",
     "endDate": "2023-05-30",
     "closedByDealId": "deal-027",
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -308,7 +319,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-029",
+    "id": "stake-030",
     "endDate": "2023-05-30",
     "closedByDealId": "deal-027",
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -319,7 +330,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-030",
+    "id": "stake-031",
     "endDate": "2023-05-30",
     "closedByDealId": "deal-027",
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -330,7 +341,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-031",
+    "id": "stake-032",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-inmarsat-holdings-ltd",
@@ -341,7 +352,7 @@
     "openedByDealId": "deal-027"
   },
   {
-    "id": "stake-032",
+    "id": "stake-033",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-prepared-fiber",
@@ -352,7 +363,7 @@
     "openedByDealId": "deal-014"
   },
   {
-    "id": "stake-033",
+    "id": "stake-034",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-ka-ena-corporation",
@@ -363,7 +374,7 @@
     "openedByDealId": "deal-026"
   },
   {
-    "id": "stake-034",
+    "id": "stake-035",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-hotwire-communications",
@@ -374,7 +385,7 @@
     "openedByDealId": "deal-007"
   },
   {
-    "id": "stake-035",
+    "id": "stake-036",
     "endDate": "2023-11-01",
     "closedByDealId": "deal-020",
     "assetId": "asset-vyve-broadband",
@@ -385,7 +396,7 @@
     "openedByDealId": null
   },
   {
-    "id": "stake-036",
+    "id": "stake-037",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-vyve-broadband",
@@ -396,7 +407,7 @@
     "openedByDealId": "deal-020"
   },
   {
-    "id": "stake-037",
+    "id": "stake-038",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-dish-network-corporation",
@@ -407,7 +418,7 @@
     "openedByDealId": "deal-025"
   },
   {
-    "id": "stake-038",
+    "id": "stake-039",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-xumo",
@@ -418,7 +429,7 @@
     "openedByDealId": "deal-015"
   },
   {
-    "id": "stake-039",
+    "id": "stake-040",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-bark-technologies",
@@ -429,24 +440,13 @@
     "openedByDealId": "deal-019"
   },
   {
-    "id": "stake-040",
+    "id": "stake-041",
     "endDate": null,
     "closedByDealId": null,
     "assetId": "asset-lumos-networks",
     "ownerType": "asset",
     "ownerId": "asset-t-mobile-us",
-    "pct": 25,
-    "startDate": "2025-04-01",
-    "openedByDealId": "deal-039"
-  },
-  {
-    "id": "stake-041",
-    "endDate": null,
-    "closedByDealId": null,
-    "assetId": "asset-lumos-networks",
-    "ownerType": "firm",
-    "ownerId": "firm-eqt-infrastructure",
-    "pct": 25,
+    "pct": 50,
     "startDate": "2025-04-01",
     "openedByDealId": "deal-039"
   },
@@ -479,7 +479,7 @@
     "assetId": "asset-metronet",
     "ownerType": "asset",
     "ownerId": "asset-t-mobile-us",
-    "pct": 25,
+    "pct": 50,
     "startDate": "2025-07-24",
     "openedByDealId": "deal-041"
   },
@@ -490,7 +490,7 @@
     "assetId": "asset-metronet",
     "ownerType": "firm",
     "ownerId": "firm-kkr-and-co-inc",
-    "pct": 25,
+    "pct": 50,
     "startDate": "2025-07-24",
     "openedByDealId": "deal-041"
   },

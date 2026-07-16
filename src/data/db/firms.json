@@ -3,10 +3,10 @@
     "id": "firm-apax-partners",
     "name": "Apax Partners",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Private Equity",
     "aum": null,
-    "headquarters": null,
-    "website": null
+    "headquarters": "London, UK",
+    "website": "apax.com"
   },
   {
     "id": "firm-apollo-global-management",
@@ -21,10 +21,10 @@
     "id": "firm-ares-management",
     "name": "Ares Management",
     "aliases": [],
-    "firmType": null,
-    "aum": null,
-    "headquarters": null,
-    "website": null
+    "firmType": "Private Equity / Credit",
+    "aum": "$450B+",
+    "headquarters": "Los Angeles, CA",
+    "website": "aresmgmt.com"
   },
   {
     "id": "firm-blackrock-infrastructure",
@@ -39,7 +39,7 @@
     "id": "firm-catania-capital-partners",
     "name": "Catania Capital Partners",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Private Equity",
     "aum": null,
     "headquarters": null,
     "website": null
@@ -59,7 +59,7 @@
     "id": "firm-cppib-consortium",
     "name": "CPPIB Consortium",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Consortium",
     "aum": null,
     "headquarters": null,
     "website": null
@@ -68,7 +68,7 @@
     "id": "firm-creditor-consortium",
     "name": "Creditor Consortium",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Consortium",
     "aum": null,
     "headquarters": null,
     "website": null
@@ -88,10 +88,10 @@
     "aliases": [
       "DigitalBridge"
     ],
-    "firmType": null,
+    "firmType": "Digital Infrastructure Private Equity",
     "aum": null,
-    "headquarters": null,
-    "website": null
+    "headquarters": "Boca Raton, FL",
+    "website": "digitalbridge.com"
   },
   {
     "id": "firm-e8-partners",
@@ -106,9 +106,9 @@
     "id": "firm-elliott-investment-management",
     "name": "Elliott Investment Management",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Activist / Hedge Fund",
     "aum": null,
-    "headquarters": null,
+    "headquarters": "West Palm Beach, FL",
     "website": null
   },
   {
@@ -175,9 +175,9 @@
     "id": "firm-madison-dearborn-partners",
     "name": "Madison Dearborn Partners",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Private Equity",
     "aum": null,
-    "headquarters": null,
+    "headquarters": "Chicago, IL",
     "website": null
   },
   {
@@ -204,9 +204,9 @@
     "id": "firm-pamlico-capital",
     "name": "Pamlico Capital",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Private Equity",
     "aum": null,
-    "headquarters": null,
+    "headquarters": "Charlotte, NC",
     "website": null
   },
   {
@@ -240,9 +240,9 @@
     "id": "firm-warburg-pincus",
     "name": "Warburg Pincus",
     "aliases": [],
-    "firmType": null,
+    "firmType": "Private Equity",
     "aum": null,
-    "headquarters": null,
+    "headquarters": "New York, NY",
     "website": null
   },
   {

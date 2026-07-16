@@ -54,6 +54,23 @@ describe('upsertFund', () => {
     expect(reg.funds.size).toBe(1)
     expect(reg.flags.some(f => f.includes('Stonepeak Infrastructure Fund IV'))).toBe(true)
   })
+  it('skips N/A-style junk fund names, creating nothing', () => {
+    const reg = createRegistry()
+    const [f] = upsertFirm(reg, 'Cox Enterprises', null)
+    expect(upsertFund(reg, 'N/A', [f])).toBe(null)
+    expect(upsertFund(reg, 'N/A — family-owned conglomerate', [f])).toBe(null)
+    expect(reg.funds.size).toBe(0)
+  })
+  it('skips fund names listed in reg.notFunds', () => {
+    const reg = createRegistry()
+    reg.notFunds = new Set(['secured lender consortium'])
+    const [f] = upsertFirm(reg, 'E8 Partners', null)
+    expect(upsertFund(reg, 'Secured lender consortium', [f])).toBe(null)
+    expect(reg.funds.size).toBe(0)
+    // names not listed still create funds
+    expect(upsertFund(reg, 'E8 Growth Fund', [f])).not.toBe(null)
+    expect(reg.funds.size).toBe(1)
+  })
   it('keys numberless funds by full slug', () => {
     const reg = createRegistry()
     const [f] = upsertFirm(reg, 'Cox Enterprises', null)

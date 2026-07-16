@@ -240,23 +240,6 @@
     ]
   },
   {
-    "id": "fund-n-a",
-    "name": "N/A",
-    "number": null,
-    "sponsorFirmIds": [
-      "firm-cox-enterprises",
-      "firm-mediacom"
-    ]
-  },
-  {
-    "id": "fund-n-a-family-owned-conglomerate",
-    "name": "N/A — family-owned conglomerate",
-    "number": null,
-    "sponsorFirmIds": [
-      "firm-cox-enterprises"
-    ]
-  },
-  {
     "id": "fund-oak-5",
     "name": "Oak Hill Capital Partners V",
     "number": 5,
@@ -294,14 +277,6 @@
     "number": 4,
     "sponsorFirmIds": [
       "firm-searchlight-capital-partners"
-    ]
-  },
-  {
-    "id": "fund-secured-lender-consortium",
-    "name": "Secured lender consortium",
-    "number": null,
-    "sponsorFirmIds": [
-      "firm-e8-partners"
     ]
   },
   {

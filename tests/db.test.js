@@ -10,6 +10,49 @@ describe('db indexes', () => {
   })
 })
 
+describe('generated data correctness', () => {
+  it('has no self-owned stakes (assetId === ownerId)', () => {
+    expect(db.stakes.filter(s => s.assetId === s.ownerId)).toEqual([])
+  })
+  it('has no N/A junk funds', () => {
+    expect(db.funds.filter(f => /(^|-)n-a(-|$)/.test(f.id))).toEqual([])
+  })
+  it('Cox and Mediacom share no fund', () => {
+    const shared = db.funds.filter(f =>
+      f.sponsorFirmIds.includes('firm-cox-enterprises') && f.sponsorFirmIds.includes('firm-mediacom'))
+    expect(shared).toEqual([])
+  })
+  it('GigaPower JV (deal-013) opens 50/50 stakes for AT&T and BlackRock', () => {
+    const st = db.stakes.filter(s => s.openedByDealId === 'deal-013')
+    expect(st.map(s => `${s.ownerId}:${s.pct}`).sort())
+      .toEqual(['asset-at-and-t-inc:50', 'firm-blackrock-infrastructure:50'])
+  })
+  it('MetroNet JV (deal-041) opens 50/50 stakes for T-Mobile and KKR', () => {
+    const st = db.stakes.filter(s => s.openedByDealId === 'deal-041')
+    expect(st.map(s => `${s.ownerId}:${s.pct}`).sort())
+      .toEqual(['asset-t-mobile-us:50', 'firm-kkr-and-co-inc:50'])
+  })
+  it('PE firms mistakenly stored as assets are gone', () => {
+    expect(db.assets.some(a => a.id === 'asset-digital-colony-partners')).toBe(false)
+    expect(db.participants.some(p => p.partyId === 'asset-digital-colony-partners')).toBe(false)
+  })
+  it('EQT is not a buyer on the Lumos JV (deal-039); only T-Mobile is', () => {
+    const buyers = db.participants.filter(p => p.dealId === 'deal-039' && p.role === 'buyer')
+    expect(buyers.map(b => b.partyId)).toEqual(['asset-t-mobile-us'])
+  })
+  it('formerly null-shell firms have a firmType', () => {
+    const ids = ['firm-apax-partners', 'firm-ares-management', 'firm-catania-capital-partners',
+      'firm-cppib-consortium', 'firm-creditor-consortium', 'firm-digitalbridge-group',
+      'firm-elliott-investment-management', 'firm-madison-dearborn-partners',
+      'firm-pamlico-capital', 'firm-warburg-pincus']
+    for (const id of ids) {
+      const f = db.firms.find(x => x.id === id)
+      expect(f, id).toBeTruthy()
+      expect(f.firmType, id).not.toBe(null)
+    }
+  })
+})
+
 describe('portfolioOf', () => {
   it('TPG no longer holds Astound', () => {
     const names = portfolioOf('firm-tpg-capital').map(a => a.name)

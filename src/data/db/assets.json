@@ -139,10 +139,9 @@
     "successorAssetId": null
   },
   {
-    "id": "asset-consolidated-communications",
-    "name": "Consolidated Communications",
+    "id": "asset-consolidated-communications-holdings",
+    "name": "Consolidated Communications Holdings",
     "aliases": [
-      "Consolidated Communications Holdings",
       "Consolidated Communications Holdings (Take-Private)"
     ],
     "type": "ILEC / Fiber",
@@ -155,15 +154,6 @@
     "name": "Cox Communications",
     "aliases": [],
     "type": "MSO (Cable)",
-    "ticker": null,
-    "parentAssetId": null,
-    "successorAssetId": null
-  },
-  {
-    "id": "asset-digital-colony-partners",
-    "name": "Digital Colony Partners",
-    "aliases": [],
-    "type": "Infrastructure Private Equity",
     "ticker": null,
     "parentAssetId": null,
     "successorAssetId": null

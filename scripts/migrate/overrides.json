@@ -1,10 +1,41 @@
 {
   "notFirms": ["Cox Communications"],
+  "notFunds": ["N/A — family-owned conglomerate", "Secured lender consortium"],
   "buyerOverrides": {
+    "deal-004": [
+      { "partyType": "firm",  "partyId": "firm-searchlight-capital-partners", "pct": 1 }
+    ],
+    "deal-012": [
+      { "partyType": "firm",  "partyId": "firm-kkr-and-co-inc",               "pct": 0.5 },
+      { "partyType": "firm",  "partyId": "firm-ares-management",              "pct": 0.5 }
+    ],
     "deal-013": [
       { "partyType": "asset", "partyId": "asset-at-and-t-inc",               "pct": 0.5 },
       { "partyType": "firm",  "partyId": "firm-blackrock-infrastructure",     "pct": 0.5 }
+    ],
+    "deal-034": [
+      { "partyType": "firm",  "partyId": "firm-eqt-infrastructure",           "pct": 0.5 },
+      { "partyType": "firm",  "partyId": "firm-digitalbridge-group",          "pct": 0.5 }
+    ],
+    "deal-039": [
+      { "partyType": "asset", "partyId": "asset-t-mobile-us",                 "pct": 1 }
     ]
+  },
+  "dealPatches": {
+    "deal-013": { "ownershipPct": 100 },
+    "deal-041": { "ownershipPct": 100 }
+  },
+  "firmPatches": {
+    "firm-apax-partners":                { "firmType": "Private Equity", "headquarters": "London, UK", "website": "apax.com" },
+    "firm-ares-management":              { "firmType": "Private Equity / Credit", "aum": "$450B+", "headquarters": "Los Angeles, CA", "website": "aresmgmt.com" },
+    "firm-catania-capital-partners":     { "firmType": "Private Equity" },
+    "firm-cppib-consortium":             { "firmType": "Consortium" },
+    "firm-creditor-consortium":          { "firmType": "Consortium" },
+    "firm-digitalbridge-group":          { "firmType": "Digital Infrastructure Private Equity", "headquarters": "Boca Raton, FL", "website": "digitalbridge.com" },
+    "firm-elliott-investment-management": { "firmType": "Activist / Hedge Fund", "headquarters": "West Palm Beach, FL" },
+    "firm-madison-dearborn-partners":    { "firmType": "Private Equity", "headquarters": "Chicago, IL" },
+    "firm-pamlico-capital":              { "firmType": "Private Equity", "headquarters": "Charlotte, NC" },
+    "firm-warburg-pincus":               { "firmType": "Private Equity", "headquarters": "New York, NY" }
   },
   "firmMerges": {
     "firm-kkr-and-co": "firm-kkr-and-co-inc",
@@ -13,7 +44,6 @@
   "assetMerges": {
     "asset-astound": "asset-astound-broadband",
     "asset-at-and-t": "asset-at-and-t-inc",
-    "asset-consolidated-communications-holdings": "asset-consolidated-communications",
     "asset-dish-network": "asset-dish-network-corporation",
     "asset-rcn-telecom": "asset-rcn-telecom-services",
     "asset-verizon": "asset-verizon-communications",

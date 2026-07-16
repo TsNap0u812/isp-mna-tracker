@@ -5,13 +5,13 @@ Generated from src/data/deals.json (50 deals).
 | Collection | Count |
 |---|---|
 | firms | 28 |
-| funds | 49 |
-| assets | 63 |
+| funds | 46 |
+| assets | 62 |
 | deals | 50 |
-| participants | 153 |
+| participants | 150 |
 | stakes | 58 |
 
-## Flags for review (38)
+## Flags for review (35)
 
 - [ ] firm enrichment skipped for compound "Madison Dearborn Partners + Catania Capital Partners" — assign firmType/aum manually
 - [ ] firm enrichment skipped for compound "Oak Hill Capital + Pamlico Capital" — assign firmType/aum manually
@@ -30,7 +30,6 @@ Generated from src/data/deals.json (50 deals).
 - [ ] deal-040: compound buyer "T-Mobile US + Oak Hill Capital" split equally at 0.5 — verify against deal terms
 - [ ] deal-042: compound buyer "T-Mobile US + Wren House Infrastructure Management" split equally at 0.5 — verify against deal terms
 - [ ] deal-038: compound buyer "T-Mobile US + Wren House Infrastructure Management" split equally at 0.5 — verify against deal terms
-- [ ] deal-039: compound buyer "T-Mobile US + EQT Infrastructure (Lumos Networks JV)" split equally at 0.5 — verify against deal terms
 - [ ] deal-041: compound buyer "T-Mobile US + KKR" split equally at 0.5 — verify against deal terms
 - [ ] deal-041: buyer "KKR" fuzzy-matched to firm "KKR & Co. Inc." — verify
 - [ ] deal-046: compound buyer "DigitalBridge Group + Crestview Partners" split equally at 0.5 — verify against deal terms
@@ -38,7 +37,6 @@ Generated from src/data/deals.json (50 deals).
 - [ ] deal-020: buyer "Mediacom Communications" fuzzy-matched to firm "Mediacom" — verify
 - [ ] deal-030: buyer "Macquarie Infrastructure & Real Assets" fuzzy-matched to firm "Macquarie Asset Management" — verify
 - [ ] deal-032: consolidation targets split: RCN Telecom | WaveDivision | Grande Communications — verify
-- [ ] deal-034: compound buyer "EQT Infrastructure + Digital Colony Partners (DigitalBridge)" split equally at 0.5 — verify against deal terms
 - [ ] deal-035: seller "(from T-Mobile post-Sprint merger)" not a known firm — review
 - [ ] deal-036: synthesized pre-history stake for seller(s) on asset-wideopenwest-chicago-area-cable-system
 - [ ] deal-008: synthesized pre-history stake for seller(s) on asset-wideopenwest-illinois-indiana-and-maryland-cable-systems
@@ -47,7 +45,6 @@ Generated from src/data/deals.json (50 deals).
 - [ ] deal-020: synthesized pre-history stake for seller(s) on asset-vyve-broadband
 - [ ] deal-039: partial deal (50%) — prior stakes on asset-lumos-networks left open, review
 - [ ] deal-023: partial deal (70%) — prior stakes on asset-directv-llc left open, review
-- [ ] deal-041: partial deal (50%) — prior stakes on asset-metronet left open, review
 - [ ] deal-024: synthesized pre-history stake for seller(s) on asset-windstream-holdings
 - [ ] deal-045: synthesized pre-history stake for seller(s) on asset-ziply-fiber
 - [ ] deal-048: synthesized pre-history stake for seller(s) on asset-fastwyre-broadband

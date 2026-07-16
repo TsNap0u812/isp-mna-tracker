@@ -48,6 +48,11 @@ export function sponsorFor(fundName, firms, reg = null) {
 }
 
 export function upsertFund(reg, fundName, sponsorFirms) {
+  // Junk placeholders ("N/A", "N/A — family-owned conglomerate") and names
+  // listed in reg.notFunds (lowercase) are not real vehicles — create nothing.
+  if (/^n\/?a\b/i.test(fundName.trim()) || reg.notFunds?.has(fundName.trim().toLowerCase())) {
+    return null
+  }
   const num = extractFundNum(fundName)
   const fw = baseName(fundName).split(/\s+/)[0].toLowerCase()
   const key = num != null ? `${fw}-${num}` : slugify(fundName)

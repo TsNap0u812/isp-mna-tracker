@@ -13,6 +13,8 @@ const overrides = JSON.parse(readFileSync(join(ROOT, 'scripts/migrate/overrides.
 const reg = createRegistry()
 // notFirms matches against baseName(name).toLowerCase() — parenthetical annotations are stripped before comparison
 reg.notFirms = new Set((overrides.notFirms ?? []).map(n => n.toLowerCase()))
+// notFunds matches the raw legacy primaryFunds string, lowercased (junk placeholders)
+reg.notFunds = new Set((overrides.notFunds ?? []).map(n => n.toLowerCase()))
 
 // ── Pass 1: harvest all firms + funds from every pe blob ─────────────────────
 for (const d of legacy) {
@@ -48,6 +50,14 @@ const deals = legacy.map(d => {
   }
 })
 reg.flags.forEach(f => flagSet.add(f))   // pick up flags added during pass 2 upserts
+
+// ── Deal patches: shallow field corrections on normalized deal records ───────
+// Applied before pass 5 so deriveStakes sees the corrected values.
+for (const [dealId, patch] of Object.entries(overrides.dealPatches ?? {})) {
+  const deal = deals.find(d => d.id === dealId)
+  if (!deal) { flagSet.add(`deal patch ${dealId}: unknown deal id, skipped`); continue }
+  Object.assign(deal, patch)
+}
 
 // ── Integrity check: buyer override partyIds must reference known entities ───
 for (const [dealId, entries] of Object.entries(buyerOverrides)) {
@@ -86,6 +96,23 @@ applyMerge('firm-', reg.firms, overrides.firmMerges)
 // firm merges also affect fund sponsors
 for (const fund of reg.funds.values()) {
   fund.sponsorFirmIds = [...new Set(fund.sponsorFirmIds.map(id => overrides.firmMerges?.[id] ?? id))]
+}
+
+// Merges can leave a backer row duplicating a buyer on the same deal
+// (participants.mjs guards this pre-merge) — drop the redundant backer.
+for (let i = participants.length - 1; i >= 0; i--) {
+  const p = participants[i]
+  if (p.role === 'backer' && participants.some(q =>
+      q.dealId === p.dealId && q.partyId === p.partyId && q.role === 'buyer')) {
+    participants.splice(i, 1)
+  }
+}
+
+// ── Firm patches: manual enrichment (applied AFTER merges, sets only given fields)
+for (const [firmId, patch] of Object.entries(overrides.firmPatches ?? {})) {
+  const firm = reg.firms.get(firmId.replace('firm-', ''))
+  if (!firm) { flagSet.add(`firm patch ${firmId}: unknown firm id, skipped`); continue }
+  Object.assign(firm, patch)
 }
 
 for (const [childId, parentId] of Object.entries(overrides.parentAssets ?? {})) {

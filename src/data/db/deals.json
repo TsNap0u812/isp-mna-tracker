@@ -330,7 +330,7 @@
     "status": "Completed",
     "dealType": "Joint Venture",
     "valueUSD": 4900000000,
-    "ownershipPct": 50,
+    "ownershipPct": 100,
     "geography": [
       "IN",
       "IL",
@@ -1085,7 +1085,7 @@
     "status": "Completed",
     "dealType": "Joint Venture",
     "valueUSD": 950000000,
-    "ownershipPct": 50,
+    "ownershipPct": 100,
     "geography": [
       "United States (Greenfield Markets)"
     ],

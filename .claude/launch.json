@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "isp-mna-tracker",
+      "name": "ISP MnA",
       "runtimeExecutable": "/bin/sh",
-      "runtimeArgs": ["-c", "PATH=/opt/homebrew/bin:$PATH npm run dev"],
-      "port": 5173
+      "runtimeArgs": ["-c", "PATH=/opt/homebrew/bin:$PATH npx vite --port $PORT"],
+      "port": 5173,
+      "autoPort": true
     }
   ]
 }

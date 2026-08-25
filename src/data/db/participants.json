@@ -1,0 +1,1344 @@
+[
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-great-plains-communications",
+    "role": "buyer",
+    "dealId": "deal-043"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-grain-2",
+      "fund-grain-3"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-grain-management-llc",
+    "role": "backer",
+    "dealId": "deal-043"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-fastwyre-nebraska",
+    "role": "target",
+    "dealId": "deal-043"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-madison-8",
+      "fund-catania-1"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-madison-dearborn-partners",
+    "role": "seller",
+    "dealId": "deal-043"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-madison-8",
+      "fund-catania-1"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-catania-capital-partners",
+    "role": "seller",
+    "dealId": "deal-043"
+  },
+  {
+    "pct": 0.3333,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-at-and-t-inc",
+    "role": "buyer",
+    "dealId": "deal-044"
+  },
+  {
+    "pct": 0.3333,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-044"
+  },
+  {
+    "pct": 0.3333,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-verizon-communications",
+    "role": "buyer",
+    "dealId": "deal-044"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-satellite-direct-to-device-jv-platform",
+    "role": "target",
+    "dealId": "deal-044"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-040"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-oak-5",
+      "fund-oak-6"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-oak-hill-capital",
+    "role": "buyer",
+    "dealId": "deal-040"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-gonetspeed-greenlight-networks",
+    "role": "target",
+    "dealId": "deal-040"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-042"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-wren-1",
+      "fund-wren-2"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-wren-house-infrastructure-management",
+    "role": "buyer",
+    "dealId": "deal-042"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-i3-broadband",
+    "role": "target",
+    "dealId": "deal-042"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-socket-fiber",
+    "role": "buyer",
+    "dealId": "deal-048"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-oak-5",
+      "fund-pamlico-6"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-oak-hill-capital",
+    "role": "backer",
+    "dealId": "deal-048"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-oak-5",
+      "fund-pamlico-6"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-pamlico-capital",
+    "role": "backer",
+    "dealId": "deal-048"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-fastwyre-missouri",
+    "role": "target",
+    "dealId": "deal-048"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-madison-8"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-madison-dearborn-partners",
+    "role": "seller",
+    "dealId": "deal-048"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-madison-8"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-catania-capital-partners",
+    "role": "seller",
+    "dealId": "deal-048"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-astound-broadband",
+    "role": "buyer",
+    "dealId": "deal-051"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-stonepeak-4",
+      "fund-stonepeak-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-stonepeak-infrastructure-partners",
+    "role": "backer",
+    "dealId": "deal-051"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-gfiber-llc",
+    "role": "target",
+    "dealId": "deal-051"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-cable-one-inc",
+    "role": "buyer",
+    "dealId": "deal-050"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-mbi-inc",
+    "role": "target",
+    "dealId": "deal-050"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-gtcr-13",
+      "fund-gtcr-14"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-gtcr-llc",
+    "role": "seller",
+    "dealId": "deal-050"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-charter-communications",
+    "role": "buyer",
+    "dealId": "deal-021"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-cox-communications",
+    "role": "target",
+    "dealId": "deal-021"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-cox-enterprises",
+    "role": "seller",
+    "dealId": "deal-021"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-at-and-t-inc",
+    "role": "buyer",
+    "dealId": "deal-037"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-lumen-mass-markets",
+    "role": "target",
+    "dealId": "deal-037"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-038"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-wren-1",
+      "fund-wren-2"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-wren-house-infrastructure-management",
+    "role": "buyer",
+    "dealId": "deal-038"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-fiber-jv",
+    "role": "target",
+    "dealId": "deal-038"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-039"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-eqt-6"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-eqt-infrastructure",
+    "role": "backer",
+    "dealId": "deal-039"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-lumos-networks",
+    "role": "target",
+    "dealId": "deal-039"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-041"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-kkr-5",
+      "fund-kkr-13"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-kkr-and-co-inc",
+    "role": "buyer",
+    "dealId": "deal-041"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-metronet",
+    "role": "target",
+    "dealId": "deal-041"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-digitalbridge-3",
+      "fund-crestview-4",
+      "fund-crestview-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-digitalbridge-group",
+    "role": "buyer",
+    "dealId": "deal-046"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-digitalbridge-3",
+      "fund-crestview-4",
+      "fund-crestview-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-crestview-partners",
+    "role": "buyer",
+    "dealId": "deal-046"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-wideopenwest-remaining-cable-systems",
+    "role": "target",
+    "dealId": "deal-046"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-swyft-fiber",
+    "role": "buyer",
+    "dealId": "deal-047"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-macquarie-5",
+      "fund-macquarie-6"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-macquarie-asset-management",
+    "role": "backer",
+    "dealId": "deal-047"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-fastwyre-louisiana-texas-alabama",
+    "role": "target",
+    "dealId": "deal-047"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-madison-8"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-madison-dearborn-partners",
+    "role": "seller",
+    "dealId": "deal-047"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-madison-8"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-catania-capital-partners",
+    "role": "seller",
+    "dealId": "deal-047"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-bce-inc",
+    "role": "buyer",
+    "dealId": "deal-045"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-ziply-fiber",
+    "role": "target",
+    "dealId": "deal-045"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-wavedivision-1",
+      "fund-wavedivision-2"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-wavedivision-capital",
+    "role": "seller",
+    "dealId": "deal-045"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-brightspeed",
+    "role": "buyer",
+    "dealId": "deal-049"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-apollo-9",
+      "fund-apollo-10"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-apollo-global-management",
+    "role": "backer",
+    "dealId": "deal-049"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-cincinnati-communications",
+    "role": "target",
+    "dealId": "deal-049"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-directv-llc",
+    "role": "buyer",
+    "dealId": "deal-022"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-tpg-10",
+      "fund-tpg-11"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-tpg-capital",
+    "role": "backer",
+    "dealId": "deal-022"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-dish-network-corporation",
+    "role": "target",
+    "dealId": "deal-022"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-tpg-capital",
+    "role": "buyer",
+    "dealId": "deal-023"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-directv-llc",
+    "role": "target",
+    "dealId": "deal-023"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-uniti-group",
+    "role": "buyer",
+    "dealId": "deal-024"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-windstream-holdings",
+    "role": "target",
+    "dealId": "deal-024"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-elliott-associates-lp",
+      "fund-elliott-international-ltd"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-elliott-investment-management",
+    "role": "seller",
+    "dealId": "deal-024"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-elliott-associates-lp",
+      "fund-elliott-international-ltd"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-creditor-consortium",
+    "role": "seller",
+    "dealId": "deal-024"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-verizon-communications",
+    "role": "buyer",
+    "dealId": "deal-011"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-frontier-communications",
+    "role": "target",
+    "dealId": "deal-011"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-010"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-us-cellular",
+    "role": "target",
+    "dealId": "deal-010"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-echostar-corporation",
+    "role": "buyer",
+    "dealId": "deal-025"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-dish-network-corporation",
+    "role": "target",
+    "dealId": "deal-025"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-comcast-corporation",
+    "role": "buyer",
+    "dealId": "deal-015"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-xumo",
+    "role": "target",
+    "dealId": "deal-015"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-calix-networks",
+    "role": "buyer",
+    "dealId": "deal-019"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-bark-technologies",
+    "role": "target",
+    "dealId": "deal-019"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-026"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-ka-ena-corporation",
+    "role": "target",
+    "dealId": "deal-026"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-viasat-inc",
+    "role": "buyer",
+    "dealId": "deal-027"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-inmarsat-holdings-ltd",
+    "role": "target",
+    "dealId": "deal-027"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-apax-10",
+      "fund-warburg-14",
+      "fund-cppib-infrastructure-investments"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-apax-partners",
+    "role": "seller",
+    "dealId": "deal-027"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-apax-10",
+      "fund-warburg-14",
+      "fund-cppib-infrastructure-investments"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-warburg-pincus",
+    "role": "seller",
+    "dealId": "deal-027"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-apax-10",
+      "fund-warburg-14",
+      "fund-cppib-infrastructure-investments"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-cppib-consortium",
+    "role": "seller",
+    "dealId": "deal-027"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-lumos-networks",
+    "role": "buyer",
+    "dealId": "deal-007"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-eqt-5",
+      "fund-eqt-6"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-eqt-infrastructure",
+    "role": "backer",
+    "dealId": "deal-007"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-hotwire-communications",
+    "role": "target",
+    "dealId": "deal-007"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-astound-broadband",
+    "role": "buyer",
+    "dealId": "deal-008"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-stonepeak-4",
+      "fund-stonepeak-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-stonepeak-infrastructure-partners",
+    "role": "backer",
+    "dealId": "deal-008"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-wideopenwest-illinois-indiana-and-maryland-cable-systems",
+    "role": "target",
+    "dealId": "deal-008"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-crestview-4",
+      "fund-crestview-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-crestview-partners",
+    "role": "seller",
+    "dealId": "deal-008"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-e8-partners",
+    "role": "buyer",
+    "dealId": "deal-017"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-creditor-consortium",
+    "role": "buyer",
+    "dealId": "deal-017"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-starry-group-holdings",
+    "role": "target",
+    "dealId": "deal-017"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-cox-communications",
+    "role": "buyer",
+    "dealId": "deal-014"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-cox-enterprises",
+    "role": "backer",
+    "dealId": "deal-014"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-prepared-fiber",
+    "role": "target",
+    "dealId": "deal-014"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-mediacom",
+    "role": "buyer",
+    "dealId": "deal-020"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-vyve-broadband",
+    "role": "target",
+    "dealId": "deal-020"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-gtcr-13"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-gtcr-llc",
+    "role": "seller",
+    "dealId": "deal-020"
+  },
+  {
+    "pct": 1,
+    "fundIds": [
+      "fund-stonepeak-4",
+      "fund-stonepeak-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-stonepeak-infrastructure-partners",
+    "role": "buyer",
+    "dealId": "deal-028"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-lumen-technologies-latin-america",
+    "role": "target",
+    "dealId": "deal-028"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-brightspeed",
+    "role": "buyer",
+    "dealId": "deal-003"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-apollo-9",
+      "fund-apollo-10"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-apollo-global-management",
+    "role": "backer",
+    "dealId": "deal-003"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-lumen-ilec-20-states",
+    "role": "target",
+    "dealId": "deal-003"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-colt-technology-services",
+    "role": "buyer",
+    "dealId": "deal-018"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-fidelity-strategic-investments"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-fidelity-investments",
+    "role": "backer",
+    "dealId": "deal-018"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-lumen-technologies-emea-business",
+    "role": "target",
+    "dealId": "deal-018"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-kkr-and-co-inc",
+    "role": "buyer",
+    "dealId": "deal-012"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-kkr-4",
+      "fund-kkr-12",
+      "fund-ares-2"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-ares-management",
+    "role": "buyer",
+    "dealId": "deal-012"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-metronet",
+    "role": "target",
+    "dealId": "deal-012"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-at-and-t-inc",
+    "role": "buyer",
+    "dealId": "deal-013"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-blackrock-4",
+      "fund-blackrock-infrastructure-debt-fund"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-blackrock-infrastructure",
+    "role": "buyer",
+    "dealId": "deal-013"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-at-and-t-fiber-expansion-assets",
+    "role": "target",
+    "dealId": "deal-013"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-verizon-communications",
+    "role": "buyer",
+    "dealId": "deal-006"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-tracfone-wireless",
+    "role": "target",
+    "dealId": "deal-006"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-point-broadband",
+    "role": "buyer",
+    "dealId": "deal-029"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-grain-2",
+      "fund-grain-3"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-grain-management-llc",
+    "role": "backer",
+    "dealId": "deal-029"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-several-rural-fiber-isps",
+    "role": "target",
+    "dealId": "deal-029"
+  },
+  {
+    "pct": 1,
+    "fundIds": [
+      "fund-searchlight-3",
+      "fund-searchlight-4"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-searchlight-capital-partners",
+    "role": "buyer",
+    "dealId": "deal-004"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-consolidated-communications-holdings",
+    "role": "target",
+    "dealId": "deal-004"
+  },
+  {
+    "pct": 1,
+    "fundIds": [
+      "fund-macquarie-5",
+      "fund-macquarie-6"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-macquarie-asset-management",
+    "role": "buyer",
+    "dealId": "deal-030"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-cincinnati-bell-inc",
+    "role": "target",
+    "dealId": "deal-030"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-eqt-infrastructure",
+    "role": "buyer",
+    "dealId": "deal-031"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-lumos-networks",
+    "role": "target",
+    "dealId": "deal-031"
+  },
+  {
+    "pct": 1,
+    "fundIds": [
+      "fund-tpg-8",
+      "fund-tpg-9"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-tpg-capital",
+    "role": "buyer",
+    "dealId": "deal-032"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-rcn-telecom-services",
+    "role": "target",
+    "dealId": "deal-032"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-wavedivision",
+    "role": "target",
+    "dealId": "deal-032"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-grande-communications",
+    "role": "target",
+    "dealId": "deal-032"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-astound-broadband",
+    "role": "successor",
+    "dealId": "deal-032"
+  },
+  {
+    "pct": 1,
+    "fundIds": [
+      "fund-stonepeak-4",
+      "fund-stonepeak-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-stonepeak-infrastructure-partners",
+    "role": "buyer",
+    "dealId": "deal-052"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-astound-broadband",
+    "role": "target",
+    "dealId": "deal-052"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-tpg-8",
+      "fund-tpg-9"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-tpg-capital",
+    "role": "seller",
+    "dealId": "deal-052"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-tpg-capital",
+    "role": "buyer",
+    "dealId": "deal-033"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-directv-llc",
+    "role": "target",
+    "dealId": "deal-033"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-ziply-fiber",
+    "role": "buyer",
+    "dealId": "deal-005"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-wavedivision-1",
+      "fund-wavedivision-2"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-wavedivision-capital",
+    "role": "backer",
+    "dealId": "deal-005"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-frontier-pnw-ilec",
+    "role": "target",
+    "dealId": "deal-005"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-wideopenwest",
+    "role": "buyer",
+    "dealId": "deal-016"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-crestview-4",
+      "fund-crestview-5"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-crestview-partners",
+    "role": "backer",
+    "dealId": "deal-016"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-hargray-communications",
+    "role": "target",
+    "dealId": "deal-016"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-gtcr-12",
+      "fund-gtcr-13"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-gtcr-llc",
+    "role": "seller",
+    "dealId": "deal-016"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-t-mobile-us",
+    "role": "buyer",
+    "dealId": "deal-002"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-sprint-corporation",
+    "role": "target",
+    "dealId": "deal-002"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [
+      "fund-eqt-4",
+      "fund-digital-2"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-eqt-infrastructure",
+    "role": "buyer",
+    "dealId": "deal-034"
+  },
+  {
+    "pct": 0.5,
+    "fundIds": [],
+    "partyType": "firm",
+    "partyId": "firm-digitalbridge-group",
+    "role": "buyer",
+    "dealId": "deal-034"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-zayo-group-holdings",
+    "role": "target",
+    "dealId": "deal-034"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-dish-network-corporation",
+    "role": "buyer",
+    "dealId": "deal-035"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-boost-mobile",
+    "role": "target",
+    "dealId": "deal-035"
+  },
+  {
+    "pct": 1,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-rcn-telecom-services",
+    "role": "buyer",
+    "dealId": "deal-036"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-tpg-8",
+      "fund-tpg-9"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-tpg-capital",
+    "role": "backer",
+    "dealId": "deal-036"
+  },
+  {
+    "pct": null,
+    "fundIds": [],
+    "partyType": "asset",
+    "partyId": "asset-wideopenwest-chicago-area-cable-system",
+    "role": "target",
+    "dealId": "deal-036"
+  },
+  {
+    "pct": null,
+    "fundIds": [
+      "fund-crestview-4"
+    ],
+    "partyType": "firm",
+    "partyId": "firm-crestview-partners",
+    "role": "seller",
+    "dealId": "deal-036"
+  }
+]

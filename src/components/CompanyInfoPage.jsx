@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { Building2, MapPin, Globe, Search, ExternalLink } from 'lucide-react'
+import { db, portfolioOf, fundsOf } from '../data/db'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -39,44 +40,65 @@ const ISP_MATCH = {
 
 // ── Data builders ─────────────────────────────────────────────────────────────
 
-function buildPEDirectory(deals) {
-  const map = new Map()
+export function buildPEDirectory(deals = []) {
+  const directory = db.firms
+    .map(firm => {
+      const dealRefs = db.participants
+        .filter(p => p.partyType === 'firm' && p.partyId === firm.id)
+        .map(p => {
+          const d = db.deal.get(p.dealId)
+          return {
+            id: d.id, date: d.date,
+            role: p.role === 'seller' ? 'Backed target' : 'Backed acquirer',
+            acquirer: d.display.acquirerName, acquired: d.display.acquiredName,
+            dealValue: d.valueUSD, dealType: d.dealType, status: d.status,
+          }
+        })
+      return {
+        firm: firm.name, firmType: firm.firmType, aum: firm.aum,
+        headquarters: firm.headquarters, website: firm.website,
+        primaryFunds: fundsOf(firm.id).map(f => f.name),
+        otherTelecomPortfolio: portfolioOf(firm.id).map(a => a.name),
+        dealRefs,
+      }
+    })
 
-  deals.forEach(d => {
-    const add = (pe, role) => {
-      if (!pe?.firm) return
-      if (!map.has(pe.firm)) {
-        map.set(pe.firm, {
-          ...pe,
+  // Locally-added deals (Add-deal form → localStorage) never reach the db —
+  // fold their PE blobs in: match existing cards by firm name/alias, else add one.
+  for (const d of deals) {
+    if (db.deal.has(d.id)) continue
+    for (const side of ['acquirer', 'acquired']) {
+      const pe = d[side]?.pe
+      if (!pe?.firm) continue
+      const q = pe.firm.toLowerCase()
+      const dbFirm = db.firms.find(f =>
+        f.name.toLowerCase() === q ||
+        (f.aliases ?? []).some(a => a.toLowerCase() === q))
+      const entry = directory.find(e =>
+        e.firm.toLowerCase() === q || (dbFirm && e.firm === dbFirm.name))
+      const ref = {
+        id: d.id, date: d.date,
+        role: side === 'acquired' ? 'Backed target' : 'Backed acquirer',
+        acquirer: d.acquirer?.name, acquired: d.acquired?.name,
+        dealValue: d.dealValue, dealType: d.dealType, status: d.status,
+      }
+      if (entry) {
+        entry.dealRefs.push(ref)
+      } else {
+        directory.push({
+          firm: pe.firm, firmType: pe.firmType, aum: pe.aum,
+          headquarters: pe.headquarters, website: pe.website,
           primaryFunds: pe.primaryFunds ?? [],
           otherTelecomPortfolio: pe.otherTelecomPortfolio ?? [],
-          dealRefs: [],
-        })
-      }
-      const e = map.get(pe.firm)
-      // Keep richest data across appearances
-      if (!e.firmType && pe.firmType)                                         e.firmType = pe.firmType
-      if ((!e.aum || e.aum === 'N/A') && pe.aum && pe.aum !== 'N/A')         e.aum = pe.aum
-      if (!e.headquarters && pe.headquarters)                                  e.headquarters = pe.headquarters
-      if (!e.website && pe.website)                                            e.website = pe.website
-      if ((pe.primaryFunds?.length ?? 0) > e.primaryFunds.length)             e.primaryFunds = pe.primaryFunds
-      if ((pe.otherTelecomPortfolio?.length ?? 0) > e.otherTelecomPortfolio.length)
-                                                                               e.otherTelecomPortfolio = pe.otherTelecomPortfolio
-      // Deduplicate deal refs
-      if (!e.dealRefs.some(r => r.id === d.id && r.role === role)) {
-        e.dealRefs.push({
-          id: d.id, date: d.date, role,
-          acquirer: d.acquirer.name, acquired: d.acquired.name,
-          dealValue: d.dealValue, dealType: d.dealType, status: d.status,
+          dealRefs: [ref],
         })
       }
     }
+  }
 
-    add(d.acquirer?.pe, 'Backed acquirer')
-    add(d.acquired?.pe,  'Backed target')
-  })
-
-  return [...map.values()].sort((a, b) => a.firm.localeCompare(b.firm))
+  return directory
+    .filter(f => f.dealRefs.length > 0)
+    .sort((a, b) => a.firm.localeCompare(b.firm))
 }
 
 function buildCompanyDirectory(deals, filterId) {
@@ -103,7 +125,7 @@ function buildCompanyDirectory(deals, filterId) {
 
 // ── PE Firm Card ──────────────────────────────────────────────────────────────
 
-function PECard({ firm }) {
+function PECard({ firm, onNavigateToDeal }) {
   const dealRefs   = [...firm.dealRefs].sort((a, b) => new Date(b.date) - new Date(a.date))
   const portfolio  = (firm.otherTelecomPortfolio ?? []).filter(Boolean)
   const hasWebsite = firm.website && firm.website !== 'null'
@@ -190,7 +212,11 @@ function PECard({ firm }) {
             </p>
             <div className="space-y-2">
               {dealRefs.map((ref, i) => (
-                <div key={`${ref.id}-${i}`} className="bg-gray-50 rounded-lg px-3 py-2.5 text-xs">
+                <button
+                  key={`${ref.id}-${i}`}
+                  onClick={() => onNavigateToDeal?.(ref.id)}
+                  className="w-full text-left bg-gray-50 hover:bg-indigo-50 rounded-lg px-3 py-2.5 text-xs transition-colors group"
+                >
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <span className={`px-1.5 py-0.5 rounded font-medium ${
                       ref.role === 'Backed acquirer'
@@ -199,7 +225,10 @@ function PECard({ firm }) {
                     }`}>
                       {ref.role}
                     </span>
-                    <span className="text-gray-400 tabular-nums">{ref.date.slice(0, 7)}</span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-gray-400 tabular-nums">{ref.date.slice(0, 7)}</span>
+                      <ExternalLink className="h-3 w-3 text-gray-300 group-hover:text-indigo-400 transition-colors" />
+                    </div>
                   </div>
                   <div
                     className="text-gray-800 font-medium leading-tight truncate"
@@ -215,7 +244,7 @@ function PECard({ firm }) {
                       {ref.status}
                     </span>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -228,7 +257,7 @@ function PECard({ firm }) {
 
 // ── Company Card (non-PE) ─────────────────────────────────────────────────────
 
-function CompanyCard({ company }) {
+function CompanyCard({ company, onNavigateToDeal }) {
   const dealRefs = [...company.dealRefs].sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
@@ -248,7 +277,11 @@ function CompanyCard({ company }) {
       </div>
       <div className="px-5 py-3 space-y-2.5">
         {dealRefs.map((ref, i) => (
-          <div key={`${ref.id}-${i}`} className="text-xs pb-2.5 border-b border-gray-50 last:border-0 last:pb-0">
+          <button
+            key={`${ref.id}-${i}`}
+            onClick={() => onNavigateToDeal?.(ref.id)}
+            className="w-full text-left text-xs pb-2.5 border-b border-gray-50 last:border-0 last:pb-0 hover:bg-indigo-50 -mx-2 px-2 rounded transition-colors group"
+          >
             <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
               <span className={`px-1.5 py-0.5 rounded font-medium ${
                 ref.role === 'Acquirer' ? 'bg-blue-100 text-blue-700' : 'bg-amber-100 text-amber-700'
@@ -260,12 +293,13 @@ function CompanyCard({ company }) {
               <span className={`px-1.5 py-0 rounded font-medium ${STATUS_BADGE[ref.status] ?? 'bg-gray-100 text-gray-600'}`}>
                 {ref.status}
               </span>
+              <ExternalLink className="h-3 w-3 text-gray-300 group-hover:text-indigo-400 ml-auto transition-colors" />
             </div>
             <div className="text-gray-600 pl-0.5 truncate" title={ref.counterparty}>
               {ref.role === 'Acquirer' ? `Acquired: ` : `Acquired by: `}
               <span className="text-gray-800 font-medium">{ref.counterparty}</span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     </div>
@@ -274,7 +308,7 @@ function CompanyCard({ company }) {
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
 
-export default function CompanyInfoPage({ deals }) {
+export default function CompanyInfoPage({ deals, onNavigateToDeal }) {
   const [activeFilter, setActiveFilter] = useState('pe')
   const [search, setSearch]             = useState('')
 
@@ -355,11 +389,11 @@ export default function CompanyInfoPage({ deals }) {
           </div>
         ) : activeFilter === 'pe' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-            {displayList.map(firm => <PECard key={firm.firm} firm={firm} />)}
+            {displayList.map(firm => <PECard key={firm.firm} firm={firm} onNavigateToDeal={onNavigateToDeal} />)}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {displayList.map(co => <CompanyCard key={co.name} company={co} />)}
+            {displayList.map(co => <CompanyCard key={co.name} company={co} onNavigateToDeal={onNavigateToDeal} />)}
           </div>
         )}
       </div>

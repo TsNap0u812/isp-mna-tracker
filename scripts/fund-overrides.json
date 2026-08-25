@@ -1,0 +1,90 @@
+{
+  "_comment": "Manual-input overrides merged into src/data/fund-data.json by scripts/fund-data-query.mjs (applyFundOverrides). The query script regenerates fund-data.json wholesale, so manual data must live here. Keys under firms must match firmRaw exactly. capitalType: fund | evergreen | balance-sheet (default fund). announcedFunds: web-verified final-close sizes ONLY — every entry needs a sourceUrl; never add unverified sizes.",
+  "firms": {
+    "Wren House Infrastructure Management": {
+      "capitalType": "evergreen",
+      "capitalNote": "Kuwait Investment Authority's infrastructure arm — sovereign single-LP evergreen capital; never appears in Form D or US pension LP disclosures."
+    },
+    "Cox Enterprises (Private Family Ownership)": {
+      "capitalType": "balance-sheet",
+      "capitalNote": "Family-owned conglomerate — acquisitions funded from the balance sheet; no external funds exist."
+    },
+    "Mediacom (Founder-Owned / Private)": {
+      "capitalType": "balance-sheet",
+      "capitalNote": "Founder-owned — balance-sheet acquirer; no fundraising disclosures."
+    },
+    "Fidelity Investments (Colt Owner)": {
+      "capitalType": "balance-sheet",
+      "capitalNote": "Corporate strategic investments from Fidelity's balance sheet — not a drawdown fund."
+    },
+    "EQT Infrastructure / DigitalBridge (co-lead)": {
+      "announcedFunds": [
+        {
+          "fundName": "EQT Infrastructure IV",
+          "sizeUSD": 10100000000,
+          "announcedDate": "2019-03-12",
+          "sourceUrl": "https://eqtgroup.com/news/eqt-closes-fourth-infrastructure-fund-at-eur-9-billion-strengthens-position-as-a-leading-global-infrastructure-investor-2019-03-12",
+          "note": "First and final close at EUR 9.0B hard cap (~USD 10.1B at close date). EQT press release."
+        },
+        {
+          "fundName": "Digital Colony Partners II",
+          "sizeUSD": 8300000000,
+          "announcedDate": "2022-01-19",
+          "sourceUrl": "https://www.digitalbridge.com/news/2022-01-19-digitalbridge-surpasses-target-to-close-second-flagship-fund-at-83-billion",
+          "note": "Final close at $8.3B, surpassing $6.0B target. DigitalBridge press release."
+        }
+      ]
+    },
+    "Searchlight Capital Partners": {
+      "announcedFunds": [
+        {
+          "fundName": "Searchlight Capital Partners III",
+          "sizeUSD": 3400000000,
+          "announcedDate": "2020-11-18",
+          "sourceUrl": "https://www.businesswire.com/news/home/20201118005300/en/Searchlight-Capital-Partners-Closes-Third-Fund-at-$3.4-Billion",
+          "note": "Final close at $3.4B, exceeding $2.75B target. Searchlight press release via Business Wire."
+        }
+      ]
+    },
+    "Grain Management LLC": {
+      "announcedFunds": [
+        {
+          "fundName": "Grain Communications Opportunity Fund III",
+          "sizeUSD": 2250000000,
+          "announcedDate": "2021-04-06",
+          "sourceUrl": "https://www.businesswire.com/news/home/20210406005571/en/Grain-Management-Closes-Flagship-and-Spectrum-Funds-with-$3.75-Billion-in-Total-Commitments",
+          "note": "GCOF III closed at $2.25B (target $1.5B), part of a $3.75B combined flagship + spectrum close. Grain press release via Business Wire."
+        }
+      ]
+    },
+    "Stonepeak Infrastructure Partners": {
+      "announcedFunds": [
+        {
+          "fundName": "Stonepeak Infrastructure Fund IV",
+          "sizeUSD": 14000000000,
+          "announcedDate": "2022-02-02",
+          "sourceUrl": "https://www.businesswire.com/news/home/20220202005746/en/Stonepeak-Closes-Fourth-North-American-Infrastructure-Fund-with-$14-Billion-of-Commitments",
+          "note": "Final close at $14B hard cap, oversubscribed; ~40% already committed incl. Astound Broadband. Stonepeak press release via Business Wire."
+        }
+      ]
+    },
+    "Macquarie Asset Management (MIRA)": {
+      "announcedFunds": [
+        {
+          "fundName": "Macquarie Infrastructure Partners V",
+          "sizeUSD": 6900000000,
+          "announcedDate": "2021-07-27",
+          "sourceUrl": "https://www.macquarie.com/us/en/about/news/2021/macquarie-asset-management-closes-sixth-americas-infrastructure-fund-with-6-9-billion-usd-in-commitments.html",
+          "note": "MIP V (Macquarie's sixth Americas infrastructure fund) closed at $6.9B, exceeding $5.0B target. Macquarie press release."
+        },
+        {
+          "fundName": "Macquarie Infrastructure Partners VI",
+          "sizeUSD": 8000000000,
+          "announcedDate": "2025-06-17",
+          "sourceUrl": "https://www.macquarie.com/au/en/about/news/2025/macquarie-asset-management-closes-macquarie-infrastructure-partners-vi.html",
+          "note": "MIP VI closed with over $8B of total fund and co-investment commitments. Macquarie press release."
+        }
+      ]
+    }
+  }
+}

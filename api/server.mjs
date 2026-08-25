@@ -180,12 +180,23 @@ function isWithinSixMonths(dateStr) {
 
 function getExistingNames() {
   try {
-    const src = readFileSync(join(__dirname, '../src/data/deals.js'), 'utf8')
+    const readDb = f => JSON.parse(readFileSync(join(__dirname, '../src/data/db', f), 'utf8'))
+    const assets = readDb('assets.json')
+    const firms  = readDb('firms.json')
+    const deals  = readDb('deals.json')
+
+    // Names + aliases from entities, plus display names from deals —
+    // a richer dedupe vocabulary than the legacy snapshot alone.
+    const rawNames = [
+      ...assets.flatMap(a => [a.name, ...(a.aliases ?? [])]),
+      ...firms.flatMap(f => [f.name, ...(f.aliases ?? [])]),
+      ...deals.flatMap(d => [d.display?.acquirerName, d.display?.acquiredName]),
+    ]
+
     const names = new Set()
-    const re = /name:\s*['"]([^'"]{4,})['"],/g
-    let m
-    while ((m = re.exec(src)) !== null) {
-      const short = m[1].toLowerCase().split(/\s+/).slice(0, 2).join(' ')
+    for (const party of rawNames) {
+      if (!party || party.length < 4) continue
+      const short = party.toLowerCase().split(/\s+/).slice(0, 2).join(' ')
       if (short.length > 3) names.add(short)
     }
     return [...names]

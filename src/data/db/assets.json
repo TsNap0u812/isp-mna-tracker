@@ -1,0 +1,691 @@
+[
+  {
+    "id": "asset-astound-broadband",
+    "name": "Astound Broadband",
+    "aliases": [
+      "Astound Broadband (from TPG Capital)",
+      "Astound"
+    ],
+    "type": "MSO (Cable)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-at-and-t-fiber-expansion-assets",
+    "name": "AT&T Fiber Expansion Assets",
+    "aliases": [
+      "AT&T Fiber Expansion Assets (Greenfield Markets)"
+    ],
+    "type": "ILEC / Pure Fiber",
+    "ticker": "T",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-at-and-t-inc",
+    "name": "AT&T Inc.",
+    "aliases": [
+      "AT&T"
+    ],
+    "type": "MNO / ILEC",
+    "ticker": "T",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-bark-technologies",
+    "name": "Bark Technologies",
+    "aliases": [
+      "Bark Technologies (ISP Parental Controls SaaS)"
+    ],
+    "type": "SaaS / Software",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-bce-inc",
+    "name": "BCE Inc.",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": "BCE",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-boost-mobile",
+    "name": "Boost Mobile",
+    "aliases": [
+      "Boost Mobile (from T-Mobile post-Sprint merger)"
+    ],
+    "type": "MVNO (Prepaid)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-brightspeed",
+    "name": "Brightspeed",
+    "aliases": [],
+    "type": "CLEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-cable-one-inc",
+    "name": "Cable One Inc.",
+    "aliases": [],
+    "type": "MSO (Cable)",
+    "ticker": "CABO",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-calix-networks",
+    "name": "Calix Networks",
+    "aliases": [],
+    "type": "Broadband Platform / SaaS",
+    "ticker": "CALX",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-charter-communications",
+    "name": "Charter Communications",
+    "aliases": [],
+    "type": "MSO (Cable)",
+    "ticker": "CHTR",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-cincinnati-bell-inc",
+    "name": "Cincinnati Bell Inc.",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": "CBB",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-cincinnati-communications",
+    "name": "Cincinnati Communications",
+    "aliases": [
+      "Cincinnati Communications (Fiber Assets — Warren, Preble & Greene Counties, OH)"
+    ],
+    "type": "CLEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-colt-technology-services",
+    "name": "Colt Technology Services",
+    "aliases": [],
+    "type": "Enterprise Fiber / Carrier",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-comcast-corporation",
+    "name": "Comcast Corporation",
+    "aliases": [],
+    "type": "MSO (Cable)",
+    "ticker": "CMCSA",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-consolidated-communications-holdings",
+    "name": "Consolidated Communications Holdings",
+    "aliases": [
+      "Consolidated Communications Holdings (Take-Private)"
+    ],
+    "type": "ILEC / Fiber",
+    "ticker": "CNSL",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-cox-communications",
+    "name": "Cox Communications",
+    "aliases": [],
+    "type": "MSO (Cable)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-directv-llc",
+    "name": "DirecTV LLC",
+    "aliases": [
+      "DirecTV LLC (AT&T's remaining 70% stake)",
+      "DirecTV LLC (AT&T's first 30% sale)"
+    ],
+    "type": "DBS / Satellite TV",
+    "ticker": "T",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-dish-network-corporation",
+    "name": "DISH Network Corporation",
+    "aliases": [
+      "DISH Network",
+      "DISH Network (Satellite TV + Sling TV)"
+    ],
+    "type": "DBS / Satellite TV / MNO",
+    "ticker": "DISH",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-echostar-corporation",
+    "name": "EchoStar Corporation",
+    "aliases": [],
+    "type": "Satellite / Wireless",
+    "ticker": "SATS",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-fastwyre-broadband",
+    "name": "Fastwyre Broadband",
+    "aliases": [
+      "Fastwyre Broadband (Nebraska Operations)",
+      "Fastwyre Broadband (Missouri Operations — 16 Communities)",
+      "Fastwyre Broadband (Louisiana, Texas & Alabama Operations)"
+    ],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-fastwyre-louisiana-texas-alabama",
+    "name": "Fastwyre Broadband — Louisiana, Texas & Alabama Operations",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-fastwyre-broadband",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-fastwyre-missouri",
+    "name": "Fastwyre Broadband — Missouri Operations",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-fastwyre-broadband",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-fastwyre-nebraska",
+    "name": "Fastwyre Broadband — Nebraska Operations",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-fastwyre-broadband",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-frontier-communications",
+    "name": "Frontier Communications",
+    "aliases": [
+      "Frontier Communications (Pacific NW ILEC Assets — WA, OR, ID, MT)"
+    ],
+    "type": "ILEC / Fiber",
+    "ticker": "FYBR",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-frontier-pnw-ilec",
+    "name": "Frontier Pacific NW ILEC Assets",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-frontier-communications",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-gfiber-llc",
+    "name": "GFiber LLC",
+    "aliases": [
+      "GFiber LLC (Google Fiber — Alphabet Inc.)"
+    ],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": "GOOGL",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-gonetspeed-greenlight-networks",
+    "name": "GoNetspeed + Greenlight Networks",
+    "aliases": [
+      "GoNetspeed + Greenlight Networks (Combined Northeast Fiber Platform)"
+    ],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-grande-communications",
+    "name": "Grande Communications",
+    "aliases": [],
+    "type": "MSO (Cable) / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": "asset-astound-broadband"
+  },
+  {
+    "id": "asset-great-plains-communications",
+    "name": "Great Plains Communications",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-hargray-communications",
+    "name": "Hargray Communications",
+    "aliases": [],
+    "type": "MSO / ILEC (Cable + Fiber)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-hotwire-communications",
+    "name": "Hotwire Communications",
+    "aliases": [],
+    "type": "Fiber ISP (MDU/HOA)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-i3-broadband",
+    "name": "i3 Broadband",
+    "aliases": [
+      "i3 Broadband (T-Mobile + Wren House Fiber JV — Missouri / Illinois / Rhode Island)"
+    ],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-inmarsat-holdings-ltd",
+    "name": "Inmarsat Holdings Ltd",
+    "aliases": [],
+    "type": "Satellite Broadband / Mobile",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-ka-ena-corporation",
+    "name": "Ka'ena Corporation",
+    "aliases": [
+      "Ka'ena Corporation (Mint Mobile / Ultra Mobile)"
+    ],
+    "type": "MVNO (Prepaid)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumen-ilec-20-states",
+    "name": "Lumen ILEC Assets (20 States)",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": "asset-lumen-technologies",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumen-mass-markets",
+    "name": "Lumen Mass Markets / Quantum Fiber",
+    "aliases": [],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": "asset-lumen-technologies",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumen-technologies",
+    "name": "Lumen Technologies",
+    "aliases": [
+      "Lumen Technologies (Mass Markets / Quantum Fiber Consumer Business)",
+      "Lumen Technologies (ILEC Assets — 20 States)"
+    ],
+    "type": "ILEC / Fiber",
+    "ticker": "LUMN",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumen-technologies-emea-business",
+    "name": "Lumen Technologies EMEA Business",
+    "aliases": [],
+    "type": "Enterprise Fiber / Carrier",
+    "ticker": "LUMN",
+    "parentAssetId": "asset-lumen-technologies",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumen-technologies-latin-america",
+    "name": "Lumen Technologies Latin America",
+    "aliases": [
+      "Lumen Technologies Latin America (Cirion Technologies)"
+    ],
+    "type": "Enterprise Fiber / Carrier",
+    "ticker": "LUMN",
+    "parentAssetId": "asset-lumen-technologies",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-lumos-networks",
+    "name": "Lumos Networks",
+    "aliases": [
+      "Lumos Networks (Virginia + Carolinas FTTH — T-Mobile/EQT JV)"
+    ],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-mbi-inc",
+    "name": "MBI Inc.",
+    "aliases": [
+      "MBI Inc. (Mega Broadband Investments / Vyve Broadband — GTCR's Remaining 55%)"
+    ],
+    "type": "MSO (Cable)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-metronet",
+    "name": "MetroNet",
+    "aliases": [
+      "MetroNet (T-Mobile + KKR Fiber JV — Midwest / South Central)",
+      "MetroNet (Recapitalization / Growth Investment)"
+    ],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-point-broadband",
+    "name": "Point Broadband",
+    "aliases": [],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-prepared-fiber",
+    "name": "Prepared Fiber",
+    "aliases": [
+      "Prepared Fiber (Atlanta-Area FTTH Assets)"
+    ],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-rcn-telecom-services",
+    "name": "RCN Telecom Services",
+    "aliases": [
+      "RCN Telecom"
+    ],
+    "type": "MSO (Cable) / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": "asset-astound-broadband"
+  },
+  {
+    "id": "asset-satellite-direct-to-device-jv-platform",
+    "name": "Satellite Direct-to-Device JV Platform",
+    "aliases": [
+      "Satellite Direct-to-Device (D2D) JV Platform"
+    ],
+    "type": "Satellite Broadband",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-several-rural-fiber-isps",
+    "name": "Several Rural Fiber ISPs",
+    "aliases": [
+      "Several Rural Fiber ISPs (Southeast / Mid-Atlantic Roll-Up)"
+    ],
+    "type": "ILEC / Fiber / Rural ISP",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-socket-fiber",
+    "name": "Socket Fiber",
+    "aliases": [],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-sprint-corporation",
+    "name": "Sprint Corporation",
+    "aliases": [],
+    "type": "MNO (Wireless)",
+    "ticker": "S",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-starry-group-holdings",
+    "name": "Starry Group Holdings",
+    "aliases": [
+      "Starry Group Holdings (Chapter 11 asset sale)"
+    ],
+    "type": "Fixed Wireless / Licensed mmWave",
+    "ticker": "STRY",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-swyft-fiber",
+    "name": "Swyft Fiber",
+    "aliases": [],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-t-mobile-fiber-jv",
+    "name": "T-Mobile Fiber JV",
+    "aliases": [
+      "T-Mobile Fiber JV (Greenfield FTTH Markets)"
+    ],
+    "type": "Pure Fiber (FTTH)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-t-mobile-us",
+    "name": "T-Mobile US",
+    "aliases": [
+      "T-Mobile"
+    ],
+    "type": "MNO (Wireless)",
+    "ticker": "TMUS",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-tracfone-wireless",
+    "name": "Tracfone Wireless",
+    "aliases": [],
+    "type": "MVNO (Prepaid)",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-uniti-group",
+    "name": "Uniti Group",
+    "aliases": [],
+    "type": "Fiber Infrastructure REIT",
+    "ticker": "UNIT",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-us-cellular",
+    "name": "US Cellular",
+    "aliases": [],
+    "type": "MNO (Regional Wireless)",
+    "ticker": "USM",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-verizon-communications",
+    "name": "Verizon Communications",
+    "aliases": [
+      "Verizon"
+    ],
+    "type": "MNO / ILEC",
+    "ticker": "VZ",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-viasat-inc",
+    "name": "Viasat Inc.",
+    "aliases": [],
+    "type": "Satellite Broadband",
+    "ticker": "VSAT",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-vyve-broadband",
+    "name": "Vyve Broadband",
+    "aliases": [
+      "Vyve Broadband (Selected Systems)"
+    ],
+    "type": "MSO (Cable) / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-wavedivision",
+    "name": "WaveDivision",
+    "aliases": [],
+    "type": "MSO (Cable) / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": "asset-astound-broadband"
+  },
+  {
+    "id": "asset-wideopenwest",
+    "name": "WideOpenWest",
+    "aliases": [],
+    "type": "MSO (Cable) / Fiber",
+    "ticker": "WOW",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-wideopenwest-chicago-area-cable-system",
+    "name": "WideOpenWest Chicago-Area Cable System",
+    "aliases": [
+      "WideOpenWest (WOW!) Chicago-Area Cable System"
+    ],
+    "type": "MSO (Cable)",
+    "ticker": "WOW",
+    "parentAssetId": "asset-wideopenwest",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-wideopenwest-illinois-indiana-and-maryland-cable-systems",
+    "name": "WideOpenWest — Illinois, Indiana & Maryland Cable Systems",
+    "aliases": [
+      "WideOpenWest (WOW!) — Illinois, Indiana & Maryland Cable Systems"
+    ],
+    "type": "MSO (Cable)",
+    "ticker": "WOW",
+    "parentAssetId": "asset-wideopenwest",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-wideopenwest-remaining-cable-systems",
+    "name": "WideOpenWest — Remaining Cable Systems",
+    "aliases": [
+      "WideOpenWest (WOW!) — Remaining Cable Systems (Take-Private)"
+    ],
+    "type": "MSO (Cable)",
+    "ticker": "WOW",
+    "parentAssetId": "asset-wideopenwest",
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-windstream-holdings",
+    "name": "Windstream Holdings",
+    "aliases": [
+      "Windstream Holdings (Kinetic by Windstream)"
+    ],
+    "type": "ILEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-xumo",
+    "name": "Xumo",
+    "aliases": [
+      "Xumo (Charter's 50% stake — full Xumo acquisition)"
+    ],
+    "type": "Streaming / MVPD Platform",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-zayo-group-holdings",
+    "name": "Zayo Group Holdings",
+    "aliases": [],
+    "type": "Enterprise Fiber / Dark Fiber / Carrier",
+    "ticker": "ZAYO",
+    "parentAssetId": null,
+    "successorAssetId": null
+  },
+  {
+    "id": "asset-ziply-fiber",
+    "name": "Ziply Fiber",
+    "aliases": [
+      "Ziply Fiber (WaveDivision Capital)"
+    ],
+    "type": "CLEC / Fiber",
+    "ticker": null,
+    "parentAssetId": null,
+    "successorAssetId": null
+  }
+]

@@ -1,0 +1,135 @@
+{
+  "notFirms": ["Cox Communications"],
+  "notFunds": ["N/A — family-owned conglomerate", "Secured lender consortium"],
+  "buyerOverrides": {
+    "deal-004": [
+      { "partyType": "firm",  "partyId": "firm-searchlight-capital-partners", "pct": 1 }
+    ],
+    "deal-012": [
+      { "partyType": "firm",  "partyId": "firm-kkr-and-co-inc",               "pct": 0.5 },
+      { "partyType": "firm",  "partyId": "firm-ares-management",              "pct": 0.5 }
+    ],
+    "deal-013": [
+      { "partyType": "asset", "partyId": "asset-at-and-t-inc",               "pct": 0.5 },
+      { "partyType": "firm",  "partyId": "firm-blackrock-infrastructure",     "pct": 0.5 }
+    ],
+    "deal-034": [
+      { "partyType": "firm",  "partyId": "firm-eqt-infrastructure",           "pct": 0.5 },
+      { "partyType": "firm",  "partyId": "firm-digitalbridge-group",          "pct": 0.5 }
+    ],
+    "deal-039": [
+      { "partyType": "asset", "partyId": "asset-t-mobile-us",                 "pct": 1 }
+    ]
+  },
+  "dealPatches": {
+    "deal-013": { "ownershipPct": 100 },
+    "deal-041": { "ownershipPct": 100 }
+  },
+  "firmPatches": {
+    "firm-apax-partners":                { "firmType": "Private Equity", "headquarters": "London, UK", "website": "apax.com" },
+    "firm-ares-management":              { "firmType": "Private Equity / Credit", "aum": "$450B+", "headquarters": "Los Angeles, CA", "website": "aresmgmt.com" },
+    "firm-catania-capital-partners":     { "firmType": "Private Equity" },
+    "firm-cppib-consortium":             { "firmType": "Consortium" },
+    "firm-creditor-consortium":          { "firmType": "Consortium" },
+    "firm-digitalbridge-group":          { "firmType": "Digital Infrastructure Private Equity", "headquarters": "Boca Raton, FL", "website": "digitalbridge.com" },
+    "firm-elliott-investment-management": { "firmType": "Activist / Hedge Fund", "headquarters": "West Palm Beach, FL" },
+    "firm-madison-dearborn-partners":    { "firmType": "Private Equity", "headquarters": "Chicago, IL" },
+    "firm-pamlico-capital":              { "firmType": "Private Equity", "headquarters": "Charlotte, NC" },
+    "firm-warburg-pincus":               { "firmType": "Private Equity", "headquarters": "New York, NY" }
+  },
+  "firmMerges": {
+    "firm-kkr-and-co": "firm-kkr-and-co-inc",
+    "firm-digitalbridge": "firm-digitalbridge-group"
+  },
+  "assetMerges": {
+    "asset-astound": "asset-astound-broadband",
+    "asset-at-and-t": "asset-at-and-t-inc",
+    "asset-dish-network": "asset-dish-network-corporation",
+    "asset-rcn-telecom": "asset-rcn-telecom-services",
+    "asset-verizon": "asset-verizon-communications",
+    "asset-t-mobile": "asset-t-mobile-us"
+  },
+  "stakeOverrides": [
+    { "action": "patch",
+      "match": { "assetId": "asset-lumos-networks", "ownerId": "firm-eqt-infrastructure", "openedByDealId": "deal-031" },
+      "set": { "endDate": "2025-04-01", "closedByDealId": "deal-039" } },
+    { "action": "add",
+      "stake": { "assetId": "asset-lumos-networks", "ownerType": "firm", "ownerId": "firm-eqt-infrastructure", "pct": 50,
+                 "startDate": "2025-04-01", "endDate": null, "openedByDealId": "deal-039", "closedByDealId": null } },
+    { "action": "add",
+      "stake": { "assetId": "asset-directv-llc", "ownerType": "asset", "ownerId": "asset-at-and-t-inc", "pct": 100,
+                 "startDate": null, "endDate": "2021-08-02", "openedByDealId": null, "closedByDealId": "deal-033" } },
+    { "action": "add",
+      "stake": { "assetId": "asset-directv-llc", "ownerType": "asset", "ownerId": "asset-at-and-t-inc", "pct": 70,
+                 "startDate": "2021-08-02", "endDate": "2025-07-02", "openedByDealId": "deal-033", "closedByDealId": "deal-023" } },
+    { "action": "add",
+      "stake": { "assetId": "asset-boost-mobile", "ownerType": "asset", "ownerId": "asset-t-mobile-us", "pct": 100,
+                 "startDate": null, "endDate": "2020-07-01", "openedByDealId": null, "closedByDealId": "deal-035" } }
+  ],
+  "newAssets": [
+    { "id": "asset-lumen-ilec-20-states", "name": "Lumen ILEC Assets (20 States)",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-lumen-technologies" },
+    { "id": "asset-lumen-mass-markets", "name": "Lumen Mass Markets / Quantum Fiber",
+      "type": "Pure Fiber (FTTH)", "ticker": null, "parentAssetId": "asset-lumen-technologies" },
+    { "id": "asset-frontier-pnw-ilec", "name": "Frontier Pacific NW ILEC Assets",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-frontier-communications" },
+    { "id": "asset-fastwyre-nebraska", "name": "Fastwyre Broadband — Nebraska Operations",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-fastwyre-broadband" },
+    { "id": "asset-fastwyre-louisiana-texas-alabama", "name": "Fastwyre Broadband — Louisiana, Texas & Alabama Operations",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-fastwyre-broadband" },
+    { "id": "asset-fastwyre-missouri", "name": "Fastwyre Broadband — Missouri Operations",
+      "type": "ILEC / Fiber", "ticker": null, "parentAssetId": "asset-fastwyre-broadband" }
+  ],
+  "targetOverrides": {
+    "deal-003": ["asset-lumen-ilec-20-states"],
+    "deal-037": ["asset-lumen-mass-markets"],
+    "deal-005": ["asset-frontier-pnw-ilec"],
+    "deal-043": ["asset-fastwyre-nebraska"],
+    "deal-047": ["asset-fastwyre-louisiana-texas-alabama"],
+    "deal-048": ["asset-fastwyre-missouri"]
+  },
+  "parentAssets": {
+    "asset-wideopenwest-chicago-area-cable-system": "asset-wideopenwest",
+    "asset-wideopenwest-illinois-indiana-and-maryland-cable-systems": "asset-wideopenwest",
+    "asset-wideopenwest-remaining-cable-systems": "asset-wideopenwest",
+    "asset-lumen-technologies-emea-business": "asset-lumen-technologies",
+    "asset-lumen-technologies-latin-america": "asset-lumen-technologies"
+  },
+  "acknowledgedFlags": [
+    "firm enrichment skipped for compound \"Madison Dearborn Partners + Catania Capital Partners\" — assign firmType/aum manually",
+    "firm enrichment skipped for compound \"Oak Hill Capital + Pamlico Capital\" — assign firmType/aum manually",
+    "fund \"N/A — family-owned conglomerate\": no sponsor name match — defaulted to \"Cox Enterprises\", verify",
+    "firm enrichment skipped for compound \"DigitalBridge Group / Crestview Partners\" — assign firmType/aum manually",
+    "firm enrichment skipped for compound \"Elliott Investment Management / Creditor Consortium\" — assign firmType/aum manually",
+    "firm enrichment skipped for compound \"Apax Partners / Warburg Pincus / CPPIB Consortium\" — assign firmType/aum manually",
+    "fund \"Secured lender consortium\": no sponsor name match — defaulted to \"E8 Partners\", verify",
+    "fund \"N/A\": no sponsor name match — defaulted to \"Cox Enterprises\", verify",
+    "fund \"N/A\": no sponsor name match — defaulted to \"Mediacom\", verify",
+    "fund \"Stonepeak Infrastructure Fund IV\" merged into \"Stonepeak Infrastructure Partners IV\" (key stonepeak-4) — verify same vehicle",
+    "fund \"Stonepeak Infrastructure Fund V\" merged into \"Stonepeak Infrastructure Partners V\" (key stonepeak-5) — verify same vehicle",
+    "firm enrichment skipped for compound \"KKR & Co. / Ares Management\" — assign firmType/aum manually",
+    "firm enrichment skipped for compound \"EQT Infrastructure / DigitalBridge (co-lead)\" — assign firmType/aum manually",
+    "deal-044: compound buyer \"AT&T + T-Mobile + Verizon\" split equally at 0.3333 — verify against deal terms",
+    "deal-040: compound buyer \"T-Mobile US + Oak Hill Capital\" split equally at 0.5 — verify against deal terms",
+    "deal-042: compound buyer \"T-Mobile US + Wren House Infrastructure Management\" split equally at 0.5 — verify against deal terms",
+    "deal-038: compound buyer \"T-Mobile US + Wren House Infrastructure Management\" split equally at 0.5 — verify against deal terms",
+    "deal-041: compound buyer \"T-Mobile US + KKR\" split equally at 0.5 — verify against deal terms",
+    "deal-041: buyer \"KKR\" fuzzy-matched to firm \"KKR & Co. Inc.\" — verify",
+    "deal-046: compound buyer \"DigitalBridge Group + Crestview Partners\" split equally at 0.5 — verify against deal terms",
+    "deal-017: compound buyer \"E8 Partners / Creditor Consortium\" split equally at 0.5 — verify against deal terms",
+    "deal-020: buyer \"Mediacom Communications\" fuzzy-matched to firm \"Mediacom\" — verify",
+    "deal-030: buyer \"Macquarie Infrastructure & Real Assets\" fuzzy-matched to firm \"Macquarie Asset Management\" — verify",
+    "deal-032: consolidation targets split: RCN Telecom | WaveDivision | Grande Communications — verify",
+    "deal-035: seller \"(from T-Mobile post-Sprint merger)\" not a known firm — review",
+    "deal-036: synthesized pre-history stake for seller(s) on asset-wideopenwest-chicago-area-cable-system",
+    "deal-008: synthesized pre-history stake for seller(s) on asset-wideopenwest-illinois-indiana-and-maryland-cable-systems",
+    "deal-016: synthesized pre-history stake for seller(s) on asset-hargray-communications",
+    "deal-027: synthesized pre-history stake for seller(s) on asset-inmarsat-holdings-ltd",
+    "deal-020: synthesized pre-history stake for seller(s) on asset-vyve-broadband",
+    "deal-039: partial deal (50%) — prior stakes on asset-lumos-networks left open, review",
+    "deal-023: partial deal (70%) — prior stakes on asset-directv-llc left open, review",
+    "deal-024: synthesized pre-history stake for seller(s) on asset-windstream-holdings",
+    "deal-045: synthesized pre-history stake for seller(s) on asset-ziply-fiber",
+    "deal-048: synthesized pre-history stake for seller(s) on asset-fastwyre-missouri"
+  ]
+}
